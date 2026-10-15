@@ -1,0 +1,113 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ProblemDifficulty { EASY MEDIUM HARD }
+enum ProblemTrack { ALGORITHMS DATABASE SHELL CONCURRENCY }
+enum ProblemCaseKind { SAMPLE HIDDEN }
+enum ProblemSubmissionStatus { ACCEPTED WRONG_ANSWER RUNTIME_ERROR COMPILATION_ERROR TIME_LIMIT_EXCEEDED INTERNAL_ERROR }
+
+model User {
+  id                 String @id @default(cuid())
+  email              String @unique
+  problemStatuses    UserProblemStatus[]
+  problemSubmissions ProblemSubmission[]
+  @@map("users")
+}
+model Problem {
+  id                 String @id @default(cuid())
+  number             Int @unique
+  slug               String @unique
+  title              String
+  acceptance         Float @default(0)
+  difficulty         ProblemDifficulty
+  track              ProblemTrack @default(ALGORITHMS)
+  tags               String[]
+  companies          String[]
+  frequency          Int @default(0)
+  premium            Boolean @default(false)
+  likes              Int @default(0)
+  dislikes           Int @default(0)
+  discussionCount    Int @default(0)
+  description        String
+  constraints        String[]
+  hints              String[]
+  functionName       String
+  starterCode        Json
+  editorial           String[]
+  solutionApproaches Json?
+  isPublished        Boolean @default(true)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  examples           ProblemExample[]
+  testCases          ProblemTestCase[]
+  statuses           UserProblemStatus[]
+  submissions        ProblemSubmission[]
+  @@index([difficulty])
+  @@index([track])
+  @@index([isPublished])
+  @@map("problems")
+}
+model ProblemExample {
+  id          String @id @default(cuid())
+  problemId   String
+  problem     Problem @relation(fields: [problemId], references: [id], onDelete: Cascade)
+  input       String
+  output      String
+  explanation String?
+  sortOrder   Int @default(0)
+  @@index([problemId])
+  @@map("problem_examples")
+}
+model ProblemTestCase {
+  id        String @id @default(cuid())
+  problemId String
+  problem   Problem @relation(fields: [problemId], references: [id], onDelete: Cascade)
+  kind      ProblemCaseKind
+  input     Json
+  expected  Json
+  sortOrder Int @default(0)
+  @@index([problemId, kind])
+  @@map("problem_test_cases")
+}
+model UserProblemStatus {
+  id            String @id @default(cuid())
+  userId        String
+  user          User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  problemId     String
+  problem       Problem @relation(fields: [problemId], references: [id], onDelete: Cascade)
+  solved        Boolean @default(false)
+  attempted     Boolean @default(false)
+  favorite      Boolean @default(false)
+  solvedAt      DateTime?
+  lastAttemptAt DateTime?
+  updatedAt     DateTime @updatedAt
+  @@unique([userId, problemId])
+  @@index([userId, solved])
+  @@map("user_problem_statuses")
+}
+model ProblemSubmission {
+  id          String @id @default(cuid())
+  userId      String?
+  user        User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+  problemId   String
+  problem     Problem @relation(fields: [problemId], references: [id], onDelete: Cascade)
+  language    String
+  code        String
+  status      ProblemSubmissionStatus
+  passed      Int @default(0)
+  total       Int @default(0)
+  runtimeMs   Int @default(0)
+  memoryMb    Float @default(0)
+  message     String?
+  testResults Json?
+  createdAt   DateTime @default(now())
+  @@index([problemId, createdAt])
+  @@index([userId, createdAt])
+  @@map("problem_submissions")
+}
