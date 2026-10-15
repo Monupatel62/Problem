@@ -1,0 +1,57 @@
+{
+  "sqlSetup": [
+    "CREATE TABLE IF NOT EXISTS Customers (id INTEGER PRIMARY KEY, name TEXT NOT NULL);",
+    "CREATE TABLE IF NOT EXISTS Orders (id INTEGER PRIMARY KEY, customerId INTEGER NOT NULL);"
+  ],
+  "sampleCases": [
+    {
+      "input": {
+        "Customers": [[1,"Joe"],[2,"Henry"],[3,"Sam"],[4,"Max"]],
+        "Orders":    [[1,3],[2,1]]
+      },
+      "expected": [
+        {"Customers":"Henry"},
+        {"Customers":"Max"}
+      ]
+    },
+    {
+      "input": {
+        "Customers": [[1,"Alice"],[2,"Bob"]],
+        "Orders":    [[1,2]]
+      },
+      "expected": [
+        {"Customers":"Alice"}
+      ]
+    }
+  ],
+  "hiddenCases": [
+    {
+      "input": {
+        "Customers": [[1,"Priya"],[2,"Rahul"],[3,"Sneha"]],
+        "Orders":    []
+      },
+      "expected": [
+        {"Customers":"Priya"},
+        {"Customers":"Rahul"},
+        {"Customers":"Sneha"}
+      ]
+    },
+    {
+      "input": {
+        "Customers": [[1,"Tom"],[2,"Jerry"]],
+        "Orders":    [[1,1],[2,2]]
+      },
+      "expected": []
+    },
+    {
+      "input": {
+        "Customers": [[10,"Amit"],[20,"Divya"],[30,"Kiran"],[40,"Ritu"]],
+        "Orders":    [[1,10],[2,10],[3,30]]
+      },
+      "expected": [
+        {"Customers":"Divya"},
+        {"Customers":"Ritu"}
+      ]
+    }
+  ]
+}
