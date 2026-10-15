@@ -1,0 +1,13 @@
+### Use the majority guarantee
+
+The key condition is strict: the majority value appears more than half the array length. Pair one occurrence of that value with one occurrence of a different value and remove both conceptually. Every such pair removes one majority and one non-majority value. Since there are fewer non-majority values overall, at least one majority occurrence must survive.
+
+Boyer–Moore simulates this cancellation without creating pairs. Maintain a `candidate` and a vote `count`. If the count is zero, the current value starts a new candidate with one vote. If the current value equals the candidate, increment the count; otherwise decrement it. A zero count means the processed prefix has cancelled evenly, so it is safe to choose a fresh candidate from the next value.
+
+After the full scan, the final candidate is the majority element because a true majority cannot be eliminated by all remaining values. This proof depends on the problem's guarantee. In a version where a majority may not exist, make a second pass to count the final candidate and verify that it exceeds `n / 2`.
+
+### Compare common solutions
+
+A hash map counts frequencies in O(n) time and O(n) extra space. Sorting makes the middle element a valid answer under the majority guarantee, but takes O(n log n) time and may mutate the input. Boyer–Moore uses O(n) time and O(1) extra space, making it ideal here.
+
+Test a one-element array, a majority concentrated at the end, alternating values, negative numbers, and a majority that is not the first value. These cases ensure the candidate reset and cancellation logic are implemented correctly. Avoid changing the candidate on every mismatch: it changes only when the previous candidate's count has reached zero after the cancellation. That detail preserves the cancellation invariant for every processed prefix. It also keeps the implementation deterministic and easy to review.
