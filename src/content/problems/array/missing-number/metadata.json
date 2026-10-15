@@ -1,0 +1,45 @@
+{
+  "id": 61,
+  "slug": "missing-number",
+  "title": "Missing Number",
+  "acceptance": "62.7%",
+  "difficulty": "Easy",
+  "track": "Algorithms",
+  "judgeReady": true,
+  "tags": ["Array", "Hash Table", "Math", "Bit Manipulation", "Sorting"],
+  "companies": ["Amazon", "Microsoft", "Google", "Bloomberg", "Adobe"],
+  "frequency": 82,
+  "likes": 12000,
+  "dislikes": 2900,
+  "discussionCount": 3300,
+  "constraints": [
+    "n == nums.length",
+    "1 <= n <= 10^4",
+    "0 <= nums[i] <= n",
+    "All numbers in nums are unique.",
+    "Exactly one value from the inclusive range [0, n] is absent."
+  ],
+  "examples": [
+    {
+      "input": "nums = [3,0,1]",
+      "output": "2",
+      "explanation": "n = 3. The range [0..3] has 4 numbers. Missing number is 2."
+    },
+    { "input": "nums = [0,1]", "output": "2" },
+    { "input": "nums = [9,6,4,2,3,5,7,0,1]", "output": "8" },
+    { "input": "nums = [1]", "output": "0", "explanation": "The range is [0,1], so the missing endpoint can be zero." }
+  ],
+  "functionName": "missingNumber",
+  "solutionApproaches": [
+    {
+      "title": "Boolean Presence Array",
+      "complexity": "Time O(n), Space O(n)",
+      "explanation": "Mark each seen value and scan the full range, which is clear but uses extra memory."
+    },
+    {
+      "title": "Gauss Sum",
+      "complexity": "Time O(n), Space O(1)",
+      "explanation": "Expected sum = n*(n+1)/2. Subtract actual sum to get the missing value."
+    }
+  ]
+}
