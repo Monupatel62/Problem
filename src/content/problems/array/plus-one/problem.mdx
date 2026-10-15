@@ -1,0 +1,9 @@
+You are given a non-negative integer represented by an array `digits`. The leftmost item is the most significant digit and the rightmost item is the ones digit. Increment this number by one and return the resulting digit array. Except for the single input `[0]`, the original representation has no leading zeroes.
+
+For `[1, 2, 3]`, the number is 123, so return `[1, 2, 4]`. For `[1, 2, 9]`, adding one produces `[1, 3, 0]` because the final 9 creates a carry. The important boundary case is an array made entirely of 9s: `[9, 9]` becomes `[1, 0, 0]`, which is one digit longer.
+
+Do not convert the array into a normal numeric type. The input can represent a number far larger than safe integer limits, and string or number conversion only hides the digit-by-digit operation this task tests. Instead, simulate ordinary addition from right to left.
+
+Start at the last digit. If it is less than 9, increment it and return immediately: no carry remains. If it is 9, change it to 0 and continue left because a carry of one must be added to the next digit. If the carry passes beyond index zero, return a new array with a leading 1 followed by the zeroes already produced.
+
+The operation changes at most every digit once. It handles zero, an ordinary last-digit increment, a chain of trailing 9s, and the all-9s expansion case. Return the result array; this workspace accepts the updated array whether the implementation mutates the input or makes a safe copy.
