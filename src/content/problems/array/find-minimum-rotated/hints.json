@@ -1,0 +1,4 @@
+[
+  "Use binary search to locate the rotation boundary.",
+  "Compare the middle element with the rightmost element to determine which half is sorted."
+]
