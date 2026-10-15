@@ -1,0 +1,17 @@
+### Define the window invariant
+
+Keep a window from index `left` through index `right`. Its invariant is simple: every character in that range is unique. If the invariant holds after each step, the window length is a candidate answer. The task is therefore to expand the right edge while repairing the window only when a duplicate appears.
+
+### Why the restart approach is too slow
+
+You can start at every index, add characters to a set, and stop when the next character is already present. This correctly finds the answer, but a long mostly-unique string is scanned again for many starting positions. Its worst-case time is O(n²), which is unsuitable for a fifty-thousand-character input.
+
+### Last-seen index map
+
+Store `character -> most recent index` in a map. Scan with `right` from left to right. Before recording the current character, check whether its previous index is at least `left`. If it is, that prior copy lies inside the active window, so move `left` to `previousIndex + 1`. Then update the character's most recent index and calculate `right - left + 1`.
+
+The comparison with `left` matters. A character may have been seen long ago, before the current window started. In that case it is harmless and must not move `left` backward. Use `left = max(left, previousIndex + 1)` or the equivalent conditional check.
+
+For `"abba"`, after reading the second `b`, move `left` past the first `b`. When the final `a` arrives, its earlier occurrence is before the new left boundary, so the window can grow to `"ba"`. This is the detail that avoids a common incorrect answer.
+
+Each pointer only moves forward. Map operations are O(1) on average, giving O(n) time and O(min(n, character set size)) space. Test an empty string, all-equal characters, overlapping duplicates, and symbols or spaces to validate the implementation.
