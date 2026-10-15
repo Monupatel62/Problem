@@ -23,7 +23,7 @@
     "@neondatabase/serverless": "^0.9.5",
     "@vercel/analytics": "^1.6.1",
     "framer-motion": "^10.16.0",
-    "lucide-react": "^0.344.0",
+    "lucide-react": "^0.468.0",
     "katex": "^0.16.44",
     "monaco-editor": "^0.55.1",
     "next": "^16.1.6",
