@@ -1,0 +1,24 @@
+{
+  "sampleCases": [
+    {
+      "input": [
+        "Nurses run"
+      ],
+      "expected": true
+    }
+  ],
+  "hiddenCases": [
+    {
+      "input": [
+        "Race car"
+      ],
+      "expected": true
+    },
+    {
+      "input": [
+        "hello"
+      ],
+      "expected": false
+    }
+  ]
+}
