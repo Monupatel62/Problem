@@ -7,13 +7,13 @@ Last verified against source commit `9fab984a6bf353d87dca9d04590cd9c75ba3c524` o
 - Working branch: `extract/wohotech-problems`
 - 132 tracked files currently present.
 - Feature implementation copied: 12 problem pages, 14 API routes, 20 UI components, 10 library modules, 12 scripts, 3 judge Docker files, and `docker-compose.judge.yml`.
-- Structured problem content: 55 / 694 files transferred; 639 pending.
+- Structured problem content: 85 / 694 files transferred; 609 pending.
 - Architecture, inventory, cross-cutting dependencies, source-removal gates, and README docs are present.
 - No source files removed. No database, `main` branch, or Vercel deployment changed.
 
 ## Current blockers before source removal
 
-1. Transfer and verify the remaining 639 structured content files.
+1. Transfer and verify the remaining 609 structured content files.
 2. Build the standalone Next.js app/package configuration without importing the entire WoHoTech root setup.
 3. Resolve imports of shared UI/auth/database utilities and isolate required environment variables.
 4. Review shared Prisma schema/migrations and plan an independent schema without touching production.
