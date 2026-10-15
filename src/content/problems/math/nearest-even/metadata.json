@@ -1,0 +1,36 @@
+{
+  "id": 26,
+  "slug": "nearest-even",
+  "title": "Nearest Even",
+  "acceptance": "0.0%",
+  "difficulty": "Easy",
+  "track": "Algorithms",
+  "tags": [
+    "Math"
+  ],
+  "companies": [
+    "Amazon",
+    "Bloomberg"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "-10^9 <= n <= 10^9"
+  ],
+  "examples": [
+    {
+      "input": "n = 7",
+      "output": "8"
+    }
+  ],
+  "functionName": "nearestEven",
+  "solutionApproaches": [
+    {
+      "title": "Direct Pattern",
+      "complexity": "Time O(n), Space O(1) to O(n) depending on output",
+      "explanation": "Use the simplest scan or helper data structure required by the statement."
+    }
+  ]
+}
