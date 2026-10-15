@@ -1,0 +1,5 @@
+[
+  "Use a sliding window with two pointers.",
+  "Expand the right pointer and shrink the left whenever the product exceeds k.",
+  "For each right position, the number of valid subarrays ending there is right - left + 1."
+]
