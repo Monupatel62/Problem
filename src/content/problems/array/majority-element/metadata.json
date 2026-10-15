@@ -1,0 +1,39 @@
+{
+  "id": 54,
+  "slug": "majority-element",
+  "title": "Majority Element",
+  "acceptance": "63.5%",
+  "difficulty": "Easy",
+  "track": "Algorithms",
+  "judgeReady": true,
+  "tags": ["Array", "Hash Table", "Counting", "Sorting"],
+  "companies": ["Amazon", "Apple", "Google", "Adobe", "Uber"],
+  "frequency": 85,
+  "likes": 17000,
+  "dislikes": 700,
+  "discussionCount": 4200,
+  "constraints": [
+    "n == nums.length",
+    "1 <= n <= 5 * 10^4",
+    "-10^9 <= nums[i] <= 10^9",
+    "The majority element always exists in the array."
+  ],
+  "examples": [
+    { "input": "nums = [3,2,3]", "output": "3" },
+    { "input": "nums = [2,2,1,1,1,2,2]", "output": "2" },
+    { "input": "nums = [6,5,5]", "output": "5", "explanation": "5 appears twice in a three-element array, which is more than half." }
+  ],
+  "functionName": "majorityElement",
+  "solutionApproaches": [
+    {
+      "title": "Frequency Map",
+      "complexity": "Time O(n), Space O(n)",
+      "explanation": "Count every value and return the one whose count exceeds half of the array length."
+    },
+    {
+      "title": "Boyer-Moore Voting",
+      "complexity": "Time O(n), Space O(1)",
+      "explanation": "Maintain a candidate and a count. Increment count on match, decrement on mismatch. Reset when count hits zero."
+    }
+  ]
+}
