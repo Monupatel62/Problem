@@ -7,10 +7,29 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum ProblemDifficulty {\n  EASY\n  MEDIUM\n  HARD\n}
-enum ProblemTrack {\n  ALGORITHMS\n  DATABASE\n  SHELL\n  CONCURRENCY\n}
-enum ProblemCaseKind {\n  SAMPLE\n  HIDDEN\n}
-enum ProblemSubmissionStatus {\n  ACCEPTED\n  WRONG_ANSWER\n  RUNTIME_ERROR\n  COMPILATION_ERROR\n  TIME_LIMIT_EXCEEDED\n  INTERNAL_ERROR\n}
+enum ProblemDifficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+enum ProblemTrack {
+  ALGORITHMS
+  DATABASE
+  SHELL
+  CONCURRENCY
+}
+enum ProblemCaseKind {
+  SAMPLE
+  HIDDEN
+}
+enum ProblemSubmissionStatus {
+  ACCEPTED
+  WRONG_ANSWER
+  RUNTIME_ERROR
+  COMPILATION_ERROR
+  TIME_LIMIT_EXCEEDED
+  INTERNAL_ERROR
+}
 
 model User {
   id                 String @id @default(cuid())
