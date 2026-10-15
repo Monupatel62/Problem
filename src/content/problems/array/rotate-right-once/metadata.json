@@ -1,0 +1,37 @@
+{
+  "id": 13,
+  "slug": "rotate-right-once",
+  "title": "Rotate Right Once",
+  "acceptance": "0.0%",
+  "difficulty": "Easy",
+  "track": "Algorithms",
+  "tags": [
+    "Array",
+    "Simulation"
+  ],
+  "companies": [
+    "Amazon",
+    "Microsoft"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "0 <= nums.length <= 10^5"
+  ],
+  "examples": [
+    {
+      "input": "nums = [1,2,3,4]",
+      "output": "[4,1,2,3]"
+    }
+  ],
+  "functionName": "rotateRightOnce",
+  "solutionApproaches": [
+    {
+      "title": "Direct Pattern",
+      "complexity": "Time O(n), Space O(1) to O(n) depending on output",
+      "explanation": "Use the simplest scan or helper data structure required by the statement."
+    }
+  ]
+}
