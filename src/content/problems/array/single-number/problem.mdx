@@ -1,0 +1,9 @@
+Given a non-empty integer array `nums`, every value occurs exactly twice except one value that occurs once. Return that unpaired value. The input may be unsorted and can contain zero or negative integers.
+
+For `[2, 2, 1]`, return 1 because the two 2s form a pair. For `[4, 1, 2, 1, 2]`, return 4. The arrangement has no meaning: duplicated values can be far apart, so searching only adjacent positions is not enough.
+
+A frequency map can count every number and find the count of one, but it uses additional memory proportional to the number of distinct values. Sorting brings pairs together, but costs O(n log n) time and may change the input. This problem specifically asks for linear time with constant extra space.
+
+Use bitwise XOR. It has three properties that solve the pairing requirement: `x XOR x` is 0, `x XOR 0` is x, and XOR order does not matter. XOR every array value into an accumulator starting at zero. Each duplicated value appears twice and cancels itself. The only value not cancelled is the single number.
+
+The result does not depend on traversal order, so one pass is enough. This method works for negative integers under the language's normal integer bitwise rules. It returns a value, not an index or a count, and never modifies the input array. The singleton may appear first, last, or between any paired values. No preliminary sort, lookup table, or duplicate-removal operation is required. The pairing promise is what makes this compact approach valid.
