@@ -1,0 +1,11 @@
+Given closed intervals `[start, end]`, merge every pair or chain of overlapping intervals and return the resulting non-overlapping ranges sorted by start. Intervals that touch at an endpoint also merge: `[1,4]` and `[4,5]` become `[1,5]`.
+
+For `[[1,3],[2,6],[8,10]]`, the first two ranges overlap and produce `[[1,6],[8,10]]`. Input order is not guaranteed, so `[[5,7],[1,2]]` must return `[[1,2],[5,7]]`. A long chain such as `[1,2]`, `[2,3]`, `[3,4]` becomes one interval.
+
+Sort a copy of the intervals by their start value. Then scan in order while maintaining the latest merged interval. If the next interval starts after the current merged end, it cannot overlap anything earlier, so append a new interval. Otherwise, extend the current end to the larger of the two ends.
+
+The sorted order is what makes one scan sufficient: after an interval starts beyond the current end, every later interval starts at least as far right. Do not use a strict overlap check that excludes equal endpoints; these are closed ranges and touching endpoints must merge.
+
+Sorting costs O(n log n), and the sweep is O(n). The output stores the merged result. The starter copies every input interval before sorting, so callers retain their original array order and endpoint values.
+
+An incoming range can be fully contained in the current merged range, such as `[2,3]` after `[1,10]`; in that case the end remains unchanged. It can also extend the range to the right, which changes only the end. Every output interval is closed, normalized, and represents all covered points without duplication. Return the merged ranges rather than only their count.
