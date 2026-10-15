@@ -1,6 +1,6 @@
 # Extraction Inventory and Audit Checklist
 
-> Live ledger for the WoHoTech Problems extraction. Counts are branch-specific snapshots; transfer is not yet complete.
+> Live ledger for the WoHoTech Problems extraction. Counts are branch-specific snapshots; structured content transfer is complete, while runtime extraction and validation remain in progress.
 
 ## Source snapshot
 
@@ -11,8 +11,8 @@
 - Destination branch: `extract/wohotech-problems`
 - Source recursive tree: 6,797 entries, not truncated.
 - Confirmed source files under `src/content/problems/`: 694 files, about 340 KB.
-- Destination currently has 85 of those 694 structured-content files (first four dozen-plus files by path order); **639 remain**.
-- Destination branch currently contains 132 tracked files across documentation and copied feature code. This is a partial transfer, not a runnable/release-ready extraction.
+- Destination has all 694 of those 694 structured-content files; source and destination Git blob SHAs match for every path (0 missing, 0 mismatches) as of destination commit `d6fc1fbdae731225020b0c6c961f0f7bdab778cf`.
+- Destination branch contains copied feature code and docs, but has no root `package.json` yet. This is not a runnable/release-ready extraction.
 
 ## Confirmed source inventory
 
@@ -22,7 +22,7 @@
 | `src/app/api/problems/` | 14 | 26,930 | 14 transferred |
 | `src/components/problems/` | 20 | 163,948 | 20 transferred |
 | `src/lib/problems/` | 10 | 693,708 | 10 transferred |
-| `src/content/problems/` | 694 | 340,526 | 85 transferred; 609 pending |
+| `src/content/problems/` | 694 | 340,526 | **694 transferred; SHA parity verified** |
 | `scripts/problems/` | 12 | 196,857 | 12 transferred |
 | `docker/judge/` | 3 | 2,525 | 3 transferred |
 | `docker-compose.judge.yml` | 1 | 1,315 | transferred |
@@ -52,7 +52,7 @@ Structured problem folders use the format documented by `src/content/problems/RE
 
 ## Verification gates
 
-- [ ] Finish transferring all 694 structured content files and compare destination file contents against the source.
+- [x] Transfer all 694 structured content files and compare Git blob SHAs against the source snapshot (694/694, 0 missing, 0 mismatches).
 - [ ] Create a standalone app/package setup for the extracted repository.
 - [ ] Resolve imports outside the copied feature and decide whether to copy, replace, or remove each dependency.
 - [ ] Extract only required database schema into a dedicated schema/migration plan; do not apply migrations to the live DB.
