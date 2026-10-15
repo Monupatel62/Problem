@@ -1,0 +1,9 @@
+Given an array `nums` containing only 0, 1, and 2, rearrange the **same array** so all 0s come first, then all 1s, then all 2s. These values represent red, white, and blue objects. Do not call a library sort function.
+
+For `[2, 0, 2, 1, 1, 0]`, the result is `[0, 0, 1, 1, 2, 2]`. The relative order of equal colors does not matter; only the three final groups matter. A counting solution is valid, but the intended follow-up asks for one scan with constant extra space.
+
+Use the Dutch National Flag algorithm with three pointers. `low` marks the next position that should receive a 0, `mid` scans the unclassified region, and `high` marks the next position that should receive a 2. At any point, values before `low` are 0, values from `low` through `mid - 1` are 1, and values after `high` are 2.
+
+When `nums[mid]` is 0, swap it with `nums[low]`, then advance both `low` and `mid`. When it is 1, it already belongs in the middle group, so advance only `mid`. When it is 2, swap it with `nums[high]` and decrement `high`—do **not** advance `mid` yet, because the value swapped in from the right has not been examined.
+
+Stop when `mid` passes `high`. The array has then been partitioned in O(n) time with O(1) extra space, including cases with one color only, alternating colors, or a one-element input. Return the modified array for this practice workspace after the in-place operation finishes, with every color placed correctly.
