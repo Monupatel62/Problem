@@ -1,0 +1,39 @@
+{
+  "id": 27,
+  "slug": "matrix-diagonal-sum",
+  "title": "Matrix Diagonal Sum",
+  "acceptance": "0.0%",
+  "difficulty": "Easy",
+  "track": "Algorithms",
+  "tags": [
+    "Matrix",
+    "Array"
+  ],
+  "companies": [
+    "Amazon",
+    "Adobe",
+    "Bloomberg"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "1 <= matrix.length <= 100",
+    "matrix is square"
+  ],
+  "examples": [
+    {
+      "input": "matrix = [[1,2,3],[4,5,6],[7,8,9]]",
+      "output": "25"
+    }
+  ],
+  "functionName": "matrixDiagonalSum",
+  "solutionApproaches": [
+    {
+      "title": "Direct Pattern",
+      "complexity": "Time O(n), Space O(1) to O(n) depending on output",
+      "explanation": "Use the simplest scan or helper data structure required by the statement."
+    }
+  ]
+}
