@@ -1,0 +1,37 @@
+services:
+  wohotech-judge:
+    build:
+      context: .
+      dockerfile: docker/judge/Dockerfile
+    image: wohotech-judge:latest
+    container_name: wohotech-judge
+    restart: unless-stopped
+    ports:
+      - "${JUDGE_WORKER_PORT:-8787}:8787"
+    environment:
+      NODE_ENV: production
+      PORT: 8787
+      JUDGE_SERVICE_TOKEN: ${JUDGE_SERVICE_TOKEN:-}
+      JUDGE_DOCKER_TIMEOUT_MS: ${JUDGE_DOCKER_TIMEOUT_MS:-45000}
+      JUDGE_MAX_CODE_LENGTH: ${JUDGE_MAX_CODE_LENGTH:-50000}
+      JUDGE_MAX_CASES: ${JUDGE_MAX_CASES:-30}
+      JUDGE_MAX_STDIO_LENGTH: ${JUDGE_MAX_STDIO_LENGTH:-200000}
+      JUDGE_ALLOW_UNAUTHENTICATED: ${JUDGE_ALLOW_UNAUTHENTICATED:-false}
+      JUDGE_PYTHON_IMAGE: ${JUDGE_PYTHON_IMAGE:-python:3.12-alpine}
+      JUDGE_CPP_IMAGE: ${JUDGE_CPP_IMAGE:-gcc:13}
+      JUDGE_JAVA_IMAGE: ${JUDGE_JAVA_IMAGE:-eclipse-temurin:21}
+      JUDGE_CONTAINER_WORKDIR: /judge-work
+      JUDGE_HOST_WORKDIR: ${JUDGE_HOST_WORKDIR:-/judge-work}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data/judge-work:/judge-work
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://127.0.0.1:8787/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
