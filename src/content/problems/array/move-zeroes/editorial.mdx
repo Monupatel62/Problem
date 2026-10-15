@@ -1,0 +1,17 @@
+### Separate reading from writing
+
+Let `write` be the index where the next non-zero value belongs. Scan every element with a read cursor. When the current value is non-zero, assign it to `nums[write]` and increment `write`. Because values are read from left to right, their relative order is preserved. Zeroes are ignored during this phase.
+
+Once the scan finishes, the prefix from index 0 through `write - 1` is exactly the desired non-zero sequence. Every remaining slot must become zero, so fill from `write` through the end of the array. Returning the same array is convenient for the workspace, although the important behavior is its in-place mutation.
+
+### Why the two phases are safe
+
+Writing a non-zero value may overwrite a zero or the value already at the same position. It cannot erase a future non-zero value that has not been read: the write pointer never moves ahead of the read position. This invariant makes the method safe without allocating another array.
+
+You can use swaps instead: whenever a non-zero value is found, swap it with `nums[write]` and advance `write`. That also preserves non-zero order, but requires careful handling when both pointers are equal. The write-then-fill version is shorter and avoids unnecessary swaps.
+
+The algorithm runs in O(n) time and O(1) extra space. Test all-zero input, no-zero input, zeroes at both ends, negative non-zero values, and multiple adjacent zeroes. These cases confirm both stable ordering and correct trailing zero count.
+
+### Common pitfalls
+
+Do not remove elements with `splice`, `filter`, or a similar operation: those approaches can allocate a new array or repeatedly shift values, violating the in-place requirement or degrading performance. Do not move all zeroes independently by swapping them toward the end, because that can reverse or scramble the order of non-zero values. The write pointer represents the exact stable prefix, so fill only after every non-zero value has been processed. The final array length must remain unchanged.
