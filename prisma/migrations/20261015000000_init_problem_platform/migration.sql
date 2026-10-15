@@ -26,3 +26,7 @@ ALTER TABLE "user_problem_statuses" ADD CONSTRAINT "user_problem_statuses_userId
 ALTER TABLE "user_problem_statuses" ADD CONSTRAINT "user_problem_statuses_problemId_fkey" FOREIGN KEY ("problemId") REFERENCES "problems"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE "problem_submissions" ADD CONSTRAINT "problem_submissions_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 ALTER TABLE "problem_submissions" ADD CONSTRAINT "problem_submissions_problemId_fkey" FOREIGN KEY ("problemId") REFERENCES "problems"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+CREATE TABLE "problem_notifications" ("id" TEXT NOT NULL, "userId" TEXT NOT NULL, "type" TEXT NOT NULL DEFAULT 'problem', "title" TEXT NOT NULL, "body" TEXT NOT NULL, "link" TEXT, "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP, CONSTRAINT "problem_notifications_pkey" PRIMARY KEY ("id"));
+CREATE INDEX "problem_notifications_userId_createdAt_idx" ON "problem_notifications"("userId", "createdAt");
+ALTER TABLE "problem_notifications" ADD CONSTRAINT "problem_notifications_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE CASCADE ON UPDATE CASCADE;

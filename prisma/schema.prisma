@@ -36,6 +36,7 @@ model User {
   email              String @unique
   problemStatuses    UserProblemStatus[]
   problemSubmissions ProblemSubmission[]
+  notifications      ProblemNotification[]
   @@map("users")
 }
 model Problem {
@@ -129,4 +130,17 @@ model ProblemSubmission {
   @@index([problemId, createdAt])
   @@index([userId, createdAt])
   @@map("problem_submissions")
+}
+
+model ProblemNotification {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type      String   @default("problem")
+  title     String
+  body      String
+  link      String?
+  createdAt DateTime @default(now())
+  @@index([userId, createdAt])
+  @@map("problem_notifications")
 }
