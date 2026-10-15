@@ -1,0 +1,39 @@
+{
+  "id": 43,
+  "slug": "min-length-subarray-sum",
+  "title": "Min Length Subarray Sum",
+  "acceptance": "0.0%",
+  "difficulty": "Medium",
+  "track": "Algorithms",
+  "tags": [
+    "Array",
+    "Sliding Window",
+    "Two Pointers"
+  ],
+  "companies": [
+    "Amazon",
+    "Google"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "1 <= nums.length <= 10^5",
+    "1 <= nums[i], target <= 10^9"
+  ],
+  "examples": [
+    {
+      "input": "target = 7, nums = [2,3,1,2,4,3]",
+      "output": "2"
+    }
+  ],
+  "functionName": "minLengthSubarraySum",
+  "solutionApproaches": [
+    {
+      "title": "Pattern Based",
+      "complexity": "Time O(n) to O(n log n), Space O(n)",
+      "explanation": "Use the core pattern from the tags: sliding window, prefix sums, two pointers, sorting, or a monotonic stack."
+    }
+  ]
+}
