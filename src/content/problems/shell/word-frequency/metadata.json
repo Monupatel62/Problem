@@ -1,0 +1,44 @@
+{
+  "id": 192,
+  "slug": "word-frequency",
+  "title": "Word Frequency",
+  "acceptance": "26.5%",
+  "difficulty": "Medium",
+  "track": "Shell",
+  "judgeReady": true,
+  "tags": [
+    "Shell"
+  ],
+  "companies": [
+    "Bloomberg"
+  ],
+  "frequency": 22,
+  "premium": true,
+  "likes": 900,
+  "dislikes": 180,
+  "discussionCount": 210,
+  "constraints": [
+    "Input is provided as words.txt in the working directory.",
+    "Output each count and word separated by a space, sorted by descending frequency.",
+    "Write a bash pipeline in the editor (use JavaScript language slot)."
+  ],
+  "examples": [
+    {
+      "input": "the day is sunny the the",
+      "output": "3 the\n1 day\n1 is\n1 sunny"
+    },
+    {
+      "input": "hello world hello hello world",
+      "output": "3 hello\n2 world"
+    }
+  ],
+  "functionName": "wordFrequency",
+  "isShell": true,
+  "solutionApproaches": [
+    {
+      "title": "Unix Pipeline",
+      "complexity": "O(n log n)",
+      "explanation": "tr splits words to lines, sort groups them, uniq -c counts, sort -rn sorts descending, awk formats output."
+    }
+  ]
+}
