@@ -1,4 +1,5 @@
 [
-  "Use binary search to locate the rotation boundary.",
-  "Compare the middle element with the rightmost element to determine which half is sorted."
+  "The minimum is at the rotation point.",
+  "If nums[mid] > nums[right], the minimum must be in the right half.",
+  "Otherwise the minimum is in the left half (including mid itself)."
 ]
