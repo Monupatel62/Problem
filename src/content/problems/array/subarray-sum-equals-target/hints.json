@@ -1,0 +1,4 @@
+[
+  "Track prefix sums.",
+  "A previous prefix of current - target forms a valid subarray."
+]
