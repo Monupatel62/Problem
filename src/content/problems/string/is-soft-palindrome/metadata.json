@@ -1,0 +1,37 @@
+{
+  "id": 17,
+  "slug": "is-soft-palindrome",
+  "title": "Is Soft Palindrome",
+  "acceptance": "0.0%",
+  "difficulty": "Easy",
+  "track": "Algorithms",
+  "tags": [
+    "String",
+    "Two Pointers"
+  ],
+  "companies": [
+    "Amazon",
+    "Apple"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "0 <= s.length <= 10^5"
+  ],
+  "examples": [
+    {
+      "input": "s = \"Nurses run\"",
+      "output": "true"
+    }
+  ],
+  "functionName": "isSoftPalindrome",
+  "solutionApproaches": [
+    {
+      "title": "Direct Pattern",
+      "complexity": "Time O(n), Space O(1) to O(n) depending on output",
+      "explanation": "Use the simplest scan or helper data structure required by the statement."
+    }
+  ]
+}
