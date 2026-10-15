@@ -1,0 +1,5 @@
+[
+  "The array is sorted — use that to your advantage with two pointers.",
+  "Place one pointer at the start and one at the end.",
+  "Move the left pointer right when the sum is too small; move right pointer left when too large."
+]
