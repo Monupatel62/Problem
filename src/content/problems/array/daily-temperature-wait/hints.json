@@ -1,0 +1,4 @@
+[
+  "Use a stack of unresolved day indices.",
+  "When a warmer day appears, resolve colder days."
+]

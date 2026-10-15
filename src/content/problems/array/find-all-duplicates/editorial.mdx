@@ -1,0 +1,5 @@
+Since all values are in [1, n] and n == len(nums), each value can serve as an index. Use sign-flipping as a visited marker.
+
+For each number, compute index = abs(n) - 1. If nums[index] is already negative, this number appeared before — add abs(n) to the result. Otherwise negate nums[index] to mark it visited.
+
+This achieves O(n) time and O(1) extra space.

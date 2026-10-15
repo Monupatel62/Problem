@@ -1,0 +1,41 @@
+{
+  "id": 51,
+  "slug": "daily-temperature-wait",
+  "title": "Daily Temperature Wait",
+  "acceptance": "0.0%",
+  "difficulty": "Medium",
+  "track": "Algorithms",
+  "tags": [
+    "Array",
+    "Stack",
+    "Monotonic Stack"
+  ],
+  "companies": [
+    "Amazon",
+    "Google",
+    "Facebook",
+    "Uber"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "1 <= temperatures.length <= 10^5",
+    "0 <= temperatures[i] <= 100"
+  ],
+  "examples": [
+    {
+      "input": "temperatures = [73,74,75,71,69,72,76,73]",
+      "output": "[1,1,4,2,1,1,0,0]"
+    }
+  ],
+  "functionName": "dailyTemperatureWait",
+  "solutionApproaches": [
+    {
+      "title": "Pattern Based",
+      "complexity": "Time O(n) to O(n log n), Space O(n)",
+      "explanation": "Use the core pattern from the tags: sliding window, prefix sums, two pointers, sorting, or a monotonic stack."
+    }
+  ]
+}

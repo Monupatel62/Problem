@@ -1,0 +1,38 @@
+{
+  "id": 56,
+  "slug": "find-all-duplicates",
+  "title": "Find All Duplicates in an Array",
+  "acceptance": "74.9%",
+  "difficulty": "Medium",
+  "track": "Algorithms",
+  "tags": ["Array", "Hash Table"],
+  "companies": ["Amazon", "Google", "Facebook", "Adobe"],
+  "frequency": 79,
+  "likes": 11000,
+  "dislikes": 310,
+  "discussionCount": 2900,
+  "constraints": [
+    "n == nums.length",
+    "1 <= n <= 10^5",
+    "1 <= nums[i] <= n",
+    "Each element in nums appears once or twice."
+  ],
+  "examples": [
+    {
+      "input": "nums = [4,3,2,7,8,2,3,1]",
+      "output": "[2,3]"
+    },
+    {
+      "input": "nums = [1,1,2]",
+      "output": "[1]"
+    }
+  ],
+  "functionName": "findDuplicates",
+  "solutionApproaches": [
+    {
+      "title": "Index Sign Flipping",
+      "complexity": "Time O(n), Space O(1)",
+      "explanation": "Use each value as an index; negate the referenced element to mark seen. A negative already-seen element means a duplicate."
+    }
+  ]
+}
