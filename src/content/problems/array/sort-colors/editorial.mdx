@@ -1,0 +1,17 @@
+### Maintain three classified regions
+
+Initialize `low = 0`, `mid = 0`, and `high = n - 1`. The invariant is: indices before `low` contain 0, indices from `low` through `mid - 1` contain 1, indices after `high` contain 2, and the range from `mid` through `high` is still unknown. Each loop step shrinks the unknown range.
+
+If `nums[mid]` is 0, swap it with `nums[low]`. The incoming value at `mid` is known to be 1 when `low < mid`, so advancing both pointers preserves the invariant. If it is 1, advancing `mid` extends the middle region. If it is 2, swap with `nums[high]` and decrement `high`, but inspect the replacement at `mid` on the next iteration.
+
+### The crucial no-advance case
+
+After a swap with `high`, the value brought to `mid` might be 0, 1, or 2. Advancing immediately can leave a 0 in the middle or an unprocessed 2 in the wrong region. This is the common bug in Dutch National Flag implementations. Only the high boundary moves in that branch.
+
+Counting occurrences and overwriting the three groups also uses O(n) time and O(1) extra space, but needs separate counting and rewriting phases. The three-pointer method makes one pass and is the intended in-place partition solution. Do not use built-in sorting because it avoids the pointer reasoning the task tests.
+
+Test all one-color arrays, reverse order `[2, 1, 0]`, alternating colors, and repeated 2s at the front. These cases validate the invariant and the mid-pointer behavior after swaps.
+
+### Termination and safety
+
+Every branch either increments `mid` or decrements `high`, so the unclassified interval becomes smaller on every iteration. Swapping a zero when `low === mid` is harmless and still advances both boundaries. The procedure is not stable, which is acceptable because objects of the same color are interchangeable. Avoid allocating a second result array: the task requires the supplied array itself to be partitioned. The final three regions together cover every original position exactly once.
