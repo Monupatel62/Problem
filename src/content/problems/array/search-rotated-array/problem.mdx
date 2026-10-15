@@ -1,0 +1,9 @@
+An ascending array of distinct integers may be rotated at an unknown pivot. Given the resulting array `nums` and an integer `target`, return the target's index or `-1` when it is absent. The solution must run in O(log n) time.
+
+For `[4, 5, 6, 7, 0, 1, 2]` with target 0, return 4. With target 3, return -1. The array is not globally sorted after rotation, so ordinary binary search cannot decide its direction by comparing only the middle value with the target.
+
+However, at every binary-search step, at least one half around the middle is still sorted. Compare `nums[left]` with `nums[mid]`. If the left half is sorted, decide whether the target lies within its inclusive-left, exclusive-right range. If it does, discard the right half; otherwise search the right half. If the left half is not sorted, the right half must be sorted, and the symmetric test determines the next interval.
+
+The values are unique, which makes the sorted-half decision reliable. Always check whether `nums[mid]` equals the target before discarding either side. Continue while `left <= right`; if the interval becomes empty, the target does not exist and the answer is -1.
+
+This method handles an unrotated array, one item, a pivot near either end, negative values, and a missing target without modifying the input. Return an array index rather than the target value itself. The target appears at most once because all input values are distinct. The search finishes when the active interval becomes empty, after every possible location is ruled out.
