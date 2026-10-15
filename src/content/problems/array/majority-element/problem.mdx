@@ -1,0 +1,9 @@
+Given an integer array `nums` of length `n`, return its **majority element**: the value that appears more than `floor(n / 2)` times. The problem guarantees that exactly such a value exists, so you do not need to handle a no-majority result.
+
+For `[3, 2, 3]`, the answer is 3 because it occurs twice in three positions. For `[2, 2, 1, 1, 1, 2, 2]`, the answer is 2 because it occurs four times in seven positions. A value that appears exactly half the time would not qualify, but the guarantee prevents that ambiguous case here.
+
+A frequency map is the most direct solution: count every value, then return the count greater than `n / 2`. It runs in linear time but stores up to n distinct keys. The stronger follow-up asks for constant extra space.
+
+Use the Boyer–Moore voting algorithm for that version. Keep a `candidate` and a `count`. When the count is zero, set the current number as the new candidate and set the count to one. For each later occurrence of the candidate, increment the count; for a different number, decrement it. Different values effectively cancel one candidate occurrence.
+
+Because the real majority occurs more than all other values combined, it cannot be completely cancelled. It remains as the final candidate after one pass. The array is not sorted or modified, and the algorithm works for negative values and a one-element input as well. Return the final value, not its frequency or index, from this single-pass computation. No separate verification pass is needed under the stated guarantee.
