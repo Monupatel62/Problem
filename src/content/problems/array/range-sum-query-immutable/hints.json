@@ -1,0 +1,5 @@
+[
+  "Build a prefix sum array once: prefix[i] = sum of nums[0..i-1].",
+  "For a range query [l, r], the answer is prefix[r+1] - prefix[l].",
+  "Prefix sum enables O(1) per query after O(n) preprocessing."
+]
