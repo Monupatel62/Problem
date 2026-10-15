@@ -1,0 +1,5 @@
+[
+  "Use a sliding window.",
+  "Move the left pointer when a repeated character appears.",
+  "Store the last seen index of each character so the left pointer can jump forward."
+]
