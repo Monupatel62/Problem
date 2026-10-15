@@ -1,0 +1,17 @@
+### Use the complete range, not the input order
+
+The array has n items, but the allowed range has n + 1 values: 0 through n inclusive. Since all supplied values are distinct, one value is absent. The order of `nums` is irrelevant; the range invariant supplies all information needed for a linear-time solution.
+
+### Gauss sum method
+
+Compute the expected total `n * (n + 1) / 2`, then subtract every value in `nums`. Each present number removes itself once, so the final remainder is the missing number. This uses O(n) time and O(1) extra space. In languages with fixed-width integers and much larger limits, use a sufficiently wide numeric type to avoid overflow.
+
+### XOR method
+
+XOR has three useful properties: a value XOR itself is zero, zero XOR a value is that value, and operation order does not matter. Initialize a result with `n`, then for each index `i`, XOR both `i` and `nums[i]`. Every present value from the range appears twice and cancels; the absent value appears only once. The final result is the answer.
+
+Both methods avoid sorting and extra storage. A set or boolean array is still useful as a straightforward baseline, but it spends O(n) memory. Test a missing zero, a missing n, an unsorted middle value, and the smallest valid input. These cases verify the inclusive upper bound that is most often overlooked.
+
+### Implementation pitfalls
+
+For the sum method, include both endpoints: starting from zero and stopping before n accidentally omits the value that may be missing. For the XOR method, initialize with n or XOR it separately; array indices alone cover only 0 through n - 1. Avoid using a frequency map unless readability matters more than space, because uniqueness is already guaranteed. Neither solution needs to rearrange the input.
