@@ -33,7 +33,11 @@ enum ProblemSubmissionStatus {
 
 model User {
   id                 String @id @default(cuid())
+  name               String?
   email              String @unique
+  emailVerified      DateTime?
+  image              String?
+  passwordHash       String?
   problemStatuses    UserProblemStatus[]
   problemSubmissions ProblemSubmission[]
   notifications      ProblemNotification[]

@@ -2,7 +2,7 @@ CREATE TYPE "ProblemDifficulty" AS ENUM ('EASY', 'MEDIUM', 'HARD');
 CREATE TYPE "ProblemTrack" AS ENUM ('ALGORITHMS', 'DATABASE', 'SHELL', 'CONCURRENCY');
 CREATE TYPE "ProblemCaseKind" AS ENUM ('SAMPLE', 'HIDDEN');
 CREATE TYPE "ProblemSubmissionStatus" AS ENUM ('ACCEPTED', 'WRONG_ANSWER', 'RUNTIME_ERROR', 'COMPILATION_ERROR', 'TIME_LIMIT_EXCEEDED', 'INTERNAL_ERROR');
-CREATE TABLE "users" ("id" TEXT NOT NULL, "email" TEXT NOT NULL, CONSTRAINT "users_pkey" PRIMARY KEY ("id"));
+CREATE TABLE "users" ("id" TEXT NOT NULL, "name" TEXT, "email" TEXT NOT NULL, "emailVerified" TIMESTAMP(3), "image" TEXT, "passwordHash" TEXT, CONSTRAINT "users_pkey" PRIMARY KEY ("id"));
 CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
 CREATE TABLE "problems" ("id" TEXT NOT NULL, "number" INTEGER NOT NULL, "slug" TEXT NOT NULL, "title" TEXT NOT NULL, "acceptance" DOUBLE PRECISION NOT NULL DEFAULT 0, "difficulty" "ProblemDifficulty" NOT NULL, "track" "ProblemTrack" NOT NULL DEFAULT 'ALGORITHMS', "tags" TEXT[] NOT NULL, "companies" TEXT[] NOT NULL, "frequency" INTEGER NOT NULL DEFAULT 0, "premium" BOOLEAN NOT NULL DEFAULT false, "likes" INTEGER NOT NULL DEFAULT 0, "dislikes" INTEGER NOT NULL DEFAULT 0, "discussionCount" INTEGER NOT NULL DEFAULT 0, "description" TEXT NOT NULL, "constraints" TEXT[] NOT NULL, "hints" TEXT[] NOT NULL, "functionName" TEXT NOT NULL, "starterCode" JSONB NOT NULL, "editorial" TEXT[] NOT NULL, "solutionApproaches" JSONB, "isPublished" BOOLEAN NOT NULL DEFAULT true, "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP, "updatedAt" TIMESTAMP(3) NOT NULL, CONSTRAINT "problems_pkey" PRIMARY KEY ("id"));
 CREATE UNIQUE INDEX "problems_number_key" ON "problems"("number");
