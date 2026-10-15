@@ -1,0 +1,5 @@
+[
+  "Convert one array to a set for O(1) lookups.",
+  "Iterate through the other array and collect elements present in the set.",
+  "Collect results into another set to avoid duplicates."
+]

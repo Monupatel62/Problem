@@ -1,0 +1,30 @@
+{
+  "id": 58,
+  "slug": "intersection-two-arrays",
+  "title": "Intersection of Two Arrays",
+  "acceptance": "72.1%",
+  "difficulty": "Easy",
+  "track": "Algorithms",
+  "tags": ["Array", "Hash Table", "Sorting", "Two Pointers", "Binary Search"],
+  "companies": ["Amazon", "Google", "Microsoft", "Facebook"],
+  "frequency": 74,
+  "likes": 6800,
+  "dislikes": 890,
+  "discussionCount": 1800,
+  "constraints": [
+    "1 <= nums1.length, nums2.length <= 1000",
+    "0 <= nums1[i], nums2[i] <= 1000"
+  ],
+  "examples": [
+    { "input": "nums1 = [1,2,2,1], nums2 = [2,2]", "output": "[2]" },
+    { "input": "nums1 = [4,9,5], nums2 = [9,4,9,8,4]", "output": "[9,4]" }
+  ],
+  "functionName": "intersection",
+  "solutionApproaches": [
+    {
+      "title": "Hash Set",
+      "complexity": "Time O(n+m), Space O(n)",
+      "explanation": "Put nums1 into a set, then check each element of nums2 against it."
+    }
+  ]
+}
