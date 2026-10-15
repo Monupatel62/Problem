@@ -1,0 +1,31 @@
+{
+  "concurrencyCases": true,
+  "sampleCases": [
+    {
+      "input": [[1, 2, 3]],
+      "expected": "firstsecondthird"
+    },
+    {
+      "input": [[3, 2, 1]],
+      "expected": "firstsecondthird"
+    },
+    {
+      "input": [[2, 1, 3]],
+      "expected": "firstsecondthird"
+    }
+  ],
+  "hiddenCases": [
+    {
+      "input": [[1, 3, 2]],
+      "expected": "firstsecondthird"
+    },
+    {
+      "input": [[3, 1, 2]],
+      "expected": "firstsecondthird"
+    },
+    {
+      "input": [[2, 3, 1]],
+      "expected": "firstsecondthird"
+    }
+  ]
+}
