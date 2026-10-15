@@ -1,0 +1,16 @@
+{
+  "sampleCases": [
+    { "input": [[1,2,3,1]], "expected": true },
+    { "input": [[1,2,3,4]], "expected": false },
+    { "input": [[1,1,1,3,3,4,3,2,4,2]], "expected": true }
+  ],
+  "hiddenCases": [
+    { "input": [[1]], "expected": false },
+    { "input": [[-1,-1]], "expected": true },
+    { "input": [[0,4,5,0,3,6]], "expected": true },
+    { "input": [[1,2,3,4,5,6,7]], "expected": false },
+    { "input": [[9,8,7,6,9]], "expected": true },
+    { "input": [[-3,0,4,9]], "expected": false },
+    { "input": [[2,2]], "expected": true }
+  ]
+}

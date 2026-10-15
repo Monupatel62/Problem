@@ -1,0 +1,39 @@
+{
+  "id": 12,
+  "slug": "count-balanced-prefixes",
+  "title": "Count Balanced Prefixes",
+  "acceptance": "0.0%",
+  "difficulty": "Medium",
+  "track": "Algorithms",
+  "tags": [
+    "Array",
+    "Prefix Sum"
+  ],
+  "companies": [
+    "Google",
+    "Amazon",
+    "Microsoft"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "1 <= nums.length <= 10^5",
+    "nums[i] is either 1 or -1"
+  ],
+  "examples": [
+    {
+      "input": "nums = [1,-1,1,-1,-1]",
+      "output": "2"
+    }
+  ],
+  "functionName": "countBalancedPrefixes",
+  "solutionApproaches": [
+    {
+      "title": "Direct Pattern",
+      "complexity": "Time O(n), Space O(1) to O(n) depending on output",
+      "explanation": "Use the simplest scan or helper data structure required by the statement."
+    }
+  ]
+}

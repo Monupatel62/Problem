@@ -1,0 +1,9 @@
+Given an integer array `nums`, return `true` when at least one value appears two or more times. Return `false` only when every array element is distinct. The duplicate may occur anywhere in the array and may be negative or zero.
+
+For `[1, 2, 3, 1]`, return `true` because the value 1 appears at two different positions. For `[1, 2, 3, 4]`, return `false`: each value appears exactly once. The task is not asking for the duplicated value or its positions—only whether any repetition exists.
+
+The most direct solution compares every pair of positions. It uses no extra collection, but an array with one hundred thousand values would require far too many comparisons in the worst case. A faster approach remembers the values already encountered while scanning from left to right.
+
+Create an empty hash set. Before adding the current number, ask whether the set already contains it. If it does, a duplicate has been found, so return `true` immediately. If it does not, add the number and continue. If the scan finishes without finding an existing value, return `false`.
+
+This approach does not require sorting and does not mutate `nums`. A sorting-based solution is also possible because equal values become adjacent, but it costs O(n log n) time and may change the original order. The hash set is preferred when a boolean answer is needed quickly. Stop immediately on the first repeat; counting all occurrences adds work that this question does not require. This keeps both memory use and intent straightforward.
