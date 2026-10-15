@@ -1,0 +1,45 @@
+{
+  "id": 1114,
+  "slug": "print-in-order",
+  "title": "Print in Order",
+  "acceptance": "70.1%",
+  "difficulty": "Easy",
+  "track": "Concurrency",
+  "judgeReady": true,
+  "tags": [
+    "Concurrency"
+  ],
+  "companies": [
+    "Microsoft"
+  ],
+  "frequency": 18,
+  "premium": true,
+  "likes": 3200,
+  "dislikes": 260,
+  "discussionCount": 620,
+  "constraints": [
+    "The same Foo instance is passed to three threads.",
+    "Threads call first(), second(), third() in random order.",
+    "Output must always be firstsecondthird.",
+    "Tested via Python threading — implement the Foo class."
+  ],
+  "examples": [
+    {
+      "input": "nums = [1,2,3] (random thread order)",
+      "output": "firstsecondthird"
+    },
+    {
+      "input": "nums = [3,2,1] (reverse thread order)",
+      "output": "firstsecondthird"
+    }
+  ],
+  "functionName": "Foo",
+  "isConcurrency": true,
+  "solutionApproaches": [
+    {
+      "title": "Semaphore / Event Gates",
+      "complexity": "Time O(1), Space O(1)",
+      "explanation": "Use threading.Semaphore or threading.Event so second() waits for first(), and third() waits for second()."
+    }
+  ]
+}
