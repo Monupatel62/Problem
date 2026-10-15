@@ -1,0 +1,38 @@
+{
+  "id": 55,
+  "slug": "rotate-array",
+  "title": "Rotate Array",
+  "acceptance": "40.1%",
+  "difficulty": "Medium",
+  "track": "Algorithms",
+  "tags": ["Array", "Two Pointers", "Math"],
+  "companies": ["Amazon", "Microsoft", "Google", "Apple", "Goldman Sachs"],
+  "frequency": 83,
+  "likes": 15000,
+  "dislikes": 1700,
+  "discussionCount": 3900,
+  "constraints": [
+    "1 <= nums.length <= 10^5",
+    "-2^31 <= nums[i] <= 2^31 - 1",
+    "0 <= k <= 10^5"
+  ],
+  "examples": [
+    {
+      "input": "nums = [1,2,3,4,5,6,7], k = 3",
+      "output": "[5,6,7,1,2,3,4]",
+      "explanation": "Rotate right by 3 steps."
+    },
+    {
+      "input": "nums = [-1,-100,3,99], k = 2",
+      "output": "[3,99,-1,-100]"
+    }
+  ],
+  "functionName": "rotate",
+  "solutionApproaches": [
+    {
+      "title": "Three Reverses",
+      "complexity": "Time O(n), Space O(1)",
+      "explanation": "Reverse entire array, then reverse first k elements, then reverse the rest."
+    }
+  ]
+}

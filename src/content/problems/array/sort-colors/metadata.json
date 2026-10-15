@@ -1,0 +1,39 @@
+{
+  "id": 67,
+  "slug": "sort-colors",
+  "title": "Sort Colors",
+  "acceptance": "61.7%",
+  "difficulty": "Medium",
+  "track": "Algorithms",
+  "judgeReady": true,
+  "tags": ["Array", "Two Pointers", "Sorting"],
+  "companies": ["Amazon", "Microsoft", "Facebook", "Adobe"],
+  "frequency": 81,
+  "likes": 17000,
+  "dislikes": 590,
+  "discussionCount": 4100,
+  "constraints": [
+    "n == nums.length",
+    "1 <= n <= 300",
+    "nums[i] is either 0, 1, or 2.",
+    "Rearrange the same array without calling a library sort."
+  ],
+  "examples": [
+    { "input": "nums = [2,0,2,1,1,0]", "output": "[0,0,1,1,2,2]" },
+    { "input": "nums = [2,0,1]", "output": "[0,1,2]" },
+    { "input": "nums = [1,2,0,1]", "output": "[0,1,1,2]", "explanation": "The three categories must be contiguous in 0, 1, 2 order." }
+  ],
+  "functionName": "sortColors",
+  "solutionApproaches": [
+    {
+      "title": "Count Then Overwrite",
+      "complexity": "Time O(n), Space O(1)",
+      "explanation": "Count zeroes, ones, and twos, then overwrite the array in three runs; valid but not the one-pass follow-up."
+    },
+    {
+      "title": "Dutch National Flag (Three Pointers)",
+      "complexity": "Time O(n), Space O(1)",
+      "explanation": "Maintain low, mid, high pointers. Swap 0s to the left, 2s to the right, advance mid for 1s."
+    }
+  ]
+}

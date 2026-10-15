@@ -1,0 +1,39 @@
+{
+  "id": 25,
+  "slug": "gcd-of-two",
+  "title": "GCD Of Two",
+  "acceptance": "0.0%",
+  "difficulty": "Easy",
+  "track": "Algorithms",
+  "tags": [
+    "Math",
+    "Number Theory"
+  ],
+  "companies": [
+    "Google",
+    "Amazon",
+    "Microsoft"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "0 <= a, b <= 10^9",
+    "a and b are not both zero"
+  ],
+  "examples": [
+    {
+      "input": "a = 18, b = 24",
+      "output": "6"
+    }
+  ],
+  "functionName": "gcdOfTwo",
+  "solutionApproaches": [
+    {
+      "title": "Direct Pattern",
+      "complexity": "Time O(n), Space O(1) to O(n) depending on output",
+      "explanation": "Use the simplest scan or helper data structure required by the statement."
+    }
+  ]
+}

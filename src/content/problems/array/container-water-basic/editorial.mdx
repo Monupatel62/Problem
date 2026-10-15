@@ -1,0 +1,17 @@
+### Start with the widest container
+
+Place `left` at index 0 and `right` at the final index. This is the largest possible width. Compute the candidate area using the shorter of the two heights, update the best result, then discard one boundary according to the limiting-height rule.
+
+If `height[left] < height[right]`, moving `right` inward only decreases width while the left height remains the same limiting value. No pair using that left boundary can beat the current situation, so advance `left`. The argument is symmetric when the right line is shorter. This is why a greedy two-pointer move does not skip the optimal answer.
+
+When both heights are equal, either pointer may move; the current width is already the greatest width available for that limiting height. Repeat until `left >= right`. Every iteration removes one index, so the algorithm is linear.
+
+### Area details and tests
+
+Use `min(leftHeight, rightHeight) * (right - left)`, not the sum or maximum of the heights. A tall line cannot hold water above the shorter line. Test adjacent lines, equal boundary heights, strictly increasing heights, zero values, and an optimum formed by interior positions. These cases verify that pointer movement follows the limiting side rather than simply pursuing a taller line.
+
+The brute-force alternative evaluates all O(n²) pairs. The two-pointer method uses O(n) time and O(1) space, and it never needs sorting because index distance is part of the area formula.
+
+### Boundary choices
+
+Move exactly one pointer after every area calculation. If the heights are equal, moving either side is valid, but moving both is optional only when you know neither skipped combination is needed; moving one keeps the standard proof simple. Initialize the best area to zero so zero-height lines naturally produce zero unless a taller valid pair exists. The loop condition `left < right` guarantees the same line is never paired with itself.

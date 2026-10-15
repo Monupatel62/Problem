@@ -1,0 +1,17 @@
+### Keep the farthest reachable boundary
+
+Let `maxReach` be the greatest index reachable using jumps from any already reachable position. Initially it is 0. Scan the array from left to right. Before using index `i`, verify that `i <= maxReach`; if it is larger, the scan has reached a gap that no legal jump can cross, so return false.
+
+For a reachable index, its maximum destination is `i + nums[i]`. Update `maxReach` if that destination extends the known boundary. Once `maxReach` reaches or passes the last index, success is guaranteed and the algorithm may return true early, although scanning to the end is also correct.
+
+### Why one number is enough
+
+Among all reachable positions, only the farthest endpoint matters for future reachability. Any route that ends earlier cannot unlock an index that the farther-reaching route cannot also reach. This dominance property replaces the O(n²) dynamic-programming table with a single greedy value.
+
+Do not treat a zero as automatically failing. A zero is harmless when it is at the last index or when an earlier jump can skip past it. It causes failure only when it creates the first index beyond `maxReach`, as in `[3, 2, 1, 0, 4]`.
+
+The result uses O(n) time and O(1) extra space. Test one item, an initial zero with more items, a zero that can be skipped, a final zero, and a long chain of one-step jumps. These cases verify the boundary invariant without reconstructing a path.
+
+### Common errors
+
+Do not move from every index by exactly `nums[i]` steps; the value is a maximum, not a forced jump. Do not stop merely because the current value is zero: first ask whether the current index is the last index or whether an earlier reach already passes it. An optional early success check is `maxReach >= nums.length - 1`, but perform it only after updating the boundary from a reachable index. Keeping this order prevents a false success from an unreachable position.

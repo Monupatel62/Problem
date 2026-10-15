@@ -1,0 +1,9 @@
+You start at index 0 of an integer array `nums`. Each value gives the **maximum** number of positions you may jump forward from that index; you may choose any shorter jump as well. Return `true` when some sequence of jumps reaches the final index, otherwise return `false`.
+
+For `[2, 3, 1, 1, 4]`, return true: index 0 can reach index 1, and index 1 can reach the end. For `[3, 2, 1, 0, 4]`, return false because every possible route reaches or stops before index 3, whose zero jump length forms a barrier. A one-element array such as `[0]` is true because you already begin at the last index.
+
+Dynamic programming can mark every reachable index, but may examine many overlapping jumps. A greedy scan keeps only the farthest index reachable from all positions examined so far. Start `maxReach` at 0. At index `i`, if `i` is greater than `maxReach`, no earlier position can reach it, so the final index is impossible.
+
+Otherwise update `maxReach` with `max(maxReach, i + nums[i])`. You do not need to record the route that reaches this boundary: any path to the farthest reachable position is equally useful for deciding whether the array can be completed. If the scan never encounters an unreachable index, the last position is reachable.
+
+This takes O(n) time and O(1) extra space, handles zeroes, huge jump lengths, and repeated values, and never modifies the array. Return only a boolean; this version does not ask for the minimum number of jumps or the actual path.

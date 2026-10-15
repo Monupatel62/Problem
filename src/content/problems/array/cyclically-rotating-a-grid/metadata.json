@@ -1,0 +1,41 @@
+{
+  "id": 1914,
+  "slug": "cyclically-rotating-a-grid",
+  "title": "Cyclically Rotating a Grid",
+  "acceptance": "73.8%",
+  "difficulty": "Medium",
+  "track": "Algorithms",
+  "tags": [
+    "Array",
+    "Matrix",
+    "Simulation"
+  ],
+  "companies": [
+    "Google",
+    "Microsoft"
+  ],
+  "frequency": 48,
+  "likes": 1800,
+  "dislikes": 210,
+  "discussionCount": 420,
+  "constraints": [
+    "2 <= m, n <= 50",
+    "m and n are even",
+    "1 <= k <= 10^9",
+    "1 <= grid[i][j] <= 5000"
+  ],
+  "examples": [
+    {
+      "input": "grid = [[40,10],[30,20]], k = 1",
+      "output": "[[10,20],[40,30]]"
+    }
+  ],
+  "functionName": "rotateGrid",
+  "solutionApproaches": [
+    {
+      "title": "Layer Flattening",
+      "complexity": "Time O(m*n), Space O(m+n)",
+      "explanation": "Every cell is read and written once while each layer temporarily stores its border values."
+    }
+  ]
+}

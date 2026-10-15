@@ -1,0 +1,5 @@
+[
+  "A brute force solution checks every pair.",
+  "A hash map can remember values you have already seen.",
+  "For each number, search for target - number."
+]

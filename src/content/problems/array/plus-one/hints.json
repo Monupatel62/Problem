@@ -1,0 +1,5 @@
+[
+  "Simulate the addition starting from the last digit.",
+  "If a digit becomes 10, set it to 0 and carry 1 to the left.",
+  "If you exit the loop with a carry remaining, prepend a 1 to the array."
+]

@@ -1,0 +1,4 @@
+[
+  "Use synchronization primitives.",
+  "Gate second until first completes, and third until second completes."
+]

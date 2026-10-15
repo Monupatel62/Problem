@@ -1,0 +1,42 @@
+# Customers Who Never Order: SQL editorial
+
+The task is to find the complement: every customer who has **no** corresponding row in `Orders`. Two well-known SQL patterns solve it.
+
+## Approach 1 — NOT IN subquery
+
+```sql
+SELECT name AS Customers
+FROM Customers
+WHERE id NOT IN (
+    SELECT customerId FROM Orders
+);
+```
+
+The subquery collects every `customerId` that appears in `Orders`. The outer query then selects customers whose `id` does not appear in that set. This is direct and easy to read.
+
+**NULL trap:** If `customerId` could be `NULL`, the subquery might return a `NULL`, causing `NOT IN` to evaluate to `UNKNOWN` for every row and silently returning an empty result. In this problem `customerId` is `NOT NULL`, so `NOT IN` is safe. In general, prefer `NOT EXISTS` or the `LEFT JOIN` approach when the subquery column may contain `NULL`.
+
+## Approach 2 — LEFT JOIN / IS NULL
+
+```sql
+SELECT c.name AS Customers
+FROM Customers AS c
+LEFT JOIN Orders AS o ON c.id = o.customerId
+WHERE o.customerId IS NULL;
+```
+
+A `LEFT JOIN` keeps every row from `Customers` regardless of whether a matching order exists. When no match is found, all columns borrowed from `Orders` are `NULL`. Filtering for `o.customerId IS NULL` isolates exactly those customers who have never ordered.
+
+This approach avoids the `NULL` pitfall entirely and often performs better when `Orders.customerId` is indexed.
+
+## Why the alias matters
+
+The judge compares both values and column names. `SELECT name AS Customers` is required; `SELECT name` alone would fail the comparison on column identity.
+
+## Edge cases
+
+Test an empty `Orders` table: every customer must appear in the result. Test when all customers have orders: the result should be empty. Test duplicate orders for the same customer: that customer still has an order and must be excluded.
+
+## Complexity
+
+Both approaches scan `Orders` once for the matching step and `Customers` once for the outer scan. An index on `Orders.customerId` speeds up the join or subquery lookup. Without indexes, time is proportional to the product of the two table sizes in the worst case.

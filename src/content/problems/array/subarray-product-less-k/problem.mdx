@@ -1,0 +1,11 @@
+Given an array of **positive** integers `nums` and an integer `k`, return the number of non-empty contiguous subarrays whose product is strictly less than `k`. Different boundaries count separately, even if the subarrays have equal values.
+
+For `[10, 5, 2, 6]` with `k = 100`, the answer is 8. For `[1, 1, 1]` with `k = 2`, every non-empty range has product 1, so all six ranges count. The strict comparison matters: a subarray with product exactly `k` is not valid.
+
+All input values are positive. That makes a sliding window possible because extending a window can only keep or increase its product, and removing a value can only keep or decrease it. This monotonic behavior would fail if negatives or zeroes were allowed.
+
+First handle `k <= 1` by returning zero: every non-empty product is at least one, so none can be strictly smaller. Otherwise, expand a right pointer and multiply its value into a running product. While the product is at least k, divide out values from the left and advance the left pointer until the current window is valid again.
+
+When a valid window runs from `left` through `right`, it contributes `right - left + 1` valid subarrays ending at `right`. They are the suffixes beginning at every position from left through right; each has product no larger than the whole valid window. Add this count at every step.
+
+The two pointers move only forward, so the algorithm runs in O(n) time and O(1) extra space. It returns a count, not the ranges themselves, and does not modify the input array.

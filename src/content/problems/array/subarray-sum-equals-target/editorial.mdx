@@ -1,0 +1,17 @@
+### Turn every subarray into a prefix difference
+
+Let `P[i]` be the sum of values from the start through index i. A subarray from index `j + 1` through i sums to target when `P[i] - P[j] = target`. Rearranging gives `P[j] = P[i] - target`. Thus, when the current prefix is known, count how many earlier prefixes equal `prefix - target`.
+
+Maintain a map from prefix sum to its frequency, not just a set. The same prefix can occur multiple times, especially with zeroes or balanced positive and negative values, and each occurrence produces a distinct valid subarray. Start with `{0: 1}` so a prefix that itself equals target is counted.
+
+For each number, add it to `prefix`. Add `frequency[prefix - target]` to the answer, then increment `frequency[prefix]`. Querying before inserting is essential: it prevents treating the current prefix as a prior prefix and accidentally counting an empty range when target is zero.
+
+### Why a sliding window fails
+
+For an all-positive array, a sliding window can shrink safely when the sum gets too large. Negative values break that monotonic rule: adding a value may reduce the sum, and removing one may increase it. Since this problem permits negatives, the prefix-frequency method is the reliable linear solution.
+
+The algorithm runs in O(n) expected time and O(n) space. Test overlapping ranges, target zero, repeated prefix sums, negative values, and a valid subarray beginning at index zero. These cases validate the map initialization and update order.
+
+### Frequency and order matter
+
+If a prefix sum has appeared three times, the current prefix may complete three different subarrays, so add the stored frequency rather than a boolean. For target zero, the current prefix is the required prior prefix, making repeated sums especially important. Updating the map before querying would incorrectly treat the current location as a prior boundary. Keep the empty prefix only once at initialization, then add each real prefix immediately after its matches are counted.

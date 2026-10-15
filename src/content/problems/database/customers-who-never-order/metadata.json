@@ -1,0 +1,68 @@
+{
+  "id": 183,
+  "slug": "customers-who-never-order",
+  "title": "Customers Who Never Order",
+  "acceptance": "69.1%",
+  "difficulty": "Easy",
+  "track": "Database",
+  "judgeReady": true,
+  "tags": [
+    "Database",
+    "SQL"
+  ],
+  "companies": [
+    "Amazon",
+    "Microsoft"
+  ],
+  "frequency": 46,
+  "premium": true,
+  "likes": 2800,
+  "dislikes": 270,
+  "discussionCount": 620,
+  "constraints": [
+    "Return only the name column aliased as 'Customers'.",
+    "A customer who has placed at least one order must not appear in the result.",
+    "Write your SQL query in the editor (select JavaScript language)."
+  ],
+  "examples": [
+    {
+      "input": "Customers: [[1,'Joe'],[2,'Henry'],[3,'Sam'],[4,'Max']], Orders: [[1,3],[2,1]]",
+      "output": "[['Henry'],['Max']]",
+      "explanation": "Joe and Sam have orders; Henry and Max do not."
+    },
+    {
+      "input": "Customers: [[1,'Alice'],[2,'Bob']], Orders: [[1,2]]",
+      "output": "[['Alice']]",
+      "explanation": "Bob placed order 1; Alice has never ordered."
+    }
+  ],
+  "functionName": "customersWhoNeverOrder",
+  "sqlSchema": {
+    "tables": {
+      "Customers": {
+        "columns": [
+          {"name": "id",   "type": "INTEGER", "primaryKey": true},
+          {"name": "name", "type": "TEXT",    "notNull": true}
+        ]
+      },
+      "Orders": {
+        "columns": [
+          {"name": "id",         "type": "INTEGER", "primaryKey": true},
+          {"name": "customerId", "type": "INTEGER", "notNull": true}
+        ]
+      }
+    }
+  },
+  "solutionApproaches": [
+    {
+      "title": "NOT IN subquery",
+      "complexity": "Depends on DB index",
+      "explanation": "Collect all customerId values from Orders and exclude them from Customers."
+    },
+    {
+      "title": "LEFT JOIN + IS NULL",
+      "complexity": "Depends on DB index",
+      "explanation": "Join Customers to Orders and keep only the rows where no matching order was found."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": 4,
+  "slug": "median-two-arrays",
+  "title": "Median of Two Sorted Arrays",
+  "acceptance": "42.8%",
+  "difficulty": "Hard",
+  "track": "Algorithms",
+  "tags": [
+    "Array",
+    "Binary Search"
+  ],
+  "companies": [
+    "Google",
+    "Apple",
+    "Meta"
+  ],
+  "frequency": 76,
+  "premium": true,
+  "likes": 29000,
+  "dislikes": 3300,
+  "discussionCount": 6600,
+  "constraints": [
+    "0 <= nums1.length, nums2.length <= 1000",
+    "1 <= nums1.length + nums2.length <= 2000",
+    "-10^6 <= nums[i] <= 10^6"
+  ],
+  "examples": [
+    {
+      "input": "nums1 = [1,3], nums2 = [2]",
+      "output": "2.00000"
+    }
+  ],
+  "functionName": "findMedianSortedArrays",
+  "solutionApproaches": [
+    {
+      "title": "Binary Search Partition",
+      "complexity": "Time O(log(min(m,n))), Space O(1)",
+      "explanation": "Search for a valid partition across two sorted arrays."
+    }
+  ]
+}

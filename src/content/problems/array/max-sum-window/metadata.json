@@ -1,0 +1,39 @@
+{
+  "id": 42,
+  "slug": "max-sum-window",
+  "title": "Max Sum Window",
+  "acceptance": "0.0%",
+  "difficulty": "Medium",
+  "track": "Algorithms",
+  "tags": [
+    "Array",
+    "Sliding Window"
+  ],
+  "companies": [
+    "Amazon",
+    "Microsoft",
+    "Facebook"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "1 <= k <= nums.length <= 10^5",
+    "-10^5 <= nums[i] <= 10^5"
+  ],
+  "examples": [
+    {
+      "input": "nums = [2,1,5,1,3,2], k = 3",
+      "output": "9"
+    }
+  ],
+  "functionName": "maxSumWindow",
+  "solutionApproaches": [
+    {
+      "title": "Pattern Based",
+      "complexity": "Time O(n) to O(n log n), Space O(n)",
+      "explanation": "Use the core pattern from the tags: sliding window, prefix sums, two pointers, sorting, or a monotonic stack."
+    }
+  ]
+}

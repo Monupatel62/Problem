@@ -1,0 +1,17 @@
+### Add from the least-significant end
+
+Adding one affects the rightmost digit first. Traverse the array from its final index toward zero. A digit from 0 through 8 can absorb the increment, so increase it by one and return immediately. No digit further left can change once the carry has stopped.
+
+When a digit is 9, adding one writes 0 and carries one position to the left. Continue until you find a digit below 9 or run out of digits. For `[4, 9, 9]`, the two 9s become zero and the 4 becomes 5, giving `[5, 0, 0]`.
+
+If every digit was 9, the loop leaves an array of zeroes. The mathematical result needs a new most-significant digit, so return `[1, ...digits]`. This is the only situation where the result is longer than the input. The input `[0]` follows the ordinary below-9 path and returns `[1]`.
+
+### Why not parse the whole number
+
+Converting to a JavaScript number, integer, or floating-point value risks losing precision for long digit arrays. Using arithmetic directly on digits preserves every value and works in every language. It also needs O(n) time in the worst case and O(1) auxiliary space apart from the expanded all-9s result.
+
+Test a final digit below 9, one trailing 9, several trailing 9s, an all-9s input, and zero. These cases verify the carry direction and prevent the common mistake of appending rather than prepending the final 1.
+
+### Implementation details
+
+The best case is O(1) when the final digit is below 9, because the function returns after one update. The worst case is O(n) for an array of all 9s, and that is unavoidable because every digit changes. Do not insert a leading one until the loop has processed every digit; inserting early produces an extra digit for inputs such as `[1, 2, 9]`. If your language returns a new array for the expansion case, preserve the already-zeroed suffix exactly.

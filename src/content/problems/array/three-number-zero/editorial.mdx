@@ -1,0 +1,15 @@
+### Reduce the third value to a two-sum search
+
+Sort the values first. For each distinct fixed index `i`, search the suffix with `left = i + 1` and `right = n - 1`. The sorted order controls the pointer moves: a negative sum needs a larger left value, while a positive sum needs a smaller right value. This makes each fixed-value search linear.
+
+The outer loop plus the two-pointer sweep costs O(n²), a major improvement over O(n³) triple enumeration. Once `nums[i]` is positive, later fixed values cannot form a zero-sum triplet in the sorted array, so an optional early break is safe.
+
+### Deduplicate at every level
+
+Skip `nums[i]` when it equals the previously fixed value. After finding a zero-sum triplet, move both pointers and skip any repeated values at their new positions. The count is incremented once before these skips. This produces each sorted value combination exactly once even when the input contains many duplicates.
+
+Distinct positions are automatically enforced by `i < left < right`. Test all zeroes, no solution, duplicated negative values, and multiple overlapping index choices for one value triplet. These cases confirm that the function counts value-unique answers rather than raw index combinations.
+
+### Pointer and duplicate safety
+
+After a matching sum, move both pointers before skipping further duplicates; otherwise the loop can examine the same pair again. When the sum is nonzero, move only one pointer because the sorted order proves the other direction cannot repair it. Never skip duplicate values before counting the first matching triplet: `[0, 0, 0]` is a valid answer when three zeroes exist. A copied sort avoids surprising callers that depend on the original array order. The outer index should stop two positions before the end, ensuring room for the two-pointer pair. This boundary also avoids unnecessary empty searches.

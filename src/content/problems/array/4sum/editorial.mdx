@@ -1,0 +1,15 @@
+### Reduce four-sum to sorted two-sum
+
+Sort the numbers first. Fix `i` from left to right, then fix `j` after it. The two remaining values must be chosen from the sorted suffix, so use `left = j + 1` and `right = n - 1`. Compare the sum of all four values with the target. A sum that is too small requires moving `left` right; a sum that is too large requires moving `right` left.
+
+This reduces the inner pair search to O(n). With two outer loops, the overall running time is O(n³), substantially better than checking all O(n⁴) four-index combinations. Sorting costs O(n log n), which is dominated by the triple-loop work.
+
+### Remove duplicate combinations deliberately
+
+Repeated input values can create the same value quadruplet through many index choices. Skip `nums[i]` when it equals its previous value at the same loop level, and do the same for `nums[j]`. After recording an answer, skip repeated values at both two-pointer boundaries before moving them inward. Do not skip only the outer loops: duplicates in the left and right positions would still create repeated output.
+
+The indices remain distinct because `i < j < left < right` at all times. In fixed-width languages, calculate the four-value sum in a wider type such as `long` before comparing it with the target; four individual integers can overflow even when each one fits an `int`. The stated JavaScript inputs remain within safe integer precision.
+
+Test all equal values, no possible result, negative and positive mixtures, and many duplicated zeroes. Also verify that every emitted quadruplet is internally sorted and appears only once. These checks validate both pointer movement and deduplication.
+
+Optional pruning can compare the smallest and largest possible sums for a chosen outer value and skip impossible ranges early. It improves typical work but does not change the O(n³) worst-case bound. Implement pruning only after duplicate rules are correct, because premature boundary exits can silently omit valid combinations.

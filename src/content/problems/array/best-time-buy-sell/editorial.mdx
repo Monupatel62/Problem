@@ -1,0 +1,17 @@
+### Interpret each day as a possible sale
+
+When the scan reaches a day with price `p`, the only question is: what was the cheapest price on an earlier day? If that running minimum is `minPrice`, selling today earns `p - minPrice`. Keeping the maximum of those candidates finds the best legal transaction without trying every pair explicitly.
+
+Initialize `minPrice` to infinity and `bestProfit` to zero. For each price, first update the minimum if the current price is cheaper. Otherwise, calculate the profit from selling at the current price and update the best result. This order never uses a future price as the buy price; a price can only be paired with something seen at or before the same scan position.
+
+An equally clear variation calculates the candidate first and then updates `minPrice`. With a zero initial profit, both variants return zero for a one-element array or a strictly decreasing sequence. The important rule is that there is only one transaction: do not add profits from several rises, which would solve a different stock problem.
+
+### Why nested loops are unnecessary
+
+The brute-force solution chooses every buy index and every later sell index, using O(n²) time. Once the scan has passed a day, only the smallest earlier price matters for every future sale; all larger earlier prices are dominated. Storing just that minimum compresses the past into one value.
+
+The final complexity is O(n) time and O(1) extra space. Test an increasing array, a decreasing array, one day, equal prices, and a profitable sale after an earlier low. These cases confirm that the code respects transaction order and correctly chooses not to trade when necessary.
+
+### Common mistakes
+
+Do not return the difference between the global maximum and global minimum without checking their positions; the cheapest price may occur after the maximum price and cannot be bought in time. Do not reset the result to a negative value either, because no transaction is better than a loss. The running minimum preserves the date order automatically and keeps the implementation short.

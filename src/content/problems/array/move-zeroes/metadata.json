@@ -1,0 +1,48 @@
+{
+  "id": 59,
+  "slug": "move-zeroes",
+  "title": "Move Zeroes",
+  "acceptance": "62.4%",
+  "difficulty": "Easy",
+  "track": "Algorithms",
+  "judgeReady": true,
+  "tags": ["Array", "Two Pointers"],
+  "companies": ["Facebook", "Amazon", "Apple", "Bloomberg", "Google"],
+  "frequency": 80,
+  "likes": 14000,
+  "dislikes": 380,
+  "discussionCount": 3100,
+  "constraints": [
+    "1 <= nums.length <= 10^4",
+    "-2^31 <= nums[i] <= 2^31 - 1",
+    "The same array must be updated while preserving non-zero order."
+  ],
+  "examples": [
+    {
+      "input": "nums = [0,1,0,3,12]",
+      "output": "[1,3,12,0,0]"
+    },
+    {
+      "input": "nums = [0]",
+      "output": "[0]"
+    },
+    {
+      "input": "nums = [1,0,0,2]",
+      "output": "[1,2,0,0]",
+      "explanation": "The non-zero values keep their original order."
+    }
+  ],
+  "functionName": "moveZeroes",
+  "solutionApproaches": [
+    {
+      "title": "Build a New Array",
+      "complexity": "Time O(n), Space O(n)",
+      "explanation": "Collect non-zero values and append zeroes, but this violates the in-place requirement."
+    },
+    {
+      "title": "Two-Pointer Write Cursor",
+      "complexity": "Time O(n), Space O(1)",
+      "explanation": "Use a write pointer that only advances on non-zero elements, filling trailing positions with zero."
+    }
+  ]
+}

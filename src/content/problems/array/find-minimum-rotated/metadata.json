@@ -1,0 +1,42 @@
+{
+  "id": 62,
+  "slug": "find-minimum-rotated",
+  "title": "Find Minimum in Rotated Sorted Array",
+  "acceptance": "49.3%",
+  "difficulty": "Medium",
+  "track": "Algorithms",
+  "judgeReady": true,
+  "tags": ["Array", "Binary Search"],
+  "companies": ["Amazon", "Microsoft", "Google", "Facebook", "Goldman Sachs"],
+  "frequency": 87,
+  "likes": 13000,
+  "dislikes": 450,
+  "discussionCount": 3500,
+  "constraints": [
+    "n == nums.length",
+    "1 <= n <= 5000",
+    "-5000 <= nums[i] <= 5000",
+    "All integers in nums are unique.",
+    "nums is sorted and possibly rotated.",
+    "The unrotated sorted array is also a valid input."
+  ],
+  "examples": [
+    { "input": "nums = [3,4,5,1,2]", "output": "1", "explanation": "Original: [1,2,3,4,5], rotated 3 times." },
+    { "input": "nums = [4,5,6,7,0,1,2]", "output": "0" },
+    { "input": "nums = [11,13,15,17]", "output": "11" },
+    { "input": "nums = [2,1]", "output": "1", "explanation": "The smallest rotation still follows the same binary-search rule." }
+  ],
+  "functionName": "findMin",
+  "solutionApproaches": [
+    {
+      "title": "Linear Scan",
+      "complexity": "Time O(n), Space O(1)",
+      "explanation": "Inspect every value and keep the smallest; correct but does not meet the logarithmic-time requirement."
+    },
+    {
+      "title": "Binary Search on Rotation Point",
+      "complexity": "Time O(log n), Space O(1)",
+      "explanation": "Compare mid with right. If nums[mid] > nums[right], minimum is in the right half; otherwise in the left half including mid."
+    }
+  ]
+}

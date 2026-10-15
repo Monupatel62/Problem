@@ -1,0 +1,11 @@
+The working directory contains a text file named `words.txt`. Write a shell pipeline that counts how often every word occurs and prints one result per line.
+
+Each output line must contain the count first, followed by one space and the word. Order the rows by decreasing frequency. For example, if a word occurs three times, its line starts with `3`; words occurring once start with `1`. The input may contain words separated by spaces, newlines, or a mixture of whitespace, so the command must treat each whitespace-separated token as one word.
+
+The comparison is exact and case-sensitive: `Hello` and `hello` are different words unless the input itself uses the same spelling. Punctuation is not removed or interpreted specially by this task. Preserve each token exactly as it appears after splitting on whitespace.
+
+You may use standard Unix text-processing tools in a pipeline. The platform provides `words.txt` in the working directory, so your command should read that file rather than expecting interactive input. Print only the result rows: do not add headings, prompts, diagnostic text, or blank lines.
+
+For the input `the day is sunny the the`, the word `the` occurs three times while every other word occurs once. Therefore `3 the` appears first. The other count-one rows follow in the deterministic order produced by the sorted pipeline. For `hello world hello hello world`, the required result is `3 hello` and then `2 world`.
+
+A useful approach is to turn whitespace into one word per line, group equal words together, count each group, and finally sort the count records numerically in reverse order. Be careful: `uniq` does not search the whole file by itself. It counts only identical **adjacent** lines, so the words must be sorted before `uniq -c` is used.

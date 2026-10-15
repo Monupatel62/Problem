@@ -1,0 +1,4 @@
+[
+  "Use tr, sort, uniq, and sort again.",
+  "uniq only counts adjacent equal lines, so sort the words before using it."
+]

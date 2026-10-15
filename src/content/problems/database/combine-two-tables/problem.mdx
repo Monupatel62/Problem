@@ -1,0 +1,11 @@
+You are given two tables: `Person` and `Address`. Write one SQL query that reports the first name, last name, city, and state for **every** person.
+
+`Person` is the source of truth for the people that must appear in the result. Its columns are `personId`, `lastName`, and `firstName`; `personId` uniquely identifies a person. `Address` contains `addressId`, `personId`, `city`, and `state`. An address row belongs to the person with the same `personId`.
+
+Some people do not yet have an address row. They must not disappear from the report. For such a person, return `NULL` for both `city` and `state`. A person with a matching address should show the values stored in that address row.
+
+Return exactly these four columns, using the names `firstName`, `lastName`, `city`, and `state`. The result order is not important unless the execution environment asks for one. Do not insert, update, or delete any data: this is a read-only reporting query.
+
+For example, if Allen Wang has no address while Bob Alice lives in New York, the result needs two rows. Allen's city and state are `NULL`; Bob's city and state are `New York`. The key requirement is preserving the complete list of people even when the related table has no matching record.
+
+Think about which table supplies mandatory rows. An inner join would only return people with addresses, so it cannot satisfy the requirement. Use the relationship between `Person.personId` and `Address.personId` to attach address details without excluding unmatched people. This pattern is useful whenever a report must retain parent records while optional related data is absent.

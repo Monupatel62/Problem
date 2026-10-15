@@ -1,0 +1,17 @@
+### Exploit monotonic order
+
+Set `left` to index 0 and `right` to the final index. Since the array is sorted, increasing `left` never decreases the pair sum, and decreasing `right` never increases it. This monotonic behavior lets each comparison eliminate one endpoint permanently.
+
+Calculate `sum = numbers[left] + numbers[right]`. If it equals the target, return `[left + 1, right + 1]`. If it is too small, advance `left`; no pair using the current left value can succeed because every remaining right value is no larger. If it is too large, decrement `right` for the symmetric reason.
+
+The pointers move inward at most n times in total, so the runtime is O(n) and extra space is O(1). A hash map also finds pairs in linear time but violates the constant-space follow-up. A nested loop is O(n²) and ignores the sorted input.
+
+### Important boundaries
+
+Use `left < right` so the same element is never reused. Preserve the result's required 1-based indexing even though the implementation uses zero-based offsets. Duplicate values are valid when they occur at separate positions, such as `[0, 0]` for target 0. The exact-one-solution guarantee means an empty return is only a defensive fallback.
+
+Test a pair at both ends, two equal values, negative values, and a pair near the right edge. These cases verify pointer movement and index conversion.
+
+### Why discarding an endpoint is correct
+
+When the sum is too small, pairing the current left value with any other remaining value cannot help: all other right-side values are less than or equal to the current right value. Therefore the current left index cannot belong to the answer. The same proof applies in reverse when the sum is too large. This is stronger than guessing pointer moves; it is the reason no possible solution is skipped. Keep calculations in the original zero-based coordinates until returning the final two indices.

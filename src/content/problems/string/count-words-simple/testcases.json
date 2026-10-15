@@ -1,0 +1,24 @@
+{
+  "sampleCases": [
+    {
+      "input": [
+        "learn code daily"
+      ],
+      "expected": 3
+    }
+  ],
+  "hiddenCases": [
+    {
+      "input": [
+        "  one   two "
+      ],
+      "expected": 2
+    },
+    {
+      "input": [
+        "     "
+      ],
+      "expected": 0
+    }
+  ]
+}

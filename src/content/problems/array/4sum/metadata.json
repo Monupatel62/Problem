@@ -1,0 +1,39 @@
+{
+  "id": 68,
+  "slug": "4sum",
+  "title": "4Sum",
+  "acceptance": "36.1%",
+  "difficulty": "Medium",
+  "track": "Algorithms",
+  "judgeReady": true,
+  "tags": ["Array", "Two Pointers", "Sorting"],
+  "companies": ["Amazon", "Adobe", "Apple", "Bloomberg"],
+  "frequency": 74,
+  "likes": 10000,
+  "dislikes": 1100,
+  "discussionCount": 2600,
+  "constraints": [
+    "1 <= nums.length <= 200",
+    "-10^9 <= nums[i] <= 10^9",
+    "-10^9 <= target <= 10^9",
+    "Each returned quadruplet must be unique by values."
+  ],
+  "examples": [
+    { "input": "nums = [1,0,-1,0,-2,2], target = 0", "output": "[[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]" },
+    { "input": "nums = [2,2,2,2,2], target = 8", "output": "[[2,2,2,2]]" },
+    { "input": "nums = [0,0,0,0], target = 0", "output": "[[0,0,0,0]]", "explanation": "Four distinct positions may contain the same value." }
+  ],
+  "functionName": "fourSum",
+  "solutionApproaches": [
+    {
+      "title": "Enumerate Four Indices",
+      "complexity": "Time O(n⁴), Space O(1) excluding output",
+      "explanation": "Test every four-index combination and deduplicate results, which is too slow and cumbersome for repeated values."
+    },
+    {
+      "title": "Sort + Two Nested Loops + Two Pointers",
+      "complexity": "Time O(n^3), Space O(1)",
+      "explanation": "Sort, fix first two with loops, use two pointers for the inner pair. Skip duplicates at each level."
+    }
+  ]
+}

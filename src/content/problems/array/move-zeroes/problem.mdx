@@ -1,0 +1,9 @@
+Given an integer array `nums`, move every value equal to zero to the end of the **same array**. Keep all non-zero values in the relative order in which they originally appeared. Return the updated array for this practice workspace.
+
+For `[0, 1, 0, 3, 12]`, the result is `[1, 3, 12, 0, 0]`. The values 1, 3, and 12 retain their order. For `[1, 0, 0, 2]`, the answer is `[1, 2, 0, 0]`; swapping a later non-zero value ahead of an earlier one would be incorrect.
+
+The operation must be in place, so building a second full array of non-zero values is not the intended solution. Use a write pointer that marks the next position where a non-zero value belongs. Scan the array from left to right. Whenever the current value is non-zero, write it at the pointer and advance the pointer. Skip zeroes during this first pass.
+
+After all non-zero values have been written, every position before the write pointer contains the stable non-zero sequence. Fill the remaining positions with zero. This works even when there are no zeroes, all values are zero, negative numbers occur, or only one element is present.
+
+An alternative one-pass swap method can also work when the write pointer trails the scan pointer, but the write-then-fill method is often easier to reason about. It reads the input once, uses constant extra space, and never changes the order of non-zero elements. Zero is the only value moved; other falsy-looking values are not relevant because the input contains integers.

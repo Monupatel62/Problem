@@ -1,0 +1,41 @@
+{
+  "id": 41,
+  "slug": "majority-vote-simple",
+  "title": "Majority Vote Simple",
+  "acceptance": "0.0%",
+  "difficulty": "Easy",
+  "track": "Algorithms",
+  "tags": [
+    "Array",
+    "Counting"
+  ],
+  "companies": [
+    "Amazon",
+    "Apple",
+    "Google",
+    "Uber"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "1 <= nums.length <= 10^5",
+    "-10^9 <= nums[i] <= 10^9",
+    "A majority value always exists."
+  ],
+  "examples": [
+    {
+      "input": "nums = [3,2,3]",
+      "output": "3"
+    }
+  ],
+  "functionName": "majorityVoteSimple",
+  "solutionApproaches": [
+    {
+      "title": "Direct Array Pattern",
+      "complexity": "Time O(n), Space O(1) to O(n) depending on returned output",
+      "explanation": "Use a focused array traversal, two-pointer pattern, hash set, or prefix calculation based on the statement."
+    }
+  ]
+}

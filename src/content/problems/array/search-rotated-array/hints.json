@@ -1,0 +1,5 @@
+[
+  "One half of the array around mid is always sorted.",
+  "Check which half is sorted; if target falls in that range, search there.",
+  "Otherwise search the other half."
+]

@@ -1,0 +1,37 @@
+# Print in Order: concurrency editorial
+
+There are two one-way dependencies: `second()` cannot run its callback until `first()` has completed, and `third()` cannot run its callback until `second()` has completed. A semaphore is a direct way to encode these two gates. Create both semaphores with an initial count of zero, so acquiring either one blocks until another method releases it.
+
+```python
+import threading
+
+class Foo:
+    def __init__(self):
+        self.allow_second = threading.Semaphore(0)
+        self.allow_third = threading.Semaphore(0)
+
+    def first(self, printFirst):
+        printFirst()
+        self.allow_second.release()
+
+    def second(self, printSecond):
+        self.allow_second.acquire()
+        printSecond()
+        self.allow_third.release()
+
+    def third(self, printThird):
+        self.allow_third.acquire()
+        printThird()
+```
+
+## How the gates work
+
+If `second()` starts before `first()`, its `acquire()` call blocks because `allow_second` has count zero. When `first()` finishes running `printFirst`, it calls `release()`, increasing that count and allowing exactly one waiting `second()` call to proceed. The same handoff happens from `second()` to `third()` through `allow_third`.
+
+The release happens **after** each callback, not before it. Releasing before `printFirst()` could let `second()` print while the first callback has not completed, breaking the required ordering. Keeping the signal immediately after the callback establishes the needed happens-before relation for this exercise.
+
+## Correctness argument
+
+`second()` cannot execute `printSecond()` until it acquires `allow_second`. The only release of that semaphore occurs after `first()` executes `printFirst()`, so `printFirst()` always precedes `printSecond()`. Likewise, `third()` cannot execute `printThird()` until `second()` releases `allow_third`, which happens only after `printSecond()`. By transitivity, the callbacks always run in the order first, second, third for every thread arrival order.
+
+Each method does constant work apart from waiting, so the synchronization storage is constant: two semaphore objects. Waiting threads block efficiently instead of repeatedly polling a shared variable. Events, condition variables, promises, or latches can express the same dependencies; the important property is that the shared object owns two reliable completion signals. This avoids timing-dependent behaviour and works without guessing when another thread will start.

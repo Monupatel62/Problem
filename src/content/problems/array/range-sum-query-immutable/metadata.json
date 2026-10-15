@@ -1,0 +1,31 @@
+{
+  "id": 71,
+  "slug": "range-sum-query-immutable",
+  "title": "Range Sum Query - Immutable",
+  "acceptance": "60.2%",
+  "difficulty": "Easy",
+  "track": "Algorithms",
+  "tags": ["Array", "Prefix Sum"],
+  "companies": ["Amazon", "Google", "Microsoft", "Bloomberg"],
+  "frequency": 77,
+  "likes": 5800,
+  "dislikes": 340,
+  "discussionCount": 1500,
+  "constraints": [
+    "1 <= nums.length <= 10^4",
+    "-10^5 <= nums[i] <= 10^5",
+    "0 <= left <= right < nums.length",
+    "At most 10^4 queries."
+  ],
+  "examples": [
+    { "input": "nums = [-2,0,3,-5,2,-1], queries = [[0,2],[2,5],[0,5]]", "output": "[1,-1,-3]" }
+  ],
+  "functionName": "rangeSumQuery",
+  "solutionApproaches": [
+    {
+      "title": "Prefix Sum",
+      "complexity": "Time O(n) build + O(1) per query, Space O(n)",
+      "explanation": "prefix[i] = sum(nums[0..i-1]). sumRange(l,r) = prefix[r+1] - prefix[l]."
+    }
+  ]
+}

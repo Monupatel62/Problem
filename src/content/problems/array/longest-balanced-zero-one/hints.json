@@ -1,0 +1,4 @@
+[
+  "Treat 0 as -1 and 1 as +1.",
+  "Equal prefix sum means the segment between them is balanced."
+]

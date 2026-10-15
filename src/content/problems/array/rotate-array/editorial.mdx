@@ -1,0 +1,3 @@
+The three-reverse trick is the cleanest in-place O(1) space approach.
+
+First normalise k with k = k % n to handle over-rotation. Then reverse the entire array, reverse the first k elements, and finally reverse the remaining n-k elements. The result is a right rotation by k.

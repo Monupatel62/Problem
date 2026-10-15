@@ -1,0 +1,19 @@
+### Track the values already seen
+
+A set stores each distinct value once. Scan the array from left to right. For the current value `x`, check `seen.has(x)` before adding it. A positive result means an earlier position already contained `x`, which proves the answer is true. Otherwise add `x` and continue. If no lookup succeeds, every element was distinct.
+
+Checking before insertion makes the code's intent explicit, although adding first and comparing set sizes is another valid pattern. The early return is useful: an array whose first two values match is resolved immediately without inspecting the rest of the input.
+
+### Alternatives and trade-offs
+
+The brute-force method tests each pair of indices. It uses O(1) auxiliary space but O(n²) time. Sorting the array first brings equal values together, so one follow-up scan can detect adjacent equals. That costs O(n log n) time and may mutate the input unless a copy is made.
+
+The hash-set approach uses O(n) expected time and O(n) extra space. It is the best default when preserving the input matters and an average-case linear lookup is available. JavaScript's `Set`, Python's `set`, Java's `HashSet`, and C++'s `unordered_set` all express this idea directly.
+
+### Edge cases
+
+A one-element array is always distinct. Negative integers and zero are ordinary set keys, so they need no special branch. A number can repeat many times; the second occurrence is enough to return true. Test duplicates at the start, duplicates at the end, an all-distinct sequence, and repeated negative values to verify the implementation.
+
+### Correctness and early exit
+
+Before reading a value, the set contains exactly the distinct values from earlier positions. If the current value is already present, that earlier occurrence proves a duplicate. If not, adding it restores the invariant for the next iteration. Reaching the end without a repeated lookup proves every position introduced a new value. The early return does not miss any requirement because the question asks only whether at least one duplicate exists, not how many copies occur or which value repeats first.

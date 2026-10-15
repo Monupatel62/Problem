@@ -1,0 +1,5 @@
+[
+  "Any number XOR itself equals 0.",
+  "XOR is commutative and associative, so order does not matter.",
+  "XOR all elements together — every duplicate cancels, leaving the single element."
+]

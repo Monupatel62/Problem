@@ -1,0 +1,4 @@
+[
+  "Scan from right to left.",
+  "Keep a decreasing stack of useful future values."
+]

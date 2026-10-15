@@ -1,0 +1,9 @@
+Given an integer array `nums` and a target, return every **unique** quadruplet of values whose sum equals the target. Each quadruplet must use four different array indices, but equal values may be used when they occur at separate positions. The order of quadruplets does not matter.
+
+For `[1, 0, -1, 0, -2, 2]` and target 0, one answer is `[-2, -1, 1, 2]`. The result must not repeat that same value combination through different index choices. For `[2, 2, 2, 2, 2]` and target 8, return only `[[2, 2, 2, 2]]`, not several identical quadruplets.
+
+Sorting is the foundation. After sorting a copy of the numbers, fix the first value with index `i` and the second with index `j`. The remaining task is a sorted two-sum search between `left = j + 1` and `right = n - 1`. Move `left` right when the four-value sum is too small and move `right` left when it is too large.
+
+Duplicate handling is essential. Skip equal values for `i` and `j` before starting each inner search. After finding a valid quadruplet, advance `left` past equal values and retreat `right` past equal values before continuing. This generates each sorted value combination exactly once.
+
+The resulting complexity is O(n³) time after sorting and O(1) auxiliary space excluding the output. Use a wide enough numeric type for four-value sums in languages where integer overflow is possible. JavaScript's numeric range safely covers these stated bounds. Return arrays of values, not the original indices, in any valid ordering.

@@ -1,0 +1,5 @@
+[
+  "All values are in [1, n] — each value can be used as an index into the array.",
+  "Negate the value at index abs(nums[i])-1 to mark it as visited.",
+  "If you arrive at a negative value, that number has appeared before."
+]

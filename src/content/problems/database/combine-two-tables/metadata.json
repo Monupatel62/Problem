@@ -1,0 +1,66 @@
+{
+  "id": 175,
+  "slug": "combine-two-tables",
+  "title": "Combine Two Tables",
+  "acceptance": "76.3%",
+  "difficulty": "Easy",
+  "track": "Database",
+  "judgeReady": true,
+  "tags": [
+    "Database",
+    "SQL"
+  ],
+  "companies": [
+    "Meta",
+    "Amazon"
+  ],
+  "frequency": 52,
+  "premium": true,
+  "likes": 4100,
+  "dislikes": 260,
+  "discussionCount": 900,
+  "constraints": [
+    "Return null if an address is missing.",
+    "Use a LEFT JOIN from Person to Address.",
+    "Write your SQL query in the editor (select JavaScript language)."
+  ],
+  "examples": [
+    {
+      "input": "Person: [[1,'Wang','Allen'],[2,'Alice','Bob']], Address: [[1,2,'New York','New York']]",
+      "output": "[['Wang','Allen','Null','Null'],['Alice','Bob','New York','New York']]",
+      "explanation": "Wang Allen has no address so city and state are null."
+    },
+    {
+      "input": "Person: [[1,'Smith','John'],[2,'Doe','Jane']], Address: [[1,1,'Los Angeles','California']]",
+      "output": "[['John','Smith','Los Angeles','California'],['Jane','Doe','Null','Null']]",
+      "explanation": "John has a matching address. Jane is still returned because the query keeps every Person row."
+    }
+  ],
+  "functionName": "combineTwoTables",
+  "sqlSchema": {
+    "tables": {
+      "Person": {
+        "columns": [
+          {"name": "personId", "type": "INTEGER", "primaryKey": true},
+          {"name": "lastName",  "type": "TEXT",    "notNull": true},
+          {"name": "firstName", "type": "TEXT",    "notNull": true}
+        ]
+      },
+      "Address": {
+        "columns": [
+          {"name": "addressId", "type": "INTEGER", "primaryKey": true},
+          {"name": "personId",  "type": "INTEGER", "notNull": true},
+          {"name": "city",      "type": "TEXT"},
+          {"name": "state",     "type": "TEXT"}
+        ]
+      }
+    }
+  },
+  "solutionApproaches": [
+    {
+      "title": "LEFT JOIN",
+      "complexity": "Depends on DB index",
+      "explanation": "Join Person.personId to Address.personId using LEFT JOIN so rows without address still appear."
+    }
+  ]
+}

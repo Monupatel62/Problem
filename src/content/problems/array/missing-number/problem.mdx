@@ -1,0 +1,9 @@
+Given an array `nums` of length `n`, its values are distinct numbers from the inclusive range `[0, n]`. That range contains `n + 1` possible values, so exactly one number is absent from the array. Return the missing value.
+
+For `[3, 0, 1]`, the length is 3 and the complete range is 0, 1, 2, 3. Since 0, 1, and 3 occur, return 2. The missing value may be at either endpoint: `[1]` is missing 0, while `[0, 1]` is missing 2.
+
+Sorting or using a set can reveal the gap, but those approaches need O(n log n) time or O(n) extra memory. The range property allows a constant-space calculation. The sum of every integer from 0 through n is `n * (n + 1) / 2`. Subtract each array value from that expected total; the remaining amount is the missing value.
+
+Another constant-space solution uses XOR. XOR every number from 0 through n and XOR every array value. Equal values cancel because `x XOR x` is zero, leaving only the missing value. This avoids arithmetic overflow in languages where the range might be larger, although the stated constraints are safe for the sum formula.
+
+Do not assume the input is sorted and do not use the largest array value as the range endpoint. The endpoint is `nums.length`, even when that number is the one missing. The input is read once and never needs to be modified. Return an integer from the original inclusive range, including either endpoint when necessary.

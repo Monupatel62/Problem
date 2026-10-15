@@ -1,0 +1,38 @@
+{
+  "id": 7,
+  "slug": "count-strictly-greater",
+  "title": "Count Strictly Greater",
+  "acceptance": "0.0%",
+  "difficulty": "Easy",
+  "track": "Algorithms",
+  "tags": [
+    "Array",
+    "Counting"
+  ],
+  "companies": [
+    "Amazon",
+    "Microsoft"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "0 <= nums.length <= 10^5",
+    "-10^9 <= nums[i], threshold <= 10^9"
+  ],
+  "examples": [
+    {
+      "input": "nums = [2,7,4,9], threshold = 4",
+      "output": "2"
+    }
+  ],
+  "functionName": "countStrictlyGreater",
+  "solutionApproaches": [
+    {
+      "title": "Direct Pattern",
+      "complexity": "Time O(n), Space O(1) to O(n) depending on output",
+      "explanation": "Use the simplest scan or helper data structure required by the statement."
+    }
+  ]
+}

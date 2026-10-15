@@ -1,0 +1,4 @@
+[
+  "Add matrix[i][i] and matrix[i][n-1-i].",
+  "Skip the duplicate center for odd n."
+]

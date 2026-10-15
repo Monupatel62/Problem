@@ -1,0 +1,24 @@
+{
+  "sampleCases": [
+    {
+      "input": [
+        "aaabbc"
+      ],
+      "expected": "a3b2c1"
+    }
+  ],
+  "hiddenCases": [
+    {
+      "input": [
+        "z"
+      ],
+      "expected": "z1"
+    },
+    {
+      "input": [
+        ""
+      ],
+      "expected": ""
+    }
+  ]
+}

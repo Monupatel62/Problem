@@ -1,0 +1,11 @@
+Given a string `s`, return the length of its longest substring that contains no repeated character. A **substring** is contiguous: its characters must occupy one uninterrupted range in the original string. Do not confuse it with a subsequence, which may skip characters.
+
+For `s = "abcabcbb"`, the answer is 3 because `"abc"` contains three different characters. For `"pwwkew"`, the answer is also 3: `"wke"` is valid, while `"pwke"` is not a substring because it skips a character. An empty string has answer 0.
+
+The direct approach starts at each character and grows a set until it sees a duplicate. It works, but many characters are examined repeatedly. With a string length of fifty thousand, that can become quadratic time.
+
+Use a sliding window instead. Keep a left boundary and move a right boundary across the string. The current window is always valid: every character inside it occurs only once. Store each character's most recent index in a map. When the right pointer reaches a repeated character that is still inside the current window, move `left` to one position after that earlier occurrence.
+
+Never move `left` backward. A character may have appeared before the current window began, and that old occurrence must not shrink the window. After updating the map, the current valid length is `right - left + 1`; keep the largest such value.
+
+This one-pass method handles repeated runs such as `"bbbbb"`, overlapping repeats such as `"abba"`, punctuation, spaces, and an empty input. It needs no sorted input and does not change the string.

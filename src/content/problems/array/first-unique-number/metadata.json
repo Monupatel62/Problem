@@ -1,0 +1,40 @@
+{
+  "id": 8,
+  "slug": "first-unique-number",
+  "title": "First Unique Number",
+  "acceptance": "0.0%",
+  "difficulty": "Easy",
+  "track": "Algorithms",
+  "tags": [
+    "Array",
+    "Hash Table",
+    "Counting"
+  ],
+  "companies": [
+    "Amazon",
+    "Apple",
+    "Bloomberg"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "1 <= nums.length <= 10^5",
+    "-10^9 <= nums[i] <= 10^9"
+  ],
+  "examples": [
+    {
+      "input": "nums = [5,3,5,2,3]",
+      "output": "2"
+    }
+  ],
+  "functionName": "firstUniqueNumber",
+  "solutionApproaches": [
+    {
+      "title": "Direct Pattern",
+      "complexity": "Time O(n), Space O(1) to O(n) depending on output",
+      "explanation": "Use the simplest scan or helper data structure required by the statement."
+    }
+  ]
+}

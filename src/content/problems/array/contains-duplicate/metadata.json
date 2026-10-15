@@ -1,0 +1,49 @@
+{
+  "id": 53,
+  "slug": "contains-duplicate",
+  "title": "Contains Duplicate",
+  "acceptance": "61.5%",
+  "difficulty": "Easy",
+  "track": "Algorithms",
+  "judgeReady": true,
+  "tags": ["Array", "Hash Table", "Sorting"],
+  "companies": ["Amazon", "Google", "Apple", "Bloomberg"],
+  "frequency": 88,
+  "likes": 11000,
+  "dislikes": 1200,
+  "discussionCount": 3400,
+  "constraints": [
+    "1 <= nums.length <= 10^5",
+    "-10^9 <= nums[i] <= 10^9",
+    "Return a boolean and do not modify the input array."
+  ],
+  "examples": [
+    {
+      "input": "nums = [1,2,3,1]",
+      "output": "true",
+      "explanation": "Element 1 occurs at index 0 and 3."
+    },
+    {
+      "input": "nums = [1,2,3,4]",
+      "output": "false"
+    },
+    {
+      "input": "nums = [-1,-1]",
+      "output": "true",
+      "explanation": "Duplicate detection works for negative values as well."
+    }
+  ],
+  "functionName": "containsDuplicate",
+  "solutionApproaches": [
+    {
+      "title": "Compare Every Pair",
+      "complexity": "Time O(n²), Space O(1)",
+      "explanation": "Check each value against every later value. This is simple but inefficient for a large array."
+    },
+    {
+      "title": "Hash Set",
+      "complexity": "Time O(n), Space O(n)",
+      "explanation": "Add each element to a set. If it already exists, return true."
+    }
+  ]
+}

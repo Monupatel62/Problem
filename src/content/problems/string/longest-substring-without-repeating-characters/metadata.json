@@ -1,0 +1,50 @@
+{
+  "id": 3,
+  "slug": "longest-substring",
+  "title": "Longest Substring Without Repeating Characters",
+  "acceptance": "36.9%",
+  "difficulty": "Medium",
+  "track": "Algorithms",
+  "judgeReady": true,
+  "tags": ["String", "Hash Table", "Sliding Window"],
+  "companies": ["Google", "Amazon", "Bloomberg"],
+  "frequency": 89,
+  "likes": 42000,
+  "dislikes": 1800,
+  "discussionCount": 9100,
+  "constraints": [
+    "0 <= s.length <= 5 * 10^4",
+    "s consists of English letters, digits, symbols and spaces.",
+    "The result is the length of a contiguous substring, not a subsequence."
+  ],
+  "examples": [
+    {
+      "input": "s = \"abcabcbb\"",
+      "output": "3",
+      "explanation": "The answer is abc."
+    },
+    {
+      "input": "s = \"bbbbb\"",
+      "output": "1",
+      "explanation": "Every longer contiguous window repeats b."
+    },
+    {
+      "input": "s = \"pwwkew\"",
+      "output": "3",
+      "explanation": "wke is the longest valid substring; pwke is not contiguous."
+    }
+  ],
+  "functionName": "lengthOfLongestSubstring",
+  "solutionApproaches": [
+    {
+      "title": "Restart From Every Position",
+      "complexity": "Time O(n²), Space O(min(n, charset))",
+      "explanation": "Grow a unique-character set from each starting index. It is correct but repeats scans over the same characters."
+    },
+    {
+      "title": "Sliding Window",
+      "complexity": "Time O(n), Space O(min(n, charset))",
+      "explanation": "Each character is visited once by the right pointer."
+    }
+  ]
+}

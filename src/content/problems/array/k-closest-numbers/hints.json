@@ -1,0 +1,5 @@
+[
+  "You do not need the actual Euclidean distance — compare x*x + y*y directly.",
+  "Sort all points by squared distance and return the first k.",
+  "A max-heap of size k is more efficient when k << n."
+]

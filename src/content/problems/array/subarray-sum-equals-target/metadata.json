@@ -1,0 +1,58 @@
+{
+  "id": 44,
+  "slug": "subarray-sum-equals-target",
+  "title": "Subarray Sum Equals Target",
+  "acceptance": "0.0%",
+  "difficulty": "Medium",
+  "track": "Algorithms",
+  "judgeReady": true,
+  "tags": [
+    "Array",
+    "Hash Table",
+    "Prefix Sum"
+  ],
+  "companies": [
+    "Amazon",
+    "Google",
+    "Facebook",
+    "Microsoft"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "1 <= nums.length <= 10^5",
+    "-10^5 <= nums[i], target <= 10^5",
+    "A subarray is contiguous and may contain negative values."
+  ],
+  "examples": [
+    {
+      "input": "nums = [1,1,1], target = 2",
+      "output": "2"
+    },
+    {
+      "input": "nums = [1,2,3], target = 3",
+      "output": "2",
+      "explanation": "The valid subarrays are [1,2] and [3]."
+    },
+    {
+      "input": "nums = [-1,-1,1], target = 0",
+      "output": "1",
+      "explanation": "Negative values mean a sliding window is not reliable here."
+    }
+  ],
+  "functionName": "subarraySumEqualsTarget",
+  "solutionApproaches": [
+    {
+      "title": "Enumerate Every Subarray",
+      "complexity": "Time O(n²), Space O(1)",
+      "explanation": "Accumulate sums from each start index and count matches; correct but too slow for one hundred thousand values."
+    },
+    {
+      "title": "Prefix Sum Frequency Map",
+      "complexity": "Time O(n), Space O(n)",
+      "explanation": "Count earlier prefix sums. A prior sum of currentPrefix - target defines one valid contiguous subarray."
+    }
+  ]
+}

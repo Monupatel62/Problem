@@ -1,0 +1,13 @@
+You are given two tables: `Customers` and `Orders`. Write one SQL query that reports the **name** of every customer who has never placed an order. Return the result column with the alias `Customers`.
+
+`Customers` has two columns: `id` and `name`. `id` uniquely identifies each customer. `Orders` has two columns: `id` and `customerId`. Each row in `Orders` records that the customer with that `customerId` has placed an order. A customer in `Customers` who does not appear as a `customerId` in `Orders` has never ordered.
+
+Return one column named `Customers` containing the names of all such customers. The output order does not matter. Do not insert, update, or delete any data: this is a read-only query.
+
+For example, if `Customers` contains Joe, Henry, Sam, and Max, and `Orders` references only Sam and Joe, then Henry and Max must appear in the result. Sam and Joe have placed orders and must be excluded.
+
+There are two common approaches. The first uses a subquery: collect every `customerId` that appears in `Orders`, then select customers whose `id` is **not** in that set. The second joins `Customers` to `Orders` using a `LEFT JOIN` and keeps only rows where the join produced no match — that is, where the `Orders.customerId` column is `NULL` after the join.
+
+Both approaches produce the same result. Pay close attention to the `NULL` pitfall: if you use `NOT IN` and the subquery can return a `NULL` value, the entire `NOT IN` check silently returns false for every row. In this problem `customerId` is declared `NOT NULL`, so `NOT IN` is safe here. In general, `LEFT JOIN / IS NULL` or `NOT EXISTS` avoids that trap entirely.
+
+The alias in the output matters. Name the result column `Customers` exactly, because the judge compares column names as well as values.

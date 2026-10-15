@@ -1,0 +1,19 @@
+### Understand the pair requirement
+
+For every value `x`, there is exactly one value that would make a valid pair: `target - x`. The goal is not to return those two values. It is to return the original positions where they occur, and the positions must be different. That is why storing indices is essential.
+
+### Baseline: check all pairs
+
+Start with the simplest correct method. For each index `i`, inspect every later index `j`. If `nums[i] + nums[j]` equals the target, return `[i, j]`. This never reuses an element and naturally returns increasing indices. Its weakness is repeated work: the same values are compared many times. The time cost is O(n²), although extra space is only O(1). It is acceptable for a tiny array but not for the stated upper bound.
+
+### Efficient approach: one pass with a hash map
+
+Maintain a map from a previously seen number to its index. At index `i`, compute `need = target - nums[i]`. If `need` is already in the map, the stored index plus `i` forms the answer. If it is absent, record the current value and index for a future number to use.
+
+Checking before inserting is the key detail. With `[3, 3]` and target `6`, the first `3` is stored at index `0`; the second `3` then finds it and returns `[0, 1]`. With only one `3`, checking first means it cannot pair with itself.
+
+Each array value is visited once, and each map lookup or insertion is O(1) on average. The total running time is O(n), and the map uses O(n) additional space. This is the preferred solution for interview and production-style inputs.
+
+### Edge cases to test
+
+Test duplicate values, negative values, a target of zero, and a valid pair at the beginning or end of the array. Do not sort the input: it would lose the original indices. Also return as soon as the complement is found; the guarantee of one answer means no later search is needed.

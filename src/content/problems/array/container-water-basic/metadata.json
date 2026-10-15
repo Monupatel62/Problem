@@ -1,0 +1,57 @@
+{
+  "id": 49,
+  "slug": "container-water-basic",
+  "title": "Container Water Basic",
+  "acceptance": "0.0%",
+  "difficulty": "Medium",
+  "track": "Algorithms",
+  "judgeReady": true,
+  "tags": [
+    "Array",
+    "Two Pointers"
+  ],
+  "companies": [
+    "Amazon",
+    "Google",
+    "Facebook",
+    "Microsoft"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "2 <= height.length <= 10^5",
+    "0 <= height[i] <= 10^4",
+    "The two selected lines remain vertical at their original indices."
+  ],
+  "examples": [
+    {
+      "input": "height = [1,8,6,2,5,4,8,3,7]",
+      "output": "49"
+    },
+    {
+      "input": "height = [1,1]",
+      "output": "1",
+      "explanation": "Width 1 multiplied by limiting height 1 gives area 1."
+    },
+    {
+      "input": "height = [4,3,2,1,4]",
+      "output": "16",
+      "explanation": "The two height-4 boundary lines have width 4."
+    }
+  ],
+  "functionName": "containerWaterBasic",
+  "solutionApproaches": [
+    {
+      "title": "Check Every Pair of Lines",
+      "complexity": "Time O(n²), Space O(1)",
+      "explanation": "Calculate the area for every pair; correct but too slow for a large height array."
+    },
+    {
+      "title": "Two Pointers From Both Ends",
+      "complexity": "Time O(n), Space O(1)",
+      "explanation": "Measure the outer pair, then move only the shorter boundary because the taller one limits no future improvement."
+    }
+  ]
+}

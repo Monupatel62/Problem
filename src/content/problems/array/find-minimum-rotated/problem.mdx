@@ -1,0 +1,9 @@
+An ascending array with unique values may be rotated around a pivot: some suffix is moved before the original prefix. Given that possibly rotated array `nums`, return its smallest value in O(log n) time. The original array may also be unrotated.
+
+For `[3, 4, 5, 1, 2]`, the sorted order wraps between 5 and 1, so return 1. For `[11, 13, 15, 17]`, no wrap occurs and the first element is already the minimum. Every value is unique; that condition makes the binary-search comparison unambiguous.
+
+A linear scan can simply track the smallest value, but it takes O(n) time and does not satisfy the required logarithmic complexity. Instead, search for the rotation point using the right boundary as a reference.
+
+Maintain an inclusive interval from `left` to `right` that is guaranteed to contain the minimum. Let `mid` be its middle index. If `nums[mid] > nums[right]`, the minimum must be strictly to the right of `mid`: that left portion is still in the larger, pre-rotation sequence. Set `left = mid + 1`. Otherwise, `nums[mid]` is at or before the minimum side, so keep it as a candidate by setting `right = mid`.
+
+When the two boundaries meet, that one index is the minimum. Do not set `right = mid - 1` in the second case, because `mid` itself may be the answer. This algorithm handles one item, an unrotated array, a rotation at either edge, and negative values without changing the input. Return the minimum value, not its pivot index, after convergence.

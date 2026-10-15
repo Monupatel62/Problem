@@ -1,0 +1,38 @@
+{
+  "id": 69,
+  "slug": "jump-game",
+  "title": "Jump Game",
+  "acceptance": "38.8%",
+  "difficulty": "Medium",
+  "track": "Algorithms",
+  "judgeReady": true,
+  "tags": ["Array", "Greedy", "Dynamic Programming"],
+  "companies": ["Amazon", "Microsoft", "Google", "Apple", "Bloomberg"],
+  "frequency": 88,
+  "likes": 18000,
+  "dislikes": 1000,
+  "discussionCount": 4500,
+  "constraints": [
+    "1 <= nums.length <= 10^4",
+    "0 <= nums[i] <= 10^5",
+    "Each value is a maximum jump length, so shorter jumps are also allowed."
+  ],
+  "examples": [
+    { "input": "nums = [2,3,1,1,4]", "output": "true", "explanation": "Jump 1 step from index 0 to 1, then 3 steps to last index." },
+    { "input": "nums = [3,2,1,0,4]", "output": "false", "explanation": "Always arrive at index 3 with value 0 — cannot jump further." },
+    { "input": "nums = [0]", "output": "true", "explanation": "The first index is already the last index." }
+  ],
+  "functionName": "canJump",
+  "solutionApproaches": [
+    {
+      "title": "Dynamic Programming Reachability",
+      "complexity": "Time O(n²), Space O(n)",
+      "explanation": "Mark an index reachable when a previous reachable index can jump to it; correct but unnecessary."
+    },
+    {
+      "title": "Greedy Max Reach",
+      "complexity": "Time O(n), Space O(1)",
+      "explanation": "Track the farthest index reachable. If current index exceeds it, return false."
+    }
+  ]
+}

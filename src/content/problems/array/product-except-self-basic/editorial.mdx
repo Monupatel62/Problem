@@ -1,0 +1,17 @@
+### Factor each answer around its index
+
+For index i, every required factor lies either to its left or to its right. Let `leftProduct` be the product of values before i and `rightProduct` the product of values after i. Their multiplication is the answer at i, with no division and no special zero handling required.
+
+First fill the output array from left to right. Before processing `nums[i]`, place the accumulated prefix product in `answer[i]`; then multiply that accumulator by `nums[i]`. After this pass, each answer slot contains its full left product.
+
+Next scan from right to left with `suffix = 1`. Multiply `answer[i]` by the current suffix, then multiply the suffix by `nums[i]` for the next position. The update order is important: including `nums[i]` in either the prefix or suffix would incorrectly include the value being excluded.
+
+### Why this handles zeroes
+
+The algorithm never divides by a total product. A zero naturally appears in every prefix or suffix that crosses it. With one zero, only the result at that zero excludes it and may be non-zero. With two or more zeroes, every product except self still contains a zero. No branch is needed for either case.
+
+This uses O(n) time and O(1) auxiliary space beyond the required output array. A nested multiplication solution costs O(n²); total-product division is invalid under the no-division rule and breaks on zeroes. Test ordinary values, one zero, two zeroes, negative values, and the shortest two-item input to verify both traversal directions.
+
+### Pass-order details
+
+Initialize both running products to one, the multiplicative identity. Write the prefix into an answer slot before multiplying by the current source value, and multiply by the suffix before extending it with the current source value. Reversing either operation includes the excluded element by mistake. The algorithm intentionally leaves `nums` unchanged, which makes it safe for callers that reuse the input after receiving the output array.

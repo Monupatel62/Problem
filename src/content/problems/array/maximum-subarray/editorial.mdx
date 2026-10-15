@@ -1,0 +1,17 @@
+### Start with a precise state
+
+Let `current` be the maximum sum of a non-empty subarray that must end at the current index. Let `best` be the maximum sum seen anywhere so far. The answer is `best`, but this ending-at-index state makes it possible to update both values in one scan.
+
+For a value `x`, a best subarray ending here has only two choices: start a new subarray containing `x`, or append `x` to the best subarray ending at the previous index. Therefore `current = max(x, current + x)`. After that, update `best = max(best, current)`.
+
+### Why discarding a negative prefix is safe
+
+If the previous `current` is negative, adding it before any future value decreases the future total. Starting over is always at least as good. If `current` is positive, keeping it may improve a later answer. This is the greedy insight behind Kadane's algorithm, and it is also a compact form of dynamic programming.
+
+Do not initialize `current` or `best` to zero. That common shortcut fails on an all-negative array by returning an invalid empty subarray. Initialize both from `nums[0]`, then process the remaining elements. For `[-2, -1]`, the correct answer is -1.
+
+### Compare alternatives
+
+The brute-force method tests every range. With a running sum per start index it costs O(n²) time; prefix sums can calculate a range sum quickly but still leave O(n²) ranges. Divide and conquer reduces the time to O(n log n), but adds complexity. Kadane's algorithm is O(n) time and O(1) extra space, making it the right default for this task.
+
+Test a single positive value, all negative values, zeros, a best range at an edge, and a negative number inside the optimal range. These cases prove that the implementation is finding contiguous non-empty subarrays rather than merely adding positive values. The same recurrence can later be extended to also record the range boundaries.

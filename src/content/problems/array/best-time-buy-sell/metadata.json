@@ -1,0 +1,50 @@
+{
+  "id": 52,
+  "slug": "best-time-buy-sell",
+  "title": "Best Time to Buy and Sell Stock",
+  "acceptance": "54.3%",
+  "difficulty": "Easy",
+  "track": "Algorithms",
+  "judgeReady": true,
+  "tags": ["Array", "Dynamic Programming", "Greedy"],
+  "companies": ["Amazon", "Google", "Facebook", "Microsoft", "Goldman Sachs"],
+  "frequency": 92,
+  "likes": 28000,
+  "dislikes": 950,
+  "discussionCount": 6800,
+  "constraints": [
+    "1 <= prices.length <= 10^5",
+    "0 <= prices[i] <= 10^4",
+    "At most one buy-and-sell transaction is allowed, with buying before selling."
+  ],
+  "examples": [
+    {
+      "input": "prices = [7,1,5,3,6,4]",
+      "output": "5",
+      "explanation": "Buy on day 2 (price=1), sell on day 5 (price=6). Profit = 6-1 = 5."
+    },
+    {
+      "input": "prices = [7,6,4,3,1]",
+      "output": "0",
+      "explanation": "No profit is possible."
+    },
+    {
+      "input": "prices = [2,4,1]",
+      "output": "2",
+      "explanation": "Buy at 2 and sell at 4; the later lower price cannot be used for an earlier sale."
+    }
+  ],
+  "functionName": "maxProfit",
+  "solutionApproaches": [
+    {
+      "title": "Compare Every Buy and Sell Day",
+      "complexity": "Time O(n²), Space O(1)",
+      "explanation": "Try each buy day with every later sell day. It is correct but repeats the same price comparisons."
+    },
+    {
+      "title": "Single Pass Min Tracking",
+      "complexity": "Time O(n), Space O(1)",
+      "explanation": "Track the minimum price seen so far; at each step update max profit."
+    }
+  ]
+}

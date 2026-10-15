@@ -1,0 +1,11 @@
+Given an integer array `nums` and an integer `target`, find the two **different** positions whose values add up to `target`. Return their zero-based indices as `[i, j]`, with the smaller index first. The array contains exactly one valid pair.
+
+This is an index problem, not a value problem. For example, with `nums = [3, 3]` and `target = 6`, the answer is `[0, 1]`: both values are the same, but they occur at two different positions. A single element cannot be reused, so `[0, 0]` is never valid.
+
+The direct idea is to choose one position and test every later position. That proves the problem is solvable, but it needs up to roughly `n × n` comparisons. For an array with ten thousand values, that work becomes unnecessarily expensive.
+
+Instead, scan from left to right and keep a lookup table of values already visited. When you are at index `i` with value `x`, the only value that can complete the answer is `target - x`. If that complement is already in the table, its stored index and `i` are the unique answer. Otherwise, store `x` with its index and continue.
+
+The order matters: look for the complement **before** storing the current value. This prevents the current element from incorrectly matching itself when `target` is twice that value. The approach handles negative numbers, zero, duplicate values, and large input arrays without changing the algorithm.
+
+Return only the two indices. Do not sort `nums`, because sorting changes the original positions that the answer must report.

@@ -1,0 +1,55 @@
+name: Problem CI
+on:
+  push:
+    branches: [extract/wohotech-problems]
+  pull_request:
+    branches: [extract/wohotech-problems]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install
+      - run: npx prisma validate
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/problem_ci
+      - run: npx prisma generate
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/problem_ci
+      - run: npm run content:validate
+      - run: npm test
+      - run: npm run typecheck
+      - run: npm run build
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/problem_ci
+          NEXTAUTH_SECRET: ci-test-secret
+          NEXT_PUBLIC_SITE_URL: https://problem.example.invalid
+      - name: Start isolated judge service
+        run: |
+          mkdir -p data/judge-work
+          JUDGE_HOST_WORKDIR="$GITHUB_WORKSPACE/data/judge-work" \
+          JUDGE_SERVICE_TOKEN=ci-test-judge-token \
+          docker compose -f docker-compose.judge.yml up -d --build
+        env:
+          JUDGE_WORKER_PORT: "8787"
+          JUDGE_SERVICE_TOKEN: ci-test-judge-token
+          JUDGE_ALLOW_UNAUTHENTICATED: "false"
+          JUDGE_HOST_WORKDIR: ${{ github.workspace }}/data/judge-work
+      - name: Wait for judge service and smoke-test four languages
+        run: |
+          for i in $(seq 1 60); do
+            if curl --fail --silent http://127.0.0.1:8787/health >/dev/null; then break; fi
+            sleep 2
+          done
+          curl --fail --silent http://127.0.0.1:8787/health
+          npm run judge:smoke-service
+        env:
+          JUDGE_SERVICE_URL: http://127.0.0.1:8787
+          JUDGE_SERVICE_TOKEN: ci-test-judge-token
+          JUDGE_SERVICE_TIMEOUT_MS: "120000"
+      - name: Stop isolated judge service
+        if: always()
+        run: docker compose -f docker-compose.judge.yml down --remove-orphans

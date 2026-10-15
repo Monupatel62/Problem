@@ -1,0 +1,4 @@
+[
+  "Use Euclid's algorithm.",
+  "Repeatedly replace (a, b) with (b, a % b)."
+]

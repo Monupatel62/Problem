@@ -1,0 +1,17 @@
+### Compare squared distances
+
+For a point `[x, y]`, use `x * x + y * y` as its score. Square roots are unnecessary because they preserve ordering for non-negative inputs: a smaller squared distance always means a smaller Euclidean distance. This also avoids floating-point work in the comparison loop.
+
+### Sort when simplicity is enough
+
+Create scored points or use a comparator that calculates squared distance, sort ascending, and return the first k. The complexity is O(n log n). If sorting the supplied array would surprise callers, sort a shallow copy instead. This approach is compact and appropriate when k is large or the full sorted order may be useful.
+
+### Use a bounded heap when k is small
+
+Maintain a max-heap ordered by squared distance. Push each point; once its size exceeds k, remove the farthest point. The heap never stores more than k entries, so the work is O(n log k) and space is O(k). This is the better asymptotic choice when k is tiny relative to n. Quickselect can reach expected O(n) time, but has more implementation complexity and is not required here.
+
+The answer order is irrelevant, and equal-distance points may be chosen in any valid order. Test negative coordinates, the origin itself, k equal to the number of points, distinct distances, and ties at the cutoff. These tests confirm that the solution compares distances rather than coordinates independently.
+
+### Practical comparison details
+
+Never compare `x` and `y` separately: a point with a smaller x-coordinate can still be farther from the origin because of its y-coordinate. Always calculate one squared-distance score per point. With the stated bounds, `x² + y²` remains safe in standard numeric representations. When a test runner checks output arrays in a fixed order, use a stable or explicit ordering for tied distances even though the public problem permits any order. A production API may document its tie behavior, but correctness never depends on it.

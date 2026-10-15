@@ -1,0 +1,57 @@
+{
+  "sampleCases": [
+    {
+      "input": [
+        [
+          -1,
+          0,
+          1,
+          2,
+          -1,
+          -4
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "input": [[1,2,-2,-1]],
+      "expected": 0
+    }
+  ],
+  "hiddenCases": [
+    {
+      "input": [
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "input": [
+        [
+          1,
+          2,
+          -2,
+          -1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "input": [[-2,0,1,1,2]],
+      "expected": 2
+    },
+    {
+      "input": [[-1,0,1,0]],
+      "expected": 1
+    },
+    {
+      "input": [[-4,-2,0,2,4]],
+      "expected": 2
+    }
+  ]
+}

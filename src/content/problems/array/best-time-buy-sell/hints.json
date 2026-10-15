@@ -1,0 +1,5 @@
+[
+  "You only need one pass through the array.",
+  "Keep track of the minimum price seen so far.",
+  "At each index, the best profit if you sell today is prices[i] - minSoFar."
+]

@@ -1,0 +1,11 @@
+Given an integer array `nums`, return how many unique triplets of values sum to zero. The three elements must come from distinct positions, but triplets are unique by their values rather than the index choices used to create them.
+
+For `[-1, 0, 1, 2, -1, -4]`, the valid value triplets are `[-1, -1, 2]` and `[-1, 0, 1]`, so return 2. For `[0, 0, 0, 0]`, return 1, not four, because every valid choice has the same value triplet `[0, 0, 0]`.
+
+Sort a copy of the array. Fix the first value at index `i`, then use two pointers in the sorted suffix to find two values whose sum is `-nums[i]`. If the three-value sum is too small, move the left pointer right; if it is too large, move the right pointer left. A zero sum produces one valid triplet.
+
+Skip repeated fixed values. After recording a triplet, advance both pointers past equal neighboring values before continuing. These duplicate skips are essential: without them, repeated input values can generate the same value triplet many times.
+
+Sorting plus the two-pointer scan runs in O(n²) time and preserves the original input because the starter sorts a copy. Return the number of unique triplets, not the triplets themselves or their indices. Values may be negative, positive, or zero, and a triplet may include repeated values only when enough separate positions exist.
+
+Do not use a hash set of formatted triplets as the main strategy. Sorting makes duplicate prevention deterministic at the source and keeps the memory cost focused on the sorted copy. Stop the inner search when the two pointers meet so no index can be reused.

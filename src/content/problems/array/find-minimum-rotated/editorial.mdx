@@ -1,0 +1,17 @@
+### Maintain the minimum interval
+
+Keep `left` and `right` around an interval that always contains the minimum. The array consists of two individually sorted runs when it is rotated. Comparing the middle value with the rightmost value tells which run the middle belongs to.
+
+If `nums[mid] > nums[right]`, `mid` is in the higher-valued left run. The wrap and minimum must lie after it, so discard `mid` and everything before it with `left = mid + 1`. If `nums[mid] < nums[right]`, the middle is in the right run or the array is fully sorted in this interval. The minimum may be `mid`, so use `right = mid` rather than `mid - 1`.
+
+The loop ends when `left === right`. That index is the smallest value. This is a lower-bound style binary search: preserve possible answers until a single candidate remains.
+
+### Why uniqueness matters
+
+The strict comparison relies on unique values. If duplicates were allowed and `nums[mid] === nums[right]`, the side containing the pivot could not be determined from this comparison alone; a different variant sometimes decrements `right`, which can become linear in the worst case. This problem excludes duplicates, so every iteration removes roughly half the remaining interval.
+
+A scan is O(n) time, while this binary search is O(log n) time and O(1) extra space. Test an unrotated list, one element, a two-element rotation, a pivot near the beginning, and a pivot near the end. Those cases reveal off-by-one errors in boundary updates.
+
+### Boundary safety
+
+Use a loop condition of `left < right`, not `left <= right`. The latter needs additional answer bookkeeping and can access an invalid boundary after updates. Compute the midpoint so it stays within the interval; `left + floor((right - left) / 2)` is the conventional overflow-safe form in fixed-width languages. With `right = mid` and `left = mid + 1`, every iteration strictly shrinks the interval, so the search cannot stall.

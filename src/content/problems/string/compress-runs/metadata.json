@@ -1,0 +1,39 @@
+{
+  "id": 19,
+  "slug": "compress-runs",
+  "title": "Compress Runs",
+  "acceptance": "0.0%",
+  "difficulty": "Medium",
+  "track": "Algorithms",
+  "tags": [
+    "String",
+    "Counting"
+  ],
+  "companies": [
+    "Amazon",
+    "Microsoft",
+    "Google"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "0 <= s.length <= 10^5",
+    "`s` contains lowercase English letters"
+  ],
+  "examples": [
+    {
+      "input": "s = \"aaabbc\"",
+      "output": "\"a3b2c1\""
+    }
+  ],
+  "functionName": "compressRuns",
+  "solutionApproaches": [
+    {
+      "title": "Direct Pattern",
+      "complexity": "Time O(n), Space O(1) to O(n) depending on output",
+      "explanation": "Use the simplest scan or helper data structure required by the statement."
+    }
+  ]
+}

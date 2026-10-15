@@ -1,0 +1,21 @@
+# Word Frequency: Shell editorial
+
+The task is a classic Unix pipeline: turn the file into a stream with one word on each line, put equal words next to one another, count each run, sort the count records, and remove the leading padding that `uniq -c` adds. A compact solution is:
+
+```bash
+tr -s '[:space:]' '\n' < words.txt | sort | uniq -c | sort -k1,1nr -k2,2 | awk '{print $1, $2}'
+```
+
+## Step by step
+
+`tr -s '[:space:]' '\n'` converts runs of whitespace to a single newline. This handles spaces and line breaks consistently, producing a stream such as `the`, `day`, `is`, `sunny`, `the`, `the` on separate lines. Redirecting `words.txt` into `tr` is preferable to using an unnecessary `cat` process, although either form reads the same file.
+
+`sort` arranges equal words consecutively. That is essential because `uniq -c` counts consecutive duplicate lines only. Running `uniq -c` directly on the original document would split counts whenever the same word appears in separated positions. After sorting, `uniq -c` emits count-and-word records; it normally pads the count with spaces for alignment.
+
+The second sort, `sort -k1,1nr -k2,2`, orders records first by the leading number in reverse numerical order, then alphabetically by word when counts tie. Numerical sorting matters: ordinary lexical sorting would place `9` above `10`, which is incorrect for frequencies. Reverse count order puts the most frequent words first, and the second key makes equal counts deterministic. Finally, `awk '{print $1, $2}'` prints just the count and word with exactly one separating space, removing formatting padding from `uniq`.
+
+## Correctness argument
+
+Every whitespace-separated input token becomes exactly one line in the first step. Sorting preserves all lines while grouping equal tokens. For each distinct word, `uniq -c` therefore emits one record whose count equals the number of occurrences of that word. The numeric reverse sort places those records in non-increasing count order. The final `awk` changes only spacing, not the count or token. Hence every word is printed once with its correct frequency in the required order.
+
+The explicit second key handles ties for this task. Do not add unrelated output or normalize case unless the task explicitly asks for it: both changes would alter the tokens being counted.

@@ -1,0 +1,27 @@
+{
+  "shellCases": true,
+  "sampleCases": [
+    {
+      "input": ["the day is sunny the the\n"],
+      "expected": "3 the\n1 day\n1 is\n1 sunny"
+    },
+    {
+      "input": ["hello world hello hello world\n"],
+      "expected": "3 hello\n2 world"
+    }
+  ],
+  "hiddenCases": [
+    {
+      "input": ["a b c a b a\n"],
+      "expected": "3 a\n2 b\n1 c"
+    },
+    {
+      "input": ["foo\n"],
+      "expected": "1 foo"
+    },
+    {
+      "input": ["one two three one two one\n"],
+      "expected": "3 one\n2 two\n1 three"
+    }
+  ]
+}

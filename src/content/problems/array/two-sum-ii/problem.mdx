@@ -1,0 +1,9 @@
+Given a sorted, non-decreasing array `numbers` and a target value, find the two different elements whose sum equals the target. Return their positions as **1-based** indices `[index1, index2]`. Exactly one valid pair exists, and the same element cannot be used twice.
+
+For `[2, 7, 11, 15]` with target 9, return `[1, 2]`. The source array uses normal zero-based positions internally, but the required answer adds one to each position. For `[0, 0, 3, 4]` with target 0, return `[1, 2]`: equal values are allowed when they occupy different elements.
+
+The sorted order makes a two-pointer search possible. Put one pointer at the beginning and one at the end. Their sum is the smallest-plus-largest value still available. If it is below the target, moving the left pointer right is the only way to increase the sum; moving the right pointer left would make it no larger. If the sum is above the target, move the right pointer left to decrease it.
+
+Continue until the pointers meet. The unique-solution guarantee means the correct pair will be found before that happens. This uses O(n) time and O(1) extra space, avoids a hash map, and never changes the input array.
+
+Return the two positions in increasing order, converting them to 1-based values only when the pair is found. Do not return the two numbers themselves or zero-based indices. The algorithm remains valid for negative targets because sorted order, not positivity, drives every pointer decision. It also needs no supplementary data structure or recursive call.

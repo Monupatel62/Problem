@@ -1,0 +1,9 @@
+You are given an array `prices` where `prices[i]` is the stock price on day `i`. Choose at most one day to buy one share and one **later** day to sell it. Return the largest profit from that single transaction. If every possible sale loses money, do not trade and return 0.
+
+The order is essential. In `[2, 4, 1]`, buying at 2 and selling at 4 earns 2. You cannot use the later price 1 as the buy price for the earlier sale at 4. In a decreasing series such as `[7, 6, 4, 3, 1]`, no valid future sale is more expensive than its earlier buy, so the answer is 0.
+
+A direct method compares every buy day with every later sell day. It is easy to prove correct, but it can inspect roughly n² pairs. For up to one hundred thousand days, use a single left-to-right scan.
+
+While reading prices, maintain the lowest price seen on any earlier day. Treat that as the best buy opportunity available before today. If today's price is `p`, then selling today after that best earlier buy would produce `p - minPrice`. Compare this candidate with the best profit found so far. After evaluating the candidate, update the minimum price when today is lower.
+
+The result starts at zero because skipping the transaction is allowed. This strategy automatically respects buy-before-sell order, works with one-day input, repeated prices, rising prices, falling prices, and never modifies the input array. It returns only the profit, not the buy and sell indices.

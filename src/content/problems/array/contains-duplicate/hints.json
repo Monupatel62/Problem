@@ -1,0 +1,5 @@
+[
+  "Could you use a hash set to track elements you have already seen?",
+  "Sorting the array first also works: duplicates will be adjacent.",
+  "Return true as soon as you find any repeated element."
+]
