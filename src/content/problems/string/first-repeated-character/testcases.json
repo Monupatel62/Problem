@@ -1,0 +1,24 @@
+{
+  "sampleCases": [
+    {
+      "input": [
+        "codingcoach"
+      ],
+      "expected": "c"
+    }
+  ],
+  "hiddenCases": [
+    {
+      "input": [
+        "abcdef"
+      ],
+      "expected": ""
+    },
+    {
+      "input": [
+        "abba"
+      ],
+      "expected": "b"
+    }
+  ]
+}
