@@ -11,7 +11,7 @@
 - Destination branch: `extract/wohotech-problems`
 - Source recursive tree: 6,797 entries, not truncated.
 - Confirmed source files under `src/content/problems/`: 694 files, about 340 KB.
-- Destination currently has 55 of those 694 structured-content files (first four dozen-plus files by path order); **639 remain**.
+- Destination currently has 85 of those 694 structured-content files (first four dozen-plus files by path order); **639 remain**.
 - Destination branch currently contains 132 tracked files across documentation and copied feature code. This is a partial transfer, not a runnable/release-ready extraction.
 
 ## Confirmed source inventory
@@ -22,7 +22,7 @@
 | `src/app/api/problems/` | 14 | 26,930 | 14 transferred |
 | `src/components/problems/` | 20 | 163,948 | 20 transferred |
 | `src/lib/problems/` | 10 | 693,708 | 10 transferred |
-| `src/content/problems/` | 694 | 340,526 | 55 transferred; 639 pending |
+| `src/content/problems/` | 694 | 340,526 | 85 transferred; 609 pending |
 | `scripts/problems/` | 12 | 196,857 | 12 transferred |
 | `docker/judge/` | 3 | 2,525 | 3 transferred |
 | `docker-compose.judge.yml` | 1 | 1,315 | transferred |
