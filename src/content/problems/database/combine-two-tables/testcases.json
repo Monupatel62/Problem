@@ -1,0 +1,63 @@
+{
+  "sqlSetup": [
+    "CREATE TABLE IF NOT EXISTS Person (personId INTEGER PRIMARY KEY, lastName TEXT NOT NULL, firstName TEXT NOT NULL);",
+    "CREATE TABLE IF NOT EXISTS Address (addressId INTEGER PRIMARY KEY, personId INTEGER NOT NULL, city TEXT, state TEXT);"
+  ],
+  "sampleCases": [
+    {
+      "input": {
+        "Person":  [[1,"Wang","Allen"],[2,"Alice","Bob"]],
+        "Address": [[1,2,"New York","New York"]]
+      },
+      "expected": [
+        {"firstName":"Allen","lastName":"Wang","city":null,"state":null},
+        {"firstName":"Bob","lastName":"Alice","city":"New York","state":"New York"}
+      ]
+    },
+    {
+      "input": {
+        "Person":  [[1,"Smith","John"],[2,"Doe","Jane"],[3,"Lee","Bruce"]],
+        "Address": [[1,1,"Los Angeles","California"],[2,3,"Chicago","Illinois"]]
+      },
+      "expected": [
+        {"firstName":"John","lastName":"Smith","city":"Los Angeles","state":"California"},
+        {"firstName":"Jane","lastName":"Doe","city":null,"state":null},
+        {"firstName":"Bruce","lastName":"Lee","city":"Chicago","state":"Illinois"}
+      ]
+    }
+  ],
+  "hiddenCases": [
+    {
+      "input": {
+        "Person":  [[1,"Brown","Charlie"]],
+        "Address": []
+      },
+      "expected": [
+        {"firstName":"Charlie","lastName":"Brown","city":null,"state":null}
+      ]
+    },
+    {
+      "input": {
+        "Person":  [[1,"X","A"],[2,"Y","B"],[3,"Z","C"]],
+        "Address": [[1,1,"Miami","Florida"],[2,2,"Dallas","Texas"],[3,3,"Seattle","Washington"]]
+      },
+      "expected": [
+        {"firstName":"A","lastName":"X","city":"Miami","state":"Florida"},
+        {"firstName":"B","lastName":"Y","city":"Dallas","state":"Texas"},
+        {"firstName":"C","lastName":"Z","city":"Seattle","state":"Washington"}
+      ]
+    },
+    {
+      "input": {
+        "Person":  [[10,"Patel","Riya"],[20,"Garcia","Luis"],[30,"Kim","Mina"],[40,"Jones","Omar"]],
+        "Address": [[7,20,"Austin","Texas"],[8,40,"Boston","Massachusetts"]]
+      },
+      "expected": [
+        {"firstName":"Riya","lastName":"Patel","city":null,"state":null},
+        {"firstName":"Luis","lastName":"Garcia","city":"Austin","state":"Texas"},
+        {"firstName":"Mina","lastName":"Kim","city":null,"state":null},
+        {"firstName":"Omar","lastName":"Jones","city":"Boston","state":"Massachusetts"}
+      ]
+    }
+  ]
+}
