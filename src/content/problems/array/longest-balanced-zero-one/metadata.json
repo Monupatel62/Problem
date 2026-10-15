@@ -1,0 +1,40 @@
+{
+  "id": 45,
+  "slug": "longest-balanced-zero-one",
+  "title": "Longest Balanced Zero One",
+  "acceptance": "0.0%",
+  "difficulty": "Medium",
+  "track": "Algorithms",
+  "tags": [
+    "Array",
+    "Hash Table",
+    "Prefix Sum"
+  ],
+  "companies": [
+    "Google",
+    "Amazon",
+    "Goldman Sachs"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "1 <= nums.length <= 10^5",
+    "nums[i] is 0 or 1"
+  ],
+  "examples": [
+    {
+      "input": "nums = [0,1,0,1,1]",
+      "output": "4"
+    }
+  ],
+  "functionName": "longestBalancedZeroOne",
+  "solutionApproaches": [
+    {
+      "title": "Pattern Based",
+      "complexity": "Time O(n) to O(n log n), Space O(n)",
+      "explanation": "Use the core pattern from the tags: sliding window, prefix sums, two pointers, sorting, or a monotonic stack."
+    }
+  ]
+}

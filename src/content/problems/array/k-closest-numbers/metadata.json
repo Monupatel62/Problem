@@ -1,0 +1,49 @@
+{
+  "id": 65,
+  "slug": "k-closest-numbers",
+  "title": "K Closest Points to Origin",
+  "acceptance": "67.2%",
+  "difficulty": "Medium",
+  "track": "Algorithms",
+  "judgeReady": true,
+  "tags": ["Array", "Math", "Sorting"],
+  "companies": ["Amazon", "Facebook", "Google", "LinkedIn", "Microsoft"],
+  "frequency": 88,
+  "likes": 10000,
+  "dislikes": 370,
+  "discussionCount": 2800,
+  "constraints": [
+    "1 <= k <= points.length <= 10^4",
+    "-10^4 <= points[i][0], points[i][1] <= 10^4",
+    "The returned points may be in any order."
+  ],
+  "examples": [
+    {
+      "input": "points = [[1,3],[-2,2]], k = 1",
+      "output": "[[-2,2]]",
+      "explanation": "Distance of [1,3] is sqrt(10); distance of [-2,2] is sqrt(8). Closer."
+    },
+    {
+      "input": "points = [[3,3],[5,-1],[-2,4]], k = 2",
+      "output": "[[3,3],[-2,4]]"
+    },
+    {
+      "input": "points = [[2,2],[1,1],[3,3]], k = 2",
+      "output": "[[1,1],[2,2]]",
+      "explanation": "Squared distances 2 and 8 are the two smallest."
+    }
+  ],
+  "functionName": "kClosest",
+  "solutionApproaches": [
+    {
+      "title": "Sort Every Point",
+      "complexity": "Time O(n log n), Space O(n) with a copied input",
+      "explanation": "Compute squared distances, sort ascending, and take the first k; clear and suitable when all points may be ordered."
+    },
+    {
+      "title": "Bounded Max-Heap",
+      "complexity": "Time O(n log k), Space O(k)",
+      "explanation": "Keep only the k closest points seen so far, ejecting the farthest candidate when the heap grows beyond k."
+    }
+  ]
+}

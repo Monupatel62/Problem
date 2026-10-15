@@ -1,0 +1,9 @@
+Given a list of two-dimensional points and an integer `k`, return any `k` points that are closest to the origin `(0, 0)`. A point `[x, y]` has Euclidean distance `sqrt(x² + y²)` from the origin. The returned points may appear in any order.
+
+For `[[1, 3], [-2, 2]]` with `k = 1`, return `[[-2, 2]]`: its squared distance is 8, while `[1, 3]` has squared distance 10. You do not need to calculate square roots. Squaring is monotonic for non-negative distances, so comparing `x² + y²` gives exactly the same closeness order.
+
+The direct approach calculates that score for every point, sorts all points by score, then takes the first k. It is straightforward and runs in O(n log n) time. A copied array is useful if the caller's original point order should remain unchanged.
+
+When `k` is much smaller than the number of points, maintain a max-heap containing at most k candidates. Add each point with its squared distance. If the heap grows past k, remove its farthest point. At the end, the heap contains the k smallest distances, using O(n log k) time and O(k) extra space.
+
+Points with equal distances can be returned in either order. The task guarantees that a valid set of k closest points can be returned, so no tie-breaking coordinate order is required. Return points themselves, not their distances or their original indices. The origin point `[0, 0]`, when present, always has the smallest possible score of zero. This remains true for negative coordinates.
