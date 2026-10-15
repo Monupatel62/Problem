@@ -1,0 +1,38 @@
+{
+  "id": 31,
+  "slug": "count-local-peaks",
+  "title": "Count Local Peaks",
+  "acceptance": "0.0%",
+  "difficulty": "Easy",
+  "track": "Algorithms",
+  "tags": [
+    "Array",
+    "Simulation"
+  ],
+  "companies": [
+    "Amazon",
+    "Adobe"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "1 <= nums.length <= 10^5",
+    "-10^9 <= nums[i] <= 10^9"
+  ],
+  "examples": [
+    {
+      "input": "nums = [1,3,2,4,1]",
+      "output": "2"
+    }
+  ],
+  "functionName": "countLocalPeaks",
+  "solutionApproaches": [
+    {
+      "title": "Direct Array Pattern",
+      "complexity": "Time O(n), Space O(1) to O(n) depending on returned output",
+      "explanation": "Use a focused array traversal, two-pointer pattern, hash set, or prefix calculation based on the statement."
+    }
+  ]
+}

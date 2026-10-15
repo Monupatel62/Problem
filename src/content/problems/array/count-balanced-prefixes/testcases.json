@@ -1,0 +1,40 @@
+{
+  "sampleCases": [
+    {
+      "input": [
+        [
+          1,
+          -1,
+          1,
+          -1,
+          -1
+        ]
+      ],
+      "expected": 2
+    }
+  ],
+  "hiddenCases": [
+    {
+      "input": [
+        [
+          1,
+          1,
+          -1,
+          -1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "input": [
+        [
+          -1,
+          1,
+          -1,
+          1
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}
