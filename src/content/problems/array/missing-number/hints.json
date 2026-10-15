@@ -1,0 +1,5 @@
+[
+  "The sum of 0 to n is n*(n+1)/2.",
+  "Subtract the actual array sum from the expected sum.",
+  "XOR also works: XOR all indices 0..n and all values; the result is the missing number."
+]
