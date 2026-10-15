@@ -18,6 +18,8 @@ A full ESLint run was attempted but did not pass: inherited lint errors remain i
 - [Cross-cutting dependency audit](docs/cross-cutting-dependencies.md)
 - [Source-removal gates](docs/source-removal-gates.md)
 - [Transfer progress](docs/transfer-progress.md)
+- [Local verification without paid GitHub Actions](docs/local-verification.md)
+- [WoHoTech removal status and merge gates](docs/wohotech-removal-status.md)
 
 ## Safety boundary
 
