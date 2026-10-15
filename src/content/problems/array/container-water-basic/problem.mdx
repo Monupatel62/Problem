@@ -1,0 +1,11 @@
+Given an array `height`, each value represents a vertical line at that index. Choose two different lines that, together with the x-axis, hold the maximum possible water. Return that maximum area. Lines cannot be tilted, moved, or crossed.
+
+The area between indices `left` and `right` is `min(height[left], height[right]) * (right - left)`. The shorter line limits the water level, while the distance between their indices gives the width. For `[1,8,6,2,5,4,8,3,7]`, choosing heights 8 and 7 at indices 1 and 8 gives area `7 * 7 = 49`.
+
+Checking every pair of lines is correct but needs O(n²) work. Use two pointers instead: begin with the widest pair at the two ends. Record its area, then move the pointer at the shorter line inward. Moving the taller line cannot improve the limiting height and always reduces width, so it cannot produce a better container using the same shorter boundary.
+
+When heights are equal, moving either pointer is safe. Continue until the pointers meet, keeping the greatest area encountered. The pair `[4,3,2,1,4]` shows why width matters: the equal boundary heights form area 16 despite lower lines inside the array.
+
+This greedy scan runs in O(n) time and O(1) extra space. It handles zero-height lines, repeated heights, and the minimum two-line input without modifying the array. Return only the area, not the selected indices. The two selected lines must be at distinct array positions.
+
+Do not confuse this task with trapping rain water between many bars. Here each candidate uses exactly two boundary lines, and all space between them is represented by one rectangular area determined by the shorter boundary.
