@@ -1,0 +1,17 @@
+### Translate the representation first
+
+The linked lists are reversed so that the least-significant digits are available first. That removes the need to reverse either input or to use a stack. The node sequence `[2, 4, 3]` means 342, because the first node is the ones digit. The answer must use the same convention.
+
+In this workspace, test inputs use arrays for reliable JSON transport. Treat each array as a linked-list sequence and return the result as an array in the same order. Your algorithm should still follow linked-list logic rather than converting the complete number to an integer; converting can overflow in languages with fixed-size numeric types and does not generalize to very long inputs.
+
+### One-pass digit simulation
+
+Keep three pointers or values: the current node of the first list, the current node of the second list, and `carry`. At every iteration, read a digit from each list when present; otherwise use zero. Compute `sum = digit1 + digit2 + carry`. Append `sum % 10` to the result and set `carry = floor(sum / 10)`.
+
+A dummy head is a small placeholder node before the real result. It avoids a special case for the first output digit: every digit is appended in exactly the same way, and the final answer starts at `dummy.next`. In array-based implementations, the equivalent is simply pushing each output digit into a result array.
+
+The loop condition must be `while l1 or l2 or carry`. Omitting `carry` loses the leading one in cases such as 5 + 5. Stopping when the shorter list ends also loses digits from the longer list. Both lists should advance only when they still have a node.
+
+### Complexity and validation
+
+If the two input lengths are `m` and `n`, the algorithm visits each node once and may append one extra carry node. Time complexity is O(max(m, n)); output storage is O(max(m, n)). Test a zero input, uneven lengths, a carry in the middle, and a carry that creates a new final digit. Those cases verify the details most often missed in this problem.
