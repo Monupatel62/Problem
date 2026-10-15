@@ -12,7 +12,7 @@
 - Original recursive source tree: 6,797 entries.
 - Structured content under `src/content/problems/`: 694 files.
 - Transfer verification: 694 source files and 694 destination files; 0 missing and 0 Git blob SHA mismatches against the audited snapshot.
-- Validated destination commit: `6a2b3340ef71c3954aef413dabbef01476f49e12`.
+- Validated destination commit: `2e74f39614fc764b2442aa218187f3e167d3f06a`.
 
 ## Feature-owned files transferred
 
@@ -41,7 +41,7 @@
 - [ ] ESLint audit: attempted, but it fails on existing violations in extracted feature code and the shared `/code` runner (explicit `any`, React effect/ref rules, `prefer-const`, and unescaped entities). It is not a passing check.
 - [ ] Full feature-level manual UI review is still needed before production deployment.
 
-CI evidence: [build/typecheck](https://github.com/Monupatel62/Problem/actions/runs/38738315441) · [tests/judge smoke](https://github.com/Monupatel62/Problem/actions/runs/38738315380).
+CI evidence: [build/typecheck](https://github.com/Monupatel62/Problem/actions/runs/38740542203) · [tests/judge smoke](https://github.com/Monupatel62/Problem/actions/runs/38740542203).
 
 ## Source removal and residual-reference checks
 

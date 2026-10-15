@@ -2,7 +2,7 @@
 
 ## Current status
 
-Destination validation passed on commit `6a2b3340ef71c3954aef413dabbef01476f49e12`: content validation, Prisma validation/generation, tests, type-check, production build, and four-language judge smoke tests. Feature-owned paths have been removed on WoHoTech's non-main `cleanup/remove-wohoplay` branch.
+Destination validation passed on commit `2e74f39614fc764b2442aa218187f3e167d3f06a`: content validation, Prisma validation/generation, tests, type-check, production build, and four-language judge smoke tests. Feature-owned paths have been removed on WoHoTech's non-main `cleanup/remove-wohoplay` branch.
 
 **The source branch is not merge-ready:** its CI remains failing. Keep WoHoTech `main`, the live database, and Vercel untouched until the source CI and final diff review pass.
 
