@@ -1,0 +1,5 @@
+[
+  "Use a write pointer that moves only when you place a non-zero element.",
+  "After placing all non-zero elements, fill the rest of the array with zeros.",
+  "Only two passes are needed; the overall complexity is O(n)."
+]
