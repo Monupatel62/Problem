@@ -1,0 +1,9 @@
+Given an integer array `nums` and a target value, return the number of **contiguous** subarrays whose elements sum exactly to the target. Different start or end positions count as different subarrays, even if they contain the same values.
+
+For `[1, 1, 1]` with target 2, the answer is 2: the first two values and the last two values each form a valid subarray. For `[1, 2, 3]` with target 3, both `[1, 2]` and `[3]` count. The array can contain negative values and zeroes, so a positive-only sliding-window technique is not reliable.
+
+Use prefix sums. Let `prefix` be the sum of values from index 0 through the current position. A subarray ending here has sum target exactly when an earlier prefix sum was `prefix - target`. Therefore, keep a frequency map that records how often each prefix sum has appeared.
+
+Initialize the map with `0 -> 1`. This represents the empty prefix and allows a subarray that starts at index 0 to be counted. For every value, update `prefix`, add the saved frequency of `prefix - target` to the answer, then record the new `prefix` frequency. The order matters: query first, then store the current prefix, so the current position is not counted as an empty-length subarray.
+
+This scans the input once in O(n) time and uses O(n) space for distinct prefix sums. It works with positive, negative, and repeated numbers without sorting or modifying the input. Return the count, not the actual ranges. Overlapping valid subarrays are counted independently whenever their boundaries differ.
