@@ -1,0 +1,17 @@
+### Find the sorted half first
+
+Rotation splits one sorted sequence into two sorted runs. For any current interval, the midpoint belongs to one of those runs, so either the left half from `left` through `mid` is sorted or the right half from `mid` through `right` is sorted. With distinct values, `nums[left] <= nums[mid]` identifies a sorted left half; otherwise the right half is sorted.
+
+Check for an exact match at `mid` first. When the left half is sorted, the target belongs there exactly when `nums[left] <= target < nums[mid]`. Keep that half with `right = mid - 1`; otherwise move `left = mid + 1`. For a sorted right half, the mirrored test is `nums[mid] < target <= nums[right]`.
+
+The inequalities are deliberate. The midpoint has already been checked, so it is excluded from the range test. The endpoint on the far side remains included because it may still be the target. Mixing strict and non-strict boundaries is the most common source of missed endpoints.
+
+### Complexity and the uniqueness rule
+
+Every iteration discards about half the active interval, producing O(log n) time and O(1) extra space. A linear scan is simpler but violates the requested complexity. If duplicates were allowed, `nums[left] === nums[mid]` might not identify the sorted half; that different problem can require shrinking boundaries linearly. Here all values are distinct, so the directional test is decisive.
+
+Test an unrotated input, a target at the pivot, a target at index zero, a missing target, and a two-value rotation. These cases validate the half selection and interval boundaries.
+
+### Common mistakes
+
+Do not compare the target only with `nums[mid]` as ordinary binary search does; the global order is broken at the pivot. First identify the sorted half, then test whether the target lies in that half's numeric range. Update exactly one boundary on each iteration. Returning the midpoint without checking equality, or including it after it has been ruled out, can cause an infinite loop or an off-by-one result.
