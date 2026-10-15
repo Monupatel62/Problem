@@ -2,7 +2,7 @@
 
 This repository is the destination for the coding-practice feature being extracted from WoHoTech.
 
-**Current status: all 694 structured problem-content files are transferred and SHA-verified against the audited source snapshot. The standalone app/package setup, dependency isolation, tests and build validation are still pending. Nothing has been removed from WoHoTech.**
+**Current status: all 694 structured problem-content files are transferred and SHA-verified against the audited source snapshot. The standalone app/package setup, dependency isolation, tests and build validation are still pending. Feature-owned paths have been removed from the non-main `cleanup/remove-wohoplay` branch; `main` and the live deployment remain untouched. Build/test validation is still pending.**
 
 Source repository: [Monupatel62/WoHoTech](https://github.com/Monupatel62/WoHoTech), branch `cleanup/remove-wohoplay`  
 Destination working branch: `extract/wohotech-problems`

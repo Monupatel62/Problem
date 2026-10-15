@@ -57,7 +57,7 @@ Structured problem folders use the format documented by `src/content/problems/RE
 - [ ] Resolve imports outside the copied feature and decide whether to copy, replace, or remove each dependency.
 - [ ] Extract only required database schema into a dedicated schema/migration plan; do not apply migrations to the live DB.
 - [ ] Run content validation, typecheck, lint, tests, build, and judge smoke tests in the destination repo.
-- [ ] Search the source branch for all direct and indirect references, including SEO, sitemap, navigation, scripts, config, schema and tests.
+- [ ] Finish whole-repository reference scan for indirect references and review the removal diff, including build scripts, package-lock-only dependency references, docs, CI and database migration history.
 - [ ] Review a source-removal diff only after destination parity and validation pass.
 - [ ] Do not delete source files until every relevant gate is verified.
 
@@ -65,5 +65,6 @@ Structured problem folders use the format documented by `src/content/problems/RE
 
 - Source discovery is on `cleanup/remove-wohoplay`, not `main`.
 - Destination writes are on `extract/wohotech-problems`, not `main`.
-- No source files have been deleted as part of this extraction.
+- Feature-owned source paths were removed from WoHoTech's `cleanup/remove-wohoplay` branch in commit `4141ba84ae8aa422a5e4a3c8745effbd6f7dc5e7`; recursive tree verification found 0 remaining direct feature-owned paths. The `main` branch and live deployment were not changed.
+- The removal branch's CI has not been confirmed green; do not merge to `main` or deploy until destination CI and the source branch validation both pass.
 - Do not change the live database, merge to `main`, or deploy to Vercel as part of this work without explicit approval.
