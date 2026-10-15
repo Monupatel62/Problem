@@ -1,0 +1,42 @@
+{
+  "id": 64,
+  "slug": "search-rotated-array",
+  "title": "Search in Rotated Sorted Array",
+  "acceptance": "39.8%",
+  "difficulty": "Medium",
+  "track": "Algorithms",
+  "judgeReady": true,
+  "tags": ["Array", "Binary Search"],
+  "companies": ["Amazon", "Microsoft", "Facebook", "Google", "Uber"],
+  "frequency": 93,
+  "likes": 23000,
+  "dislikes": 1400,
+  "discussionCount": 5500,
+  "constraints": [
+    "1 <= nums.length <= 5000",
+    "-10^4 <= nums[i] <= 10^4",
+    "All values of nums are unique.",
+    "nums is an ascending array that is possibly rotated.",
+    "-10^4 <= target <= 10^4",
+    "Return an index when found; otherwise return -1."
+  ],
+  "examples": [
+    { "input": "nums = [4,5,6,7,0,1,2], target = 0", "output": "4" },
+    { "input": "nums = [4,5,6,7,0,1,2], target = 3", "output": "-1" },
+    { "input": "nums = [1], target = 0", "output": "-1" },
+    { "input": "nums = [3,1], target = 1", "output": "1", "explanation": "A two-item rotation still has one sorted half at every step." }
+  ],
+  "functionName": "search",
+  "solutionApproaches": [
+    {
+      "title": "Linear Scan",
+      "complexity": "Time O(n), Space O(1)",
+      "explanation": "Check each position in order; correct but does not meet the required logarithmic runtime."
+    },
+    {
+      "title": "Binary Search with Half-Sorted Check",
+      "complexity": "Time O(log n), Space O(1)",
+      "explanation": "One half around mid is always sorted. Decide which half contains target and recurse into it."
+    }
+  ]
+}
