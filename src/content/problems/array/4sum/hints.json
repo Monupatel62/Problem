@@ -1,0 +1,5 @@
+[
+  "Sort the array first to enable two-pointer and duplicate skipping.",
+  "Fix the first two elements with nested loops, then use two pointers for the remaining pair.",
+  "Skip duplicate values at each loop level to avoid duplicate quadruplets."
+]
