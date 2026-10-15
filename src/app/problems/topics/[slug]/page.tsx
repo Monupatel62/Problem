@@ -13,8 +13,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const topic = TOPICS.find((t) => t.slug === slug);
   const name = topic?.name ?? "Topic";
   return {
-    title: `${name} Problems | WoHoTech`,
-    description: topic?.description ?? `Practice ${name} problems on WoHoTech.`,
+    title: `${name} Problems | Problem`,
+    description: topic?.description ?? `Practice ${name} problems on Problem.`,
   };
 }
 

@@ -2,14 +2,16 @@ import type { Metadata } from "next";
 import { ProblemsWorkspace } from "./problems-workspace";
 import { getProblems } from "@/lib/problems/service";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
 export const metadata: Metadata = {
-  title: "Coding Problems — Practice DSA, Arrays, Trees, Graphs | WoHoTech",
-  description: "Practice 800+ coding problems with an online judge on WoHoTech. Topics: arrays, strings, linked lists, trees, graphs, dynamic programming, sorting, searching. Ideal for FAANG, GATE, and placement preparation.",
-  alternates: { canonical: "https://wohotech.in/problems" },
+  title: "Coding Problems — Practice DSA, Arrays, Trees, Graphs | Problem",
+  description: "Practice structured coding problems with an online judge. Topics include arrays, strings, linked lists, trees, graphs, dynamic programming, sorting, and searching.",
+  alternates: { canonical: `${siteUrl}/problems` },
   openGraph: {
-    title: "Coding Problems | WoHoTech",
-    description: "800+ DSA problems with online judge — arrays, trees, graphs, DP, and more.",
-    url: "https://wohotech.in/problems",
+    title: "Coding Problems | Problem",
+    description: "Structured DSA problems with an online judge — arrays, trees, graphs, DP, and more.",
+    url: `${siteUrl}/problems`,
   },
 };
 
@@ -19,25 +21,25 @@ export default async function ProblemsPage() {
   const problemsSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "WoHoTech Coding Problems",
-    description: "800+ coding practice problems with online judge covering DSA topics — arrays, strings, trees, graphs, dynamic programming, and more.",
-    url: "https://wohotech.in/problems",
+    name: "Problem Coding Practice",
+    description: "Coding practice with an online judge covering arrays, strings, trees, graphs, dynamic programming, and more.",
+    url: `${siteUrl}/problems`,
     about: {
       "@type": "Thing",
       name: "Data Structures and Algorithms",
     },
     provider: {
       "@type": "Organization",
-      name: "WoHoTech",
-      url: "https://wohotech.in",
+      name: "Problem",
+      url: siteUrl,
     },
     hasPart: [
-      { "@type": "LearningResource", name: "Array Problems", url: "https://wohotech.in/problems/topics/array" },
-      { "@type": "LearningResource", name: "String Problems", url: "https://wohotech.in/problems/topics/string" },
-      { "@type": "LearningResource", name: "Linked List Problems", url: "https://wohotech.in/problems/topics/linked-list" },
-      { "@type": "LearningResource", name: "Tree Problems", url: "https://wohotech.in/problems/topics/tree" },
-      { "@type": "LearningResource", name: "Graph Problems", url: "https://wohotech.in/problems/topics/graph" },
-      { "@type": "LearningResource", name: "Dynamic Programming", url: "https://wohotech.in/problems/topics/dynamic-programming" },
+      { "@type": "LearningResource", name: "Array Problems", url: `${siteUrl}/problems/topics/array` },
+      { "@type": "LearningResource", name: "String Problems", url: `${siteUrl}/problems/topics/string` },
+      { "@type": "LearningResource", name: "Linked List Problems", url: `${siteUrl}/problems/topics/linked-list` },
+      { "@type": "LearningResource", name: "Tree Problems", url: `${siteUrl}/problems/topics/tree` },
+      { "@type": "LearningResource", name: "Graph Problems", url: `${siteUrl}/problems/topics/graph` },
+      { "@type": "LearningResource", name: "Dynamic Programming", url: `${siteUrl}/problems/topics/dynamic-programming` },
     ],
   };
 

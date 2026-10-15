@@ -7,8 +7,8 @@ import { getDailyProblem } from "@/lib/problems/service";
 import { DailyChallengeStatus } from "./daily-challenge-status";
 
 export const metadata: Metadata = {
-  title: "Daily Problem | WoHoTech",
-  description: "Solve today's WoHoTech coding challenge with examples, constraints, and tags.",
+  title: "Daily Coding Challenge | Problem",
+  description: "Solve a daily coding challenge with examples, constraints, and tags.",
 };
 
 function difficultyTone(difficulty: string) {

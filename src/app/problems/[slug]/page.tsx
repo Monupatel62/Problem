@@ -8,6 +8,8 @@ import { getProblem } from "@/lib/problems/service";
 import { ProblemPracticeWorkspace } from "./problem-practice-workspace";
 import { ProblemComingSoon } from "./problem-coming-soon";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
 // Dynamic rendering - pages generated on first request, then cached
 // Prevents build-time OOM (was generating 347 static pages)
 export const dynamic = "force-dynamic";
@@ -19,16 +21,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   if (!problem) {
     return {
-      title: "Problem Not Found | WoHoTech",
+      title: "Problem Not Found | Problem",
       robots: { index: false, follow: false },
     };
   }
 
-  const canonical = `https://wohotech.in/problems/${slug}`;
+  const canonical = `${siteUrl}/problems/${slug}`;
   const indexable = isIndexableProblem(problem);
 
   return {
-    title: `${problem.id}. ${problem.title} | WoHoTech Problems`,
+    title: `${problem.id}. ${problem.title} | Problem`,
     description: problem.description,
     alternates: { canonical },
     // A runnable exercise still needs complete original learning material before
@@ -50,25 +52,25 @@ export default async function ProblemPage({ params }: { params: Promise<{ slug: 
     return <ProblemComingSoon problem={problem} />;
   }
 
-  const pageUrl = `https://wohotech.in/problems/${slug}`;
+  const pageUrl = `${siteUrl}/problems/${slug}`;
   const problemSchema = {
     "@context": "https://schema.org",
     "@type": "LearningResource",
     name: `${problem.id}. ${problem.title}`,
-    description: problem.description ?? `Solve ${problem.title} — a ${problem.difficulty} level coding problem on WoHoTech.`,
+    description: problem.description ?? `Solve ${problem.title} — a ${problem.difficulty} level coding problem on Problem.`,
     url: pageUrl,
     learningResourceType: "Coding Problem",
     educationalLevel: problem.difficulty,
     inLanguage: "en-IN",
     isPartOf: {
       "@type": "WebSite",
-      name: "WoHoTech",
-      url: "https://wohotech.in",
+      name: "Problem",
+      url: siteUrl,
     },
     provider: {
       "@type": "Organization",
-      name: "WoHoTech",
-      url: "https://wohotech.in",
+      name: "Problem",
+      url: siteUrl,
     },
   };
 
@@ -76,8 +78,8 @@ export default async function ProblemPage({ params }: { params: Promise<{ slug: 
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://wohotech.in" },
-      { "@type": "ListItem", position: 2, name: "Problems", item: "https://wohotech.in/problems" },
+      { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+      { "@type": "ListItem", position: 2, name: "Problems", item: `${siteUrl}/problems` },
       { "@type": "ListItem", position: 3, name: problem.title, item: pageUrl },
     ],
   };

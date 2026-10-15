@@ -51,7 +51,7 @@ const LANGUAGES: readonly Language[] = [
 ] as const;
 
 const STARTER: Record<Language, string> = {
-  JavaScript: `// Woho Code Editor - JavaScript
+  JavaScript: `// Problem Code Runner - JavaScript
 // Press Ctrl+Enter to run
 
 console.log("Hello, World!");
@@ -60,17 +60,17 @@ const nums = [1, 2, 3, 4, 5];
 const sum = nums.reduce((a, b) => a + b, 0);
 console.log("Sum:", sum);
 `,
-  TypeScript: `// Woho Code Editor - TypeScript
+  TypeScript: `// Problem Code Runner - TypeScript
 // Press Ctrl+Enter to run
 
 const greeting: string = "Hello, World!";
 console.log(greeting);
 
 interface User { name: string; age: number; }
-const user: User = { name: "Woho", age: 25 };
+const user: User = { name: "Problem", age: 25 };
 console.log(\`\${user.name} is \${user.age} years old\`);
 `,
-  Python: `# Woho Code Editor - Python
+  Python: `# Problem Code Runner - Python
 # Press Ctrl+Enter to run
 
 print("Hello, World!")
@@ -78,7 +78,7 @@ print("Hello, World!")
 nums = [1, 2, 3, 4, 5]
 print("Sum:", sum(nums))
 `,
-  "C++": `// Woho Code Editor - C++
+  "C++": `// Problem Code Runner - C++
 // Press Ctrl+Enter to run
 #include <iostream>
 using namespace std;
@@ -88,7 +88,7 @@ int main() {
     return 0;
 }
 `,
-  C: `// Woho Code Editor - C
+  C: `// Problem Code Runner - C
 // Press Ctrl+Enter to run
 #include <stdio.h>
 
@@ -101,7 +101,7 @@ int main() {
     return 0;
 }
 `,
-  Java: `// Woho Code Editor - Java
+  Java: `// Problem Code Runner - Java
 // Your class must be named Main
 // Press Ctrl+Enter to run
 
@@ -111,7 +111,7 @@ public class Main {
     }
 }
 `,
-  Go: `// Woho Code Editor - Go
+  Go: `// Problem Code Runner - Go
 // Press Ctrl+Enter to run
 package main
 
@@ -125,7 +125,7 @@ func main() {
     fmt.Println("Sum:", sum)
 }
 `,
-  Rust: `// Woho Code Editor - Rust
+  Rust: `// Problem Code Runner - Rust
 // Press Ctrl+Enter to run
 fn main() {
     println!("Hello, World!");
@@ -134,7 +134,7 @@ fn main() {
     println!("Sum: {}", sum);
 }
 `,
-  Kotlin: `// Woho Code Editor - Kotlin
+  Kotlin: `// Problem Code Runner - Kotlin
 // Press Ctrl+Enter to run
 fun main() {
     println("Hello, World!")
@@ -142,20 +142,20 @@ fun main() {
     println("Sum: \${nums.sum()}")
 }
 `,
-  Ruby: `# Woho Code Editor - Ruby
+  Ruby: `# Problem Code Runner - Ruby
 # Press Ctrl+Enter to run
 puts "Hello, World!"
 nums = [1, 2, 3, 4, 5]
 puts "Sum: #{nums.sum}"
 `,
   PHP: `<?php
-// Woho Code Editor - PHP
+// Problem Code Runner - PHP
 // Press Ctrl+Enter to run
 echo "Hello, World!\\n";
 $nums = [1, 2, 3, 4, 5];
 echo "Sum: " . array_sum($nums) . "\\n";
 `,
-  "C#": `// Woho Code Editor - C#
+  "C#": `// Problem Code Runner - C#
 // Press Ctrl+Enter to run
 using System;
 using System.Linq;
@@ -168,7 +168,7 @@ class Program {
     }
 }
 `,
-  SQL: `-- Woho Code Editor - SQL
+  SQL: `-- Problem Code Runner - SQL
 -- Press Ctrl+Enter to run
 
 SELECT 'Hello, World!' AS greeting;
@@ -183,7 +183,7 @@ INSERT INTO example (id, name, score) VALUES
 SELECT name, score FROM example ORDER BY score DESC;
 `,
   Bash: `#!/bin/bash
-# Woho Code Editor - Bash
+# Problem Code Runner - Bash
 # Press Ctrl+Enter to run
 
 echo "Hello, World!"
@@ -197,9 +197,9 @@ echo "Sum: $sum"
 `,
 };
 
-const STORAGE_KEY_THEME = "wohotech-code-editor-theme";
-const STORAGE_KEY_LANG = "wohotech-code-editor-language";
-const STORAGE_PREFIX = "wohotech-code-editor-code:";
+const STORAGE_KEY_THEME = "problem-code-editor-theme";
+const STORAGE_KEY_LANG = "problem-code-editor-language";
+const STORAGE_PREFIX = "problem-code-editor-code:";
 
 export default function WohoCodeEditorPage() {
   const [mounted, setMounted] = useState(false);
@@ -353,7 +353,7 @@ export default function WohoCodeEditorPage() {
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-violet-600 shadow-sm">
               <Terminal className="h-5 w-5 text-white" />
             </div>
-            <span className={`truncate text-lg font-bold ${c.toolbarTxt}`}>Woho Code Editor</span>
+            <span className={`truncate text-lg font-bold ${c.toolbarTxt}`}>Problem Code Runner</span>
           </div>
         </div>
 

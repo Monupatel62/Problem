@@ -6,8 +6,8 @@ import { authOptions } from "@/lib/auth-options";
 import { getProblemAnalytics, getProblemRecommendations } from "@/lib/problems/service";
 
 export const metadata: Metadata = {
-  title: "Problem Study Plan | WoHoTech",
-  description: "Personalized coding practice recommendations and progress tracking on WoHoTech.",
+  title: "Problem Study Plan",
+  description: "Personalized coding practice recommendations and progress tracking.",
 };
 
 function difficultyTone(difficulty: string) {
@@ -47,7 +47,7 @@ export default async function ProblemStudyPlanPage() {
         <section className="rounded-lg bg-[var(--surface)] p-6 shadow-sm">
           <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <div>
-              <p className="text-sm font-bold uppercase text-blue-600">WoHoTech Problem Lab</p>
+              <p className="text-sm font-bold uppercase text-blue-600">Problem Practice Lab</p>
               <h1 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">Study Plan</h1>
               <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--text-soft)]">
                 Practice the next best problems, repair weak topics, and build a daily interview rhythm.
