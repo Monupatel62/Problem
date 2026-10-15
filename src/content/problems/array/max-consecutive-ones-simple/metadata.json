@@ -1,0 +1,38 @@
+{
+  "id": 37,
+  "slug": "max-consecutive-ones-simple",
+  "title": "Max Consecutive Ones Simple",
+  "acceptance": "0.0%",
+  "difficulty": "Easy",
+  "track": "Algorithms",
+  "tags": [
+    "Array",
+    "Counting"
+  ],
+  "companies": [
+    "Google",
+    "Amazon"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "1 <= nums.length <= 10^5",
+    "nums[i] is 0 or 1"
+  ],
+  "examples": [
+    {
+      "input": "nums = [1,1,0,1,1,1]",
+      "output": "3"
+    }
+  ],
+  "functionName": "maxConsecutiveOnesSimple",
+  "solutionApproaches": [
+    {
+      "title": "Direct Array Pattern",
+      "complexity": "Time O(n), Space O(1) to O(n) depending on returned output",
+      "explanation": "Use a focused array traversal, two-pointer pattern, hash set, or prefix calculation based on the statement."
+    }
+  ]
+}
