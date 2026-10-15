@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ProblemsWorkspace } from "./problems-workspace";
 import { getProblems } from "@/lib/problems/service";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://problem.wohotech.in";
 
 export const metadata: Metadata = {
   title: "Coding Problems — Practice DSA, Arrays, Trees, Graphs | Problem",

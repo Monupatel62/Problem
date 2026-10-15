@@ -8,7 +8,7 @@ import { getProblem } from "@/lib/problems/service";
 import { ProblemPracticeWorkspace } from "./problem-practice-workspace";
 import { ProblemComingSoon } from "./problem-coming-soon";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://problem.wohotech.in";
 
 // Dynamic rendering - pages generated on first request, then cached
 // Prevents build-time OOM (was generating 347 static pages)
