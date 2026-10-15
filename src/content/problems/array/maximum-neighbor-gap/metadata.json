@@ -1,0 +1,38 @@
+{
+  "id": 11,
+  "slug": "maximum-neighbor-gap",
+  "title": "Maximum Neighbor Gap",
+  "acceptance": "0.0%",
+  "difficulty": "Easy",
+  "track": "Algorithms",
+  "tags": [
+    "Array",
+    "Math"
+  ],
+  "companies": [
+    "Amazon",
+    "Google"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "0 <= nums.length <= 10^5",
+    "-10^9 <= nums[i] <= 10^9"
+  ],
+  "examples": [
+    {
+      "input": "nums = [4,10,7,20]",
+      "output": "13"
+    }
+  ],
+  "functionName": "maximumNeighborGap",
+  "solutionApproaches": [
+    {
+      "title": "Direct Pattern",
+      "complexity": "Time O(n), Space O(1) to O(n) depending on output",
+      "explanation": "Use the simplest scan or helper data structure required by the statement."
+    }
+  ]
+}
