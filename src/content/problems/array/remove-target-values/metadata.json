@@ -1,0 +1,38 @@
+{
+  "id": 34,
+  "slug": "remove-target-values",
+  "title": "Remove Target Values",
+  "acceptance": "0.0%",
+  "difficulty": "Easy",
+  "track": "Algorithms",
+  "tags": [
+    "Array",
+    "Two Pointers"
+  ],
+  "companies": [
+    "Amazon",
+    "Apple"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "0 <= nums.length <= 10^5",
+    "-10^9 <= nums[i], target <= 10^9"
+  ],
+  "examples": [
+    {
+      "input": "nums = [3,2,3,4], target = 3",
+      "output": "[2,4]"
+    }
+  ],
+  "functionName": "removeTargetValues",
+  "solutionApproaches": [
+    {
+      "title": "Direct Array Pattern",
+      "complexity": "Time O(n), Space O(1) to O(n) depending on returned output",
+      "explanation": "Use a focused array traversal, two-pointer pattern, hash set, or prefix calculation based on the statement."
+    }
+  ]
+}
