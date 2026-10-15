@@ -1,4 +1,5 @@
 name: One-time Problems Content Transfer
+# Trigger refresh: transfer the complete audited source snapshot.
 
 on:
   push:
