@@ -1,0 +1,15 @@
+### Sort before deciding overlap
+
+Sort intervals by their start coordinate. Once sorted, compare each incoming interval only with the last interval in the merged output. Earlier merged intervals end no later than that one, so they cannot overlap a new interval that does not overlap the last one.
+
+If `current.start` is greater than `last.end`, there is a real gap and `current` starts a new merged interval. Otherwise, the ranges overlap or touch, so set `last.end = max(last.end, current.end)`. This also handles a smaller interval fully contained inside the current merged range.
+
+The use of `>` is intentional. With closed intervals, `[1,4]` and `[4,5]` share a point and merge. Use `last.end < current.start` to identify a non-overlap, not `last.end <= current.start`.
+
+Sorting requires O(n log n) time; the single sweep is O(n). Copy intervals before sorting or extending them if the caller must retain the original input. Test unsorted input, touching endpoints, nested intervals, disjoint ranges, and a chain of overlaps. These cases validate the output invariant: merged intervals stay sorted and pairwise disjoint.
+
+### Sweep invariant and edge behavior
+
+After every processed interval, the output contains the complete merge of all processed ranges. Its final interval is the only one that could overlap the next sorted range. This is why no backward scan is necessary. A contained range changes nothing; a partially overlapping range extends only the last endpoint; a disjoint range begins a new output item. The same logic handles a one-interval input without a special merge branch.
+
+Be careful about interval conventions in related problems. This task uses closed `[start, end]` ranges, so equal endpoints touch. If a problem used half-open ranges such as `[start, end)`, the equality rule would be different. Always state the convention before choosing the comparison operator; a wrong equality check silently changes the meaning of the result.
