@@ -1,0 +1,57 @@
+{
+  "id": 47,
+  "slug": "product-except-self-basic",
+  "title": "Product Except Self Basic",
+  "acceptance": "0.0%",
+  "difficulty": "Medium",
+  "track": "Algorithms",
+  "judgeReady": true,
+  "tags": [
+    "Array",
+    "Prefix Product"
+  ],
+  "companies": [
+    "Amazon",
+    "Google",
+    "Facebook",
+    "Apple"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "2 <= nums.length <= 10^5",
+    "-30 <= nums[i] <= 30",
+    "Compute each answer without using division."
+  ],
+  "examples": [
+    {
+      "input": "nums = [1,2,3,4]",
+      "output": "[24,12,8,6]"
+    },
+    {
+      "input": "nums = [-1,1,0,-3,3]",
+      "output": "[0,0,9,0,0]",
+      "explanation": "The one zero position receives the product of all non-zero values."
+    },
+    {
+      "input": "nums = [0,0,2]",
+      "output": "[0,0,0]",
+      "explanation": "Every product excluding one position still contains at least one zero."
+    }
+  ],
+  "functionName": "productExceptSelfBasic",
+  "solutionApproaches": [
+    {
+      "title": "Multiply Every Other Position",
+      "complexity": "Time O(n²), Space O(1) excluding output",
+      "explanation": "For each result position, multiply all other values; correct but too slow for a large input."
+    },
+    {
+      "title": "Prefix and Suffix Products",
+      "complexity": "Time O(n), Space O(1) excluding output",
+      "explanation": "Store left products in the answer, then multiply each by an accumulated right product in a reverse pass."
+    }
+  ]
+}
