@@ -1,0 +1,17 @@
+### Maintain a valid positive-product window
+
+Keep a window from `left` through `right` and its running product. Add `nums[right]` as the right boundary advances. If the product reaches or exceeds k, repeatedly divide by `nums[left]` and move `left` right until the window becomes valid again.
+
+This shrinking rule is correct only because all values are positive. Expanding a positive-product window cannot decrease the product, and shrinking cannot increase it. Therefore once the full window product is below k, every suffix ending at `right` is also below k.
+
+### Count all suffixes at once
+
+For a valid window of length `right - left + 1`, every starting position from left through right forms a valid subarray ending at right. Add that length directly to the answer instead of enumerating the suffixes. Across the full scan, each pointer moves at most n times, yielding O(n) time.
+
+Return zero immediately when `k <= 1`. Since every non-empty product is at least one, no positive-integer subarray can satisfy `product < k` in that case. This guard also prevents an endless shrink loop after multiplying the first value.
+
+An O(n²) enumeration is a useful baseline but cannot handle thirty thousand values efficiently. Test k equal to zero or one, a single value equal to k, many ones, a product that requires several left moves, and a valid suffix after shrinking. These cases confirm strict inequality and the counting formula.
+
+### Implementation safety
+
+Divide out exactly the value at `left` before incrementing that pointer; changing the order removes the wrong factor and corrupts later products. Use a numeric type that can hold intermediate products under the problem limits. In JavaScript, normal number arithmetic is safe for the stated values and window size in practical test data; fixed-width integer languages may use a wider type when multiplying. Never apply this method unchanged to arrays containing zero or negatives, because the monotonic product argument no longer holds.
