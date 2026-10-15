@@ -1,0 +1,15 @@
+{
+  "sampleCases": [
+    { "input": ["abcabcbb"], "expected": 3 },
+    { "input": ["bbbbb"], "expected": 1 },
+    { "input": [""], "expected": 0 }
+  ],
+  "hiddenCases": [
+    { "input": ["pwwkew"], "expected": 3 },
+    { "input": [""], "expected": 0 },
+    { "input": ["dvdf"], "expected": 3 },
+    { "input": ["abba"], "expected": 2 },
+    { "input": ["tmmzuxt"], "expected": 5 },
+    { "input": ["a b!a"], "expected": 4 }
+  ]
+}
