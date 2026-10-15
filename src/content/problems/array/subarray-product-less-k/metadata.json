@@ -1,0 +1,39 @@
+{
+  "id": 70,
+  "slug": "subarray-product-less-k",
+  "title": "Subarray Product Less Than K",
+  "acceptance": "44.6%",
+  "difficulty": "Medium",
+  "track": "Algorithms",
+  "judgeReady": true,
+  "tags": ["Array", "Sliding Window", "Two Pointers"],
+  "companies": ["Amazon", "Google", "Facebook", "Uber"],
+  "frequency": 79,
+  "likes": 8900,
+  "dislikes": 310,
+  "discussionCount": 2100,
+  "constraints": [
+    "1 <= nums.length <= 3 * 10^4",
+    "1 <= nums[i] <= 1000",
+    "0 <= k <= 10^6",
+    "All array values are positive, enabling a monotonic sliding window."
+  ],
+  "examples": [
+    { "input": "nums = [10,5,2,6], k = 100", "output": "8", "explanation": "Subarrays with product < 100: [10],[5],[2],[6],[10,5],[5,2],[2,6],[5,2,6]." },
+    { "input": "nums = [1,2,3], k = 0", "output": "0" },
+    { "input": "nums = [1,1,1], k = 2", "output": "6", "explanation": "Every non-empty subarray has product 1, so all six subarrays count." }
+  ],
+  "functionName": "numSubarrayProductLessThanK",
+  "solutionApproaches": [
+    {
+      "title": "Enumerate All Ranges",
+      "complexity": "Time O(n²), Space O(1)",
+      "explanation": "Multiply each range from every start index; correct but too slow at the maximum array length."
+    },
+    {
+      "title": "Sliding Window",
+      "complexity": "Time O(n), Space O(1)",
+      "explanation": "Expand right, shrink left while product >= k. Every window ending at right contributes right-left+1 subarrays."
+    }
+  ]
+}
