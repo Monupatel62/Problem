@@ -1,0 +1,39 @@
+{
+  "id": 40,
+  "slug": "unique-intersection-values",
+  "title": "Unique Intersection Values",
+  "acceptance": "0.0%",
+  "difficulty": "Easy",
+  "track": "Algorithms",
+  "tags": [
+    "Array",
+    "Hash Table"
+  ],
+  "companies": [
+    "Amazon",
+    "LinkedIn",
+    "Microsoft"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "0 <= a.length, b.length <= 10^5",
+    "-10^9 <= values <= 10^9"
+  ],
+  "examples": [
+    {
+      "input": "a = [4,9,5], b = [9,4,9,8,4]",
+      "output": "[4,9]"
+    }
+  ],
+  "functionName": "uniqueIntersectionValues",
+  "solutionApproaches": [
+    {
+      "title": "Direct Array Pattern",
+      "complexity": "Time O(n), Space O(1) to O(n) depending on returned output",
+      "explanation": "Use a focused array traversal, two-pointer pattern, hash set, or prefix calculation based on the statement."
+    }
+  ]
+}
