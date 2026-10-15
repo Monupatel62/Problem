@@ -21,6 +21,6 @@ CI: [build/typecheck](https://github.com/Monupatel62/Problem/actions/runs/387383
 ## Remaining
 
 1. Get the source cleanup branch CI green and verify the extraction guard result.
-2. Complete ESLint and manual UI review in the destination.
+2. Resolve outstanding ESLint errors and complete manual UI review in the destination.
 3. Review the full source diff before any PR merge.
 4. Keep WoHoTech `main`, the live database, and Vercel untouched unless explicitly approved.

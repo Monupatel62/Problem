@@ -38,7 +38,7 @@
 - [x] TypeScript type-check passed.
 - [x] Next.js production build passed.
 - [x] Isolated judge service health check and JavaScript, Python, C++, and Java smoke tests passed.
-- [ ] ESLint is not yet part of the canonical CI workflow.
+- [ ] ESLint audit: attempted, but it fails on existing violations in extracted feature code and the shared `/code` runner (explicit `any`, React effect/ref rules, `prefer-const`, and unescaped entities). It is not a passing check.
 - [ ] Full feature-level manual UI review is still needed before production deployment.
 
 CI evidence: [build/typecheck](https://github.com/Monupatel62/Problem/actions/runs/38738315441) · [tests/judge smoke](https://github.com/Monupatel62/Problem/actions/runs/38738315380).

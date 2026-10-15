@@ -21,7 +21,7 @@ Destination validation passed on commit `6a2b3340ef71c3954aef413dabbef01476f49e1
 - [x] TypeScript type-check.
 - [x] Production build.
 - [x] Isolated judge service health check and JavaScript/Python/C++/Java smoke tests.
-- [ ] ESLint and manual UI review.
+- [ ] Resolve ESLint errors and complete manual UI review.
 
 ## Gate 3 — Source cleanup
 

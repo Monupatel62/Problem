@@ -8,7 +8,7 @@ This document records the resolution status for the coding-practice feature extr
 - Feature-owned app routes, API handlers, UI components, core library, content, scripts, and judge Docker configuration have been transferred.
 - The destination has its own package manifest and TypeScript/Next configuration.
 - A dedicated Prisma schema and initial migration cover problems, examples, test cases, user progress, submissions, and notifications.
-- Content validation, Prisma validation/generation, tests, type-check, production build, and judge smoke tests for JavaScript, Python, C++, and Java passed in CI.
+- Content validation, Prisma validation/generation, tests, type-check, production build, and judge smoke tests for JavaScript, Python, C++, and Java passed in CI.\n- A separate ESLint audit was attempted and failed on existing violations in the extracted feature and shared `/code` runner; do not describe lint as passing.
 - Required judge runtime settings are environment variables only; no production secrets were copied.
 
 ## Source cleanup

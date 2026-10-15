@@ -22,7 +22,7 @@ The extracted Problem application contains:
 
 ## Validation status
 
-The destination's content validation, Prisma validation/generation, automated tests, type-check, production build, and isolated judge smoke tests for JavaScript/Python/C++/Java passed on commit `6a2b3340ef71c3954aef413dabbef01476f49e12`. ESLint and manual UI review remain.
+The destination's content validation, Prisma validation/generation, automated tests, type-check, production build, and isolated judge smoke tests for JavaScript/Python/C++/Java passed on commit `6a2b3340ef71c3954aef413dabbef01476f49e12`. The ESLint audit currently fails on inherited lint violations in extracted feature code and the shared `/code` runner; manual UI review also remains.
 
 ## Separation and deployment
 

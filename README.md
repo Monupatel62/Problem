@@ -9,7 +9,7 @@ Standalone coding-practice platform extracted from WoHoTech.
 - [Production-build/typecheck CI](https://github.com/Monupatel62/Problem/actions/runs/38738315441)
 - [Tests and four-language judge smoke CI](https://github.com/Monupatel62/Problem/actions/runs/38738315380)
 
-The feature-owned source paths have been removed from the non-main WoHoTech branch `cleanup/remove-wohoplay`. Targeted checks of navigation, layout, sitemap/robots, package scripts, Prisma schema, and notification helpers found no remaining feature-specific references. A whole-repository source guard has also been added; **the WoHoTech cleanup branch CI is still failing, so the source branch is not merge-ready**.
+A full ESLint run was attempted but did not pass: inherited lint errors remain in the extracted feature and the shared `/code` runner (notably explicit `any`, React effect/ref rules, and `prefer-const`). Lint is not a blocking CI step yet; this is recorded as remaining cleanup, not a pass.\n\nThe feature-owned source paths have been removed from the non-main WoHoTech branch `cleanup/remove-wohoplay`. Targeted checks of navigation, layout, sitemap/robots, package scripts, Prisma schema, and notification helpers found no remaining feature-specific references. A whole-repository source guard has also been added; **the WoHoTech cleanup branch CI is still failing, so the source branch is not merge-ready**.
 
 ## Extraction documents
 
