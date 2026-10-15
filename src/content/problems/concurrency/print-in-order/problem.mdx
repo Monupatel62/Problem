@@ -1,0 +1,9 @@
+Implement a class `Foo` used by three independent threads. The threads may call `first(printFirst)`, `second(printSecond)`, and `third(printThird)` in any scheduling order, but the supplied callbacks must always run in this exact sequence: `printFirst`, then `printSecond`, then `printThird`.
+
+Each callback appends one known piece of output: the first callback contributes `first`, the second contributes `second`, and the third contributes `third`. Therefore the final observable output must be `firstsecondthird`, regardless of whether the scheduler invokes the methods in the order `[1, 2, 3]`, `[3, 2, 1]`, or any other permutation.
+
+All three methods are called exactly once on the same `Foo` instance. You must coordinate the methods without relying on a lucky execution order, busy waiting, or artificial delays such as `sleep`. A thread that arrives early may wait until its prerequisite has completed. Once the prerequisite callback finishes, the waiting thread should be allowed to continue.
+
+For example, when the thread for `third` starts before both other threads, it must not print immediately. It waits for `second` to finish. Similarly, `second` waits for `first`. If `first` starts last, it prints `first`, signals the second method, and the chain then continues safely.
+
+Use a synchronization primitive appropriate for the language, such as a semaphore, event, condition variable, latch, or promise. The essential idea is to represent two dependencies: `second` depends on `first`, and `third` depends on `second`. Do not use a global output-order workaround; the synchronization must belong to the shared `Foo` object so every thread observes the same state. The solution must remain correct under any valid scheduler interleaving.
