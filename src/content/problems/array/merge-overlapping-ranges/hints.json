@@ -1,0 +1,4 @@
+[
+  "Sort intervals by start.",
+  "Extend the last merged interval when ranges overlap."
+]
