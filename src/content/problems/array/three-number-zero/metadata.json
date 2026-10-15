@@ -1,0 +1,58 @@
+{
+  "id": 46,
+  "slug": "three-number-zero",
+  "title": "Three Number Zero",
+  "acceptance": "0.0%",
+  "difficulty": "Medium",
+  "track": "Algorithms",
+  "judgeReady": true,
+  "tags": [
+    "Array",
+    "Two Pointers",
+    "Sorting"
+  ],
+  "companies": [
+    "Amazon",
+    "Google",
+    "Facebook",
+    "Microsoft"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "3 <= nums.length <= 3000",
+    "-10^5 <= nums[i] <= 10^5",
+    "Triplets are unique by values rather than index choices."
+  ],
+  "examples": [
+    {
+      "input": "nums = [-1,0,1,2,-1,-4]",
+      "output": "2"
+    },
+    {
+      "input": "nums = [0,0,0,0]",
+      "output": "1",
+      "explanation": "All index choices produce the same value triplet [0,0,0]."
+    },
+    {
+      "input": "nums = [1,2,-2,-1]",
+      "output": "0",
+      "explanation": "No three distinct positions produce a sum of zero."
+    }
+  ],
+  "functionName": "threeNumberZero",
+  "solutionApproaches": [
+    {
+      "title": "Enumerate All Triples",
+      "complexity": "Time O(n³), Space O(1) excluding deduplication",
+      "explanation": "Try every three-index combination, but it is too slow and makes duplicate removal difficult."
+    },
+    {
+      "title": "Sort and Two Pointers",
+      "complexity": "Time O(n²), Space O(1) excluding sorted copy",
+      "explanation": "Fix one value, then use a two-pointer scan for the complementary pair while skipping duplicates."
+    }
+  ]
+}
