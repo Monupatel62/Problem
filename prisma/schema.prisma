@@ -134,3 +134,17 @@ model ProblemSubmission {
   @@index([userId, createdAt])
   @@map("problem_submissions")
 }
+
+model ProblemNotification {
+  id        String   @id @default(cuid())
+  userId    String
+  type      String
+  title     String
+  body      String
+  link      String?
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([userId, createdAt])
+  @@map("problem_notifications")
+}

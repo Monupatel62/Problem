@@ -49,3 +49,17 @@ ALTER TABLE "problem_examples" ADD CONSTRAINT "problem_examples_problemId_fkey" 
 ALTER TABLE "problem_test_cases" ADD CONSTRAINT "problem_test_cases_problemId_fkey" FOREIGN KEY ("problemId") REFERENCES "problems"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE "user_problem_statuses" ADD CONSTRAINT "user_problem_statuses_problemId_fkey" FOREIGN KEY ("problemId") REFERENCES "problems"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE "problem_submissions" ADD CONSTRAINT "problem_submissions_problemId_fkey" FOREIGN KEY ("problemId") REFERENCES "problems"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+
+CREATE TABLE "problem_notifications" (
+  "id" TEXT NOT NULL,
+  "userId" TEXT NOT NULL,
+  "type" TEXT NOT NULL,
+  "title" TEXT NOT NULL,
+  "body" TEXT NOT NULL,
+  "link" TEXT,
+  "read" BOOLEAN NOT NULL DEFAULT false,
+  "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT "problem_notifications_pkey" PRIMARY KEY ("id")
+);
+CREATE INDEX "problem_notifications_userId_createdAt_idx" ON "problem_notifications"("userId", "createdAt");
