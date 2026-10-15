@@ -1,71 +1,69 @@
 # Extraction Inventory and Audit Checklist
 
-> This is an evolving inventory. A checked source directory means it was located, not that every nested file has been copied or reviewed.
+> Live ledger for the WoHoTech Problems extraction. Counts are branch-specific snapshots; transfer is not yet complete.
 
-## Confirmed feature directories
+## Source snapshot
 
-- [x] `src/app/problems/`
-- [x] `src/app/api/problems/`
-- [x] `src/components/problems/`
-- [x] `src/lib/problems/`
-- [x] `src/content/problems/`
-- [x] `scripts/problems/`
-- [x] `docker/judge/` (directory referenced by discovered deployment files)
-- [x] `docker-compose.judge.yml` (file referenced in search results)
-- [ ] Enumerate every nested file and record source path, blob SHA, size and transfer status.
-- [ ] Inspect root `package.json` scripts and dependencies.
-- [ ] Inspect `next.config.ts`, TypeScript aliases and content loader configuration.
-- [ ] Search global navigation/header/footer/sidebar for links to the feature.
-- [ ] Search metadata, JSON-LD, sitemap generation, robots rules, canonical URLs and Open Graph content.
-- [ ] Search tests, fixtures, Playwright flows, mocks and test scripts.
-- [ ] Search CI workflows and deployment configs for judge/content jobs.
-- [ ] Search environment variable names for judge endpoint, token, limits and fallback behavior.
-- [ ] Inspect Prisma schema models/enums/indexes/relations used by submissions, progress, streaks, daily challenges or analytics.
-- [ ] Inspect all related migrations and classify shared vs exclusively feature-owned schema.
-- [ ] Search references to `/problems`, `api/problems`, `@/lib/problems`, `@/components/problems`, `src/content/problems`, `scripts/problems` and judge environment names throughout the repository.
-- [ ] Record whether generic words such as “problem” occur in unrelated educational content; do not delete unrelated course/interview material by keyword alone.
+- Source repository: `Monupatel62/WoHoTech`
+- Source branch: `cleanup/remove-wohoplay`
+- Audited source commit: `9fab984a6bf353d87dca9d04590cd9c75ba3c524`
+- Destination repository: `Monupatel62/Problem`
+- Destination branch: `extract/wohotech-problems`
+- Source recursive tree: 6,797 entries, not truncated.
+- Confirmed source files under `src/content/problems/`: 694 files, about 340 KB.
+- Destination currently has 55 of those 694 structured-content files (first four dozen-plus files by path order); **639 remain**.
+- Destination branch currently contains 132 tracked files across documentation and copied feature code. This is a partial transfer, not a runnable/release-ready extraction.
 
-## Initial files confirmed by GitHub source listings/search
+## Confirmed source inventory
 
-- `src/app/problems/page.tsx`
-- `src/app/problems/topics/page.tsx`
-- `src/app/problems/topics/topics-hub.tsx`
-- `src/app/problems/daily/page.tsx`
-- `src/app/problems/study-plan/page.tsx`
-- `src/app/problems/[slug]/problem-practice-workspace.tsx`
-- `src/app/api/problems/route.ts`
-- `src/app/api/problems/[slug]/judge/route.ts`
-- `src/app/api/problems/recommendations/route.ts`
-- `src/components/problems/problems-table.tsx`
-- `src/components/problems/problems-toolbar.tsx`
-- `src/components/problems/problems-sidebar.tsx`
-- `src/lib/problems/bank.ts`
-- `src/lib/problems/catalog.ts`
-- `src/lib/problems/content-loader.ts`
-- `src/lib/problems/topics.ts`
-- `src/lib/problems/judge.ts`
-- `src/lib/problems/judge-service-config.ts`
-- `scripts/problems/load-structured-problems.mjs`
-- `scripts/problems/judge-worker.mjs`
-- `scripts/problems/judge-worker-direct.mjs`
-- `scripts/problems/smoke-judge-service.mjs`
-- `docker/judge/Dockerfile`
-- `docker/judge/Dockerfile.render`
-- `docker-compose.judge.yml`
+| Source path prefix | Source files | Bytes (approx.) | Destination state |
+|---|---:|---:|---|
+| `src/app/problems/` | 12 | 102,304 | 12 transferred |
+| `src/app/api/problems/` | 14 | 26,930 | 14 transferred |
+| `src/components/problems/` | 20 | 163,948 | 20 transferred |
+| `src/lib/problems/` | 10 | 693,708 | 10 transferred |
+| `src/content/problems/` | 694 | 340,526 | 55 transferred; 639 pending |
+| `scripts/problems/` | 12 | 196,857 | 12 transferred |
+| `docker/judge/` | 3 | 2,525 | 3 transferred |
+| `docker-compose.judge.yml` | 1 | 1,315 | transferred |
+| **Total in these feature-owned groups** | **766** | — | **Partial** |
 
-The list above is deliberately not presented as exhaustive.
+The inventory excludes cross-cutting references and shared database/config files, which are tracked separately below. Source tree sizes may differ slightly from fetched text byte lengths because GitHub reports stored file sizes.
 
-## Transfer ledger
+## Cross-cutting dependencies that still need handling
 
-Use one row per file, not one row per directory. Mark a file **transferred** only after comparing destination content to the source (preferably by Git blob SHA/content hash). Mark **verified** only after dependencies and tests are accounted for.
+- [ ] Root `package.json`: extract only necessary dependencies/scripts; do not copy the entire WoHoTech package setup blindly.
+- [ ] Next.js configuration, TypeScript path aliases, MDX loader and runtime dependencies.
+- [ ] Shared UI primitives and imported components outside `src/components/problems/`.
+- [ ] Global navigation/footer/sidebar references to `/problems`.
+- [ ] SEO metadata, JSON-LD, sitemap, robots rules, canonical URLs, `public/llms.txt`, `public/llms-full.txt`, and `scripts/verify-seo.mjs`.
+- [ ] CI workflows and deployment configs for judge/content jobs.
+- [ ] Environment variable names for judge endpoint/token, limits, fallback behavior and safe configuration. Never copy actual secrets.
+- [ ] Prisma models/enums/indexes/relations used by submissions, progress, favorites, streaks, daily challenges and analytics.
+- [ ] Migrations `20260513090000_add_problem_catalog` and `20260518090000_add_problem_submission_test_results`; classify shared vs feature-only schema before changing anything.
+- [ ] Tests, fixtures, mocks, Playwright flows and package scripts.
+- [ ] Repository-wide references to `/problems`, `api/problems`, `@/lib/problems`, `@/components/problems`, `src/content/problems`, `scripts/problems` and judge environment names.
+- [ ] Verify whether generic uses of “problem” refer to unrelated content; never delete unrelated material by keyword alone.
 
-| Source path | Destination path | Source SHA | Transferred | Verified | Notes |
-|---|---|---|---|---|---|
-| Pending full enumeration | — | — | No | No | Do not remove source files yet |
+## Content contract
 
-## Evidence and branch safety
+Structured problem folders use the format documented by `src/content/problems/README.md`:
+`problem.mdx`, `metadata.json`, `hints.json`, `editorial.mdx`, `testcases.json`, and optional language starter-code files. The validator `scripts/problems/validate-content.mjs` must be run against the complete transferred tree before considering content complete.
 
-- Source discovery is being performed on `cleanup/remove-wohoplay`, not `main`.
-- Destination writes belong on `extract/wohotech-problems`, not `main`.
-- Do not change the live database or Vercel deployment as part of repository extraction.
-- Never infer completion from a README or a branch existing.
+## Verification gates
+
+- [ ] Finish transferring all 694 structured content files and compare destination file contents against the source.
+- [ ] Create a standalone app/package setup for the extracted repository.
+- [ ] Resolve imports outside the copied feature and decide whether to copy, replace, or remove each dependency.
+- [ ] Extract only required database schema into a dedicated schema/migration plan; do not apply migrations to the live DB.
+- [ ] Run content validation, typecheck, lint, tests, build, and judge smoke tests in the destination repo.
+- [ ] Search the source branch for all direct and indirect references, including SEO, sitemap, navigation, scripts, config, schema and tests.
+- [ ] Review a source-removal diff only after destination parity and validation pass.
+- [ ] Do not delete source files until every relevant gate is verified.
+
+## Branch and production safety
+
+- Source discovery is on `cleanup/remove-wohoplay`, not `main`.
+- Destination writes are on `extract/wohotech-problems`, not `main`.
+- No source files have been deleted as part of this extraction.
+- Do not change the live database, merge to `main`, or deploy to Vercel as part of this work without explicit approval.
