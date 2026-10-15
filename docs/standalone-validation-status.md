@@ -9,3 +9,5 @@ This branch is a working extraction, not production-ready yet.
 - Do not delete the source feature from WoHoTech until content validation, typecheck, tests, build, judge smoke tests, and a full source reference audit pass.
 
 - CI dependency installation is being fixed from actual runner output.
+
+- Dependency install is being iterated against actual CI output.
