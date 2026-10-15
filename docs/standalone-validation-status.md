@@ -7,3 +7,5 @@ This branch is a working extraction, not production-ready yet.
 - The initial database migration is isolated to this repository and has not been applied to any database.
 - Authentication providers, imported shared UI/runtime dependencies, and complete CI/build validation remain to be completed.
 - Do not delete the source feature from WoHoTech until content validation, typecheck, tests, build, judge smoke tests, and a full source reference audit pass.
+
+- CI dependency installation is being fixed from actual runner output.
