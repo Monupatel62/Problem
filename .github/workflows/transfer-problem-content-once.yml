@@ -1,0 +1,45 @@
+name: One-time Problems Content Transfer
+
+on:
+  push:
+    branches:
+      - extract/wohotech-problems
+    paths:
+      - .github/workflows/transfer-problem-content-once.yml
+
+permissions:
+  contents: write
+
+jobs:
+  transfer:
+    if: github.ref == 'refs/heads/extract/wohotech-problems'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout destination branch
+        uses: actions/checkout@v4
+        with:
+          ref: extract/wohotech-problems
+          fetch-depth: 0
+      - name: Fetch audited WoHoTech source snapshot
+        run: |
+          git clone --filter=blob:none https://github.com/Monupatel62/WoHoTech.git /tmp/wohotech
+          git -C /tmp/wohotech fetch --depth=1 origin 9fab984a6bf353d87dca9d04590cd9c75ba3c524
+          git -C /tmp/wohotech checkout --detach 9fab984a6bf353d87dca9d04590cd9c75ba3c524
+      - name: Copy all structured problem content
+        run: |
+          mkdir -p src/content/problems
+          cp -a /tmp/wohotech/src/content/problems/. src/content/problems/
+          echo "Source files: $(find /tmp/wohotech/src/content/problems -type f | wc -l)"
+          echo "Destination files: $(find src/content/problems -type f | wc -l)"
+      - name: Commit content and remove one-time workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm .github/workflows/transfer-problem-content-once.yml
+          git add src/content/problems .github/workflows/transfer-problem-content-once.yml
+          if git diff --cached --quiet; then
+            echo "No content changes detected."
+            exit 0
+          fi
+          git commit -m "Transfer complete structured Problems content from WoHoTech"
+          git push origin HEAD:extract/wohotech-problems
