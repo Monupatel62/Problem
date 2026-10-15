@@ -1,0 +1,5 @@
+[
+  "Track the maximum index you can reach at each step.",
+  "If your current index exceeds the maximum reachable index, you are stuck.",
+  "You only need to check whether the last index is reachable — not the exact path."
+]
