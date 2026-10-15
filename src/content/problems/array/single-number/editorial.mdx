@@ -1,0 +1,17 @@
+### Let matching values cancel
+
+XOR is a bitwise operation with useful cancellation rules: `x XOR x = 0`, `x XOR 0 = x`, and it is both associative and commutative. Therefore, the array can be XORed in any order. Every value that appears twice combines with itself and disappears, leaving only the value that appears once.
+
+Initialize `result` to zero. For each number in the array, calculate `result = result XOR number`. At the end, return `result`. No map, set, sort, or nested scan is needed. The algorithm makes exactly one pass and uses one accumulator variable.
+
+For `[4, 1, 2, 1, 2]`, regrouping conceptually gives `(1 XOR 1) XOR (2 XOR 2) XOR 4`, which simplifies to 4. The code never needs to physically regroup values because XOR order does not affect the result.
+
+### Alternatives and limits
+
+A hash map works in O(n) time but consumes O(n) memory. Sorting makes equal values adjacent, but costs O(n log n) time. XOR meets both requested limits: O(n) time and O(1) extra space. It also handles zero and negative integers in normal fixed-width integer representations.
+
+This technique depends on the exact input rule: every non-answer value occurs twice. If values may occur three times, or two different values occur once, use a different bit-counting or frequency approach. Test a single item, zero as a duplicate, negative pairs, and a unique value at either end of an unsorted array.
+
+### Implementation notes
+
+Start with zero rather than the first array value so the empty accumulator follows the same XOR identity rule. In JavaScript, bitwise XOR operates on signed 32-bit integers; that is safe for this problem's stated numeric bounds. Avoid using addition and subtraction to cancel pairs, because overflow can make such logic unreliable in other languages. XOR directly expresses the pairing invariant and keeps the code compact.
