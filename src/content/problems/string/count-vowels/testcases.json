@@ -1,0 +1,24 @@
+{
+  "sampleCases": [
+    {
+      "input": [
+        "WoHoTech"
+      ],
+      "expected": 3
+    }
+  ],
+  "hiddenCases": [
+    {
+      "input": [
+        "AEIOUxyz"
+      ],
+      "expected": 5
+    },
+    {
+      "input": [
+        "rhythm"
+      ],
+      "expected": 0
+    }
+  ]
+}
