@@ -1,0 +1,5 @@
+[
+  "A hash map counting frequencies works in O(n) time and O(n) space.",
+  "Can you do it in O(1) extra space? Think about the Boyer-Moore Voting Algorithm.",
+  "The majority element appears more than half the time, so it cancels out all other elements."
+]
