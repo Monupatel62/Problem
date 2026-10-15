@@ -1,0 +1,5 @@
+[
+  "Think of the matrix as concentric layers.",
+  "Use four boundary variables: top, bottom, left, right.",
+  "After processing each side, shrink that boundary inward."
+]
