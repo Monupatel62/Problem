@@ -1,0 +1,5 @@
+[
+  "Find all customerId values in Orders, then exclude them from Customers.",
+  "Try NOT IN with a subquery, or LEFT JOIN and check for NULL.",
+  "Remember to alias the name column as 'Customers'."
+]
