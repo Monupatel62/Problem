@@ -1,0 +1,9 @@
+You are given two non-empty linked lists that represent non-negative integers. Each node stores one decimal digit, and the digits are stored in **reverse order**: the ones digit comes first. Add the two represented numbers and return their sum in the same reverse-order linked-list format.
+
+For the practice workspace, linked lists are supplied and returned as arrays. Thus `[2, 4, 3]` represents the linked list `2 → 4 → 3`, which is the number 342, not 243. Adding it to `[5, 6, 4]` produces `[7, 0, 8]`, because 342 + 465 = 807.
+
+You must process the numbers one digit at a time, exactly as in elementary column addition. At each step, add the current digit from each list (use zero after a list finishes) and the carry from the previous step. The output digit is `sum % 10`; the next carry is `floor(sum / 10)`.
+
+The lists can have different lengths. For example, `[1, 8]` plus `[0]` must still return `[1, 8]`. A final carry can also create an additional node: `[5] + [5]` becomes `[0, 1]`. Continue while either list has nodes **or** a carry remains.
+
+Build a new result list instead of changing either input list. A dummy head node makes appending simple: attach each computed digit to `tail.next`, then move the tail forward. When the loop ends, return the node after the dummy head. This approach handles zeros, different lengths, repeated carries, and the largest permitted lists in one pass. The input arrays are never modified, which also makes the function safe to test repeatedly.
