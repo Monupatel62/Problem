@@ -1,0 +1,5 @@
+[
+  "A single pass is possible with three pointers: low, mid, high.",
+  "low marks the boundary of 0s, high marks the boundary of 2s.",
+  "When nums[mid] is 0, swap with low and advance both. When 2, swap with high and retreat high only."
+]
