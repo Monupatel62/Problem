@@ -1,0 +1,38 @@
+{
+  "id": 30,
+  "slug": "sum-positive-values",
+  "title": "Sum Positive Values",
+  "acceptance": "0.0%",
+  "difficulty": "Easy",
+  "track": "Algorithms",
+  "tags": [
+    "Array",
+    "Math"
+  ],
+  "companies": [
+    "Amazon",
+    "Adobe"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "0 <= nums.length <= 10^5",
+    "-10^9 <= nums[i] <= 10^9"
+  ],
+  "examples": [
+    {
+      "input": "nums = [-2, 5, 0, 3]",
+      "output": "8"
+    }
+  ],
+  "functionName": "sumPositiveValues",
+  "solutionApproaches": [
+    {
+      "title": "Direct Array Pattern",
+      "complexity": "Time O(n), Space O(1) to O(n) depending on returned output",
+      "explanation": "Use a focused array traversal, two-pointer pattern, hash set, or prefix calculation based on the statement."
+    }
+  ]
+}
