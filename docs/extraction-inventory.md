@@ -1,70 +1,54 @@
 # Extraction Inventory and Audit Checklist
 
-> Live ledger for the WoHoTech Problems extraction. Counts are branch-specific snapshots; structured content transfer is complete, while runtime extraction and validation remain in progress.
+> Updated after destination CI passed. Source deletion is present only on the non-main WoHoTech cleanup branch; the branch is not ready to merge while its CI is failing.
 
-## Source snapshot
+## Source snapshot and transfer
 
 - Source repository: `Monupatel62/WoHoTech`
 - Source branch: `cleanup/remove-wohoplay`
-- Audited source commit: `9fab984a6bf353d87dca9d04590cd9c75ba3c524`
+- Audited source snapshot: `9fab984a6bf353d87dca9d04590cd9c75ba3c524`
 - Destination repository: `Monupatel62/Problem`
 - Destination branch: `extract/wohotech-problems`
-- Source recursive tree: 6,797 entries, not truncated.
-- Confirmed source files under `src/content/problems/`: 694 files, about 340 KB.
-- Destination has all 694 of those 694 structured-content files; source and destination Git blob SHAs match for every path (0 missing, 0 mismatches) as of destination commit `d6fc1fbdae731225020b0c6c961f0f7bdab778cf`.
-- Destination branch contains copied feature code and docs, but has no root `package.json` yet. This is not a runnable/release-ready extraction.
+- Original recursive source tree: 6,797 entries.
+- Structured content under `src/content/problems/`: 694 files.
+- Transfer verification: 694 source files and 694 destination files; 0 missing and 0 Git blob SHA mismatches against the audited snapshot.
+- Validated destination commit: `6a2b3340ef71c3954aef413dabbef01476f49e12`.
 
-## Confirmed source inventory
+## Feature-owned files transferred
 
-| Source path prefix | Source files | Bytes (approx.) | Destination state |
-|---|---:|---:|---|
-| `src/app/problems/` | 12 | 102,304 | 12 transferred |
-| `src/app/api/problems/` | 14 | 26,930 | 14 transferred |
-| `src/components/problems/` | 20 | 163,948 | 20 transferred |
-| `src/lib/problems/` | 10 | 693,708 | 10 transferred |
-| `src/content/problems/` | 694 | 340,526 | **694 transferred; SHA parity verified** |
-| `scripts/problems/` | 12 | 196,857 | 12 transferred |
-| `docker/judge/` | 3 | 2,525 | 3 transferred |
-| `docker-compose.judge.yml` | 1 | 1,315 | transferred |
-| **Total in these feature-owned groups** | **766** | — | **Partial** |
+| Source path | Audited file count | Destination state |
+|---|---:|---|
+| `src/app/problems/` | 12 | transferred |
+| `src/app/api/problems/` | 14 | transferred |
+| `src/components/problems/` | 20 | transferred |
+| `src/lib/problems/` | 10 | transferred |
+| `src/content/problems/` | 694 | transferred; SHA parity verified |
+| `scripts/problems/` | 12 | transferred |
+| `docker/judge/` | 3 | transferred |
+| `docker-compose.judge.yml` | 1 | transferred |
+| **Total in these groups** | **766** | transferred |
 
-The inventory excludes cross-cutting references and shared database/config files, which are tracked separately below. Source tree sizes may differ slightly from fetched text byte lengths because GitHub reports stored file sizes.
+## Destination validation
 
-## Cross-cutting dependencies that still need handling
+- [x] Standalone package and Next.js app configuration added.
+- [x] Dedicated Prisma schema and initial migration added for the extracted platform.
+- [x] Structured content validation passed.
+- [x] Prisma schema validation and client generation passed.
+- [x] Automated tests passed.
+- [x] TypeScript type-check passed.
+- [x] Next.js production build passed.
+- [x] Isolated judge service health check and JavaScript, Python, C++, and Java smoke tests passed.
+- [ ] ESLint is not yet part of the canonical CI workflow.
+- [ ] Full feature-level manual UI review is still needed before production deployment.
 
-- [ ] Root `package.json`: extract only necessary dependencies/scripts; do not copy the entire WoHoTech package setup blindly.
-- [ ] Next.js configuration, TypeScript path aliases, MDX loader and runtime dependencies.
-- [ ] Shared UI primitives and imported components outside `src/components/problems/`.
-- [ ] Global navigation/footer/sidebar references to `/problems`.
-- [ ] SEO metadata, JSON-LD, sitemap, robots rules, canonical URLs, `public/llms.txt`, `public/llms-full.txt`, and `scripts/verify-seo.mjs`.
-- [ ] CI workflows and deployment configs for judge/content jobs.
-- [ ] Environment variable names for judge endpoint/token, limits, fallback behavior and safe configuration. Never copy actual secrets.
-- [ ] Prisma models/enums/indexes/relations used by submissions, progress, favorites, streaks, daily challenges and analytics.
-- [ ] Migrations `20260513090000_add_problem_catalog` and `20260518090000_add_problem_submission_test_results`; classify shared vs feature-only schema before changing anything.
-- [ ] Tests, fixtures, mocks, Playwright flows and package scripts.
-- [ ] Repository-wide references to `/problems`, `api/problems`, `@/lib/problems`, `@/components/problems`, `src/content/problems`, `scripts/problems` and judge environment names.
-- [ ] Verify whether generic uses of “problem” refer to unrelated content; never delete unrelated material by keyword alone.
+CI evidence: [build/typecheck](https://github.com/Monupatel62/Problem/actions/runs/38738315441) · [tests/judge smoke](https://github.com/Monupatel62/Problem/actions/runs/38738315380).
 
-## Content contract
+## Source removal and residual-reference checks
 
-Structured problem folders use the format documented by `src/content/problems/README.md`:
-`problem.mdx`, `metadata.json`, `hints.json`, `editorial.mdx`, `testcases.json`, and optional language starter-code files. The validator `scripts/problems/validate-content.mjs` must be run against the complete transferred tree before considering content complete.
+Feature-owned directories and judge deployment paths are absent from the current WoHoTech `cleanup/remove-wohoplay` tree. Targeted scans of package/config, header/footer, layout, sitemap/robots, Prisma schema, README, retired-module script and shared notification helper found no coding-practice route/model markers. A repository-wide extraction guard is now wired into source CI.
 
-## Verification gates
+The WoHoTech branch CI is still red. The exact failing step has not been independently verified from the available run logs; do not attribute it to the extraction guard without evidence. Do not merge the branch until CI is green and the final diff is reviewed.
 
-- [x] Transfer all 694 structured content files and compare Git blob SHAs against the source snapshot (694/694, 0 missing, 0 mismatches).
-- [ ] Create a standalone app/package setup for the extracted repository.
-- [ ] Resolve imports outside the copied feature and decide whether to copy, replace, or remove each dependency.
-- [ ] Extract only required database schema into a dedicated schema/migration plan; do not apply migrations to the live DB.
-- [ ] Run content validation, typecheck, lint, tests, build, and judge smoke tests in the destination repo.
-- [ ] Finish whole-repository reference scan for indirect references and review the removal diff, including build scripts, package-lock-only dependency references, docs, CI and database migration history.
-- [ ] Review a source-removal diff only after destination parity and validation pass.
-- [ ] Do not delete source files until every relevant gate is verified.
+## Database and deployment boundary
 
-## Branch and production safety
-
-- Source discovery is on `cleanup/remove-wohoplay`, not `main`.
-- Destination writes are on `extract/wohotech-problems`, not `main`.
-- Feature-owned source paths were removed from WoHoTech's `cleanup/remove-wohoplay` branch in commit `4141ba84ae8aa422a5e4a3c8745effbd6f7dc5e7`; recursive tree verification found 0 remaining direct feature-owned paths. The `main` branch and live deployment were not changed.
-- The removal branch's CI has not been confirmed green; do not merge to `main` or deploy until destination CI and the source branch validation both pass.
-- Do not change the live database, merge to `main`, or deploy to Vercel as part of this work without explicit approval.
+The destination schema is independent. No migration has been run against WoHoTech's live database, no production database data was altered, and no Vercel deployment was triggered. Do not delete or alter any live data as part of repository extraction.

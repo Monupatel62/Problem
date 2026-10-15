@@ -1,24 +1,26 @@
 # Problems Extraction — Transfer Progress
 
-Last verified against source commit `9fab984a6bf353d87dca9d04590cd9c75ba3c524` on `cleanup/remove-wohoplay`.
+## Destination
 
-## Destination status
+- Branch: `extract/wohotech-problems`
+- Content: **694/694 files transferred**, with 0 missing files and 0 blob SHA mismatches against the audited source snapshot.
+- App foundation: standalone Next.js package, layout, styles, home redirect, TypeScript and Next configuration.
+- Data layer: dedicated Prisma schema and initial migration; no live database migration applied.
+- Validation: content validator, Prisma validation/generation, tests, TypeScript type-check, production build, and isolated judge smoke tests for JavaScript/Python/C++/Java all passed at commit `6a2b3340ef71c3954aef413dabbef01476f49e12`.
 
-- Working branch: `extract/wohotech-problems`
-- 132 tracked files currently present.
-- Feature implementation copied: 12 problem pages, 14 API routes, 20 UI components, 10 library modules, 12 scripts, 3 judge Docker files, and `docker-compose.judge.yml`.
-- Structured problem content: 85 / 694 files transferred; 609 pending.
-- Architecture, inventory, cross-cutting dependencies, source-removal gates, and README docs are present.
-- No source files removed. No database, `main` branch, or Vercel deployment changed.
+CI: [build/typecheck](https://github.com/Monupatel62/Problem/actions/runs/38738315441) · [tests/judge smoke](https://github.com/Monupatel62/Problem/actions/runs/38738315380).
 
-## Current blockers before source removal
+## Source
 
-1. Transfer and verify the remaining 609 structured content files.
-2. Build the standalone Next.js app/package configuration without importing the entire WoHoTech root setup.
-3. Resolve imports of shared UI/auth/database utilities and isolate required environment variables.
-4. Review shared Prisma schema/migrations and plan an independent schema without touching production.
-5. Transfer SEO/runtime configs and tests; remove WoHoTech branding/domain references where they should become independent.
-6. Run content validator, typecheck, lint, tests, build and judge smoke tests in the destination.
-7. Run a whole-source-reference scan and review a source-only removal diff.
+- Branch: `cleanup/remove-wohoplay` (non-main only).
+- Feature-owned directories and judge deployment paths have been removed from this branch.
+- Targeted scans found no coding-practice-specific references in the checked navigation, layout, sitemap/robots, package/config, Prisma schema, and notification files.
+- A repository-wide extraction guard has been added to CI.
+- **Source CI is still failing; do not merge or deploy.** The failure has not been conclusively attributed to the Problems extraction.
 
-**Status: in progress — not yet safe to remove the Problems section from WoHoTech.**
+## Remaining
+
+1. Get the source cleanup branch CI green and verify the extraction guard result.
+2. Complete ESLint and manual UI review in the destination.
+3. Review the full source diff before any PR merge.
+4. Keep WoHoTech `main`, the live database, and Vercel untouched unless explicitly approved.
