@@ -1,0 +1,35 @@
+# Combine Two Tables: SQL editorial
+
+The report is person-centred: every row in `Person` must be represented, whether or not a related row exists in `Address`. That detail determines the join direction. Start from `Person`, then use a `LEFT JOIN` to look up the address whose `personId` matches the person's `personId`.
+
+```sql
+SELECT p.firstName, p.lastName, a.city, a.state
+FROM Person AS p
+LEFT JOIN Address AS a
+  ON p.personId = a.personId;
+```
+
+## Why this join is correct
+
+A left join returns all rows from the table on its left side. Here that is `Person`. When the database finds an address with the same identifier, it appends the address columns to the person's row. When it finds no match, it still emits the person row and fills the columns taken from `Address` with `NULL`. This is precisely the requested behaviour for people who have not supplied an address.
+
+The `ON` clause is the relationship definition, not a cosmetic detail. `p.personId = a.personId` ensures that each address is paired with its owner. Joining on a name, an address identifier, or an unrelated field can silently combine data from different people and produce a report that looks plausible but is wrong.
+
+## Why an inner join fails
+
+This tempting query is incomplete:
+
+```sql
+SELECT p.firstName, p.lastName, a.city, a.state
+FROM Person AS p
+JOIN Address AS a
+  ON p.personId = a.personId;
+```
+
+`JOIN` without a qualifier means `INNER JOIN`. It outputs only pairs that match on both sides, so a person without an address vanishes. The task explicitly asks for that person with `NULL` city and state, which is why `LEFT JOIN` is required.
+
+## Common SQL pitfall
+
+Be careful when adding address-specific filters in a larger variation of this query. A condition such as `WHERE a.state = 'Texas'` removes the `NULL` address rows after the left join and effectively changes the result into an inner-join-like result. If the goal is to retain all people while limiting which address data can match, put that condition in the `ON` clause instead. This base problem has no filter, so selecting the four requested columns is enough.
+
+The database may choose different physical algorithms based on its indexes and table sizes. Conceptually, the query examines the `Person` rows and matches them through `personId`; an index on `Address.personId` helps that lookup scale. No `ORDER BY` is needed because the problem does not require a particular output order.
