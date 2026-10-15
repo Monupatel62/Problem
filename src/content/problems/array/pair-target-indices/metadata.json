@@ -1,0 +1,40 @@
+{
+  "id": 5,
+  "slug": "pair-target-indices",
+  "title": "Pair Target Indices",
+  "acceptance": "0.0%",
+  "difficulty": "Easy",
+  "track": "Algorithms",
+  "tags": [
+    "Array",
+    "Hash Table"
+  ],
+  "companies": [
+    "Amazon",
+    "Microsoft"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "2 <= nums.length <= 10^4",
+    "-10^9 <= nums[i], target <= 10^9",
+    "Return the earliest pair by second index."
+  ],
+  "examples": [
+    {
+      "input": "nums = [4, 1, 6, 3], target = 7",
+      "output": "[1,2]",
+      "explanation": "nums[1] + nums[2] = 7."
+    }
+  ],
+  "functionName": "pairTargetIndices",
+  "solutionApproaches": [
+    {
+      "title": "Direct Pattern",
+      "complexity": "Time O(n), Space O(1) to O(n) depending on output",
+      "explanation": "Use the simplest scan or helper data structure required by the statement."
+    }
+  ]
+}
