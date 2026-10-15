@@ -1,0 +1,4 @@
+[
+  "Know the total sum first.",
+  "At each index, right sum is total - left - current."
+]
