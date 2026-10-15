@@ -1,0 +1,39 @@
+{
+  "id": 22,
+  "slug": "remove-adjacent-duplicates-once",
+  "title": "Remove Adjacent Duplicates Once",
+  "acceptance": "0.0%",
+  "difficulty": "Medium",
+  "track": "Algorithms",
+  "tags": [
+    "String",
+    "Stack"
+  ],
+  "companies": [
+    "Amazon",
+    "Google",
+    "Bloomberg"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "0 <= s.length <= 10^5",
+    "`s` contains lowercase English letters"
+  ],
+  "examples": [
+    {
+      "input": "s = \"abbaca\"",
+      "output": "\"ca\""
+    }
+  ],
+  "functionName": "removeAdjacentDuplicatesOnce",
+  "solutionApproaches": [
+    {
+      "title": "Direct Pattern",
+      "complexity": "Time O(n), Space O(1) to O(n) depending on output",
+      "explanation": "Use the simplest scan or helper data structure required by the statement."
+    }
+  ]
+}
