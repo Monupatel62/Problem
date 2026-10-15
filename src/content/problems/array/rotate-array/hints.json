@@ -1,0 +1,5 @@
+[
+  "k = k % nums.length handles cases where k >= n.",
+  "Reverse the whole array, then reverse the first k, then reverse the rest.",
+  "Each element is moved exactly once, so the overall time is O(n)."
+]
