@@ -1,0 +1,39 @@
+{
+  "id": 39,
+  "slug": "range-sum-basic",
+  "title": "Range Sum Basic",
+  "acceptance": "0.0%",
+  "difficulty": "Easy",
+  "track": "Algorithms",
+  "tags": [
+    "Array",
+    "Prefix Sum"
+  ],
+  "companies": [
+    "Amazon",
+    "Microsoft",
+    "Bloomberg"
+  ],
+  "frequency": 0,
+  "likes": 0,
+  "dislikes": 0,
+  "discussionCount": 0,
+  "constraints": [
+    "1 <= nums.length <= 10^5",
+    "0 <= left <= right < nums.length"
+  ],
+  "examples": [
+    {
+      "input": "nums = [2,4,6,8], left = 1, right = 2",
+      "output": "10"
+    }
+  ],
+  "functionName": "rangeSumBasic",
+  "solutionApproaches": [
+    {
+      "title": "Direct Array Pattern",
+      "complexity": "Time O(n), Space O(1) to O(n) depending on returned output",
+      "explanation": "Use a focused array traversal, two-pointer pattern, hash set, or prefix calculation based on the statement."
+    }
+  ]
+}
