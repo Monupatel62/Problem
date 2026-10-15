@@ -12,7 +12,7 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "test": "jest --ci --passWithNoTests",
+    "test": "node --test tests/*.test.mjs",
     "content:validate": "node scripts/problems/validate-content.mjs"
   },
   "dependencies": {
