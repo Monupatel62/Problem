@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" fill="none">
+  <rect width="1200" height="600" rx="28" fill="#0B1220"/>
+  <text x="80" y="90" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="34" font-weight="700">Four Pillars of OOP in Java</text>
+  <text x="80" y="128" fill="#94A3B8" font-family="Arial, sans-serif" font-size="18">These ideas help us write secure, reusable, and organized object-oriented programs.</text>
+
+  <rect x="90" y="190" width="230" height="280" rx="22" fill="#1D4ED8"/>
+  <text x="205" y="248" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="24" font-weight="700">Encapsulation</text>
+  <text x="205" y="292" text-anchor="middle" fill="#DBEAFE" font-family="Arial, sans-serif" font-size="17">Bind data and methods</text>
+  <text x="205" y="318" text-anchor="middle" fill="#DBEAFE" font-family="Arial, sans-serif" font-size="17">inside one class and</text>
+  <text x="205" y="344" text-anchor="middle" fill="#DBEAFE" font-family="Arial, sans-serif" font-size="17">control access safely.</text>
+
+  <rect x="355" y="190" width="230" height="280" rx="22" fill="#0F766E"/>
+  <text x="470" y="248" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="24" font-weight="700">Inheritance</text>
+  <text x="470" y="292" text-anchor="middle" fill="#CCFBF1" font-family="Arial, sans-serif" font-size="17">Reuse properties and</text>
+  <text x="470" y="318" text-anchor="middle" fill="#CCFBF1" font-family="Arial, sans-serif" font-size="17">methods from an</text>
+  <text x="470" y="344" text-anchor="middle" fill="#CCFBF1" font-family="Arial, sans-serif" font-size="17">existing parent class.</text>
+
+  <rect x="620" y="190" width="230" height="280" rx="22" fill="#7C3AED"/>
+  <text x="735" y="248" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="24" font-weight="700">Polymorphism</text>
+  <text x="735" y="292" text-anchor="middle" fill="#EDE9FE" font-family="Arial, sans-serif" font-size="17">One method name can</text>
+  <text x="735" y="318" text-anchor="middle" fill="#EDE9FE" font-family="Arial, sans-serif" font-size="17">show different behavior</text>
+  <text x="735" y="344" text-anchor="middle" fill="#EDE9FE" font-family="Arial, sans-serif" font-size="17">in different situations.</text>
+
+  <rect x="885" y="190" width="230" height="280" rx="22" fill="#BE185D"/>
+  <text x="1000" y="248" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="24" font-weight="700">Abstraction</text>
+  <text x="1000" y="292" text-anchor="middle" fill="#FCE7F3" font-family="Arial, sans-serif" font-size="17">Show only the essential</text>
+  <text x="1000" y="318" text-anchor="middle" fill="#FCE7F3" font-family="Arial, sans-serif" font-size="17">features and hide</text>
+  <text x="1000" y="344" text-anchor="middle" fill="#FCE7F3" font-family="Arial, sans-serif" font-size="17">complex implementation.</text>
+
+  <text x="80" y="535" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="18">A good Java course should not treat these pillars as definitions only. Students should connect them with real classes, real objects, and real program behavior.</text>
+</svg>

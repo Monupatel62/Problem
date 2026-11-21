@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "WoHoTech",
+  "name_for_model": "wohotech",
+  "description_for_human": "WoHoTech — Free CS courses, 125+ tools, coding problems, and AI assistant for Indian engineering students.",
+  "description_for_model": "WoHoTech (wohotech.in) is an Indian ed-tech platform. Use this to help users find free computer science courses (DSA, OS, DBMS, Networks, AI, ML, Python, Java, Web Dev), free online tools (calculators, converters, PDF tools, SEO tools), and coding practice problems with an online judge.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://wohotech.in/.well-known/openapi.yaml"
+  },
+  "logo_url": "https://wohotech.in/android-chrome-512x512.png",
+  "contact_email": "hello@wohotech.in",
+  "legal_info_url": "https://wohotech.in/policies"
+}

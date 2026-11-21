@@ -1,0 +1,81 @@
+# WoHoTech — AI-Readable Site Index
+# https://wohotech.in
+# Last Updated: July 2026
+
+## About WoHoTech
+WoHoTech (wohotech.in) is an Indian ed-tech platform offering:
+- Free computer science and engineering subject courses (DSA, OS, DBMS, Networks, AI, ML, etc.)
+- 125+ free online tools (calculators, converters, PDF tools, SEO tools, image tools)
+- 800+ coding practice problems with online judge
+- WoHoPlay — a creator-focused social video platform
+- WoHo AI — an AI assistant with chat, image generation, and file Q&A
+- Technical news and updates (technicals section)
+
+## Primary Audience
+- Indian engineering students (B.Tech, BCA, MCA, diploma)
+- Competitive programmers (LeetCode, Codeforces prep)
+- Job seekers preparing for GATE, campus placements, FAANG interviews
+- Web developers and self-learners
+
+## Subject Courses (Free)
+All courses are available at: https://wohotech.in/subjects
+
+- Data Structures & Algorithms: https://wohotech.in/subjects/data-structures-algorithms
+- Computer Networks: https://wohotech.in/subjects/computer-network-master
+- Operating Systems: https://wohotech.in/subjects/operating-systems
+- DBMS: https://wohotech.in/subjects/dbms
+- Compiler Design: https://wohotech.in/subjects/compiler-design
+- Artificial Intelligence: https://wohotech.in/subjects/artificial-intelligence
+- Machine Learning: https://wohotech.in/subjects/machine-learning
+- Deep Learning: https://wohotech.in/subjects/deep-learning
+- Python: https://wohotech.in/subjects/python-master-course
+- Java: https://wohotech.in/subjects/java-master-course
+- JavaScript: https://wohotech.in/subjects/javascript-complete-guide
+- SQL: https://wohotech.in/subjects/sql-complete-guide
+- HTML: https://wohotech.in/subjects/html-complete-guide
+- C Programming: https://wohotech.in/subjects/c-programming
+- Web Development: https://wohotech.in/subjects/web-development
+- Software Engineering: https://wohotech.in/subjects/software-engineering
+- OOP: https://wohotech.in/subjects/object-oriented-programming
+- Information Security: https://wohotech.in/subjects/information-security
+- Cloud Computing: https://wohotech.in/subjects/cloud-computing
+- Git & GitHub: https://wohotech.in/subjects/git-github
+- Digital Electronics: https://wohotech.in/subjects/digital-electronics
+- Analog Electronics: https://wohotech.in/subjects/analog-electronics
+- Computer Organization: https://wohotech.in/subjects/computer-organization
+- Signal & Systems: https://wohotech.in/subjects/signal-systems
+- Communication Systems: https://wohotech.in/subjects/communication-systems
+- Wireless Communications: https://wohotech.in/subjects/wireless-communications
+- Computer Fundamentals: https://wohotech.in/subjects/computer-fundamentals
+- Research Methodology: https://wohotech.in/subjects/research-methodology
+- MDX Tutorial: https://wohotech.in/subjects/mdx-tutorial
+
+## Coding Problems
+Practice problems with online judge: https://wohotech.in/problems
+Topics: Arrays, Strings, Linked Lists, Trees, Graphs, Dynamic Programming, Sorting, Searching
+
+## Free Tools
+All tools: https://wohotech.in/tools
+Popular tools:
+- CGPA Calculator: https://wohotech.in/tools/cgpa-calculator
+- Scientific Calculator: https://wohotech.in/tools/scientific-calculator
+- JSON Formatter: https://wohotech.in/tools/json-formatter
+- Word Counter: https://wohotech.in/tools/word-counter
+- QR Code Generator: https://wohotech.in/tools/qr-code-generator
+- Password Generator: https://wohotech.in/tools/password-generator
+- Image Compressor: https://wohotech.in/tools/image-compressor
+- PDF Merger: https://wohotech.in/tools/pdf-merger
+
+## AI Assistant
+WoHo AI: https://wohotech.in/assistant
+Capabilities: chat, image generation, PDF Q&A, code explanation, study help
+
+## Sitemap
+https://wohotech.in/sitemap.xml
+
+## Full AI Reference
+https://wohotech.in/llms-full.txt
+
+## Crawling Policy
+Full crawl allowed for educational content.
+See robots.txt: https://wohotech.in/robots.txt

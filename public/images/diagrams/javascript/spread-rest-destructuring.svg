@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0c0c1d"/>
+      <stop offset="100%" style="stop-color:#1a1a3e"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="420" fill="url(#bg)" rx="14"/>
+  
+  <text x="400" y="33" text-anchor="middle" fill="#e2e8f0" font-size="20" font-weight="700">✨ Spread, Rest &amp; Destructuring</text>
+  <text x="400" y="50" text-anchor="middle" fill="#8892b0" font-size="11">Three powerful ES6+ features that simplify working with arrays and objects</text>
+
+  <!-- SPREAD -->
+  <g filter="url(#shadow)">
+    <rect x="25" y="65" width="240" height="170" rx="10" fill="#0a192f" stroke="#8b5cf6" stroke-width="2"/>
+    <rect x="25" y="65" width="240" height="28" rx="10" fill="#4c1d95"/>
+    <text x="145" y="83" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">🫳 SPREAD (...) — Expand</text>
+    
+    <text x="40" y="110" fill="#c4b5fd" font-size="10">Arrays:</text>
+    <text x="40" y="128" fill="#94a3b8" font-size="9">const merged = [...arr1, ...arr2];</text>
+    <text x="40" y="144" fill="#94a3b8" font-size="9">const copy = [...original];</text>
+    
+    <text x="40" y="168" fill="#c4b5fd" font-size="10">Objects:</text>
+    <text x="40" y="186" fill="#94a3b8" font-size="9">const merged = {...obj1, ...obj2};</text>
+    <text x="40" y="202" fill="#94a3b8" font-size="9">const updated = {...user, age: 30};</text>
+    
+    <text x="40" y="225" fill="#a78bfa" font-size="9">💡 Expands items OUT of container</text>
+  </g>
+
+  <!-- REST -->
+  <g filter="url(#shadow)">
+    <rect x="280" y="65" width="240" height="170" rx="10" fill="#0a192f" stroke="#ec4899" stroke-width="2"/>
+    <rect x="280" y="65" width="240" height="28" rx="10" fill="#831843"/>
+    <text x="400" y="83" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">🫴 REST (...) — Collect</text>
+    
+    <text x="295" y="110" fill="#f9a8d4" font-size="10">Functions:</text>
+    <text x="295" y="128" fill="#94a3b8" font-size="9">function sum(...nums) {}</text>
+    <text x="295" y="144" fill="#94a3b8" font-size="9">// nums is an array!</text>
+    
+    <text x="295" y="168" fill="#f9a8d4" font-size="10">Destructuring:</text>
+    <text x="295" y="186" fill="#94a3b8" font-size="9">const [first, ...rest] = arr;</text>
+    <text x="295" y="202" fill="#94a3b8" font-size="9">const {name, ...others} = obj;</text>
+    
+    <text x="295" y="225" fill="#f472b6" font-size="9">💡 Collects remaining INTO array/obj</text>
+  </g>
+
+  <!-- DESTRUCTURING -->
+  <g filter="url(#shadow)">
+    <rect x="535" y="65" width="240" height="170" rx="10" fill="#0a192f" stroke="#f59e0b" stroke-width="2"/>
+    <rect x="535" y="65" width="240" height="28" rx="10" fill="#78350f"/>
+    <text x="655" y="83" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">📤 DESTRUCTURE — Extract</text>
+    
+    <text x="550" y="110" fill="#fde68a" font-size="10">Array:</text>
+    <text x="550" y="128" fill="#94a3b8" font-size="9">const [a, b] = [1, 2];</text>
+    <text x="550" y="144" fill="#94a3b8" font-size="9">const [, second] = arr;</text>
+    
+    <text x="550" y="168" fill="#fde68a" font-size="10">Object:</text>
+    <text x="550" y="186" fill="#94a3b8" font-size="9">const {name, age} = user;</text>
+    <text x="550" y="202" fill="#94a3b8" font-size="9">const {x: posX} = point;</text>
+    
+    <text x="550" y="225" fill="#fbbf24" font-size="9">💡 Unpack values from containers</text>
+  </g>
+
+  <!-- Visual Example -->
+  <g filter="url(#shadow)">
+    <rect x="25" y="250" width="750" height="150" rx="12" fill="#0a192f" stroke="#475569" stroke-width="1.5"/>
+    <text x="400" y="275" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">🎯 Visual Example — Same Syntax (...) Different Meaning!</text>
+    
+    <!-- Spread visual -->
+    <text x="50" y="300" fill="#a78bfa" font-size="10" font-weight="600">SPREAD (expanding):</text>
+    <rect x="50" y="308" width="50" height="24" rx="4" fill="#1e1b4b" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="75" y="324" text-anchor="middle" fill="#c4b5fd" font-size="9">[1,2,3]</text>
+    <text x="110" y="324" fill="#8b5cf6" font-size="12">→ ...</text>
+    <text x="140" y="324" fill="#e2e8f0" font-size="10">1, 2, 3</text>
+    <text x="210" y="324" fill="#94a3b8" font-size="9">(individual items)</text>
+    
+    <!-- Rest visual -->
+    <text x="50" y="358" fill="#f472b6" font-size="10" font-weight="600">REST (collecting):</text>
+    <text x="50" y="380" fill="#e2e8f0" font-size="10">1, 2, 3, 4, 5</text>
+    <text x="160" y="380" fill="#ec4899" font-size="12">→ ...</text>
+    <rect x="190" y="366" width="70" height="24" rx="4" fill="#500724" stroke="#ec4899" stroke-width="1"/>
+    <text x="225" y="382" text-anchor="middle" fill="#f9a8d4" font-size="9">[3, 4, 5]</text>
+    <text x="270" y="380" fill="#94a3b8" font-size="9">(gathered into array)</text>
+    
+    <!-- Key difference -->
+    <rect x="420" y="295" width="340" height="85" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="590" y="315" text-anchor="middle" fill="#e2e8f0" font-size="10" font-weight="600">⚡ Quick Rule:</text>
+    <text x="435" y="338" fill="#a78bfa" font-size="10">Spread = Right side of =</text>
+    <text x="620" y="338" fill="#94a3b8" font-size="9">(give/expand)</text>
+    <text x="435" y="358" fill="#f472b6" font-size="10">Rest = Left side of = or params</text>
+    <text x="650" y="358" fill="#94a3b8" font-size="9">(receive/collect)</text>
+    <text x="435" y="378" fill="#fbbf24" font-size="10">Destructure = Left side pattern</text>
+  </g>
+
+  <text x="400" y="413" text-anchor="middle" fill="#4a5568" font-size="9">All three use ... syntax but serve different purposes | ES6+ (2015) features</text>
+</svg>

@@ -1,0 +1,170 @@
+{
+    "name": "wohotech-ai",
+    "version": "1.0.0",
+    "description": "Advanced AI-powered platform with chat, voice, image generation, search, and analytics capabilities",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "dev": "node_modules\\.bin\\next dev --webpack -p 3002",
+        "dev:clean": "rimraf .next/dev tsconfig.tsbuildinfo && next dev --webpack",
+        "build": "npm run build:next",
+        "build:next": "prisma generate && node --max-old-space-size=4096 node_modules/next/dist/bin/next build",
+        "build:production": "cross-env SUPPRESS_PRISMA_BUILD_FALLBACK_LOGS=true NODE_ENV=production next build --webpack",
+        "start": "next start",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "type-check": "rimraf .next/types .next/dev/types && tsc --noEmit",
+        "clean": "rimraf dist .next out coverage",
+        "analyze": "ANALYZE=true next build",
+        "prisma:generate": "prisma generate",
+        "prisma:deploy": "node scripts/prisma-deploy.mjs",
+        "prisma:migrate": "prisma migrate dev",
+        "prisma:studio": "prisma studio",
+        "problems:sync": "node scripts/problems/sync-bank.mjs",
+        "problems:validate": "node scripts/problems/validate-content.mjs",
+        "problems:seed": "node scripts/problems/seed.mjs",
+        "problems:seed:dry": "node scripts/problems/seed.mjs --dry-run",
+        "problems:verify": "node scripts/problems/verify.mjs",
+        "problems:verify:dry": "node scripts/problems/verify.mjs --dry-run",
+        "judge:worker": "node scripts/problems/judge-worker.mjs",
+        "judge:worker:direct": "node scripts/problems/judge-worker-direct.mjs",
+        "judge:docker:build": "docker build -f docker/judge/Dockerfile -t wohotech-judge .",
+        "judge:docker:build:render": "docker build -f docker/judge/Dockerfile.render -t wohotech-judge-render .",
+        "judge:docker:up": "docker compose -f docker-compose.judge.yml up -d --build",
+        "judge:docker:down": "docker compose -f docker-compose.judge.yml down",
+        "judge:smoke": "node scripts/problems/smoke-judge-service.mjs",
+        "deploy:light": "npm run prisma:generate && npm run prisma:deploy && npm run build",
+        "deploy:full": "npm run problems:sync && npm run problems:validate && npm run prisma:deploy && npm run problems:seed && npm run problems:verify && npm run type-check && npm run build",
+        "security:audit": "npm audit",
+        "security:fix": "npm audit fix"
+    },
+    "keywords": [
+        "ai",
+        "artificial-intelligence",
+        "chatbot",
+        "voice-assistant",
+        "image-generation",
+        "search",
+        "analytics",
+        "machine-learning",
+        "nlp",
+        "computer-vision",
+        "business-intelligence",
+        "react",
+        "nextjs",
+        "typescript",
+        "tailwindcss",
+        "api",
+        "fullstack",
+        "saas",
+        "platform"
+    ],
+    "author": {
+        "name": "WohoTech Team",
+        "email": "wohocode@gmail.com",
+        "url": "https://wohotech.in",
+        "organization": "WohoTech"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Monupatel62/WohoTech.git",
+        "directory": "src"
+    },
+    "bugs": {
+        "url": "https://github.com/Monupatel62/WohoTech/issues",
+        "email": "wohocode@gmail.com"
+    },
+    "homepage": "https://wohotech.in",
+    "engines": {
+        "node": "22.x",
+        "npm": ">=10.0.0"
+    },
+    "os": [
+        "darwin",
+        "linux",
+        "win32"
+    ],
+    "cpu": [
+        "x64",
+        "arm64"
+    ],
+    "dependencies": {
+        "@monaco-editor/react": "^4.7.0",
+        "@neondatabase/serverless": "^0.9.5",
+        "@prisma/adapter-neon": "^5.22.0",
+        "@prisma/client": "^5.22.0",
+        "@types/pg": "^8.20.0",
+        "bcryptjs": "^2.4.3",
+        "framer-motion": "^10.16.0",
+        "lucide-react": "^0.344.0",
+        "monaco-editor": "^0.55.1",
+        "next": "^16.1.6",
+        "next-auth": "^4.24.13",
+        "pg": "^8.20.0",
+        "react": ">=18.0.0",
+        "react-dom": ">=18.0.0",
+        "ws": "^8.21.0",
+        "zod": "^3.22.0"
+    },
+    "devDependencies": {
+        "@next/bundle-analyzer": "^16.1.6",
+        "@tailwindcss/postcss": "^4.2.1",
+        "@types/bcryptjs": "^2.4.6",
+        "@types/node": "^20.10.0",
+        "@types/react": "^18.2.0",
+        "@types/react-dom": "^18.2.0",
+        "autoprefixer": "^10.4.27",
+        "cross-env": "^7.0.0",
+        "eslint": "^9.0.0",
+        "eslint-config-next": "^16.2.2",
+        "eslint-plugin-react": "^7.33.0",
+        "eslint-plugin-react-hooks": "^7.0.1",
+        "postcss": "^8.5.8",
+        "prettier": "^3.1.0",
+        "prettier-plugin-tailwindcss": "^0.5.0",
+        "prisma": "^5.22.0",
+        "rimraf": "^5.0.5",
+        "tailwindcss": "^4.2.1",
+        "typescript": "^5"
+    },
+    "peerDependencies": {
+        "react": ">=18.0.0",
+        "react-dom": ">=18.0.0"
+    },
+    "files": [
+        "dist/**/*",
+        "README.md",
+        "LICENSE",
+        "CHANGELOG.md"
+    ],
+    "directories": {
+        "lib": "lib",
+        "test": "tests",
+        "bin": "bin"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+    },
+    "funding": {
+        "type": "github",
+        "url": "https://github.com/sponsors/Monupatel62"
+    },
+    "volta": {
+        "node": "22.12.0",
+        "npm": "10.2.3"
+    }
+}

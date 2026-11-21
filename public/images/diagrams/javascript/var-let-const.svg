@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="420" fill="url(#bg)" rx="14"/>
+  
+  <text x="400" y="33" text-anchor="middle" fill="#e2e8f0" font-size="20" font-weight="700">⚖️ var vs let vs const</text>
+  <text x="400" y="50" text-anchor="middle" fill="#8892b0" font-size="11">Quick comparison of JavaScript variable declarations</text>
+
+  <!-- var column -->
+  <g filter="url(#shadow)">
+    <rect x="25" y="65" width="240" height="340" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <rect x="25" y="65" width="240" height="35" rx="12" fill="#ef4444"/>
+    <text x="145" y="87" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">var</text>
+    
+    <text x="45" y="120" fill="#fca5a5" font-size="10" font-weight="600">Scope:</text>
+    <text x="100" y="120" fill="#e2e8f0" font-size="10">Function-scoped</text>
+    
+    <text x="45" y="148" fill="#fca5a5" font-size="10" font-weight="600">Hoisting:</text>
+    <text x="110" y="148" fill="#e2e8f0" font-size="10">Yes (as undefined)</text>
+    
+    <text x="45" y="176" fill="#fca5a5" font-size="10" font-weight="600">Re-declare:</text>
+    <text x="120" y="176" fill="#4ade80" font-size="10">✓ Allowed</text>
+    
+    <text x="45" y="204" fill="#fca5a5" font-size="10" font-weight="600">Re-assign:</text>
+    <text x="115" y="204" fill="#4ade80" font-size="10">✓ Allowed</text>
+    
+    <text x="45" y="232" fill="#fca5a5" font-size="10" font-weight="600">TDZ:</text>
+    <text x="80" y="232" fill="#e2e8f0" font-size="10">No (undefined before)</text>
+    
+    <text x="45" y="260" fill="#fca5a5" font-size="10" font-weight="600">Global prop:</text>
+    <text x="120" y="260" fill="#e2e8f0" font-size="10">Yes (window.x)</text>
+    
+    <rect x="40" y="280" width="210" height="55" rx="6" fill="#2d0000" stroke="#7f1d1d" stroke-width="1"/>
+    <text x="145" y="298" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="600">⚠️ Problems:</text>
+    <text x="50" y="314" fill="#94a3b8" font-size="9">• Leaks out of blocks</text>
+    <text x="50" y="328" fill="#94a3b8" font-size="9">• Accidental overwrites</text>
+    
+    <rect x="40" y="345" width="210" height="25" rx="6" fill="#450a0a"/>
+    <text x="145" y="362" text-anchor="middle" fill="#ff6b6b" font-size="10" font-weight="700">❌ Avoid in modern JS</text>
+  </g>
+
+  <!-- let column -->
+  <g filter="url(#shadow)">
+    <rect x="280" y="65" width="240" height="340" rx="12" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="280" y="65" width="240" height="35" rx="12" fill="#3b82f6"/>
+    <text x="400" y="87" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">let</text>
+    
+    <text x="300" y="120" fill="#93c5fd" font-size="10" font-weight="600">Scope:</text>
+    <text x="350" y="120" fill="#e2e8f0" font-size="10">Block-scoped { }</text>
+    
+    <text x="300" y="148" fill="#93c5fd" font-size="10" font-weight="600">Hoisting:</text>
+    <text x="365" y="148" fill="#e2e8f0" font-size="10">Yes (TDZ!)</text>
+    
+    <text x="300" y="176" fill="#93c5fd" font-size="10" font-weight="600">Re-declare:</text>
+    <text x="375" y="176" fill="#ef4444" font-size="10">✗ Error!</text>
+    
+    <text x="300" y="204" fill="#93c5fd" font-size="10" font-weight="600">Re-assign:</text>
+    <text x="370" y="204" fill="#4ade80" font-size="10">✓ Allowed</text>
+    
+    <text x="300" y="232" fill="#93c5fd" font-size="10" font-weight="600">TDZ:</text>
+    <text x="335" y="232" fill="#fbbf24" font-size="10">Yes! ReferenceError</text>
+    
+    <text x="300" y="260" fill="#93c5fd" font-size="10" font-weight="600">Global prop:</text>
+    <text x="375" y="260" fill="#e2e8f0" font-size="10">No (not on window)</text>
+    
+    <rect x="295" y="280" width="210" height="55" rx="6" fill="#0c1929" stroke="#1e40af" stroke-width="1"/>
+    <text x="400" y="298" text-anchor="middle" fill="#93c5fd" font-size="9" font-weight="600">✅ Use When:</text>
+    <text x="305" y="314" fill="#94a3b8" font-size="9">• Value will change</text>
+    <text x="305" y="328" fill="#94a3b8" font-size="9">• Loop counters, flags, state</text>
+    
+    <rect x="295" y="345" width="210" height="25" rx="6" fill="#172554"/>
+    <text x="400" y="362" text-anchor="middle" fill="#60a5fa" font-size="10" font-weight="700">✅ Default for mutable vars</text>
+  </g>
+
+  <!-- const column -->
+  <g filter="url(#shadow)">
+    <rect x="535" y="65" width="240" height="340" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <rect x="535" y="65" width="240" height="35" rx="12" fill="#10b981"/>
+    <text x="655" y="87" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">const</text>
+    
+    <text x="555" y="120" fill="#6ee7b7" font-size="10" font-weight="600">Scope:</text>
+    <text x="605" y="120" fill="#e2e8f0" font-size="10">Block-scoped { }</text>
+    
+    <text x="555" y="148" fill="#6ee7b7" font-size="10" font-weight="600">Hoisting:</text>
+    <text x="620" y="148" fill="#e2e8f0" font-size="10">Yes (TDZ!)</text>
+    
+    <text x="555" y="176" fill="#6ee7b7" font-size="10" font-weight="600">Re-declare:</text>
+    <text x="630" y="176" fill="#ef4444" font-size="10">✗ Error!</text>
+    
+    <text x="555" y="204" fill="#6ee7b7" font-size="10" font-weight="600">Re-assign:</text>
+    <text x="625" y="204" fill="#ef4444" font-size="10">✗ Error!</text>
+    
+    <text x="555" y="232" fill="#6ee7b7" font-size="10" font-weight="600">TDZ:</text>
+    <text x="590" y="232" fill="#fbbf24" font-size="10">Yes! ReferenceError</text>
+    
+    <text x="555" y="260" fill="#6ee7b7" font-size="10" font-weight="600">Global prop:</text>
+    <text x="630" y="260" fill="#e2e8f0" font-size="10">No (not on window)</text>
+    
+    <rect x="550" y="280" width="210" height="55" rx="6" fill="#052e16" stroke="#166534" stroke-width="1"/>
+    <text x="655" y="298" text-anchor="middle" fill="#6ee7b7" font-size="9" font-weight="600">⚠️ Note:</text>
+    <text x="560" y="314" fill="#94a3b8" font-size="9">• Object props CAN change</text>
+    <text x="560" y="328" fill="#94a3b8" font-size="9">• Only binding is immutable</text>
+    
+    <rect x="550" y="345" width="210" height="25" rx="6" fill="#052e16"/>
+    <text x="655" y="362" text-anchor="middle" fill="#34d399" font-size="10" font-weight="700">✅ Preferred! Use by default</text>
+  </g>
+
+  <text x="400" y="412" text-anchor="middle" fill="#4a5568" font-size="9">Best Practice: const by default → let when needed → never var | Modern JS (ES6+)</text>
+</svg>

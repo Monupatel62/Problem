@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 580" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0533"/>
+      <stop offset="100%" style="stop-color:#0d1b2a"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="850" height="580" fill="url(#bg)" rx="14"/>
+  
+  <text x="425" y="38" text-anchor="middle" fill="#e2e8f0" font-size="20" font-weight="700">⚡ JavaScript Execution Context</text>
+  <text x="425" y="56" text-anchor="middle" fill="#8892b0" font-size="11">Every code execution creates an Execution Context with two phases</text>
+
+  <!-- Global Execution Context -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="75" width="790" height="490" rx="14" fill="#112240" stroke="#233554" stroke-width="2"/>
+    <text x="425" y="100" text-anchor="middle" fill="#64ffda" font-size="14" font-weight="600">🌍 Global Execution Context (GEC)</text>
+  </g>
+
+  <!-- Creation Phase -->
+  <g filter="url(#shadow)">
+    <rect x="55" y="115" width="360" height="210" rx="12" fill="#0a192f" stroke="#bb86fc" stroke-width="2"/>
+    <rect x="55" y="115" width="360" height="32" rx="12" fill="#bb86fc"/>
+    <text x="235" y="136" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">🏗️ Phase 1: CREATION (Memory Allocation)</text>
+    
+    <text x="75" y="170" fill="#ccd6f6" font-size="11" font-weight="600">Variable Environment:</text>
+    <text x="80" y="192" fill="#8892b0" font-size="10">• var → initialized to</text>
+    <text x="227" y="192" fill="#feca57" font-size="10" font-weight="700">undefined</text>
+    <text x="80" y="212" fill="#8892b0" font-size="10">• let/const → in</text>
+    <text x="185" y="212" fill="#ff6b6b" font-size="10" font-weight="700">Temporal Dead Zone (TDZ)</text>
+    <text x="80" y="232" fill="#8892b0" font-size="10">• function declarations →</text>
+    <text x="245" y="232" fill="#64ffda" font-size="10" font-weight="700">fully hoisted ✓</text>
+    
+    <text x="75" y="260" fill="#ccd6f6" font-size="11" font-weight="600">Lexical Environment:</text>
+    <text x="80" y="280" fill="#8892b0" font-size="10">• Scope chain created</text>
+    <text x="80" y="298" fill="#8892b0" font-size="10">• `this` binding set</text>
+    <text x="80" y="316" fill="#8892b0" font-size="10">• Outer environment reference stored</text>
+  </g>
+
+  <!-- Execution Phase -->
+  <g filter="url(#shadow)">
+    <rect x="435" y="115" width="370" height="210" rx="12" fill="#0a192f" stroke="#64ffda" stroke-width="2"/>
+    <rect x="435" y="115" width="370" height="32" rx="12" fill="#64ffda"/>
+    <text x="620" y="136" text-anchor="middle" fill="#0a192f" font-size="12" font-weight="600">🚀 Phase 2: EXECUTION (Code Runs)</text>
+    
+    <text x="455" y="170" fill="#ccd6f6" font-size="11" font-weight="600">Variables get real values:</text>
+    <text x="460" y="192" fill="#8892b0" font-size="10">• var x = 10 →</text>
+    <text x="570" y="192" fill="#64ffda" font-size="10" font-weight="700">x = 10</text>
+    <text x="460" y="212" fill="#8892b0" font-size="10">• let name = "JS" →</text>
+    <text x="600" y="212" fill="#64ffda" font-size="10" font-weight="700">name = "JS"</text>
+    <text x="460" y="232" fill="#8892b0" font-size="10">• Functions are called (new EC created)</text>
+    
+    <text x="455" y="260" fill="#ccd6f6" font-size="11" font-weight="600">Code runs line by line:</text>
+    <text x="460" y="280" fill="#8892b0" font-size="10">• Expressions evaluated</text>
+    <text x="460" y="298" fill="#8892b0" font-size="10">• Assignments made</text>
+    <text x="460" y="316" fill="#8892b0" font-size="10">• Function calls → Push new EC to stack</text>
+  </g>
+
+  <!-- Arrow between phases -->
+  <path d="M416 220 L434 220" fill="none" stroke="#feca57" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="425" y="212" text-anchor="middle" fill="#feca57" font-size="18">→</text>
+
+  <!-- Function Execution Context -->
+  <g filter="url(#shadow)">
+    <rect x="55" y="345" width="360" height="200" rx="12" fill="#0a192f" stroke="#ff9f43" stroke-width="2"/>
+    <rect x="55" y="345" width="360" height="32" rx="12" fill="#ff9f43"/>
+    <text x="235" y="366" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">🔧 Function Execution Context (FEC)</text>
+    
+    <text x="75" y="400" fill="#ccd6f6" font-size="11">Each function call creates its own EC with:</text>
+    
+    <rect x="75" y="415" width="150" height="28" rx="6" fill="#1e293b" stroke="#ff9f43" stroke-width="1"/>
+    <text x="150" y="433" text-anchor="middle" fill="#ff9f43" font-size="10">Variable Environment</text>
+    
+    <rect x="235" y="415" width="150" height="28" rx="6" fill="#1e293b" stroke="#ff9f43" stroke-width="1"/>
+    <text x="310" y="433" text-anchor="middle" fill="#ff9f43" font-size="10">Lexical Environment</text>
+    
+    <rect x="75" y="455" width="150" height="28" rx="6" fill="#1e293b" stroke="#feca57" stroke-width="1"/>
+    <text x="150" y="473" text-anchor="middle" fill="#feca57" font-size="10">this binding</text>
+    
+    <rect x="235" y="455" width="150" height="28" rx="6" fill="#1e293b" stroke="#feca57" stroke-width="1"/>
+    <text x="310" y="473" text-anchor="middle" fill="#feca57" font-size="10">arguments object</text>
+    
+    <text x="75" y="510" fill="#8892b0" font-size="10">• Local vars, params stored here</text>
+    <text x="75" y="528" fill="#8892b0" font-size="10">• Popped from stack when function returns</text>
+  </g>
+
+  <!-- this keyword context -->
+  <g filter="url(#shadow)">
+    <rect x="435" y="345" width="370" height="200" rx="12" fill="#0a192f" stroke="#82b1ff" stroke-width="2"/>
+    <rect x="435" y="345" width="370" height="32" rx="12" fill="#448aff"/>
+    <text x="620" y="366" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">📌 `this` Binding Rules</text>
+    
+    <text x="455" y="400" fill="#82b1ff" font-size="11">Global EC:</text>
+    <text x="540" y="400" fill="#ccd6f6" font-size="11">this = window (browser)</text>
+    
+    <text x="455" y="425" fill="#82b1ff" font-size="11">Object method:</text>
+    <text x="560" y="425" fill="#ccd6f6" font-size="11">this = object</text>
+    
+    <text x="455" y="450" fill="#82b1ff" font-size="11">Arrow function:</text>
+    <text x="560" y="450" fill="#ccd6f6" font-size="11">this = parent scope</text>
+    
+    <text x="455" y="475" fill="#82b1ff" font-size="11">new keyword:</text>
+    <text x="555" y="475" fill="#ccd6f6" font-size="11">this = new object</text>
+    
+    <text x="455" y="500" fill="#82b1ff" font-size="11">call/apply/bind:</text>
+    <text x="575" y="500" fill="#ccd6f6" font-size="11">this = specified obj</text>
+    
+    <text x="455" y="528" fill="#ff7979" font-size="10">⚠️ Strict mode: this = undefined (not window)</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="425" y="572" text-anchor="middle" fill="#4a5568" font-size="9">GEC is created when script loads | FEC is created on every function call | Both go through Creation → Execution phases</text>
+</svg>

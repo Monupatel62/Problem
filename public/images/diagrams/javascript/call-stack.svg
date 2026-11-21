@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="frame1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b6b"/>
+      <stop offset="100%" style="stop-color:#ee5a24"/>
+    </linearGradient>
+    <linearGradient id="frame2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#feca57"/>
+      <stop offset="100%" style="stop-color:#ff9f43"/>
+    </linearGradient>
+    <linearGradient id="frame3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#48dbfb"/>
+      <stop offset="100%" style="stop-color:#0abde3"/>
+    </linearGradient>
+    <linearGradient id="frame4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#55efc4"/>
+      <stop offset="100%" style="stop-color:#00b894"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="550" fill="url(#bg)" rx="14"/>
+  
+  <!-- Title -->
+  <text x="400" y="38" text-anchor="middle" fill="#fff" font-size="20" font-weight="700">📚 JavaScript Call Stack — LIFO (Last In, First Out)</text>
+  <text x="400" y="58" text-anchor="middle" fill="#a0aec0" font-size="11">How JavaScript tracks function execution</text>
+
+  <!-- STACK VISUALIZATION (Left side) -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="80" width="320" height="420" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+    <text x="200" y="108" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">Call Stack (Active State)</text>
+    
+    <!-- Stack container -->
+    <rect x="70" y="125" width="260" height="310" rx="8" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    
+    <!-- Frame 4 - TOP (currently executing) -->
+    <g>
+      <rect x="85" y="140" width="230" height="55" rx="8" fill="url(#frame1)" opacity="0.9"/>
+      <text x="200" y="163" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">multiply(5, 5)</text>
+      <text x="200" y="181" text-anchor="middle" fill="#ffe0e0" font-size="10">return a * b → 25</text>
+      <text x="310" y="158" fill="#fff" font-size="18">←</text>
+      <text x="318" y="175" fill="#ff6b6b" font-size="8">TOP</text>
+    </g>
+    
+    <!-- Frame 3 -->
+    <g>
+      <rect x="85" y="205" width="230" height="55" rx="8" fill="url(#frame2)" opacity="0.85"/>
+      <text x="200" y="228" text-anchor="middle" fill="#1a1a2e" font-size="12" font-weight="600">square(5)</text>
+      <text x="200" y="246" text-anchor="middle" fill="#4a3000" font-size="10">return multiply(n, n)</text>
+    </g>
+    
+    <!-- Frame 2 -->
+    <g>
+      <rect x="85" y="270" width="230" height="55" rx="8" fill="url(#frame3)" opacity="0.8"/>
+      <text x="200" y="293" text-anchor="middle" fill="#1a1a2e" font-size="12" font-weight="600">printSquare(5)</text>
+      <text x="200" y="311" text-anchor="middle" fill="#003344" font-size="10">const result = square(n)</text>
+    </g>
+    
+    <!-- Frame 1 - BOTTOM (Global) -->
+    <g>
+      <rect x="85" y="335" width="230" height="55" rx="8" fill="url(#frame4)" opacity="0.75"/>
+      <text x="200" y="358" text-anchor="middle" fill="#1a1a2e" font-size="12" font-weight="600">Global Execution Context</text>
+      <text x="200" y="376" text-anchor="middle" fill="#003322" font-size="10">printSquare(5) called here</text>
+    </g>
+    
+    <!-- PUSH/POP arrows -->
+    <text x="200" y="425" text-anchor="middle" fill="#a0aec0" font-size="10">⬆️ PUSH (function called) | ⬇️ POP (function returns)</text>
+    
+    <!-- Bottom indicator -->
+    <text x="310" y="370" fill="#fff" font-size="12">←</text>
+    <text x="318" y="370" fill="#55efc4" font-size="8">BOTTOM</text>
+  </g>
+
+  <!-- TIMELINE (Right side) -->
+  <g filter="url(#shadow)">
+    <rect x="400" y="80" width="370" height="420" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+    <text x="585" y="108" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">Execution Timeline (Step by Step)</text>
+    
+    <!-- Step 1 -->
+    <g>
+      <circle cx="430" cy="140" r="12" fill="#55efc4"/>
+      <text x="430" y="145" text-anchor="middle" fill="#1a1a2e" font-size="10" font-weight="700">1</text>
+      <line x1="430" y1="152" x2="430" y2="190" stroke="#30363d" stroke-width="2"/>
+      <text x="450" y="137" fill="#55efc4" font-size="11" font-weight="600">Global code starts</text>
+      <text x="450" y="155" fill="#a0aec0" font-size="10">Stack: [Global]</text>
+    </g>
+    
+    <!-- Step 2 -->
+    <g>
+      <circle cx="430" cy="200" r="12" fill="#48dbfb"/>
+      <text x="430" y="205" text-anchor="middle" fill="#1a1a2e" font-size="10" font-weight="700">2</text>
+      <line x1="430" y1="212" x2="430" y2="250" stroke="#30363d" stroke-width="2"/>
+      <text x="450" y="197" fill="#48dbfb" font-size="11" font-weight="600">printSquare(5) called</text>
+      <text x="450" y="215" fill="#a0aec0" font-size="10">Stack: [Global, printSquare]</text>
+    </g>
+    
+    <!-- Step 3 -->
+    <g>
+      <circle cx="430" cy="260" r="12" fill="#feca57"/>
+      <text x="430" y="265" text-anchor="middle" fill="#1a1a2e" font-size="10" font-weight="700">3</text>
+      <line x1="430" y1="272" x2="430" y2="310" stroke="#30363d" stroke-width="2"/>
+      <text x="450" y="257" fill="#feca57" font-size="11" font-weight="600">square(5) called</text>
+      <text x="450" y="275" fill="#a0aec0" font-size="10">Stack: [Global, printSquare, square]</text>
+    </g>
+    
+    <!-- Step 4 -->
+    <g>
+      <circle cx="430" cy="320" r="12" fill="#ff6b6b"/>
+      <text x="430" y="325" text-anchor="middle" fill="#1a1a2e" font-size="10" font-weight="700">4</text>
+      <line x1="430" y1="332" x2="430" y2="370" stroke="#30363d" stroke-width="2"/>
+      <text x="450" y="317" fill="#ff6b6b" font-size="11" font-weight="600">multiply(5,5) called → returns 25</text>
+      <text x="450" y="335" fill="#a0aec0" font-size="10">Stack: [Global, printSquare, square, multiply]</text>
+    </g>
+    
+    <!-- Step 5 -->
+    <g>
+      <circle cx="430" cy="380" r="12" fill="#feca57"/>
+      <text x="430" y="385" text-anchor="middle" fill="#1a1a2e" font-size="10" font-weight="700">5</text>
+      <line x1="430" y1="392" x2="430" y2="420" stroke="#30363d" stroke-width="2"/>
+      <text x="450" y="377" fill="#feca57" font-size="11" font-weight="600">multiply popped, square returns</text>
+      <text x="450" y="395" fill="#a0aec0" font-size="10">Stack: [Global, printSquare, square] → pop</text>
+    </g>
+    
+    <!-- Step 6 -->
+    <g>
+      <circle cx="430" cy="430" r="12" fill="#55efc4"/>
+      <text x="430" y="435" text-anchor="middle" fill="#1a1a2e" font-size="10" font-weight="700">6</text>
+      <text x="450" y="427" fill="#55efc4" font-size="11" font-weight="600">All functions return → Stack empty</text>
+      <text x="450" y="445" fill="#a0aec0" font-size="10">Stack: [] ← Ready for next task</text>
+    </g>
+    
+    <!-- Key insight box -->
+    <rect x="420" y="460" width="330" height="30" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="585" y="479" text-anchor="middle" fill="#fbbf24" font-size="10">💡 Stack Overflow = Too many frames (infinite recursion)</text>
+  </g>
+
+  <!-- Bottom note -->
+  <text x="400" y="535" text-anchor="middle" fill="#718096" font-size="10">JavaScript is single-threaded — only ONE call stack — executes one thing at a time</text>
+</svg>

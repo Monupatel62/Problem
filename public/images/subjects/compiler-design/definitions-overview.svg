@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="560" viewBox="0 0 980 560" role="img" aria-labelledby="title desc">
+  <title id="title">Definitions overview</title>
+  <desc id="desc">Definitions of compiler, interpreter, phase, and pass with simple explanations.</desc>
+  <rect width="980" height="560" fill="#ffffff"/>
+  <text x="490" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#0f2f6f">DEFINITION (WHAT?)</text>
+  <rect x="35" y="82" width="910" height="430" rx="14" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/>
+  <rect x="35" y="82" width="910" height="52" rx="14" fill="#eff6ff"/>
+  <line x1="260" y1="82" x2="260" y2="512" stroke="#93c5fd" stroke-width="2"/>
+  <line x1="580" y1="82" x2="580" y2="512" stroke="#93c5fd" stroke-width="2"/>
+  <line x1="35" y1="134" x2="945" y2="134" stroke="#1e3a8a" stroke-width="2"/>
+  <line x1="35" y1="228" x2="945" y2="228" stroke="#bfdbfe" stroke-width="2"/>
+  <line x1="35" y1="322" x2="945" y2="322" stroke="#bfdbfe" stroke-width="2"/>
+  <line x1="35" y1="416" x2="945" y2="416" stroke="#bfdbfe" stroke-width="2"/>
+  <text x="147" y="116" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#0f2f6f">Term</text>
+  <text x="420" y="116" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#0f2f6f">Definition</text>
+  <text x="762" y="116" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#0f2f6f">Simple Explanation</text>
+  <text x="147" y="174" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#0f2f6f">Compiler</text>
+  <text x="290" y="164" font-family="Arial, sans-serif" font-size="18" fill="#111827">Translates entire source code</text>
+  <text x="290" y="190" font-family="Arial, sans-serif" font-size="18" fill="#111827">into machine code before execution.</text>
+  <text x="610" y="178" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#166534">Translate once, run many times.</text>
+  <text x="147" y="268" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#0f2f6f">Interpreter</text>
+  <text x="290" y="258" font-family="Arial, sans-serif" font-size="18" fill="#111827">Translates and executes source code</text>
+  <text x="290" y="284" font-family="Arial, sans-serif" font-size="18" fill="#111827">line by line.</text>
+  <text x="610" y="272" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#166534">Translate and run together.</text>
+  <text x="147" y="362" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#0f2f6f">Phase</text>
+  <text x="290" y="352" font-family="Arial, sans-serif" font-size="18" fill="#111827">A logical step in compilation,</text>
+  <text x="290" y="378" font-family="Arial, sans-serif" font-size="18" fill="#111827">such as lexical analysis.</text>
+  <text x="610" y="366" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#166534">A room in the translation factory.</text>
+  <text x="147" y="456" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#0f2f6f">Pass</text>
+  <text x="290" y="446" font-family="Arial, sans-serif" font-size="18" fill="#111827">One complete scan of source code</text>
+  <text x="290" y="472" font-family="Arial, sans-serif" font-size="18" fill="#111827">and intermediate files.</text>
+  <text x="610" y="460" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#166534">A full walk-through of the document.</text>
+</svg>

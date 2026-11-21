@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" fill="none">
+  <rect width="1200" height="520" rx="28" fill="#0F172A"/>
+  <rect x="48" y="48" width="1104" height="424" rx="24" fill="#111827" stroke="#334155"/>
+  <text x="84" y="104" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="34" font-weight="700">Java Program Execution Flow</text>
+  <text x="84" y="142" fill="#94A3B8" font-family="Arial, sans-serif" font-size="18">A simple view of how Java becomes platform independent.</text>
+
+  <rect x="84" y="204" width="190" height="120" rx="18" fill="#1D4ED8"/>
+  <text x="179" y="255" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">Source Code</text>
+  <text x="179" y="286" text-anchor="middle" fill="#DBEAFE" font-family="Arial, sans-serif" font-size="18">.java file</text>
+
+  <rect x="330" y="204" width="190" height="120" rx="18" fill="#0F766E"/>
+  <text x="425" y="255" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">Compiler</text>
+  <text x="425" y="286" text-anchor="middle" fill="#CCFBF1" font-family="Arial, sans-serif" font-size="18">javac</text>
+
+  <rect x="576" y="204" width="190" height="120" rx="18" fill="#7C3AED"/>
+  <text x="671" y="255" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">Bytecode</text>
+  <text x="671" y="286" text-anchor="middle" fill="#EDE9FE" font-family="Arial, sans-serif" font-size="18">.class file</text>
+
+  <rect x="822" y="204" width="130" height="120" rx="18" fill="#BE185D"/>
+  <text x="887" y="246" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">JVM</text>
+  <text x="887" y="280" text-anchor="middle" fill="#FCE7F3" font-family="Arial, sans-serif" font-size="16">loads, verifies,</text>
+  <text x="887" y="302" text-anchor="middle" fill="#FCE7F3" font-family="Arial, sans-serif" font-size="16">and runs code</text>
+
+  <rect x="992" y="166" width="116" height="66" rx="16" fill="#1E293B" stroke="#475569"/>
+  <text x="1050" y="206" text-anchor="middle" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="18" font-weight="700">Windows</text>
+
+  <rect x="992" y="252" width="116" height="66" rx="16" fill="#1E293B" stroke="#475569"/>
+  <text x="1050" y="292" text-anchor="middle" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="18" font-weight="700">Linux</text>
+
+  <rect x="992" y="338" width="116" height="66" rx="16" fill="#1E293B" stroke="#475569"/>
+  <text x="1050" y="378" text-anchor="middle" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="18" font-weight="700">macOS</text>
+
+  <path d="M274 264H330" stroke="#94A3B8" stroke-width="8" stroke-linecap="round"/>
+  <path d="M520 264H576" stroke="#94A3B8" stroke-width="8" stroke-linecap="round"/>
+  <path d="M766 264H822" stroke="#94A3B8" stroke-width="8" stroke-linecap="round"/>
+  <path d="M952 232C974 232 980 199 992 199" stroke="#94A3B8" stroke-width="6" stroke-linecap="round"/>
+  <path d="M952 264H992" stroke="#94A3B8" stroke-width="6" stroke-linecap="round"/>
+  <path d="M952 296C974 296 980 371 992 371" stroke="#94A3B8" stroke-width="6" stroke-linecap="round"/>
+
+  <text x="84" y="412" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="18">Same bytecode can run on different operating systems as long as a JVM is available.</text>
+</svg>

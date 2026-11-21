@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 450" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0c0c1d"/>
+      <stop offset="100%" style="stop-color:#1a1a3e"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="820" height="450" fill="url(#bg)" rx="14"/>
+  
+  <text x="410" y="33" text-anchor="middle" fill="#e2e8f0" font-size="20" font-weight="700">⏳ async/await — Execution Flow</text>
+  <text x="410" y="50" text-anchor="middle" fill="#8892b0" font-size="11">Sugar syntax over Promises — makes async code look synchronous</text>
+
+  <!-- Code (left side) -->
+  <g filter="url(#shadow)">
+    <rect x="25" y="65" width="360" height="260" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+    <rect x="25" y="65" width="360" height="26" rx="12" fill="#21262d"/>
+    <circle cx="42" cy="78" r="4" fill="#ff5f56"/>
+    <circle cx="56" cy="78" r="4" fill="#ffbd2e"/>
+    <circle cx="70" cy="78" r="4" fill="#27c93f"/>
+    
+    <text x="40" y="108" fill="#ff7b72" font-size="10">async function</text>
+    <text x="140" y="108" fill="#d2a8ff" font-size="10">fetchUser</text>
+    <text x="200" y="108" fill="#c9d1d9" font-size="10">() {</text>
+    
+    <text x="55" y="130" fill="#c9d1d9" font-size="10">console.log(</text>
+    <text x="145" y="130" fill="#a5d6ff" font-size="10">"1: Start"</text>
+    <text x="210" y="130" fill="#c9d1d9" font-size="10">);</text>
+    <text x="260" y="130" fill="#8b949e" font-size="9">// sync</text>
+    
+    <text x="55" y="155" fill="#ff7b72" font-size="10">const</text>
+    <text x="88" y="155" fill="#79c0ff" font-size="10">user</text>
+    <text x="113" y="155" fill="#c9d1d9" font-size="10">=</text>
+    <text x="123" y="155" fill="#ffa657" font-size="10">await</text>
+    <text x="163" y="155" fill="#d2a8ff" font-size="10">fetch</text>
+    <text x="195" y="155" fill="#c9d1d9" font-size="10">(url);</text>
+    <text x="260" y="155" fill="#8b949e" font-size="9">// ⏸️ PAUSE</text>
+    
+    <text x="55" y="180" fill="#c9d1d9" font-size="10">console.log(</text>
+    <text x="145" y="180" fill="#a5d6ff" font-size="10">"2: Got user"</text>
+    <text x="225" y="180" fill="#c9d1d9" font-size="10">);</text>
+    <text x="260" y="180" fill="#8b949e" font-size="9">// after await</text>
+    
+    <text x="55" y="205" fill="#ff7b72" font-size="10">const</text>
+    <text x="88" y="205" fill="#79c0ff" font-size="10">posts</text>
+    <text x="118" y="205" fill="#c9d1d9" font-size="10">=</text>
+    <text x="128" y="205" fill="#ffa657" font-size="10">await</text>
+    <text x="168" y="205" fill="#d2a8ff" font-size="10">fetch</text>
+    <text x="200" y="205" fill="#c9d1d9" font-size="10">(postsUrl);</text>
+    <text x="275" y="205" fill="#8b949e" font-size="9">// ⏸️</text>
+    
+    <text x="55" y="230" fill="#c9d1d9" font-size="10">console.log(</text>
+    <text x="145" y="230" fill="#a5d6ff" font-size="10">"3: Got posts"</text>
+    <text x="230" y="230" fill="#c9d1d9" font-size="10">);</text>
+    
+    <text x="55" y="255" fill="#ff7b72" font-size="10">return</text>
+    <text x="95" y="255" fill="#c9d1d9" font-size="10">{ user, posts };</text>
+    
+    <text x="40" y="278" fill="#c9d1d9" font-size="10">}</text>
+    
+    <text x="40" y="303" fill="#c9d1d9" font-size="10">console.log(</text>
+    <text x="125" y="303" fill="#a5d6ff" font-size="10">"4: After call"</text>
+    <text x="215" y="303" fill="#c9d1d9" font-size="10">);</text>
+    <text x="260" y="303" fill="#8b949e" font-size="9">// runs immediately!</text>
+    
+    <text x="40" y="320" fill="#d2a8ff" font-size="10">fetchUser</text>
+    <text x="100" y="320" fill="#c9d1d9" font-size="10">();</text>
+  </g>
+
+  <!-- Execution Flow (right side) -->
+  <g filter="url(#shadow)">
+    <rect x="415" y="65" width="380" height="260" rx="12" fill="#0a192f" stroke="#475569" stroke-width="2"/>
+    <text x="605" y="90" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">⚡ Execution Order</text>
+    
+    <!-- Step 1 -->
+    <rect x="435" y="100" width="340" height="30" rx="6" fill="#064e3b" stroke="#34d399" stroke-width="1"/>
+    <text x="445" y="119" fill="#34d399" font-size="10">① "1: Start"</text>
+    <text x="645" y="119" fill="#94a3b8" font-size="9" text-anchor="end">← Sync (immediate)</text>
+    
+    <!-- Step 2: await -->
+    <rect x="435" y="138" width="340" height="30" rx="6" fill="#451a03" stroke="#f59e0b" stroke-width="1"/>
+    <text x="445" y="157" fill="#f59e0b" font-size="10">② await fetch(url) → ⏸️ PAUSES here</text>
+    <text x="770" y="157" fill="#f59e0b" font-size="9" text-anchor="end">async</text>
+    
+    <!-- Step 3: Sync after -->
+    <rect x="435" y="176" width="340" height="30" rx="6" fill="#064e3b" stroke="#34d399" stroke-width="1"/>
+    <text x="445" y="195" fill="#34d399" font-size="10">③ "4: After call"</text>
+    <text x="770" y="195" fill="#94a3b8" font-size="9" text-anchor="end">← Runs while waiting!</text>
+    
+    <!-- Step 4: Resume -->
+    <rect x="435" y="218" width="340" height="30" rx="6" fill="#1e1b4b" stroke="#818cf8" stroke-width="1"/>
+    <text x="445" y="237" fill="#818cf8" font-size="10">④ "2: Got user" (fetch resolved)</text>
+    <text x="770" y="237" fill="#818cf8" font-size="9" text-anchor="end">← Resumes</text>
+    
+    <!-- Step 5 -->
+    <rect x="435" y="256" width="340" height="30" rx="6" fill="#451a03" stroke="#f59e0b" stroke-width="1"/>
+    <text x="445" y="275" fill="#f59e0b" font-size="10">⑤ await fetch(postsUrl) → ⏸️ Again</text>
+    <text x="770" y="275" fill="#f59e0b" font-size="9" text-anchor="end">async</text>
+    
+    <!-- Step 6 -->
+    <rect x="435" y="294" width="340" height="30" rx="6" fill="#1e1b4b" stroke="#818cf8" stroke-width="1"/>
+    <text x="445" y="313" fill="#818cf8" font-size="10">⑥ "3: Got posts" (second fetch done)</text>
+    <text x="770" y="313" fill="#818cf8" font-size="9" text-anchor="end">← Final</text>
+  </g>
+
+  <!-- Key Insights -->
+  <g filter="url(#shadow)">
+    <rect x="25" y="345" width="770" height="90" rx="12" fill="#0a192f" stroke="#475569" stroke-width="1.5"/>
+    <text x="410" y="370" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">💡 Key Rules of async/await</text>
+    
+    <text x="45" y="393" fill="#34d399" font-size="10">✅ await pauses ONLY the async function — NOT the entire program</text>
+    <text x="45" y="413" fill="#f59e0b" font-size="10">⚡ Code AFTER the async call continues immediately (non-blocking)</text>
+    <text x="45" y="433" fill="#818cf8" font-size="10">🔄 async function always returns a Promise | await unwraps Promises</text>
+    
+    <text x="580" y="393" fill="#ff6b6b" font-size="10">❌ Can't use await at top level*</text>
+    <text x="580" y="413" fill="#ff6b6b" font-size="10">❌ await in non-async = SyntaxError</text>
+    <text x="580" y="433" fill="#94a3b8" font-size="9">*unless using ES modules or top-level await</text>
+  </g>
+</svg>

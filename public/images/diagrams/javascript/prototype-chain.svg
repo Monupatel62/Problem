@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 600" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a192f"/>
+      <stop offset="100%" style="stop-color:#112240"/>
+    </linearGradient>
+    <linearGradient id="instanceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#64ffda"/>
+      <stop offset="100%" style="stop-color:#00bfa5"/>
+    </linearGradient>
+    <linearGradient id="dogProtoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#bb86fc"/>
+      <stop offset="100%" style="stop-color:#7c4dff"/>
+    </linearGradient>
+    <linearGradient id="animalProtoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#82b1ff"/>
+      <stop offset="100%" style="stop-color:#448aff"/>
+    </linearGradient>
+    <linearGradient id="objectProtoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffab40"/>
+      <stop offset="100%" style="stop-color:#ff6d00"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity="0.4"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64ffda"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="850" height="600" fill="url(#bg)" rx="14"/>
+  
+  <!-- Title -->
+  <text x="425" y="38" text-anchor="middle" fill="#ccd6f6" font-size="20" font-weight="700">🔗 JavaScript Prototype Chain</text>
+  <text x="425" y="58" text-anchor="middle" fill="#8892b0" font-size="11">How property lookup works — walks up the chain until found or null</text>
+
+  <!-- Instance Object (dog) -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="90" width="260" height="130" rx="12" fill="#0a192f" stroke="url(#instanceGrad)" stroke-width="2.5"/>
+    <rect x="50" y="90" width="260" height="34" rx="12" fill="url(#instanceGrad)"/>
+    <text x="180" y="112" text-anchor="middle" fill="#0a192f" font-size="12" font-weight="700">🐕 dog (Instance)</text>
+    
+    <text x="70" y="148" fill="#64ffda" font-size="11">name:</text>
+    <text x="120" y="148" fill="#ccd6f6" font-size="11">"Bruno"</text>
+    <text x="210" y="148" fill="#8892b0" font-size="9">← own property ✓</text>
+    
+    <text x="70" y="172" fill="#64ffda" font-size="11">breed:</text>
+    <text x="120" y="172" fill="#ccd6f6" font-size="11">"Labrador"</text>
+    <text x="210" y="172" fill="#8892b0" font-size="9">← own property ✓</text>
+    
+    <text x="70" y="198" fill="#ff7979" font-size="10">[[Prototype]]</text>
+    <text x="170" y="198" fill="#8892b0" font-size="10">→ Dog.prototype</text>
+  </g>
+
+  <!-- Arrow down -->
+  <line x1="180" y1="222" x2="180" y2="255" stroke="#64ffda" stroke-width="2.5" stroke-dasharray="6 3"/>
+  <polygon points="175,252 180,265 185,252" fill="#64ffda"/>
+  <text x="195" y="244" fill="#64ffda" font-size="9">__proto__</text>
+
+  <!-- Dog.prototype -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="270" width="260" height="130" rx="12" fill="#0a192f" stroke="url(#dogProtoGrad)" stroke-width="2.5"/>
+    <rect x="50" y="270" width="260" height="34" rx="12" fill="url(#dogProtoGrad)"/>
+    <text x="180" y="292" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">🦴 Dog.prototype</text>
+    
+    <text x="70" y="328" fill="#bb86fc" font-size="11">bark():</text>
+    <text x="125" y="328" fill="#ccd6f6" font-size="11">function</text>
+    <text x="210" y="328" fill="#8892b0" font-size="9">← shared method</text>
+    
+    <text x="70" y="352" fill="#bb86fc" font-size="11">fetch():</text>
+    <text x="130" y="352" fill="#ccd6f6" font-size="11">function</text>
+    <text x="210" y="352" fill="#8892b0" font-size="9">← shared method</text>
+    
+    <text x="70" y="378" fill="#ff7979" font-size="10">[[Prototype]]</text>
+    <text x="170" y="378" fill="#8892b0" font-size="10">→ Animal.prototype</text>
+  </g>
+
+  <!-- Arrow down -->
+  <line x1="180" y1="402" x2="180" y2="432" stroke="#bb86fc" stroke-width="2.5" stroke-dasharray="6 3"/>
+  <polygon points="175,429 180,442 185,429" fill="#bb86fc"/>
+  <text x="195" y="422" fill="#bb86fc" font-size="9">__proto__</text>
+
+  <!-- Animal.prototype -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="445" width="260" height="110" rx="12" fill="#0a192f" stroke="url(#animalProtoGrad)" stroke-width="2.5"/>
+    <rect x="50" y="445" width="260" height="34" rx="12" fill="url(#animalProtoGrad)"/>
+    <text x="180" y="467" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">🐾 Animal.prototype</text>
+    
+    <text x="70" y="503" fill="#82b1ff" font-size="11">speak():</text>
+    <text x="130" y="503" fill="#ccd6f6" font-size="11">function</text>
+    
+    <text x="70" y="527" fill="#82b1ff" font-size="11">eat():</text>
+    <text x="115" y="527" fill="#ccd6f6" font-size="11">function</text>
+    
+    <text x="70" y="545" fill="#ff7979" font-size="9">[[Prototype]] → Object.prototype</text>
+  </g>
+
+  <!-- Right side — Object.prototype + null -->
+  <!-- Object.prototype -->
+  <g filter="url(#shadow)">
+    <rect x="500" y="270" width="300" height="150" rx="12" fill="#0a192f" stroke="url(#objectProtoGrad)" stroke-width="2.5"/>
+    <rect x="500" y="270" width="300" height="34" rx="12" fill="url(#objectProtoGrad)"/>
+    <text x="650" y="292" text-anchor="middle" fill="#0a192f" font-size="12" font-weight="700">🏛️ Object.prototype (Root)</text>
+    
+    <text x="520" y="328" fill="#ffab40" font-size="11">toString():</text>
+    <text x="610" y="328" fill="#ccd6f6" font-size="11">function</text>
+    
+    <text x="520" y="352" fill="#ffab40" font-size="11">hasOwnProperty():</text>
+    <text x="660" y="352" fill="#ccd6f6" font-size="11">function</text>
+    
+    <text x="520" y="376" fill="#ffab40" font-size="11">valueOf():</text>
+    <text x="600" y="376" fill="#ccd6f6" font-size="11">function</text>
+    
+    <text x="520" y="400" fill="#ffab40" font-size="11">constructor():</text>
+    <text x="630" y="400" fill="#ccd6f6" font-size="11">function</text>
+    
+    <text x="520" y="415" fill="#ff7979" font-size="9">[[Prototype]] → null ⛔</text>
+  </g>
+
+  <!-- Arrow to Object.prototype from Animal -->
+  <path d="M310 500 Q400 500 450 420 Q480 370 498 345" fill="none" stroke="#82b1ff" stroke-width="2" stroke-dasharray="6 3"/>
+  <polygon points="495,348 505,341 498,351" fill="#82b1ff"/>
+
+  <!-- null terminus -->
+  <g filter="url(#shadow)">
+    <rect x="580" y="450" width="140" height="45" rx="10" fill="#2d0000" stroke="#ff4444" stroke-width="2"/>
+    <text x="650" y="478" text-anchor="middle" fill="#ff4444" font-size="14" font-weight="700">null ⛔</text>
+  </g>
+  <line x1="650" y1="422" x2="650" y2="448" stroke="#ff4444" stroke-width="2"/>
+  <polygon points="645,445 650,455 655,445" fill="#ff4444"/>
+  <text x="670" y="440" fill="#ff4444" font-size="9">END</text>
+
+  <!-- Property Lookup Legend -->
+  <g filter="url(#shadow)">
+    <rect x="500" y="90" width="310" height="155" rx="12" fill="#0a192f" stroke="#475569" stroke-width="1.5"/>
+    <text x="655" y="115" text-anchor="middle" fill="#ccd6f6" font-size="12" font-weight="600">🔍 Property Lookup Example</text>
+    
+    <text x="520" y="140" fill="#64ffda" font-size="10">dog.name</text>
+    <text x="620" y="140" fill="#ccd6f6" font-size="10">→ Found on dog ✓</text>
+    
+    <text x="520" y="162" fill="#bb86fc" font-size="10">dog.bark()</text>
+    <text x="620" y="162" fill="#ccd6f6" font-size="10">→ Found on Dog.prototype ✓</text>
+    
+    <text x="520" y="184" fill="#82b1ff" font-size="10">dog.speak()</text>
+    <text x="620" y="184" fill="#ccd6f6" font-size="10">→ Found on Animal.prototype ✓</text>
+    
+    <text x="520" y="206" fill="#ffab40" font-size="10">dog.toString()</text>
+    <text x="620" y="206" fill="#ccd6f6" font-size="10">→ Found on Object.prototype ✓</text>
+    
+    <text x="520" y="228" fill="#ff4444" font-size="10">dog.fly()</text>
+    <text x="620" y="228" fill="#ff4444" font-size="10">→ NOT found → undefined ✗</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="425" y="585" text-anchor="middle" fill="#4a5568" font-size="9">JavaScript searches UP the chain: Instance → Constructor.prototype → Parent.prototype → Object.prototype → null</text>
+</svg>

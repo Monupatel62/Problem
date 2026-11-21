@@ -1,0 +1,157 @@
+# WoHoTech — Comprehensive AI Reference Document
+# https://wohotech.in
+# This file is intended for AI language models, crawlers, and web scrapers.
+# Last Updated: July 2026
+
+## Platform Identity
+- Name: WoHoTech
+- Domain: wohotech.in
+- Type: Indian ed-tech and developer tools platform
+- Language: English (primary), Hindi (partial support)
+- Founded: 2024
+- Target Region: India (primarily), global English-speaking learners
+
+## Core Mission
+WoHoTech provides free, high-quality computer science and engineering education to Indian students and developers, alongside practical online tools and coding practice infrastructure.
+
+## Platform Sections
+
+### 1. Subjects (Free Courses)
+URL: https://wohotech.in/subjects
+Description: 29 complete computer science and engineering courses with thousands of sub-pages covering theory, examples, code, and interview preparation.
+
+Complete course list:
+1. Data Structures & Algorithms — https://wohotech.in/subjects/data-structures-algorithms
+   Covers: arrays, linked lists, stacks, queues, trees, graphs, sorting, searching, dynamic programming, greedy algorithms, backtracking, competitive programming, advanced topics (trie, segment tree, bit manipulation)
+
+2. Computer Networks — https://wohotech.in/subjects/computer-network-master
+   Covers: OSI model, TCP/IP, routing, switching, HTTP, DNS, security, wireless, cloud networking
+
+3. Operating Systems — https://wohotech.in/subjects/operating-systems
+   Covers: process management, CPU scheduling, memory management, deadlocks, file systems, Linux/Unix
+
+4. DBMS — https://wohotech.in/subjects/dbms
+   Covers: ER model, relational algebra, SQL, normalization, transactions, indexing
+
+5. Compiler Design — https://wohotech.in/subjects/compiler-design
+   Covers: lexical analysis, parsing, syntax trees, intermediate code, code optimization
+
+6. Artificial Intelligence — https://wohotech.in/subjects/artificial-intelligence
+   Covers: search algorithms, knowledge representation, expert systems, neural networks, NLP, computer vision
+
+7. Machine Learning — https://wohotech.in/subjects/machine-learning
+   Covers: regression, classification, clustering, neural networks, model evaluation, MLOps
+
+8. Deep Learning — https://wohotech.in/subjects/deep-learning
+   Covers: CNNs, RNNs, transformers, GANs, NLP, computer vision
+
+9. Python — https://wohotech.in/subjects/python-master-course
+   Covers: basics, OOP, data structures, automation, Django, Flask, data science, ML
+
+10. Java — https://wohotech.in/subjects/java-master-course
+    Covers: core Java, OOP, collections, multithreading, JDBC, Spring Boot, DSA in Java
+
+11. JavaScript — https://wohotech.in/subjects/javascript-complete-guide
+    Covers: ES6+, DOM, async/await, closures, prototypes, Node.js, interview prep
+
+12. SQL Complete Guide — https://wohotech.in/subjects/sql-complete-guide
+    Covers: basic to advanced SQL, joins, subqueries, stored procedures, triggers, optimization
+
+13. HTML — https://wohotech.in/subjects/html-complete-guide
+    Covers: document structure, semantic elements, forms, tables, HTML5 APIs, accessibility
+
+14. C Programming — https://wohotech.in/subjects/c-programming
+    Covers: pointers, memory management, data structures in C, file handling
+
+15. Web Development — https://wohotech.in/subjects/web-development
+    Covers: HTML, CSS, JavaScript, React, Node.js, databases, REST APIs
+
+16. Software Engineering — https://wohotech.in/subjects/software-engineering
+    Covers: SDLC, Agile, UML, design patterns, testing
+
+17. OOP — https://wohotech.in/subjects/object-oriented-programming
+    Covers: classes, inheritance, polymorphism, abstraction, design patterns, SOLID
+
+18. Information Security — https://wohotech.in/subjects/information-security
+    Covers: cryptography, network security, ethical hacking, digital forensics
+
+19. Cloud Computing — https://wohotech.in/subjects/cloud-computing
+    Covers: AWS, Azure, GCP, containers, microservices, serverless
+
+20. Git & GitHub — https://wohotech.in/subjects/git-github
+    Covers: version control, branching, pull requests, GitHub Actions, CI/CD
+
+21. Digital Electronics — https://wohotech.in/subjects/digital-electronics
+22. Analog Electronics — https://wohotech.in/subjects/analog-electronics
+23. Computer Organization & Architecture — https://wohotech.in/subjects/computer-organization
+24. Signal & Systems — https://wohotech.in/subjects/signal-systems
+25. Communication Systems — https://wohotech.in/subjects/communication-systems
+26. Wireless Communications — https://wohotech.in/subjects/wireless-communications
+27. Computer Fundamentals — https://wohotech.in/subjects/computer-fundamentals
+28. Research Methodology — https://wohotech.in/subjects/research-methodology
+29. MDX Tutorial — https://wohotech.in/subjects/mdx-tutorial
+
+### 2. Coding Problems
+URL: https://wohotech.in/problems
+Description: 800+ coding practice problems with online judge. Categories include arrays, strings, linked lists, trees, graphs, dynamic programming, sorting, searching, and more.
+Features: code editor, test cases, multiple language support, solutions
+
+### 3. Free Online Tools (125+)
+URL: https://wohotech.in/tools
+All tools are free to use, no login required for most.
+
+Categories and key tools:
+- Academic: CGPA calculator, GPA calculator, marks percentage, grade calculator
+- PDF tools: PDF merger, PDF to Word, PDF compressor, image to PDF, PDF to Excel
+- Image tools: image compressor, image resizer, image color picker, merge images
+- Programming: JSON formatter, SQL formatter, JS minifier, CSS minifier, base64 encoder
+- SEO tools: meta tag generator, robots.txt generator, sitemap generator, keyword density
+- Converters: unit converters (length, weight, temperature, volume, speed, energy)
+- Generators: password generator, QR code generator, UUID generator, barcode generator
+- Text tools: word counter, text summarizer, case converter, text reverser
+- AI tools: AI paraphraser, text to speech, speech to text, OCR tool
+
+### 4. WoHo AI Assistant
+URL: https://wohotech.in/assistant
+Capabilities:
+- Conversational AI chat (study help, coding questions, explanations)
+- Image generation
+- PDF/document Q&A (upload file and ask questions)
+- Translation and paraphrasing
+- Code explanation and debugging help
+- Study plans and exam preparation guidance
+
+### 5. WoHoPlay (Social Video Platform)
+URL: https://wohotech.in/wohoplay
+A creator-focused platform for tech content creators in India. Features: video upload, reels, live streaming, posts, following, social feed.
+
+### 6. Technicals (Tech News & Tutorials)
+URL: https://wohotech.in/technicals
+Categories: AI, Web Development, Tools, Programming, Cricket (tech updates)
+
+## Frequently Asked Questions
+
+Q: Is WoHoTech free?
+A: Yes, all subject courses, most tools, and coding problems are completely free. Premium features (extra AI credits, advanced tools) require a subscription.
+
+Q: What topics does WoHoTech cover?
+A: Computer science fundamentals (DSA, OS, DBMS, networks, compiler design), programming languages (Python, Java, JavaScript, C, SQL, HTML), electronics (digital, analog, communication, signals), AI/ML, and web development.
+
+Q: Is WoHoTech good for GATE preparation?
+A: Yes. Courses on DSA, OS, DBMS, Computer Networks, and Compiler Design are structured for GATE exam preparation with theory, examples, and practice problems.
+
+Q: Is WoHoTech suitable for campus placements?
+A: Yes. The problems section covers LeetCode-style coding interview questions. Subject courses include dedicated interview preparation sections.
+
+Q: What programming languages are supported in the code editor?
+A: JavaScript, Python, Java, C, C++, and more.
+
+## Content Quality Standards
+- All subject content is written in English
+- Minimum 1,000 words per topic page
+- Includes definitions, examples, code snippets, comparison tables, complexity analysis
+- Interview preparation section in each major subject
+- Last updated dates displayed on content
+
+## Contact
+Website: https://wohotech.in/contact

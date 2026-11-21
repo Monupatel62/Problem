@@ -1,0 +1,80 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "**/*.mts",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/_not-migrated/**/*",
+    "mobile/**/*",
+    "src/__tests__/**/*",
+    "src/tests/**/*",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "src/app/(workspaces)/**/*",
+    "src/app/api/**/*",
+    "src/app/stories/**/*",
+    "src/app/wohoplay/**/*",
+    "src/app/search/page.tsx",
+    "src/app/problems/problems-workspace.tsx",
+    "src/components/wohoplay/**/*",
+    "src/lib/ai/**/*",
+    "src/lib/content/**/*",
+    "src/lib/services/**/*",
+    "src/services/**/*",
+    "src/services/wohoplay/**/*",
+    "src/components/voice/advanced-voice-assistant.tsx",
+    "src/components/image/ImageGenerator.tsx",
+    "src/components/auth/auth-guard.tsx",
+    "src/components/auth/login-screen.tsx",
+    "src/components/dashboard/analytics-dashboard.tsx",
+    "src/components/search/advanced-search.tsx",
+    "src/components/image/advanced-image-generator.tsx",
+    "src/lib/voice/voice-processor.ts",
+    "src/lib/image/image-processor.ts",
+    "src/lib/ai/tests/**/*",
+    "src/lib/ai/test-*.ts",
+    "src/lib/ai/wohotech-*.ts",
+    "src/lib/analytics/**/*",
+    "src/lib/api/api-documentation.ts",
+    "src/lib/performance/**/*",
+    "src/lib/services/content-service.ts",
+    "src/lib/models/user-credits.ts"
+  ]
+}

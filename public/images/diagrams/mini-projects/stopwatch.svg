@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 452" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="s"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="700" height="452" fill="url(#bg)" rx="14"/>
+  <text x="350" y="30" text-anchor="middle" fill="#e2e8f0" font-size="17" font-weight="700">🖥️ Stopwatch</text>
+  <text x="350" y="48" text-anchor="middle" fill="#8892b0" font-size="10">Component Structure</text>
+  <g filter="url(#s)">
+    <rect x="50" y="60" width="600" height="372" rx="12" fill="#0d1117" stroke="#8b5cf6" stroke-width="2"/>
+    <rect x="50" y="60" width="600" height="24" rx="12" fill="#21262d"/>
+    <circle cx="68" cy="72" r="5" fill="#ff5f56"/>
+    <circle cx="84" cy="72" r="5" fill="#ffbd2e"/>
+    <circle cx="100" cy="72" r="5" fill="#27c93f"/>
+    <text x="350" y="76" text-anchor="middle" fill="#8b949e" font-size="8">stopwatch</text>
+    <rect x="70" y="95" width="560" height="34" rx="6" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="90" y="116" fill="#a78bfa" font-size="10" font-weight="600">STOPWATCH APP</text>
+    <rect x="70" y="137" width="560" height="34" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="90" y="158" fill="#c9d1d9" font-size="10">[Start/Stop Btn]   [Reset Btn]   [Lap Btn]</text>
+    <rect x="70" y="179" width="560" height="34" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="90" y="200" fill="#c9d1d9" font-size="10">EVENT HANDLERS</text>
+    <rect x="70" y="221" width="560" height="34" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="90" y="242" fill="#c9d1d9" font-size="10">handleStartStop() | handleReset()</text>
+    <rect x="70" y="263" width="560" height="34" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="90" y="284" fill="#c9d1d9" font-size="10">handleLap()</text>
+    <rect x="70" y="305" width="560" height="34" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="90" y="326" fill="#c9d1d9" font-size="10">STATE OBJECT</text>
+    <rect x="70" y="347" width="560" height="34" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="90" y="368" fill="#c9d1d9" font-size="10">isRunning: false,</text>
+    <rect x="70" y="389" width="560" height="34" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="90" y="410" fill="#c9d1d9" font-size="10">startTime: 0,</text>
+  </g>
+</svg>

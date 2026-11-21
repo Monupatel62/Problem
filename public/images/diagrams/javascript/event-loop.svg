@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0c29"/>
+      <stop offset="50%" style="stop-color:#302b63"/>
+      <stop offset="100%" style="stop-color:#24243e"/>
+    </linearGradient>
+    <linearGradient id="stackGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="100%" style="stop-color:#764ba2"/>
+    </linearGradient>
+    <linearGradient id="webApiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb"/>
+      <stop offset="100%" style="stop-color:#f5576c"/>
+    </linearGradient>
+    <linearGradient id="microGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4facfe"/>
+      <stop offset="100%" style="stop-color:#00f2fe"/>
+    </linearGradient>
+    <linearGradient id="macroGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#43e97b"/>
+      <stop offset="100%" style="stop-color:#38f9d7"/>
+    </linearGradient>
+    <linearGradient id="loopGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fa709a"/>
+      <stop offset="100%" style="stop-color:#fee140"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="650" fill="url(#bgGrad)" rx="16"/>
+  
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" fill="#fff" font-size="22" font-weight="700" letter-spacing="1">⚙️ JavaScript Event Loop</text>
+  <text x="450" y="62" text-anchor="middle" fill="#a0aec0" font-size="12">How JavaScript handles asynchronous operations</text>
+
+  <!-- CALL STACK -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="85" width="220" height="260" rx="12" fill="#1a1a2e" stroke="url(#stackGrad)" stroke-width="2"/>
+    <rect x="40" y="85" width="220" height="36" rx="12" fill="url(#stackGrad)"/>
+    <text x="150" y="108" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">📚 CALL STACK</text>
+    
+    <!-- Stack frames -->
+    <rect x="60" y="135" width="180" height="32" rx="6" fill="#2d2d5e" stroke="#667eea" stroke-width="1"/>
+    <text x="150" y="155" text-anchor="middle" fill="#e2e8f0" font-size="11">fetchData()</text>
+    <text x="230" y="155" text-anchor="end" fill="#fbd38d" font-size="9">← TOP</text>
+    
+    <rect x="60" y="175" width="180" height="32" rx="6" fill="#2d2d5e" stroke="#4a5568" stroke-width="1"/>
+    <text x="150" y="195" text-anchor="middle" fill="#a0aec0" font-size="11">handleClick()</text>
+    
+    <rect x="60" y="215" width="180" height="32" rx="6" fill="#2d2d5e" stroke="#4a5568" stroke-width="1"/>
+    <text x="150" y="235" text-anchor="middle" fill="#a0aec0" font-size="11">main()</text>
+    
+    <rect x="60" y="255" width="180" height="32" rx="6" fill="#2d2d5e" stroke="#4a5568" stroke-width="1"/>
+    <text x="150" y="275" text-anchor="middle" fill="#718096" font-size="11">Global Execution Context</text>
+    
+    <text x="150" y="320" text-anchor="middle" fill="#a0aec0" font-size="10">LIFO - Last In, First Out</text>
+    <text x="150" y="335" text-anchor="middle" fill="#718096" font-size="9">Single-threaded execution</text>
+  </g>
+
+  <!-- WEB APIs -->
+  <g filter="url(#shadow)">
+    <rect x="310" y="85" width="260" height="200" rx="12" fill="#1a1a2e" stroke="url(#webApiGrad)" stroke-width="2"/>
+    <rect x="310" y="85" width="260" height="36" rx="12" fill="url(#webApiGrad)"/>
+    <text x="440" y="108" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">🌐 WEB APIs (Browser)</text>
+    
+    <text x="330" y="145" fill="#e2e8f0" font-size="11">⏱️ setTimeout / setInterval</text>
+    <text x="330" y="168" fill="#e2e8f0" font-size="11">🌍 fetch / XMLHttpRequest</text>
+    <text x="330" y="191" fill="#e2e8f0" font-size="11">🖱️ DOM Events (click, scroll)</text>
+    <text x="330" y="214" fill="#e2e8f0" font-size="11">📍 Geolocation API</text>
+    <text x="330" y="237" fill="#e2e8f0" font-size="11">👷 Web Workers</text>
+    <text x="330" y="260" fill="#e2e8f0" font-size="11">🔌 WebSocket</text>
+    
+    <text x="440" y="278" text-anchor="middle" fill="#718096" font-size="9">Runs on separate threads</text>
+  </g>
+
+  <!-- Arrow from Stack to Web APIs -->
+  <path d="M260 180 L308 180" fill="none" stroke="#f093fb" stroke-width="2" marker-end="url(#arrowPink)"/>
+  <text x="284" y="173" text-anchor="middle" fill="#f093fb" font-size="9">offload</text>
+
+  <!-- MEMORY HEAP -->
+  <g filter="url(#shadow)">
+    <rect x="620" y="85" width="240" height="150" rx="12" fill="#1a1a2e" stroke="#a78bfa" stroke-width="2"/>
+    <rect x="620" y="85" width="240" height="36" rx="12" fill="#7c3aed"/>
+    <text x="740" y="108" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">🧠 MEMORY HEAP</text>
+    
+    <text x="640" y="145" fill="#e2e8f0" font-size="11">📦 Objects &amp; Arrays</text>
+    <text x="640" y="168" fill="#e2e8f0" font-size="11">🔧 Functions</text>
+    <text x="640" y="191" fill="#e2e8f0" font-size="11">📝 Variables</text>
+    <text x="640" y="214" fill="#e2e8f0" font-size="11">🗑️ Garbage Collected</text>
+  </g>
+
+  <!-- MICROTASK QUEUE -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="370" width="400" height="110" rx="12" fill="#1a1a2e" stroke="url(#microGrad)" stroke-width="2"/>
+    <rect x="40" y="370" width="400" height="36" rx="12" fill="url(#microGrad)"/>
+    <text x="240" y="393" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">⚡ MICROTASK QUEUE (High Priority)</text>
+    
+    <!-- Queue items -->
+    <rect x="60" y="418" width="120" height="28" rx="6" fill="#1e3a5f" stroke="#4facfe" stroke-width="1"/>
+    <text x="120" y="436" text-anchor="middle" fill="#4facfe" font-size="10">Promise.then()</text>
+    
+    <rect x="190" y="418" width="110" height="28" rx="6" fill="#1e3a5f" stroke="#4facfe" stroke-width="1"/>
+    <text x="245" y="436" text-anchor="middle" fill="#4facfe" font-size="10">async/await</text>
+    
+    <rect x="310" y="418" width="115" height="28" rx="6" fill="#1e3a5f" stroke="#4facfe" stroke-width="1"/>
+    <text x="367" y="436" text-anchor="middle" fill="#4facfe" font-size="10">queueMicrotask()</text>
+    
+    <text x="240" y="468" text-anchor="middle" fill="#4facfe" font-size="10">✓ Runs BEFORE callback queue | Drains completely each tick</text>
+  </g>
+
+  <!-- CALLBACK QUEUE (Macrotask) -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="500" width="400" height="110" rx="12" fill="#1a1a2e" stroke="url(#macroGrad)" stroke-width="2"/>
+    <rect x="40" y="500" width="400" height="36" rx="12" fill="url(#macroGrad)"/>
+    <text x="240" y="523" text-anchor="middle" fill="#1a1a2e" font-size="13" font-weight="600">📋 CALLBACK QUEUE (Macrotask)</text>
+    
+    <!-- Queue items -->
+    <rect x="60" y="548" width="105" height="28" rx="6" fill="#1a3a2e" stroke="#43e97b" stroke-width="1"/>
+    <text x="112" y="566" text-anchor="middle" fill="#43e97b" font-size="10">setTimeout()</text>
+    
+    <rect x="175" y="548" width="105" height="28" rx="6" fill="#1a3a2e" stroke="#43e97b" stroke-width="1"/>
+    <text x="227" y="566" text-anchor="middle" fill="#43e97b" font-size="10">setInterval()</text>
+    
+    <rect x="290" y="548" width="130" height="28" rx="6" fill="#1a3a2e" stroke="#43e97b" stroke-width="1"/>
+    <text x="355" y="566" text-anchor="middle" fill="#43e97b" font-size="10">I/O callbacks</text>
+    
+    <text x="240" y="598" text-anchor="middle" fill="#43e97b" font-size="10">✓ Runs ONE task per tick | Lower priority than microtasks</text>
+  </g>
+
+  <!-- EVENT LOOP (Center piece) -->
+  <g filter="url(#glow)">
+    <ellipse cx="640" cy="470" rx="120" ry="70" fill="none" stroke="url(#loopGrad)" stroke-width="3" stroke-dasharray="8 4"/>
+    <text x="640" y="450" text-anchor="middle" fill="#fee140" font-size="14" font-weight="700">🔄 EVENT LOOP</text>
+    <text x="640" y="472" text-anchor="middle" fill="#e2e8f0" font-size="11">Is call stack empty?</text>
+    <text x="640" y="492" text-anchor="middle" fill="#a0aec0" font-size="10">Yes → Pick next task</text>
+    <text x="640" y="508" text-anchor="middle" fill="#a0aec0" font-size="10">No → Wait...</text>
+  </g>
+
+  <!-- Arrows showing flow -->
+  <!-- Web API to Callback Queue -->
+  <path d="M440 286 L440 310 Q440 330 420 340 L300 340 Q280 340 280 360 L280 368" fill="none" stroke="#f5576c" stroke-width="2" stroke-dasharray="5 3"/>
+  <text x="380" y="308" fill="#f5576c" font-size="9">callback ready</text>
+  
+  <!-- Event Loop to Call Stack -->
+  <path d="M520 455 Q450 400 300 360 Q200 340 150 346" fill="none" stroke="#fee140" stroke-width="2" stroke-dasharray="5 3"/>
+  <text x="350" y="355" fill="#fee140" font-size="9">push to stack</text>
+  
+  <!-- Microtask to Event Loop -->
+  <path d="M440 440 L518 455" fill="none" stroke="#4facfe" stroke-width="2"/>
+  
+  <!-- Callback to Event Loop -->
+  <path d="M440 560 L520 490" fill="none" stroke="#43e97b" stroke-width="2"/>
+
+  <!-- Execution Order -->
+  <g>
+    <rect x="620" y="560" width="240" height="75" rx="10" fill="#1a1a2e" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="740" y="580" text-anchor="middle" fill="#a78bfa" font-size="11" font-weight="600">⏱️ Execution Order</text>
+    <text x="640" y="598" fill="#e2e8f0" font-size="10">1️⃣ Synchronous code (Call Stack)</text>
+    <text x="640" y="614" fill="#4facfe" font-size="10">2️⃣ Microtasks (ALL of them)</text>
+    <text x="640" y="630" fill="#43e97b" font-size="10">3️⃣ One Macrotask → Repeat</text>
+  </g>
+
+  <!-- Decorative dots -->
+  <circle cx="30" cy="30" r="3" fill="#667eea" opacity="0.5"/>
+  <circle cx="870" cy="30" r="3" fill="#f093fb" opacity="0.5"/>
+  <circle cx="30" cy="630" r="3" fill="#43e97b" opacity="0.5"/>
+  <circle cx="870" cy="630" r="3" fill="#fee140" opacity="0.5"/>
+</svg>

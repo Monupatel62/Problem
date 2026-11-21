@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="680" viewBox="0 0 760 680" role="img" aria-labelledby="title desc">
+  <title id="title">Context of a compiler in language processing system</title>
+  <desc id="desc">A source program passes through preprocessor, compiler, assembler, and loader or linker to become target machine code.</desc>
+  <rect width="760" height="680" fill="#ffffff"/>
+  <text x="255" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#111827">Source Program</text>
+  <text x="455" y="38" font-family="Arial, sans-serif" font-size="16" fill="#111827">[Example: filename.c]</text>
+  <path d="M255 52 V80" stroke="#111827" stroke-width="2"/>
+  <path d="M255 80 L247 68 H263 Z" fill="#111827"/>
+
+  <rect x="165" y="82" width="180" height="50" fill="#ffffff" stroke="#111827" stroke-width="2"/>
+  <text x="255" y="114" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Preprocessor</text>
+  <path d="M255 132 V162" stroke="#111827" stroke-width="2"/>
+  <path d="M255 162 L247 150 H263 Z" fill="#111827"/>
+
+  <text x="255" y="188" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Modified Source Program</text>
+  <text x="455" y="188" font-family="Arial, sans-serif" font-size="16" fill="#111827">[Example: filename.i]</text>
+  <path d="M255 202 V230" stroke="#111827" stroke-width="2"/>
+  <path d="M255 230 L247 218 H263 Z" fill="#111827"/>
+
+  <rect x="165" y="232" width="180" height="50" fill="#ffffff" stroke="#111827" stroke-width="2"/>
+  <text x="255" y="264" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Compiler</text>
+  <path d="M255 282 V312" stroke="#111827" stroke-width="2"/>
+  <path d="M255 312 L247 300 H263 Z" fill="#111827"/>
+
+  <text x="255" y="338" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Target Assembly Program</text>
+  <text x="455" y="338" font-family="Arial, sans-serif" font-size="16" fill="#111827">[Example: filename.s]</text>
+  <path d="M255 352 V380" stroke="#111827" stroke-width="2"/>
+  <path d="M255 380 L247 368 H263 Z" fill="#111827"/>
+
+  <rect x="165" y="382" width="180" height="50" fill="#ffffff" stroke="#111827" stroke-width="2"/>
+  <text x="255" y="414" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Assembler</text>
+  <path d="M255 432 V462" stroke="#111827" stroke-width="2"/>
+  <path d="M255 462 L247 450 H263 Z" fill="#111827"/>
+
+  <text x="255" y="488" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Relocatable Machine Code</text>
+  <text x="455" y="488" font-family="Arial, sans-serif" font-size="16" fill="#111827">[Example: filename.obj]</text>
+  <path d="M255 502 V530" stroke="#111827" stroke-width="2"/>
+  <path d="M255 530 L247 518 H263 Z" fill="#111827"/>
+
+  <rect x="165" y="532" width="180" height="50" fill="#ffffff" stroke="#111827" stroke-width="2"/>
+  <text x="255" y="564" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Loader / Linker</text>
+  <path d="M520 544 H350" stroke="#111827" stroke-width="2"/>
+  <path d="M350 544 L362 536 V552 Z" fill="#111827"/>
+  <text x="535" y="548" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#111827">Library files</text>
+  <text x="535" y="584" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#111827">Relocatable object files</text>
+
+  <path d="M255 582 V610" stroke="#111827" stroke-width="2"/>
+  <path d="M255 610 L247 598 H263 Z" fill="#111827"/>
+  <text x="255" y="636" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Target Machine Code</text>
+  <text x="455" y="636" font-family="Arial, sans-serif" font-size="16" fill="#111827">[Example: filename.exe]</text>
+  <text x="380" y="668" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#111827">Figure: Context of a Compiler in Language Processing System</text>
+</svg>

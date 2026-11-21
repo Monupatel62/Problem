@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e1b4b"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="480" fill="url(#bg)" rx="14"/>
+  
+  <text x="400" y="33" text-anchor="middle" fill="#e2e8f0" font-size="20" font-weight="700">🫧 Event Bubbling vs Capturing</text>
+  <text x="400" y="50" text-anchor="middle" fill="#8892b0" font-size="11">How events propagate through the DOM tree</text>
+
+  <!-- CAPTURING PHASE (Left) -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="65" width="340" height="380" rx="12" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+    <rect x="30" y="65" width="340" height="30" rx="12" fill="#f59e0b"/>
+    <text x="200" y="84" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="700">⬇️ CAPTURING (Trickling Down)</text>
+    
+    <!-- Nested boxes showing capturing -->
+    <rect x="50" y="110" width="300" height="310" rx="10" fill="rgba(245,158,11,0.05)" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5 3"/>
+    <text x="65" y="130" fill="#f59e0b" font-size="11" font-weight="600">① window</text>
+    
+    <rect x="75" y="140" width="255" height="260" rx="9" fill="rgba(245,158,11,0.05)" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="90" y="160" fill="#fbbf24" font-size="11" font-weight="600">② document</text>
+    
+    <rect x="100" y="170" width="210" height="210" rx="8" fill="rgba(245,158,11,0.05)" stroke="#fcd34d" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="115" y="190" fill="#fcd34d" font-size="11" font-weight="600">③ &lt;html&gt;</text>
+    
+    <rect x="125" y="200" width="165" height="160" rx="7" fill="rgba(245,158,11,0.05)" stroke="#fde68a" stroke-width="1.5" stroke-dasharray="3 3"/>
+    <text x="140" y="220" fill="#fde68a" font-size="11" font-weight="600">④ &lt;body&gt;</text>
+    
+    <rect x="150" y="230" width="120" height="110" rx="6" fill="rgba(245,158,11,0.05)" stroke="#fef3c7" stroke-width="1.5" stroke-dasharray="3 3"/>
+    <text x="165" y="250" fill="#fef3c7" font-size="11" font-weight="600">⑤ &lt;div&gt;</text>
+    
+    <rect x="170" y="265" width="80" height="55" rx="5" fill="#451a03" stroke="#f59e0b" stroke-width="2"/>
+    <text x="210" y="288" text-anchor="middle" fill="#f59e0b" font-size="11" font-weight="700">⑥ 🎯</text>
+    <text x="210" y="305" text-anchor="middle" fill="#fbbf24" font-size="9">&lt;button&gt;</text>
+    
+    <!-- Down arrows -->
+    <text x="310" y="145" fill="#f59e0b" font-size="14">↓</text>
+    <text x="310" y="175" fill="#f59e0b" font-size="14">↓</text>
+    <text x="310" y="205" fill="#f59e0b" font-size="14">↓</text>
+    <text x="310" y="235" fill="#f59e0b" font-size="14">↓</text>
+    <text x="310" y="265" fill="#f59e0b" font-size="14">↓</text>
+    
+    <text x="200" y="350" text-anchor="middle" fill="#fbbf24" font-size="10">addEventListener(event, fn,</text>
+    <text x="200" y="366" text-anchor="middle" fill="#f59e0b" font-size="11" font-weight="700">true</text>
+    <text x="230" y="366" fill="#fbbf24" font-size="10">)</text>
+    
+    <text x="200" y="395" text-anchor="middle" fill="#94a3b8" font-size="9">Fires from OUTSIDE → TARGET</text>
+    <text x="200" y="412" text-anchor="middle" fill="#94a3b8" font-size="9">Rarely used (interception)</text>
+  </g>
+
+  <!-- BUBBLING PHASE (Right) -->
+  <g filter="url(#shadow)">
+    <rect x="430" y="65" width="340" height="380" rx="12" fill="#0f172a" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="430" y="65" width="340" height="30" rx="12" fill="#3b82f6"/>
+    <text x="600" y="84" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">⬆️ BUBBLING (Going Up)</text>
+    
+    <!-- Nested boxes showing bubbling -->
+    <rect x="450" y="110" width="300" height="310" rx="10" fill="rgba(59,130,246,0.05)" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="5 3"/>
+    <text x="700" y="130" fill="#3b82f6" font-size="11" font-weight="600" text-anchor="end">⑥ window</text>
+    
+    <rect x="475" y="140" width="255" height="260" rx="9" fill="rgba(59,130,246,0.05)" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="700" y="160" fill="#60a5fa" font-size="11" font-weight="600" text-anchor="end">⑤ document</text>
+    
+    <rect x="500" y="170" width="210" height="210" rx="8" fill="rgba(59,130,246,0.05)" stroke="#93c5fd" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="700" y="190" fill="#93c5fd" font-size="11" font-weight="600" text-anchor="end">④ &lt;html&gt;</text>
+    
+    <rect x="525" y="200" width="165" height="160" rx="7" fill="rgba(59,130,246,0.05)" stroke="#bfdbfe" stroke-width="1.5" stroke-dasharray="3 3"/>
+    <text x="680" y="220" fill="#bfdbfe" font-size="11" font-weight="600" text-anchor="end">③ &lt;body&gt;</text>
+    
+    <rect x="550" y="230" width="120" height="110" rx="6" fill="rgba(59,130,246,0.05)" stroke="#dbeafe" stroke-width="1.5" stroke-dasharray="3 3"/>
+    <text x="660" y="250" fill="#dbeafe" font-size="11" font-weight="600" text-anchor="end">② &lt;div&gt;</text>
+    
+    <rect x="570" y="265" width="80" height="55" rx="5" fill="#172554" stroke="#3b82f6" stroke-width="2"/>
+    <text x="610" y="288" text-anchor="middle" fill="#3b82f6" font-size="11" font-weight="700">① 🎯</text>
+    <text x="610" y="305" text-anchor="middle" fill="#60a5fa" font-size="9">&lt;button&gt;</text>
+    
+    <!-- Up arrows -->
+    <text x="475" y="280" fill="#3b82f6" font-size="14">↑</text>
+    <text x="475" y="250" fill="#3b82f6" font-size="14">↑</text>
+    <text x="475" y="220" fill="#3b82f6" font-size="14">↑</text>
+    <text x="475" y="190" fill="#3b82f6" font-size="14">↑</text>
+    <text x="475" y="155" fill="#3b82f6" font-size="14">↑</text>
+    
+    <text x="600" y="350" text-anchor="middle" fill="#93c5fd" font-size="10">addEventListener(event, fn,</text>
+    <text x="600" y="366" text-anchor="middle" fill="#3b82f6" font-size="11" font-weight="700">false</text>
+    <text x="630" y="366" fill="#93c5fd" font-size="10">) ← default!</text>
+    
+    <text x="600" y="395" text-anchor="middle" fill="#94a3b8" font-size="9">Fires from TARGET → OUTSIDE</text>
+    <text x="600" y="412" text-anchor="middle" fill="#94a3b8" font-size="9">Default behavior (most common)</text>
+  </g>
+
+  <!-- Stop Propagation note -->
+  <g>
+    <rect x="200" y="452" width="400" height="22" rx="6" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
+    <text x="400" y="467" text-anchor="middle" fill="#fca5a5" font-size="10">🛑 event.stopPropagation() — Stops both bubbling AND capturing</text>
+  </g>
+</svg>

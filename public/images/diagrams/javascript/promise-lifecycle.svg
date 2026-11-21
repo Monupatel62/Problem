@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 450" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0c0c1d"/>
+      <stop offset="100%" style="stop-color:#1a1a3e"/>
+    </linearGradient>
+    <linearGradient id="pendingGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#feca57"/>
+      <stop offset="100%" style="stop-color:#ff9f43"/>
+    </linearGradient>
+    <linearGradient id="fulfilledGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00b894"/>
+      <stop offset="100%" style="stop-color:#55efc4"/>
+    </linearGradient>
+    <linearGradient id="rejectedGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#d63031"/>
+      <stop offset="100%" style="stop-color:#ff7675"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="850" height="450" fill="url(#bg)" rx="14"/>
+  
+  <text x="425" y="35" text-anchor="middle" fill="#e2e8f0" font-size="20" font-weight="700">🤝 Promise Lifecycle &amp; States</text>
+  <text x="425" y="53" text-anchor="middle" fill="#8892b0" font-size="11">A Promise represents an eventual completion or failure of an async operation</text>
+
+  <!-- PENDING State (center) -->
+  <g filter="url(#shadow)">
+    <rect x="310" y="80" width="220" height="80" rx="40" fill="#1a1a2e" stroke="url(#pendingGrad)" stroke-width="3"/>
+    <text x="420" y="113" text-anchor="middle" fill="#feca57" font-size="15" font-weight="700">⏳ PENDING</text>
+    <text x="420" y="135" text-anchor="middle" fill="#8892b0" font-size="10">Initial state • Not settled yet</text>
+  </g>
+
+  <!-- Arrow to Fulfilled -->
+  <path d="M420 160 Q420 195 320 220 Q250 240 220 255" fill="none" stroke="#00b894" stroke-width="3"/>
+  <polygon points="216,251 225,258 220,248" fill="#00b894"/>
+  <text x="290" y="200" fill="#00b894" font-size="10" font-weight="600">resolve(value)</text>
+
+  <!-- Arrow to Rejected -->
+  <path d="M420 160 Q420 195 520 220 Q600 240 630 255" fill="none" stroke="#d63031" stroke-width="3"/>
+  <polygon points="627,251 636,258 630,248" fill="#d63031"/>
+  <text x="555" y="200" fill="#d63031" font-size="10" font-weight="600">reject(error)</text>
+
+  <!-- FULFILLED State -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="255" width="260" height="80" rx="40" fill="#0d3320" stroke="url(#fulfilledGrad)" stroke-width="3"/>
+    <text x="190" y="288" text-anchor="middle" fill="#55efc4" font-size="15" font-weight="700">✅ FULFILLED</text>
+    <text x="190" y="310" text-anchor="middle" fill="#a0aec0" font-size="10">Resolved with a value • Success!</text>
+  </g>
+
+  <!-- REJECTED State -->
+  <g filter="url(#shadow)">
+    <rect x="530" y="255" width="260" height="80" rx="40" fill="#2d0000" stroke="url(#rejectedGrad)" stroke-width="3"/>
+    <text x="660" y="288" text-anchor="middle" fill="#ff7675" font-size="15" font-weight="700">❌ REJECTED</text>
+    <text x="660" y="310" text-anchor="middle" fill="#a0aec0" font-size="10">Rejected with an error • Failed!</text>
+  </g>
+
+  <!-- .then() from Fulfilled -->
+  <path d="M190 335 L190 365" fill="none" stroke="#55efc4" stroke-width="2"/>
+  <polygon points="185,362 190,372 195,362" fill="#55efc4"/>
+  
+  <g filter="url(#shadow)">
+    <rect x="80" y="372" width="220" height="55" rx="10" fill="#0a192f" stroke="#55efc4" stroke-width="1.5"/>
+    <text x="190" y="393" text-anchor="middle" fill="#55efc4" font-size="11" font-weight="600">.then(value =&gt; { ... })</text>
+    <text x="190" y="413" text-anchor="middle" fill="#8892b0" font-size="9">Handle success • Returns new Promise</text>
+  </g>
+
+  <!-- .catch() from Rejected -->
+  <path d="M660 335 L660 365" fill="none" stroke="#ff7675" stroke-width="2"/>
+  <polygon points="655,362 660,372 665,362" fill="#ff7675"/>
+  
+  <g filter="url(#shadow)">
+    <rect x="550" y="372" width="220" height="55" rx="10" fill="#0a192f" stroke="#ff7675" stroke-width="1.5"/>
+    <text x="660" y="393" text-anchor="middle" fill="#ff7675" font-size="11" font-weight="600">.catch(error =&gt; { ... })</text>
+    <text x="660" y="413" text-anchor="middle" fill="#8892b0" font-size="9">Handle error • Returns new Promise</text>
+  </g>
+
+  <!-- .finally() in middle -->
+  <g filter="url(#shadow)">
+    <rect x="330" y="372" width="190" height="55" rx="10" fill="#0a192f" stroke="#82b1ff" stroke-width="1.5"/>
+    <text x="425" y="393" text-anchor="middle" fill="#82b1ff" font-size="11" font-weight="600">.finally(() =&gt; { ... })</text>
+    <text x="425" y="413" text-anchor="middle" fill="#8892b0" font-size="9">Runs always (success or fail)</text>
+  </g>
+
+  <!-- Arrows to finally -->
+  <path d="M300 400 L328 400" fill="none" stroke="#82b1ff" stroke-width="1.5" stroke-dasharray="4 2"/>
+  <path d="M520 400 L548 400" fill="none" stroke="#82b1ff" stroke-width="1.5" stroke-dasharray="4 2"/>
+
+  <!-- Key rules -->
+  <g>
+    <rect x="30" y="80" width="250" height="90" rx="10" fill="#0a192f" stroke="#475569" stroke-width="1"/>
+    <text x="155" y="100" text-anchor="middle" fill="#e2e8f0" font-size="10" font-weight="600">📌 Key Rules</text>
+    <text x="45" y="118" fill="#feca57" font-size="9">• Once settled → cannot change state</text>
+    <text x="45" y="134" fill="#feca57" font-size="9">• Pending → Fulfilled OR Rejected</text>
+    <text x="45" y="150" fill="#feca57" font-size="9">• .then() chains return NEW Promises</text>
+    <text x="45" y="166" fill="#feca57" font-size="9">• Microtask queue (high priority)</text>
+  </g>
+
+  <text x="425" y="443" text-anchor="middle" fill="#4a5568" font-size="9">Promise = container for a future value | Settled = Fulfilled or Rejected (immutable once set)</text>
+</svg>

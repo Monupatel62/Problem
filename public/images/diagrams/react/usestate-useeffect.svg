@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a192f"/>
+      <stop offset="100%" style="stop-color:#112240"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg)" rx="14"/>
+  
+  <text x="400" y="33" text-anchor="middle" fill="#e2e8f0" font-size="20" font-weight="700">⚛️ useState &amp; useEffect — The Two Core Hooks</text>
+  <text x="400" y="50" text-anchor="middle" fill="#8892b0" font-size="11">State management and side effects in React functional components</text>
+
+  <!-- useState -->
+  <g filter="url(#shadow)">
+    <rect x="25" y="65" width="365" height="360" rx="12" fill="#0f172a" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="25" y="65" width="365" height="30" rx="12" fill="#1d4ed8"/>
+    <text x="207" y="84" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">🔵 useState — State Management</text>
+    
+    <!-- Syntax -->
+    <rect x="40" y="105" width="335" height="45" rx="6" fill="#172554" stroke="#1e40af" stroke-width="1"/>
+    <text x="207" y="123" text-anchor="middle" fill="#93c5fd" font-size="10">const [state, setState] = useState(initialValue);</text>
+    <text x="207" y="140" text-anchor="middle" fill="#64748b" font-size="8">   ↑         ↑                           ↑</text>
+    
+    <text x="55" y="165" fill="#60a5fa" font-size="9">current value</text>
+    <text x="155" y="165" fill="#60a5fa" font-size="9">updater fn</text>
+    <text x="280" y="165" fill="#60a5fa" font-size="9">initial value</text>
+    
+    <!-- How it works -->
+    <text x="45" y="192" fill="#e2e8f0" font-size="10" font-weight="600">How it works:</text>
+    
+    <rect x="45" y="200" width="330" height="24" rx="4" fill="#1e293b"/>
+    <text x="55" y="216" fill="#94a3b8" font-size="9">1. setState(newValue) → triggers re-render</text>
+    
+    <rect x="45" y="228" width="330" height="24" rx="4" fill="#1e293b"/>
+    <text x="55" y="244" fill="#94a3b8" font-size="9">2. Component re-executes with new state</text>
+    
+    <rect x="45" y="256" width="330" height="24" rx="4" fill="#1e293b"/>
+    <text x="55" y="272" fill="#94a3b8" font-size="9">3. React diffs and updates DOM</text>
+    
+    <!-- Rules -->
+    <text x="45" y="300" fill="#e2e8f0" font-size="10" font-weight="600">⚠️ Rules:</text>
+    <text x="45" y="318" fill="#fbbf24" font-size="9">• Never mutate state directly (state.x = 5 ❌)</text>
+    <text x="45" y="336" fill="#fbbf24" font-size="9">• Use functional update for prev state:</text>
+    <text x="55" y="354" fill="#93c5fd" font-size="9">setState(prev =&gt; prev + 1) ✓</text>
+    <text x="45" y="372" fill="#fbbf24" font-size="9">• State updates are BATCHED (async)</text>
+    <text x="45" y="390" fill="#fbbf24" font-size="9">• Object/array: spread to create new ref</text>
+    <text x="55" y="408" fill="#93c5fd" font-size="9">setState({...state, name: "new"}) ✓</text>
+  </g>
+
+  <!-- useEffect -->
+  <g filter="url(#shadow)">
+    <rect x="410" y="65" width="365" height="360" rx="12" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+    <rect x="410" y="65" width="365" height="30" rx="12" fill="#065f46"/>
+    <text x="592" y="84" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">🟢 useEffect — Side Effects</text>
+    
+    <!-- 3 variants -->
+    <text x="425" y="110" fill="#34d399" font-size="10" font-weight="600">Three dependency patterns:</text>
+    
+    <!-- No deps -->
+    <rect x="425" y="118" width="335" height="50" rx="6" fill="#052e16" stroke="#166534" stroke-width="1"/>
+    <text x="435" y="136" fill="#6ee7b7" font-size="9" font-weight="600">useEffect(() =&gt; { ... })  — no array</text>
+    <text x="435" y="155" fill="#94a3b8" font-size="8">Runs after EVERY render (rarely want this)</text>
+    
+    <!-- Empty deps -->
+    <rect x="425" y="176" width="335" height="50" rx="6" fill="#052e16" stroke="#166534" stroke-width="1"/>
+    <text x="435" y="194" fill="#6ee7b7" font-size="9" font-weight="600">useEffect(() =&gt; { ... }, [])  — empty array</text>
+    <text x="435" y="213" fill="#94a3b8" font-size="8">Runs ONCE on mount (like componentDidMount)</text>
+    
+    <!-- With deps -->
+    <rect x="425" y="234" width="335" height="50" rx="6" fill="#052e16" stroke="#166534" stroke-width="1"/>
+    <text x="435" y="252" fill="#6ee7b7" font-size="9" font-weight="600">useEffect(() =&gt; { ... }, [a, b])  — with deps</text>
+    <text x="435" y="271" fill="#94a3b8" font-size="8">Runs when a or b changes</text>
+    
+    <!-- Cleanup -->
+    <text x="425" y="305" fill="#e2e8f0" font-size="10" font-weight="600">🧹 Cleanup function:</text>
+    <rect x="425" y="313" width="335" height="55" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="435" y="331" fill="#94a3b8" font-size="9">useEffect(() =&gt; {</text>
+    <text x="445" y="347" fill="#6ee7b7" font-size="9">const sub = subscribe();</text>
+    <text x="445" y="363" fill="#ef4444" font-size="9">return () =&gt; sub.unsubscribe();</text>
+    
+    <!-- Common uses -->
+    <text x="425" y="388" fill="#e2e8f0" font-size="10" font-weight="600">Common uses:</text>
+    <text x="425" y="406" fill="#34d399" font-size="9">• API calls (fetch data)</text>
+    <text x="425" y="420" fill="#34d399" font-size="9">• Event listeners / subscriptions</text>
+    <text x="600" y="406" fill="#34d399" font-size="9">• Timers</text>
+    <text x="600" y="420" fill="#34d399" font-size="9">• DOM manipulation</text>
+  </g>
+
+  <text x="400" y="443" text-anchor="middle" fill="#4a5568" font-size="9">useState → "What data does my component need?" | useEffect → "What should happen after render?"</text>
+</svg>

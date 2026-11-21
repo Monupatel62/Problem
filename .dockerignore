@@ -1,0 +1,70 @@
+# Dependencies
+node_modules
+.npm
+
+# Build outputs
+.next
+out
+
+# Git
+.git
+.gitignore
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Environment (secrets)
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test & Coverage
+coverage
+*.test.ts
+*.test.mjs
+*.test.tsx
+__tests__
+tests
+src/tests
+jest.config.js
+
+# Documentation
+docs
+*.md
+!README.md
+
+# Build scripts (exclude all scripts except judge worker needed by Dockerfile.render)
+scripts
+!scripts/problems/judge-worker-direct.mjs
+*.ps1
+*.bat
+*.mjs
+!scripts/problems/judge-worker-direct.mjs
+
+# Temp files
+.tmp-screens
+.judge-tmp
+outputs
+build_output*.txt
+debug.log
+*.log
+
+# Large assets not needed in container
+public/images/subjects
+src/content
+
+# Misc
+tracked-creator-studio.txt
+stracture.txt
+tsconfig.tsbuildinfo
+empty_files_list.json
+assistant-*.json
+wohocode-*.png
+adsense-*.md

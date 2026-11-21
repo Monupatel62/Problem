@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="520" fill="url(#bg)" rx="14"/>
+  
+  <text x="400" y="35" text-anchor="middle" fill="#e2e8f0" font-size="20" font-weight="700">🌳 DOM Tree Structure</text>
+  <text x="400" y="53" text-anchor="middle" fill="#8892b0" font-size="11">Document Object Model — HTML as a tree of nodes that JavaScript can manipulate</text>
+
+  <!-- Document node -->
+  <g filter="url(#shadow)">
+    <rect x="340" y="70" width="120" height="40" rx="20" fill="#7c3aed" stroke="#a78bfa" stroke-width="2"/>
+    <text x="400" y="95" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">document</text>
+  </g>
+
+  <!-- html node -->
+  <line x1="400" y1="110" x2="400" y2="130" stroke="#a78bfa" stroke-width="2"/>
+  <g filter="url(#shadow)">
+    <rect x="345" y="130" width="110" height="36" rx="8" fill="#4338ca" stroke="#818cf8" stroke-width="1.5"/>
+    <text x="400" y="153" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">&lt;html&gt;</text>
+  </g>
+
+  <!-- head and body branches -->
+  <line x1="400" y1="166" x2="200" y2="195" stroke="#818cf8" stroke-width="2"/>
+  <line x1="400" y1="166" x2="550" y2="195" stroke="#818cf8" stroke-width="2"/>
+
+  <!-- head -->
+  <g filter="url(#shadow)">
+    <rect x="140" y="195" width="120" height="36" rx="8" fill="#1e40af" stroke="#60a5fa" stroke-width="1.5"/>
+    <text x="200" y="218" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">&lt;head&gt;</text>
+  </g>
+  
+  <!-- head children -->
+  <line x1="200" y1="231" x2="120" y2="260" stroke="#60a5fa" stroke-width="1.5"/>
+  <line x1="200" y1="231" x2="200" y2="260" stroke="#60a5fa" stroke-width="1.5"/>
+  <line x1="200" y1="231" x2="280" y2="260" stroke="#60a5fa" stroke-width="1.5"/>
+  
+  <rect x="70" y="260" width="100" height="30" rx="6" fill="#172554" stroke="#60a5fa" stroke-width="1"/>
+  <text x="120" y="280" text-anchor="middle" fill="#93c5fd" font-size="9">&lt;title&gt;</text>
+  
+  <rect x="155" y="260" width="90" height="30" rx="6" fill="#172554" stroke="#60a5fa" stroke-width="1"/>
+  <text x="200" y="280" text-anchor="middle" fill="#93c5fd" font-size="9">&lt;meta&gt;</text>
+  
+  <rect x="255" y="260" width="90" height="30" rx="6" fill="#172554" stroke="#60a5fa" stroke-width="1"/>
+  <text x="300" y="280" text-anchor="middle" fill="#93c5fd" font-size="9">&lt;link&gt;</text>
+
+  <!-- body -->
+  <g filter="url(#shadow)">
+    <rect x="490" y="195" width="120" height="36" rx="8" fill="#065f46" stroke="#34d399" stroke-width="1.5"/>
+    <text x="550" y="218" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">&lt;body&gt;</text>
+  </g>
+
+  <!-- body children -->
+  <line x1="550" y1="231" x2="400" y2="270" stroke="#34d399" stroke-width="1.5"/>
+  <line x1="550" y1="231" x2="550" y2="270" stroke="#34d399" stroke-width="1.5"/>
+  <line x1="550" y1="231" x2="700" y2="270" stroke="#34d399" stroke-width="1.5"/>
+
+  <!-- header -->
+  <g filter="url(#shadow)">
+    <rect x="345" y="270" width="110" height="32" rx="6" fill="#064e3b" stroke="#34d399" stroke-width="1"/>
+    <text x="400" y="291" text-anchor="middle" fill="#6ee7b7" font-size="10">&lt;header&gt;</text>
+  </g>
+  
+  <line x1="400" y1="302" x2="400" y2="320" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="355" y="320" width="90" height="28" rx="5" fill="#022c22" stroke="#34d399" stroke-width="1"/>
+  <text x="400" y="339" text-anchor="middle" fill="#6ee7b7" font-size="9">&lt;h1&gt;</text>
+  
+  <line x1="400" y1="348" x2="400" y2="362" stroke="#fbbf24" stroke-width="1"/>
+  <rect x="355" y="362" width="90" height="24" rx="4" fill="#451a03" stroke="#fbbf24" stroke-width="1"/>
+  <text x="400" y="378" text-anchor="middle" fill="#fbbf24" font-size="8">"Hello World"</text>
+
+  <!-- main -->
+  <g filter="url(#shadow)">
+    <rect x="495" y="270" width="110" height="32" rx="6" fill="#064e3b" stroke="#34d399" stroke-width="1"/>
+    <text x="550" y="291" text-anchor="middle" fill="#6ee7b7" font-size="10">&lt;main&gt;</text>
+  </g>
+  
+  <line x1="550" y1="302" x2="510" y2="325" stroke="#34d399" stroke-width="1.5"/>
+  <line x1="550" y1="302" x2="590" y2="325" stroke="#34d399" stroke-width="1.5"/>
+  
+  <rect x="475" y="325" width="70" height="28" rx="5" fill="#022c22" stroke="#34d399" stroke-width="1"/>
+  <text x="510" y="344" text-anchor="middle" fill="#6ee7b7" font-size="9">&lt;p&gt;</text>
+  
+  <rect x="560" y="325" width="70" height="28" rx="5" fill="#022c22" stroke="#34d399" stroke-width="1"/>
+  <text x="595" y="344" text-anchor="middle" fill="#6ee7b7" font-size="9">&lt;div&gt;</text>
+
+  <!-- footer -->
+  <g filter="url(#shadow)">
+    <rect x="645" y="270" width="110" height="32" rx="6" fill="#064e3b" stroke="#34d399" stroke-width="1"/>
+    <text x="700" y="291" text-anchor="middle" fill="#6ee7b7" font-size="10">&lt;footer&gt;</text>
+  </g>
+
+  <!-- Node Types Legend -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="400" width="340" height="100" rx="10" fill="#0a192f" stroke="#475569" stroke-width="1.5"/>
+    <text x="200" y="422" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="600">🏷️ Node Types</text>
+    
+    <rect x="50" y="433" width="12" height="12" rx="3" fill="#7c3aed"/>
+    <text x="70" y="443" fill="#a78bfa" font-size="10">Document Node (root)</text>
+    
+    <rect x="50" y="453" width="12" height="12" rx="3" fill="#065f46"/>
+    <text x="70" y="463" fill="#34d399" font-size="10">Element Nodes (&lt;tag&gt;)</text>
+    
+    <rect x="50" y="473" width="12" height="12" rx="3" fill="#451a03"/>
+    <text x="70" y="483" fill="#fbbf24" font-size="10">Text Nodes ("content")</text>
+    
+    <rect x="220" y="433" width="12" height="12" rx="3" fill="#1e40af"/>
+    <text x="240" y="443" fill="#60a5fa" font-size="10">Attribute Nodes</text>
+    
+    <rect x="220" y="453" width="12" height="12" rx="3" fill="#374151"/>
+    <text x="240" y="463" fill="#9ca3af" font-size="10">Comment Nodes</text>
+  </g>
+
+  <!-- DOM Methods -->
+  <g filter="url(#shadow)">
+    <rect x="400" y="400" width="370" height="100" rx="10" fill="#0a192f" stroke="#475569" stroke-width="1.5"/>
+    <text x="585" y="422" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="600">🔧 Common DOM Methods</text>
+    
+    <text x="420" y="443" fill="#64ffda" font-size="9">getElementById() | querySelector()</text>
+    <text x="420" y="460" fill="#64ffda" font-size="9">createElement() | appendChild()</text>
+    <text x="420" y="477" fill="#64ffda" font-size="9">innerHTML | textContent | classList</text>
+    <text x="420" y="494" fill="#64ffda" font-size="9">addEventListener() | removeChild()</text>
+  </g>
+</svg>

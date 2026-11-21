@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="170" viewBox="0 0 760 170" role="img" aria-labelledby="title desc">
+  <title id="title">Running the target program</title>
+  <desc id="desc">Input is processed by the target program to produce output.</desc>
+  <rect width="760" height="170" fill="#ffffff"/>
+  <text x="120" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#111827">Input</text>
+  <path d="M165 68 H275" stroke="#111827" stroke-width="3"/>
+  <path d="M275 68 L260 58 V78 Z" fill="#111827"/>
+  <rect x="300" y="42" width="170" height="52" fill="#ffffff" stroke="#111827" stroke-width="2"/>
+  <text x="385" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#111827">Target Program</text>
+  <path d="M470 68 H585" stroke="#111827" stroke-width="3"/>
+  <path d="M585 68 L570 58 V78 Z" fill="#111827"/>
+  <text x="640" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#111827">Output</text>
+  <text x="380" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111827">Figure: Running the Target Program</text>
+</svg>

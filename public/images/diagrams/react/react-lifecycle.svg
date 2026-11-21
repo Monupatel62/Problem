@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 500" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a192f"/>
+      <stop offset="100%" style="stop-color:#112240"/>
+    </linearGradient>
+    <linearGradient id="mountGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#34d399"/>
+    </linearGradient>
+    <linearGradient id="updateGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#60a5fa"/>
+    </linearGradient>
+    <linearGradient id="unmountGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#f87171"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="850" height="500" fill="url(#bg)" rx="14"/>
+  
+  <text x="425" y="35" text-anchor="middle" fill="#e2e8f0" font-size="20" font-weight="700">⚛️ React Component Lifecycle (Hooks Era)</text>
+  <text x="425" y="53" text-anchor="middle" fill="#8892b0" font-size="11">How a React component is born, updated, and destroyed</text>
+
+  <!-- MOUNTING PHASE -->
+  <g filter="url(#shadow)">
+    <rect x="25" y="70" width="250" height="400" rx="12" fill="#0f172a" stroke="url(#mountGrad)" stroke-width="2"/>
+    <rect x="25" y="70" width="250" height="30" rx="12" fill="url(#mountGrad)"/>
+    <text x="150" y="89" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">🌱 MOUNTING (Birth)</text>
+    
+    <!-- Steps -->
+    <rect x="45" y="112" width="210" height="35" rx="6" fill="#065f46" stroke="#34d399" stroke-width="1"/>
+    <text x="150" y="134" text-anchor="middle" fill="#a7f3d0" font-size="10" font-weight="600">Component Function Called</text>
+    
+    <text x="150" y="158" text-anchor="middle" fill="#34d399" font-size="12">↓</text>
+    
+    <rect x="45" y="162" width="210" height="35" rx="6" fill="#065f46" stroke="#34d399" stroke-width="1"/>
+    <text x="150" y="184" text-anchor="middle" fill="#a7f3d0" font-size="10" font-weight="600">useState() initialized</text>
+    
+    <text x="150" y="208" text-anchor="middle" fill="#34d399" font-size="12">↓</text>
+    
+    <rect x="45" y="212" width="210" height="35" rx="6" fill="#065f46" stroke="#34d399" stroke-width="1"/>
+    <text x="150" y="234" text-anchor="middle" fill="#a7f3d0" font-size="10" font-weight="600">JSX Returned (Render)</text>
+    
+    <text x="150" y="258" text-anchor="middle" fill="#34d399" font-size="12">↓</text>
+    
+    <rect x="45" y="262" width="210" height="35" rx="6" fill="#065f46" stroke="#34d399" stroke-width="1"/>
+    <text x="150" y="284" text-anchor="middle" fill="#a7f3d0" font-size="10" font-weight="600">DOM Updated (Commit)</text>
+    
+    <text x="150" y="308" text-anchor="middle" fill="#34d399" font-size="12">↓</text>
+    
+    <rect x="45" y="312" width="210" height="45" rx="6" fill="#052e16" stroke="#10b981" stroke-width="2"/>
+    <text x="150" y="332" text-anchor="middle" fill="#34d399" font-size="10" font-weight="700">useEffect(() =&gt; {}, [])</text>
+    <text x="150" y="348" text-anchor="middle" fill="#6ee7b7" font-size="8">Runs ONCE after first render</text>
+    
+    <text x="150" y="380" text-anchor="middle" fill="#94a3b8" font-size="9">Common uses:</text>
+    <text x="150" y="395" text-anchor="middle" fill="#6ee7b7" font-size="9">API calls, subscriptions,</text>
+    <text x="150" y="410" text-anchor="middle" fill="#6ee7b7" font-size="9">DOM measurements</text>
+    
+    <text x="150" y="438" text-anchor="middle" fill="#34d399" font-size="9">useLayoutEffect runs</text>
+    <text x="150" y="452" text-anchor="middle" fill="#34d399" font-size="9">BEFORE browser paint</text>
+  </g>
+
+  <!-- UPDATING PHASE -->
+  <g filter="url(#shadow)">
+    <rect x="300" y="70" width="250" height="400" rx="12" fill="#0f172a" stroke="url(#updateGrad)" stroke-width="2"/>
+    <rect x="300" y="70" width="250" height="30" rx="12" fill="url(#updateGrad)"/>
+    <text x="425" y="89" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">🔄 UPDATING (Re-render)</text>
+    
+    <!-- Triggers -->
+    <rect x="320" y="108" width="210" height="45" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1"/>
+    <text x="425" y="126" text-anchor="middle" fill="#93c5fd" font-size="9" font-weight="600">Triggers:</text>
+    <text x="425" y="143" text-anchor="middle" fill="#bfdbfe" font-size="8">setState() | props change | context</text>
+    
+    <text x="425" y="165" text-anchor="middle" fill="#3b82f6" font-size="12">↓</text>
+    
+    <rect x="320" y="170" width="210" height="35" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1"/>
+    <text x="425" y="192" text-anchor="middle" fill="#bfdbfe" font-size="10" font-weight="600">Component Re-executed</text>
+    
+    <text x="425" y="216" text-anchor="middle" fill="#3b82f6" font-size="12">↓</text>
+    
+    <rect x="320" y="220" width="210" height="35" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1"/>
+    <text x="425" y="242" text-anchor="middle" fill="#bfdbfe" font-size="10" font-weight="600">New JSX Returned</text>
+    
+    <text x="425" y="266" text-anchor="middle" fill="#3b82f6" font-size="12">↓</text>
+    
+    <rect x="320" y="270" width="210" height="35" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1"/>
+    <text x="425" y="292" text-anchor="middle" fill="#bfdbfe" font-size="10" font-weight="600">Virtual DOM Diffed</text>
+    
+    <text x="425" y="316" text-anchor="middle" fill="#3b82f6" font-size="12">↓</text>
+    
+    <rect x="320" y="320" width="210" height="35" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1"/>
+    <text x="425" y="342" text-anchor="middle" fill="#bfdbfe" font-size="10" font-weight="600">Real DOM Patched</text>
+    
+    <text x="425" y="366" text-anchor="middle" fill="#3b82f6" font-size="12">↓</text>
+    
+    <rect x="320" y="370" width="210" height="45" rx="6" fill="#172554" stroke="#2563eb" stroke-width="2"/>
+    <text x="425" y="390" text-anchor="middle" fill="#60a5fa" font-size="10" font-weight="700">useEffect(() =&gt; {}, [deps])</text>
+    <text x="425" y="406" text-anchor="middle" fill="#93c5fd" font-size="8">Runs when deps change</text>
+    
+    <text x="425" y="438" text-anchor="middle" fill="#94a3b8" font-size="9">Optimization:</text>
+    <text x="425" y="453" text-anchor="middle" fill="#60a5fa" font-size="9">useMemo, useCallback,</text>
+    <text x="425" y="466" text-anchor="middle" fill="#60a5fa" font-size="9">React.memo</text>
+  </g>
+
+  <!-- UNMOUNTING PHASE -->
+  <g filter="url(#shadow)">
+    <rect x="575" y="70" width="250" height="400" rx="12" fill="#0f172a" stroke="url(#unmountGrad)" stroke-width="2"/>
+    <rect x="575" y="70" width="250" height="30" rx="12" fill="url(#unmountGrad)"/>
+    <text x="700" y="89" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">💀 UNMOUNTING (Death)</text>
+    
+    <rect x="595" y="112" width="210" height="35" rx="6" fill="#450a0a" stroke="#ef4444" stroke-width="1"/>
+    <text x="700" y="134" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="600">Component Removed from DOM</text>
+    
+    <text x="700" y="158" text-anchor="middle" fill="#ef4444" font-size="12">↓</text>
+    
+    <rect x="595" y="162" width="210" height="55" rx="6" fill="#450a0a" stroke="#dc2626" stroke-width="2"/>
+    <text x="700" y="183" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="700">useEffect cleanup</text>
+    <text x="700" y="200" text-anchor="middle" fill="#fecaca" font-size="8">return () =&gt; { cleanup }</text>
+    
+    <text x="700" y="235" text-anchor="middle" fill="#94a3b8" font-size="9">Cleanup uses:</text>
+    <text x="700" y="255" text-anchor="middle" fill="#fca5a5" font-size="9">• Cancel subscriptions</text>
+    <text x="700" y="272" text-anchor="middle" fill="#fca5a5" font-size="9">• Clear timers</text>
+    <text x="700" y="289" text-anchor="middle" fill="#fca5a5" font-size="9">• Close WebSockets</text>
+    <text x="700" y="306" text-anchor="middle" fill="#fca5a5" font-size="9">• Remove event listeners</text>
+    <text x="700" y="323" text-anchor="middle" fill="#fca5a5" font-size="9">• Abort fetch requests</text>
+    
+    <rect x="595" y="345" width="210" height="75" rx="6" fill="#1c1917" stroke="#78716c" stroke-width="1"/>
+    <text x="700" y="365" text-anchor="middle" fill="#fbbf24" font-size="9" font-weight="600">⚠️ Memory Leak if missed:</text>
+    <text x="610" y="385" fill="#94a3b8" font-size="8">useEffect(() =&gt; {</text>
+    <text x="620" y="398" fill="#94a3b8" font-size="8">const id = setInterval(fn, 1000);</text>
+    <text x="620" y="411" fill="#ef4444" font-size="8">return () =&gt; clearInterval(id);</text>
+    <text x="610" y="418" fill="#94a3b8" font-size="8">}, []);</text>
+  </g>
+
+  <text x="425" y="490" text-anchor="middle" fill="#475569" font-size="9">Hooks replace class lifecycle methods: componentDidMount → useEffect(fn, []) | componentWillUnmount → useEffect cleanup</text>
+</svg>

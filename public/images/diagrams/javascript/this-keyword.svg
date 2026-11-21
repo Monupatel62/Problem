@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0c0c1d"/>
+      <stop offset="100%" style="stop-color:#1a1a3e"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="480" fill="url(#bg)" rx="14"/>
+  
+  <text x="400" y="33" text-anchor="middle" fill="#e2e8f0" font-size="20" font-weight="700">👆 `this` Keyword — Context Rules</text>
+  <text x="400" y="50" text-anchor="middle" fill="#8892b0" font-size="11">`this` depends on HOW the function is called, not WHERE it's defined</text>
+
+  <!-- Rule 1: Global -->
+  <g filter="url(#shadow)">
+    <rect x="25" y="65" width="365" height="90" rx="10" fill="#0a192f" stroke="#64ffda" stroke-width="2"/>
+    <rect x="25" y="65" width="365" height="26" rx="10" fill="#064e3b"/>
+    <text x="40" y="83" fill="#64ffda" font-size="11" font-weight="700">1️⃣ Global Context</text>
+    
+    <text x="40" y="108" fill="#e2e8f0" font-size="10">console.log(this);</text>
+    <text x="40" y="128" fill="#64ffda" font-size="10">this = </text>
+    <text x="85" y="128" fill="#fbbf24" font-size="10" font-weight="600">window</text>
+    <text x="135" y="128" fill="#8892b0" font-size="9">(browser) /</text>
+    <text x="200" y="128" fill="#fbbf24" font-size="10" font-weight="600">global</text>
+    <text x="245" y="128" fill="#8892b0" font-size="9">(Node.js)</text>
+    <text x="40" y="148" fill="#ff6b6b" font-size="9">⚠️ Strict mode: this = undefined</text>
+  </g>
+
+  <!-- Rule 2: Object Method -->
+  <g filter="url(#shadow)">
+    <rect x="410" y="65" width="365" height="90" rx="10" fill="#0a192f" stroke="#8b5cf6" stroke-width="2"/>
+    <rect x="410" y="65" width="365" height="26" rx="10" fill="#4c1d95"/>
+    <text x="425" y="83" fill="#c4b5fd" font-size="11" font-weight="700">2️⃣ Object Method</text>
+    
+    <text x="425" y="108" fill="#e2e8f0" font-size="10">obj.method() → this = obj</text>
+    <text x="425" y="128" fill="#a78bfa" font-size="10">this = </text>
+    <text x="470" y="128" fill="#fbbf24" font-size="10" font-weight="600">the object calling the method</text>
+    <text x="425" y="148" fill="#8892b0" font-size="9">user.greet() → this = user</text>
+  </g>
+
+  <!-- Rule 3: new keyword -->
+  <g filter="url(#shadow)">
+    <rect x="25" y="170" width="365" height="90" rx="10" fill="#0a192f" stroke="#f59e0b" stroke-width="2"/>
+    <rect x="25" y="170" width="365" height="26" rx="10" fill="#78350f"/>
+    <text x="40" y="188" fill="#fbbf24" font-size="11" font-weight="700">3️⃣ new Keyword (Constructor)</text>
+    
+    <text x="40" y="213" fill="#e2e8f0" font-size="10">const obj = new MyFunc();</text>
+    <text x="40" y="233" fill="#fbbf24" font-size="10">this = </text>
+    <text x="85" y="233" fill="#fbbf24" font-size="10" font-weight="600">new empty object { }</text>
+    <text x="40" y="253" fill="#8892b0" font-size="9">Created object is returned automatically</text>
+  </g>
+
+  <!-- Rule 4: call/apply/bind -->
+  <g filter="url(#shadow)">
+    <rect x="410" y="170" width="365" height="90" rx="10" fill="#0a192f" stroke="#ec4899" stroke-width="2"/>
+    <rect x="410" y="170" width="365" height="26" rx="10" fill="#831843"/>
+    <text x="425" y="188" fill="#f9a8d4" font-size="11" font-weight="700">4️⃣ call / apply / bind</text>
+    
+    <text x="425" y="213" fill="#e2e8f0" font-size="10">func.call(obj) / func.apply(obj)</text>
+    <text x="425" y="233" fill="#f472b6" font-size="10">this = </text>
+    <text x="470" y="233" fill="#fbbf24" font-size="10" font-weight="600">explicitly specified object</text>
+    <text x="425" y="253" fill="#8892b0" font-size="9">bind returns new function with fixed this</text>
+  </g>
+
+  <!-- Rule 5: Arrow Function -->
+  <g filter="url(#shadow)">
+    <rect x="25" y="275" width="365" height="90" rx="10" fill="#0a192f" stroke="#ef4444" stroke-width="2"/>
+    <rect x="25" y="275" width="365" height="26" rx="10" fill="#7f1d1d"/>
+    <text x="40" y="293" fill="#fca5a5" font-size="11" font-weight="700">5️⃣ Arrow Function (=&gt;)</text>
+    
+    <text x="40" y="318" fill="#e2e8f0" font-size="10">const fn = () =&gt; { this... }</text>
+    <text x="40" y="338" fill="#ef4444" font-size="10">this = </text>
+    <text x="85" y="338" fill="#fbbf24" font-size="10" font-weight="600">parent scope's this (lexical)</text>
+    <text x="40" y="358" fill="#8892b0" font-size="9">❗ Arrow functions DON'T have their own this!</text>
+  </g>
+
+  <!-- Rule 6: Event Handler -->
+  <g filter="url(#shadow)">
+    <rect x="410" y="275" width="365" height="90" rx="10" fill="#0a192f" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="410" y="275" width="365" height="26" rx="10" fill="#1e3a5f"/>
+    <text x="425" y="293" fill="#93c5fd" font-size="11" font-weight="700">6️⃣ Event Handler (DOM)</text>
+    
+    <text x="425" y="318" fill="#e2e8f0" font-size="10">button.onclick = function() { this... }</text>
+    <text x="425" y="338" fill="#3b82f6" font-size="10">this = </text>
+    <text x="470" y="338" fill="#fbbf24" font-size="10" font-weight="600">the element that fired the event</text>
+    <text x="425" y="358" fill="#8892b0" font-size="9">⚠️ Arrow function here → this = window!</text>
+  </g>
+
+  <!-- Priority Order -->
+  <g filter="url(#shadow)">
+    <rect x="25" y="380" width="750" height="85" rx="12" fill="#0a192f" stroke="#475569" stroke-width="2"/>
+    <text x="400" y="403" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">📊 Priority Order (Highest → Lowest)</text>
+    
+    <rect x="45" y="413" width="100" height="24" rx="5" fill="#78350f" stroke="#f59e0b" stroke-width="1"/>
+    <text x="95" y="429" text-anchor="middle" fill="#fbbf24" font-size="9" font-weight="600">new</text>
+    
+    <text x="155" y="429" fill="#475569" font-size="12">&gt;</text>
+    
+    <rect x="170" y="413" width="120" height="24" rx="5" fill="#831843" stroke="#ec4899" stroke-width="1"/>
+    <text x="230" y="429" text-anchor="middle" fill="#f9a8d4" font-size="9" font-weight="600">call/apply/bind</text>
+    
+    <text x="300" y="429" fill="#475569" font-size="12">&gt;</text>
+    
+    <rect x="315" y="413" width="120" height="24" rx="5" fill="#4c1d95" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="375" y="429" text-anchor="middle" fill="#c4b5fd" font-size="9" font-weight="600">obj.method()</text>
+    
+    <text x="445" y="429" fill="#475569" font-size="12">&gt;</text>
+    
+    <rect x="460" y="413" width="120" height="24" rx="5" fill="#064e3b" stroke="#64ffda" stroke-width="1"/>
+    <text x="520" y="429" text-anchor="middle" fill="#64ffda" font-size="9" font-weight="600">default (global)</text>
+    
+    <text x="400" y="458" text-anchor="middle" fill="#fca5a5" font-size="10">⚡ Arrow functions skip all rules — always use parent scope's `this`</text>
+  </g>
+</svg>

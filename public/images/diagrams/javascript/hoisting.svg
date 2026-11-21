@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#141e30"/>
+      <stop offset="100%" style="stop-color:#243b55"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="480" fill="url(#bg)" rx="14"/>
+  
+  <text x="400" y="35" text-anchor="middle" fill="#e2e8f0" font-size="20" font-weight="700">⬆️ JavaScript Hoisting</text>
+  <text x="400" y="53" text-anchor="middle" fill="#8892b0" font-size="11">Declarations are "moved" to the top during creation phase (not actually moved!)</text>
+
+  <!-- var hoisting -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="70" width="235" height="190" rx="12" fill="#0a192f" stroke="#feca57" stroke-width="2"/>
+    <rect x="30" y="70" width="235" height="30" rx="12" fill="#feca57"/>
+    <text x="147" y="90" text-anchor="middle" fill="#1a1a2e" font-size="11" font-weight="700">var (Hoisted + initialized)</text>
+    
+    <text x="45" y="118" fill="#feca57" font-size="10">console.log(x);</text>
+    <text x="180" y="118" fill="#8892b0" font-size="9">// undefined ✓</text>
+    <text x="45" y="138" fill="#feca57" font-size="10">var x = 5;</text>
+    
+    <rect x="45" y="155" width="205" height="45" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="148" y="172" text-anchor="middle" fill="#e2e8f0" font-size="9" font-weight="600">Behind the scenes:</text>
+    <text x="148" y="190" text-anchor="middle" fill="#feca57" font-size="9">var x = undefined; // hoisted</text>
+    
+    <text x="45" y="218" fill="#feca57" font-size="10">📝 Declaration hoisted</text>
+    <text x="45" y="236" fill="#feca57" font-size="10">📝 Initialized to undefined</text>
+    <text x="45" y="252" fill="#8892b0" font-size="9">Function-scoped</text>
+  </g>
+
+  <!-- let/const hoisting -->
+  <g filter="url(#shadow)">
+    <rect x="283" y="70" width="235" height="190" rx="12" fill="#0a192f" stroke="#ff6b6b" stroke-width="2"/>
+    <rect x="283" y="70" width="235" height="30" rx="12" fill="#ff6b6b"/>
+    <text x="400" y="90" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">let/const (TDZ! ⚠️)</text>
+    
+    <text x="298" y="118" fill="#ff6b6b" font-size="10">console.log(y);</text>
+    <text x="430" y="118" fill="#ff6b6b" font-size="9">// ❌ Error!</text>
+    <text x="298" y="138" fill="#ff6b6b" font-size="10">let y = 10;</text>
+    
+    <rect x="298" y="155" width="205" height="45" rx="6" fill="#2d0000" stroke="#ff6b6b" stroke-width="1"/>
+    <text x="400" y="172" text-anchor="middle" fill="#e2e8f0" font-size="9" font-weight="600">ReferenceError!</text>
+    <text x="400" y="190" text-anchor="middle" fill="#ff6b6b" font-size="9">Cannot access 'y' before init</text>
+    
+    <text x="298" y="218" fill="#ff6b6b" font-size="10">📝 Declaration hoisted BUT...</text>
+    <text x="298" y="236" fill="#ff6b6b" font-size="10">❌ NOT initialized (TDZ)</text>
+    <text x="298" y="252" fill="#8892b0" font-size="9">Block-scoped</text>
+  </g>
+
+  <!-- function hoisting -->
+  <g filter="url(#shadow)">
+    <rect x="535" y="70" width="235" height="190" rx="12" fill="#0a192f" stroke="#64ffda" stroke-width="2"/>
+    <rect x="535" y="70" width="235" height="30" rx="12" fill="#64ffda"/>
+    <text x="652" y="90" text-anchor="middle" fill="#0a192f" font-size="11" font-weight="700">function (Fully Hoisted! ✓)</text>
+    
+    <text x="550" y="118" fill="#64ffda" font-size="10">greet();</text>
+    <text x="620" y="118" fill="#64ffda" font-size="9">// Works! ✓</text>
+    <text x="550" y="140" fill="#64ffda" font-size="10">function greet() {</text>
+    <text x="560" y="158" fill="#64ffda" font-size="10">  return "Hello";</text>
+    <text x="550" y="176" fill="#64ffda" font-size="10">}</text>
+    
+    <rect x="550" y="185" width="205" height="30" rx="6" fill="#0d3320" stroke="#64ffda" stroke-width="1"/>
+    <text x="652" y="204" text-anchor="middle" fill="#64ffda" font-size="9">Entire function is available! 🎉</text>
+    
+    <text x="550" y="233" fill="#64ffda" font-size="10">📝 Declaration + body hoisted</text>
+    <text x="550" y="252" fill="#8892b0" font-size="9">Usable before declaration line</text>
+  </g>
+
+  <!-- Comparison Table -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="280" width="740" height="180" rx="12" fill="#0a192f" stroke="#475569" stroke-width="2"/>
+    <text x="400" y="305" text-anchor="middle" fill="#e2e8f0" font-size="13" font-weight="600">📊 Hoisting Comparison Table</text>
+    
+    <!-- Headers -->
+    <rect x="50" y="315" width="130" height="25" rx="4" fill="#21262d"/>
+    <text x="115" y="332" text-anchor="middle" fill="#e2e8f0" font-size="10" font-weight="600">Feature</text>
+    <rect x="190" y="315" width="130" height="25" rx="4" fill="#433500"/>
+    <text x="255" y="332" text-anchor="middle" fill="#feca57" font-size="10" font-weight="600">var</text>
+    <rect x="330" y="315" width="130" height="25" rx="4" fill="#330000"/>
+    <text x="395" y="332" text-anchor="middle" fill="#ff6b6b" font-size="10" font-weight="600">let / const</text>
+    <rect x="470" y="315" width="140" height="25" rx="4" fill="#003322"/>
+    <text x="540" y="332" text-anchor="middle" fill="#64ffda" font-size="10" font-weight="600">function</text>
+    <rect x="620" y="315" width="130" height="25" rx="4" fill="#1e1b4b"/>
+    <text x="685" y="332" text-anchor="middle" fill="#bb86fc" font-size="10" font-weight="600">class</text>
+    
+    <!-- Row 1: Hoisted? -->
+    <text x="115" y="360" text-anchor="middle" fill="#8892b0" font-size="10">Hoisted?</text>
+    <text x="255" y="360" text-anchor="middle" fill="#feca57" font-size="10">✓ Yes</text>
+    <text x="395" y="360" text-anchor="middle" fill="#ff6b6b" font-size="10">✓ Yes</text>
+    <text x="540" y="360" text-anchor="middle" fill="#64ffda" font-size="10">✓ Yes</text>
+    <text x="685" y="360" text-anchor="middle" fill="#bb86fc" font-size="10">✓ Yes</text>
+    
+    <!-- Row 2: Initialized? -->
+    <text x="115" y="385" text-anchor="middle" fill="#8892b0" font-size="10">Initialized?</text>
+    <text x="255" y="385" text-anchor="middle" fill="#feca57" font-size="10">undefined</text>
+    <text x="395" y="385" text-anchor="middle" fill="#ff6b6b" font-size="10">❌ No (TDZ)</text>
+    <text x="540" y="385" text-anchor="middle" fill="#64ffda" font-size="10">✓ Full body</text>
+    <text x="685" y="385" text-anchor="middle" fill="#bb86fc" font-size="10">❌ No (TDZ)</text>
+    
+    <!-- Row 3: Usable before? -->
+    <text x="115" y="410" text-anchor="middle" fill="#8892b0" font-size="10">Use before?</text>
+    <text x="255" y="410" text-anchor="middle" fill="#feca57" font-size="10">⚠️ undefined</text>
+    <text x="395" y="410" text-anchor="middle" fill="#ff6b6b" font-size="10">❌ Error</text>
+    <text x="540" y="410" text-anchor="middle" fill="#64ffda" font-size="10">✓ Works!</text>
+    <text x="685" y="410" text-anchor="middle" fill="#bb86fc" font-size="10">❌ Error</text>
+    
+    <!-- Row 4: Scope -->
+    <text x="115" y="435" text-anchor="middle" fill="#8892b0" font-size="10">Scope</text>
+    <text x="255" y="435" text-anchor="middle" fill="#feca57" font-size="10">Function</text>
+    <text x="395" y="435" text-anchor="middle" fill="#ff6b6b" font-size="10">Block { }</text>
+    <text x="540" y="435" text-anchor="middle" fill="#64ffda" font-size="10">Function</text>
+    <text x="685" y="435" text-anchor="middle" fill="#bb86fc" font-size="10">Block { }</text>
+  </g>
+
+  <text x="400" y="472" text-anchor="middle" fill="#4a5568" font-size="9">TDZ = Temporal Dead Zone — the time between entering scope and the declaration being processed</text>
+</svg>

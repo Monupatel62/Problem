@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="420" fill="url(#bg)" rx="14"/>
+  
+  <text x="400" y="33" text-anchor="middle" fill="#e2e8f0" font-size="20" font-weight="700">🗑️ JavaScript Garbage Collection</text>
+  <text x="400" y="50" text-anchor="middle" fill="#8892b0" font-size="11">Mark-and-Sweep Algorithm — How JS automatically frees unused memory</text>
+
+  <!-- HEAP Memory -->
+  <g filter="url(#shadow)">
+    <rect x="25" y="65" width="750" height="170" rx="12" fill="#0a192f" stroke="#475569" stroke-width="2"/>
+    <text x="400" y="88" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">🧠 Heap Memory</text>
+    
+    <!-- Reachable objects (green) -->
+    <rect x="50" y="100" width="80" height="50" rx="8" fill="#065f46" stroke="#34d399" stroke-width="2"/>
+    <text x="90" y="120" text-anchor="middle" fill="#6ee7b7" font-size="9" font-weight="600">window</text>
+    <text x="90" y="138" text-anchor="middle" fill="#34d399" font-size="8">ROOT ✓</text>
+    
+    <line x1="130" y1="125" x2="165" y2="115" stroke="#34d399" stroke-width="1.5"/>
+    
+    <rect x="165" y="95" width="75" height="45" rx="8" fill="#065f46" stroke="#34d399" stroke-width="2"/>
+    <text x="202" y="115" text-anchor="middle" fill="#6ee7b7" font-size="9" font-weight="600">obj_A</text>
+    <text x="202" y="130" text-anchor="middle" fill="#34d399" font-size="8">reachable ✓</text>
+    
+    <line x1="240" y1="117" x2="280" y2="117" stroke="#34d399" stroke-width="1.5"/>
+    
+    <rect x="280" y="95" width="75" height="45" rx="8" fill="#065f46" stroke="#34d399" stroke-width="2"/>
+    <text x="317" y="115" text-anchor="middle" fill="#6ee7b7" font-size="9" font-weight="600">obj_B</text>
+    <text x="317" y="130" text-anchor="middle" fill="#34d399" font-size="8">reachable ✓</text>
+    
+    <line x1="355" y1="117" x2="395" y2="117" stroke="#34d399" stroke-width="1.5"/>
+    
+    <rect x="395" y="95" width="75" height="45" rx="8" fill="#065f46" stroke="#34d399" stroke-width="2"/>
+    <text x="432" y="115" text-anchor="middle" fill="#6ee7b7" font-size="9" font-weight="600">obj_C</text>
+    <text x="432" y="130" text-anchor="middle" fill="#34d399" font-size="8">reachable ✓</text>
+    
+    <!-- Unreachable objects (red - will be collected) -->
+    <rect x="530" y="95" width="75" height="45" rx="8" fill="#450a0a" stroke="#ef4444" stroke-width="2" stroke-dasharray="4 2"/>
+    <text x="567" y="115" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="600">obj_X</text>
+    <text x="567" y="130" text-anchor="middle" fill="#ef4444" font-size="8">🗑️ garbage</text>
+    
+    <line x1="605" y1="117" x2="635" y2="117" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3 2"/>
+    
+    <rect x="635" y="95" width="75" height="45" rx="8" fill="#450a0a" stroke="#ef4444" stroke-width="2" stroke-dasharray="4 2"/>
+    <text x="672" y="115" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="600">obj_Y</text>
+    <text x="672" y="130" text-anchor="middle" fill="#ef4444" font-size="8">🗑️ garbage</text>
+    
+    <!-- Second row -->
+    <rect x="200" y="155" width="75" height="45" rx="8" fill="#065f46" stroke="#34d399" stroke-width="2"/>
+    <text x="237" y="175" text-anchor="middle" fill="#6ee7b7" font-size="9" font-weight="600">func_1</text>
+    <text x="237" y="190" text-anchor="middle" fill="#34d399" font-size="8">reachable ✓</text>
+    
+    <line x1="130" y1="148" x2="200" y2="175" stroke="#34d399" stroke-width="1.5"/>
+    
+    <rect x="580" y="155" width="95" height="45" rx="8" fill="#450a0a" stroke="#ef4444" stroke-width="2" stroke-dasharray="4 2"/>
+    <text x="627" y="175" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="600">closure_old</text>
+    <text x="627" y="190" text-anchor="middle" fill="#ef4444" font-size="8">🗑️ no ref</text>
+    
+    <text x="400" y="225" text-anchor="middle" fill="#94a3b8" font-size="9">Green = Reachable from root (marked) | Red = Unreachable (will be swept/freed)</text>
+  </g>
+
+  <!-- Mark & Sweep Steps -->
+  <g filter="url(#shadow)">
+    <rect x="25" y="250" width="370" height="150" rx="12" fill="#0a192f" stroke="#8b5cf6" stroke-width="2"/>
+    <rect x="25" y="250" width="370" height="28" rx="12" fill="#4c1d95"/>
+    <text x="210" y="268" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">🔄 Mark-and-Sweep Algorithm</text>
+    
+    <text x="40" y="298" fill="#a78bfa" font-size="10" font-weight="600">Step 1: MARK</text>
+    <text x="45" y="316" fill="#94a3b8" font-size="9">• Start from roots (global, stack, closures)</text>
+    <text x="45" y="332" fill="#94a3b8" font-size="9">• Follow all references, mark as "reachable"</text>
+    
+    <text x="40" y="356" fill="#a78bfa" font-size="10" font-weight="600">Step 2: SWEEP</text>
+    <text x="45" y="374" fill="#94a3b8" font-size="9">• Scan entire heap</text>
+    <text x="45" y="390" fill="#94a3b8" font-size="9">• Free memory of all UNmarked objects</text>
+  </g>
+
+  <!-- Common Causes of Memory Leaks -->
+  <g filter="url(#shadow)">
+    <rect x="410" y="250" width="365" height="150" rx="12" fill="#0a192f" stroke="#ef4444" stroke-width="2"/>
+    <rect x="410" y="250" width="365" height="28" rx="12" fill="#7f1d1d"/>
+    <text x="592" y="268" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">⚠️ Common Memory Leaks</text>
+    
+    <text x="425" y="298" fill="#fca5a5" font-size="10">❌ Global variables (never collected)</text>
+    <text x="425" y="318" fill="#fca5a5" font-size="10">❌ Forgotten timers (setInterval)</text>
+    <text x="425" y="338" fill="#fca5a5" font-size="10">❌ Detached DOM nodes still referenced</text>
+    <text x="425" y="358" fill="#fca5a5" font-size="10">❌ Closures holding large objects</text>
+    <text x="425" y="378" fill="#fca5a5" font-size="10">❌ Event listeners not removed</text>
+    <text x="425" y="395" fill="#34d399" font-size="9">✅ Fix: null out refs, removeEventListener, clearInterval</text>
+  </g>
+  
+  <text x="400" y="414" text-anchor="middle" fill="#475569" font-size="9">GC is automatic in JS — but understanding it helps prevent leaks! | V8 uses Generational GC (Young + Old generation)</text>
+</svg>
