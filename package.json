@@ -8,7 +8,7 @@
         "dev": "node_modules\\.bin\\next dev --webpack -p 3002",
         "dev:clean": "rimraf .next/dev tsconfig.tsbuildinfo && next dev --webpack",
         "build": "npm run build:next",
-        "build:next": "prisma generate && next build",
+        "build:next": "prisma generate && next build --webpack",
         "build:production": "cross-env SUPPRESS_PRISMA_BUILD_FALLBACK_LOGS=true NODE_ENV=production next build --webpack",
         "start": "next start",
         "lint": "eslint .",
