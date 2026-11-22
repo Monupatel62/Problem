@@ -6,8 +6,9 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion", "@monaco-editor/react"],
   },
+  // Explicitly use webpack (not turbopack) to avoid build issues
+  turbopack: {},
   webpack(config) {
-    // Exclude monaco heavy workers from server bundle
     config.resolve.alias = {
       ...config.resolve.alias,
     };
