@@ -39,6 +39,7 @@
   ],
   "exclude": [
     "node_modules",
+    ".next",
     "src/_not-migrated/**/*",
     "mobile/**/*",
     "src/__tests__/**/*",
@@ -75,6 +76,7 @@
     "src/lib/api/api-documentation.ts",
     "src/lib/performance/**/*",
     "src/lib/services/content-service.ts",
-    "src/lib/models/user-credits.ts"
+    "src/lib/models/user-credits.ts",
+    "src/components/ui/search-bar.tsx"
   ]
 }

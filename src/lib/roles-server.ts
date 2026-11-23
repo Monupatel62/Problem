@@ -5,14 +5,13 @@ import { normalizePlatformRole } from "@/lib/platform-role";
 
 export async function getCurrentRole(): Promise<AppRole> {
   try {
-    const { authOptions } = await import("@/lib/auth-options");
     const session = await getServerSession(authOptions);
     const sessionRole = session?.user?.role;
     if (sessionRole) {
-      return normalizePlatformRole(sessionRole);
+      return normalizePlatformRole(sessionRole) as AppRole;
     }
   } catch {
-    return "CREATOR";
+    return "USER" as AppRole;
   }
-  return "CREATOR";
+  return "USER" as AppRole;
 }

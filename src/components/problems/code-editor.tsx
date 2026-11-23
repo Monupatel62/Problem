@@ -153,7 +153,7 @@ export function CodeEditor({
 
   const handleBeforeMount: BeforeMount = (monaco) => {
     defineEditorThemes(monaco);
-    monaco.editor.setTheme(resolveEditorTheme(isDark));
+    monaco.editor.setTheme(resolveEditorTheme(isDark) as string);
   };
 
   const handleEditorMount: OnMount = (editor, monaco) => {
@@ -186,7 +186,7 @@ export function CodeEditor({
 
   useEffect(() => {
     if (!monacoReady || !monacoRef.current) return;
-    monacoRef.current.editor.setTheme(resolveEditorTheme(isDark));
+    monacoRef.current.editor.setTheme(resolveEditorTheme(isDark) as string);
   }, [isDark, monacoReady]);
 
   async function copyCode() {
@@ -357,7 +357,7 @@ export function CodeEditor({
             height="100%"
             value={value}
             language={monacoLanguage}
-            theme={resolveEditorTheme(isDark)}
+            theme={resolveEditorTheme(isDark) as string}
             beforeMount={handleBeforeMount}
             loading={null}
             onMount={handleEditorMount}

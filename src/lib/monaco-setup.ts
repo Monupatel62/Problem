@@ -62,7 +62,9 @@ export function defineEditorThemes(monaco: any) {
   });
 }
 
-/** Resolve theme name based on dark/light mode string */
-export function resolveEditorTheme(theme: string | undefined): EditorThemeName {
-  return theme === "light" ? "woho-light" : "woho-dark";
+/** Resolve theme name based on dark/light mode — accepts boolean or string */
+export function resolveEditorTheme(theme: string | boolean | undefined): string {
+  if (theme === true || theme === "dark") return "woho-dark";
+  if (theme === false || theme === "light") return "woho-light";
+  return "woho-dark";
 }
