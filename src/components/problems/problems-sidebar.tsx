@@ -10,16 +10,20 @@ import {
   Library,
   ListFilter,
   Lock,
+  LogIn,
+  LogOut,
   RotateCcw,
   Search,
   Shell,
   Sparkles,
   Star,
   Sword,
+  User,
   X,
 } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import { useSession, signOut } from "next-auth/react";
 
 export type TopicStat = { label: string; count: number };
 export type CompanyStat = { label: string; count: number };
@@ -84,6 +88,7 @@ export function ProblemsSidebar({
 }) {
   const [expandedTopics, setExpandedTopics] = useState(false);
   const [expandedCompanies, setExpandedCompanies] = useState(false);
+  const { data: session, status } = useSession();
 
   const trackTabs = baseTrackTabs.filter(
     (tab) => tab.label === "All Topics" || availableTracks.has(tab.label)
@@ -185,6 +190,52 @@ export function ProblemsSidebar({
         </button>
       </nav>
 
+      {/* Sign In / Get Started or User account */}
+      <div className="px-3 mt-1">
+        {status === "loading" ? null : session?.user ? (
+          <div className="flex items-center gap-2">
+            <div className="flex min-w-0 flex-1 items-center gap-2 rounded-lg bg-[var(--bg)] px-2.5 py-2">
+              {(session.user as any).image ? (
+                <img
+                  src={(session.user as any).image}
+                  alt={session.user.name ?? "User"}
+                  className="h-7 w-7 shrink-0 rounded-full object-cover"
+                />
+              ) : (
+                <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-pink-500/15 text-xs font-black uppercase text-pink-500">
+                  {(session.user.name ?? session.user.email ?? "U").charAt(0)}
+                </span>
+              )}
+              <span className="truncate text-xs font-bold text-[var(--text)]">
+                {session.user.name ?? session.user.email}
+              </span>
+            </div>
+            <button
+              type="button"
+              onClick={() => void signOut({ callbackUrl: "/" })}
+              className="grid h-9 w-9 shrink-0 place-items-center rounded-lg text-[var(--muted)] transition hover:bg-[var(--bg)] hover:text-[var(--text)]"
+              title="Sign out"
+              aria-label="Sign out"
+            >
+              <LogOut className="h-4 w-4" />
+            </button>
+          </div>
+        ) : (
+          <div className="space-y-2">
+            <Link
+              href="/auth/login"
+              className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-pink-500 to-violet-500 px-3 py-2.5 text-sm font-black text-white transition hover:from-pink-600 hover:to-violet-600"
+            >
+              <LogIn className="h-4 w-4" />
+              Get Started
+            </Link>
+            <p className="text-center text-[10px] font-medium text-[var(--muted)]">
+              Sign in to save your progress
+            </p>
+          </div>
+        )}
+      </div>
+
       {/* Topics Hub Link */}
       <div className="px-3 mt-1">
         <Link
@@ -195,7 +246,6 @@ export function ProblemsSidebar({
           Topics Explorer
         </Link>
       </div>
-
       {/* Divider */}
       <div className="mx-4 my-4 border-t border-[var(--border)]" />
 
