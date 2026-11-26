@@ -118,7 +118,7 @@ export function ProblemsSidebar({
       <div className="flex items-center justify-between px-4 pt-5 pb-4">
         <div className="flex items-center gap-2">
           <Link
-            href="/"
+            href="/problems"
             className="flex h-9 w-9 items-center justify-center rounded-full transition-colors hover:bg-[rgba(217,70,168,0.08)] shrink-0"
             style={{ color: "var(--text)" }}
             aria-label="Go back"
@@ -223,7 +223,7 @@ export function ProblemsSidebar({
         ) : (
           <div className="space-y-2">
             <Link
-              href="/auth/login"
+              href="/auth/login?callbackUrl=%2Fproblems"
               className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-pink-500 to-violet-500 px-3 py-2.5 text-sm font-black text-white transition hover:from-pink-600 hover:to-violet-600"
             >
               <LogIn className="h-4 w-4" />

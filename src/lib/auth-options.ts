@@ -124,13 +124,12 @@ export const authOptions: NextAuthOptions = {
 
   callbacks: {
     async redirect({ url, baseUrl }) {
-      // Only allow same-origin redirects
       if (url.startsWith("/")) return `${baseUrl}${url}`;
       try {
         const target = new URL(url);
         if (target.origin === new URL(baseUrl).origin) return url;
       } catch {}
-      return baseUrl;
+      return `${baseUrl}/problems`;
     },
 
     async signIn({ user, account }) {

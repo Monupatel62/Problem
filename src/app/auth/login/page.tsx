@@ -11,14 +11,14 @@ const WOHO_CALLBACK    = "https://problem.wohotech.in/api/auth/callback/wohoauth
 export default function LoginPage() {
   const router = useRouter();
   const params = useSearchParams();
-  const raw = params.get("callbackUrl") ?? "/";
+  const raw = params.get("callbackUrl") ?? "/problems";
   const callbackUrl = (() => {
     try {
       const u = new URL(raw, window?.location?.origin ?? "http://localhost:3002");
       const path = u.pathname + u.search;
-      return path === "/problems" ? "/" : path;
+      return path === "/" ? "/problems" : path;
     } catch {
-      return raw.startsWith("/") ? raw : "/";
+      return raw.startsWith("/") ? raw : "/problems";
     }
   })();
 
