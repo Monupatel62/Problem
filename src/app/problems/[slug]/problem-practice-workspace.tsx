@@ -67,6 +67,7 @@ export function ProblemPracticeWorkspace({ problem }: { problem: ProblemDefiniti
   const [isEditorMaximized, setIsEditorMaximized] = useState(false);
   const [isJudging, setIsJudging] = useState(false);
   const [showAccepted, setShowAccepted] = useState(false);
+  const [showLoginPrompt, setShowLoginPrompt] = useState(false);
 
   // Proactively warm up the judge service on mount (prevents Render cold-start delay)
   useEffect(() => {
@@ -321,8 +322,20 @@ export function ProblemPracticeWorkspace({ problem }: { problem: ProblemDefiniti
         customCases: mode === "run" ? customCases : undefined,
       }),
     })
-      .then((r) => r.json())
+      .then(async (r) => {
+        const payload = await r.json();
+        // Auth required — redirect to login
+        if (r.status === 401 || payload.authRequired) {
+          setIsJudging(false);
+          setShowLoginPrompt(true);
+          setResult({ status: "Idle", passed: 0, total: problem.sampleCases.length,
+            runtimeMs: 0, memoryMb: 0, message: payload.message ?? "Please sign in to submit." });
+          return;
+        }
+        return payload;
+      })
       .then((payload) => {
+        if (!payload) return; // handled above (auth redirect)
         const next: JudgeResult = {
           status: payload.status ?? "Runtime Error",
           passed: Number(payload.passed ?? 0),
@@ -426,6 +439,35 @@ export function ProblemPracticeWorkspace({ problem }: { problem: ProblemDefiniti
         onDismiss={() => setShowAccepted(false)}
       />
 
+      {/* Login prompt modal */}
+      {showLoginPrompt && (
+        <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
+          <div className="w-full max-w-sm rounded-2xl border border-[#2d2d2d] bg-[#161616] p-6 shadow-2xl">
+            <div className="mb-4 flex items-center justify-between">
+              <h2 className="text-lg font-black text-white">Sign in to Submit</h2>
+              <button type="button" onClick={() => setShowLoginPrompt(false)}
+                className="grid h-7 w-7 place-items-center rounded-md text-[#555] hover:bg-[#2a2a2a] hover:text-white transition">
+                ✕
+              </button>
+            </div>
+            <p className="mb-5 text-sm text-[#888]">
+              Create a free account to submit solutions, track your progress, and save submissions.
+            </p>
+            <div className="space-y-2">
+              <a href={`/auth/login?callbackUrl=${encodeURIComponent(`/problems/${problem.slug}`)}`}
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-pink-500 to-violet-500 py-2.5 text-sm font-black text-white transition hover:from-pink-600 hover:to-violet-600">
+                Sign In
+              </a>
+              <a href={`/auth/signup?callbackUrl=${encodeURIComponent(`/problems/${problem.slug}`)}`}
+                className="flex w-full items-center justify-center gap-2 rounded-xl border border-[#2d2d2d] bg-[#1e1e1e] py-2.5 text-sm font-semibold text-white transition hover:bg-[#2a2a2a]">
+                Create Free Account
+              </a>
+            </div>
+            <p className="mt-3 text-center text-xs text-[#555]">Your code is saved and will not be lost.</p>
+          </div>
+        </div>
+      )}
+
       {/* Header */}
       <PracticeHeader
         problem={problem}
@@ -452,7 +494,7 @@ export function ProblemPracticeWorkspace({ problem }: { problem: ProblemDefiniti
       />
 
       {/* Main workspace */}
-      <main className={`grid min-h-0 flex-1 gap-2 p-2 lg:h-full lg:overflow-hidden lg:grid-cols-[minmax(0,1fr)_minmax(460px,0.98fr)] ${c.main}`}>
+      <main className={`grid min-h-0 flex-1 gap-2 overflow-y-auto p-2 lg:h-full lg:overflow-hidden lg:grid-cols-[minmax(0,1fr)_minmax(0,0.98fr)] ${c.main}`}>
         {/* Left: Problem panel */}
         <ProblemLeftPanel
           problem={problem}
@@ -473,7 +515,7 @@ export function ProblemPracticeWorkspace({ problem }: { problem: ProblemDefiniti
         {/* Right: Editor + Output */}
         <section
           id="code-workspace"
-          className={`scroll-mt-24 flex min-h-[min(72vh,820px)] flex-col overflow-hidden rounded-xl border shadow-sm transition-colors lg:h-full lg:min-h-0 ${c.editorPanel} ${
+          className={`scroll-mt-24 flex min-h-[600px] flex-col overflow-hidden rounded-xl border shadow-sm transition-colors lg:h-full lg:min-h-0 ${c.editorPanel} ${
             isEditorMaximized ? "fixed inset-2 z-[120] min-h-0" : ""
           }`}
         >

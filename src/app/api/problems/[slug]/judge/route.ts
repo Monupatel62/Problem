@@ -17,6 +17,15 @@ export async function POST(req: Request, { params }: { params: Promise<{ slug: s
 
   if (!body) return Response.json({ error: "Invalid body" }, { status: 400 });
 
+  // ── Auth gate: submit requires login ────────────────────────────────────────
+  if (body.mode === "submit" && !session?.user?.id) {
+    return Response.json(
+      { status: "Auth Required", passed: 0, total: 0, runtimeMs: 0, memoryMb: 0, persisted: false,
+        message: "Please sign in to submit your solution. Your code is saved.", authRequired: true },
+      { status: 401 }
+    );
+  }
+
   // Try backend proxy first
   try {
     const backendRes = await fetch(`${JUDGE_URL}/api/problems/${slug}/judge`, {

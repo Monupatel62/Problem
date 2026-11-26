@@ -70,7 +70,7 @@ export function PracticeHeader({
       {/* Left: back + problem title */}
       <div className="flex min-w-0 items-center gap-2">
         <Link
-          href="/problems"
+          href="/"
           className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-md transition hover:opacity-80 ${
             isDark ? "text-slate-400 hover:bg-slate-800" : "text-slate-500 hover:bg-slate-100"
           }`}
