@@ -194,7 +194,12 @@ export function ProblemsSidebar({
       <div className="px-3 mt-1">
         {status === "loading" ? null : session?.user ? (
           <div className="flex items-center gap-2">
-            <div className="flex min-w-0 flex-1 items-center gap-2 rounded-lg bg-[var(--bg)] px-2.5 py-2">
+            {/* Clickable user card → account settings */}
+            <Link
+              href="/auth/account"
+              className="flex min-w-0 flex-1 items-center gap-2 rounded-lg bg-[var(--bg)] px-2.5 py-2 hover:bg-[var(--surface)] transition"
+              title="View account"
+            >
               {(session.user as any).image ? (
                 <img
                   src={(session.user as any).image}
@@ -206,14 +211,19 @@ export function ProblemsSidebar({
                   {(session.user.name ?? session.user.email ?? "U").charAt(0)}
                 </span>
               )}
-              <span className="truncate text-xs font-bold text-[var(--text)]">
-                {session.user.name ?? session.user.email}
-              </span>
-            </div>
+              <div className="min-w-0">
+                <p className="truncate text-xs font-bold text-[var(--text)]">
+                  {session.user.name ?? "My Account"}
+                </p>
+                <p className="truncate text-[10px] text-[var(--muted)]">
+                  {session.user.email}
+                </p>
+              </div>
+            </Link>
             <button
               type="button"
               onClick={() => void signOut({ callbackUrl: "/" })}
-              className="grid h-9 w-9 shrink-0 place-items-center rounded-lg text-[var(--muted)] transition hover:bg-[var(--bg)] hover:text-[var(--text)]"
+              className="grid h-9 w-9 shrink-0 place-items-center rounded-lg text-[var(--muted)] transition hover:bg-red-500/10 hover:text-red-500"
               title="Sign out"
               aria-label="Sign out"
             >
