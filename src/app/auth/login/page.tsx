@@ -42,7 +42,9 @@ export default function LoginPage() {
   }
 
   function handleWohoAuth() {
-    const ssoUrl = `${WOHO_AUTH_DOMAIN}/api/sso/authorize?client_id=woho-code&redirect_uri=${encodeURIComponent(WOHO_CALLBACK)}&state=${encodeURIComponent(callbackUrl)}`;
+    // state = just the path where user should land after SSO (no double-encoding)
+    const state = callbackUrl.startsWith("/") ? callbackUrl : "/problems";
+    const ssoUrl = `${WOHO_AUTH_DOMAIN}/api/sso/authorize?client_id=woho-code&redirect_uri=${encodeURIComponent(WOHO_CALLBACK)}&state=${encodeURIComponent(state)}`;
     window.location.href = ssoUrl;
   }
 
